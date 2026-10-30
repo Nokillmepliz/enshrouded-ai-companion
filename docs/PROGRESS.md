@@ -400,3 +400,8 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Игра не запускалась, EML не устанавливался, игровые файлы/сохранения не менялись, spawn/faction/destroy/inventory runtime не выполнялись.
 - Вердикт: новый human TemplateResource технически возможен и offline prototype корректен по подтверждённому EML API. Runtime остаётся **BLOCKED** до раздельных испытаний: сначала patch-load/read-only fingerprint, затем — после нового разрешения — один контролируемый spawn. Главные блокеры: совместная загрузка EML/EMF, точные model/animation/components, workshop/ForceSave behavior, instance marker/ownership и safe dismiss.
 - Следующий практический шаг: отдельное согласование эксперимента patch-load only с проверенным EML 0.2.0 binary, backup/restore отдельного LOCAL test world и read-only observer; первый spawn с ним не совмещать.
+
+## 2026-10-30 — Публикация этапа 9
+
+- Исследование, offline EML patch, descriptor, 15 новых тестов и документация опубликованы в `origin/master`: **`315b1ec` — Research EML humanoid template prototype**, push `cb44c3c..315b1ec` подтверждён.
+- Опубликованы только исходники и Markdown. EML/game binaries, сохранения, runtime-логи и приватные идентификаторы в коммит не вошли.
