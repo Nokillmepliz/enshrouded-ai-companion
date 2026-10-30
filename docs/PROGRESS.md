@@ -164,3 +164,103 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Полный локальный запуск `.tools/python/python.exe -m unittest discover -s tests -q`: **87 тестов PASS**. `compileall` для `companion`, `scripts`, `tests` и `git diff --check`: PASS.
 - Граница работы соблюдена: EMF не устанавливался, игра и скачанные PE не запускались, каталог игры и сохранения не менялись, резервная копия не создавалась. Следующий шаг требует отдельного разрешения пользователя.
 - Отчёт, `.gitignore` и результаты проверки опубликованы в `origin/master`: основной коммит аудита **`dfd3f1e` — Audit official EMF 0.3.2 distribution**. Бинарники EMF в push не входили; эта строка о результате отправки сохраняется следующим журнальным коммитом.
+
+## 2026-10-30 — Малая копия сохранений и установка EMF/aic_body
+
+Пользователь явно разрешил сделать небольшую копию сохранений и установить ранее проверенные EMF 0.3.2 manual и `aic_body`, без запуска игры и spawn. Полная копия каталога игры на 48 ГиБ по указанию пользователя не создавалась.
+
+### Проверки до установки
+
+- Steam был запущен, Enshrouded и dedicated server не работали. Steam завершён штатной командой `steam.exe -shutdown`; перед копированием и установкой проверено отсутствие процессов `steam`, `enshrouded`, `enshrouded_server`.
+- В `D:\SteamLibrary\steamapps\common\Enshrouded` отсутствовали `dinput8.dll`, `dinput8-chain.ini`, каталог `emf`, а также типичные proxy `dbghelp.dll`, `winmm.dll`, `version.dll`, `dxgi.dll`. Конфликтующий mod loader не найден.
+- Повторно сверены SHA-256:
+  - `EMF-0.3.2-manual.zip`: `737d3614b9462f00e942828869054b842e7af6d7b9abe56402e2a0bde35d00d9`;
+  - `dist/aic_body-0.1.0.zip`: `c40603f062b6a55b2a3c79fb31cfee4172a8f26f93ed676d23cc33450c8c3e91`;
+  - `enshrouded.exe`: `d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882` — поддерживаемая сборка 1273043.
+- Microsoft Defender повторно проверил ZIP и распакованный EMF: угроз не найдено, оба exit code 0. Защита и real-time protection оставались включены; предупреждения не обходились.
+
+### Резервная копия сохранений
+
+- Добавлена конфигурация [first-test-saves-backup.json](../config/first-test-saves-backup.json): только Steam userdata приложения `1203620` и `%USERPROFILE%\Saved Games\keen games\Enshrouded`; каталог игры и appmanifest не копируются.
+- Проверенная копия: `C:\Enshrouded-ai-companion\runtime\backups\20261030T182034Z-e435bc1c`.
+- Манифест: `C:\Enshrouded-ai-companion\runtime\backups\20261030T182034Z-e435bc1c\manifest.json`, `mode=completed`, `verified=true`.
+- Скопировано **105 файлов, 29 352 671 байт**. Скрипт сравнил SHA-256 записанного потока, повторно прочитанного источника и копии. Дополнительная независимая проверка всех 105 источников/копий дала **0 ошибок**; после установки проверка повторена, исходники сохранений не изменились.
+- Штатный installer EMF также сообщил о собственной starter-копии 9 файлов/2,3 МБ в `C:\Users\user\AppData\Local\EMF\save-backups\2026-10-30_21-20-57_starter`. Это дополнительная копия, основной проверенный набор находится в проекте.
+
+### Установка и конфигурация
+
+- Официальный `install.ps1` из проверенного manual-пакета выполнен с явными `-Game 'D:\SteamLibrary\steamapps\common\Enshrouded' -IfBackupFails Stop`. Результат installer: **69 файлов скопировано**, 0 существующих settings сохранено, 0 старых файлов удалено.
+- Все 69 runtime-файлов после установки побайтно сверены по SHA-256 с распакованным проверенным пакетом: **0 отсутствующих/несовпадающих**. `emf\installed.txt` содержит 69 записей.
+- Ключевые установленные хеши:
+  - `dinput8.dll`: `53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee`;
+  - `emf\emf_core.dll`: `3b2b3ddd4c3a9696dd69389ba49d33af5b5f9d1377ed44bde3cd2a73778417f3`;
+  - `emf\mods\lua\lua.dll`: `e12342a5e4b61355cf8665d4179572d3da684cc61fb4902c38de9fb4bcc28fef`.
+- `aic_body` распакован в `D:\SteamLibrary\steamapps\common\Enshrouded\emf\mods\aic_body`. Двойной вложенности нет; `mod.json`, `main.lua`, `body.lua`, `json.lua` точно совпали с исходниками проекта.
+- Для всех 22 обнаруженных manifests созданы явные config switches. Включены только `[lua] enabled=1` и `[aic_body] enabled=1`; остальные **20 модов**, включая штатные `companion`, `clock`, `quick_stack`, `beastmaster` и `herald`, имеют `enabled=0`.
+- `D:\SteamLibrary\steamapps\common\Enshrouded\emf\emf_core.ini` содержит только подтверждённую настройку bridge:
+
+  ```ini
+  [debug]
+  bridge=1
+  bridge_verbose=1
+  ```
+
+- После установки Defender отдельно проверил установленный `dinput8.dll` и весь каталог `emf`: угроз не найдено, оба exit code 0. Defender и real-time protection включены.
+- После изменений полный запуск unit/integration suite: **87 тестов PASS**; `compileall`, dry-run новой backup-конфигурации и `git diff --check`: PASS.
+
+### Граница и следующий шаг
+
+- Игра не запускалась. Нативная загрузка EMF/Lua, создание named pipe и диагностика мира ещё не проверялись. `bridge.txt` вручную не создавался.
+- Профиль личности пока не создавался. NPC не спавнился; команды `spawn`, `follow`, `stay`, `dismiss` не выполнялись.
+- Пользователь должен запустить Steam и Enshrouded вручную, создать/выбрать отдельные **LOCAL** персонажа `Body Test` и LOCAL мир. До spawn выполнить только проверку `mods`, `lua.status`, затем Python `diagnose` и `status` по инструкции ниже/в [STAGE3_PREFLIGHT.md](STAGE3_PREFLIGHT.md).
+- После создания нового LOCAL персонажа/мира желательно выйти из игры и Steam и сделать вторую малую копию этим же config: она зафиксирует исходное состояние именно тестового мира до spawn.
+
+## 2026-10-30 — Первый запуск: EMF работает, overlay-консоль недоступна
+
+Пользователь вручную запустил Steam/Enshrouded и загрузил мир. Spawn и другие команды тела не выполнялись.
+
+- `emf_core.log` подтвердил штатную загрузку `emf_core 0.3.2`, точный build 1273043 и **50/50 usable signatures**.
+- EMF loader, Lua 1.9.0 и `aic_body` 0.1.0 загрузились. В логе: `Body adapter loaded; no automatic spawn`, `running (main.lua)`, `lua ready: 1 Lua mod(s)`. Все остальные bundled-моды показаны как disabled.
+- Клавиша scan code `0x29` обрабатывается, но overlay не показывается. Точная причина из лога: `the game's Vulkan device did not come through EMF's layer`. Файл `emf\vk\VkLayer_EMF_console.json` существует. Это проблема графического overlay, а не загрузки core/мода.
+- Bridge запущен: `\\.\pipe\emf-bridge-94024`, protocol 1. Из обычной sandbox-сессии соединение получило Windows error 5; разрешённый read-only запуск вне sandbox успешно выполнил только `diagnose` и `status`.
+- Диагностика подтверждает: `emf=0.3.2`, `api=20`, `game_build=1273043`, `process=client`, `world.status=running`, `world.kind=server`, Lua loaded, `aic_body` script.
+- Состояние тела безопасное: `mode=absent`, `recovery_required=false`, `uncertain_spawn=false`, `orphaned=false`, `last_error` пуст, `safety_revision=2`. Никакая сущность не создана.
+- Обнаружен блокер тестового протокола: персонаж `Body Test` имеет `character.storage=steam`, slot 4; мир `solowithai` имеет slot **260 (`0x0104`)**. Это Steam-backed набор, а план требует отдельные LOCAL character/world slots. Spawn в текущем мире запрещён до решения этого расхождения и новой резервной копии.
+- Логи успешных read-only проверок: `runtime/logs/20261030T193351Z-1f914f22fb7c45fc8ec17d1842525894.jsonl` и `runtime/logs/20261030T193351Z-e3ae41dc454243578c02c9c194ecb718.jsonl`.
+
+Следующий шаг: выйти из мира без spawn, дождаться сохранения/Steam Cloud и закрыть игру/Steam. Затем установить подтверждённый способ создать действительно local-storage тестовый набор либо отдельно пересмотреть ограничение; до этого тест сущности не продолжать. Overlay-консоль для диагностики не обязательна, поскольку bridge исправен.
+
+### Повторная проверка после выбора локальной игры
+
+- Пользователь создал и загрузил локальный мир. Read-only `diagnose/status` подтвердили: мир **локальный**, `world.slot=1`, имя `Мой мир 1`, `status=running`, `kind=server`.
+- Персонаж остался Steam-backed: `character.storage=steam`, slot 4, имя `Body Test`. На диске появился локальный `default\world0.ksd`, но локального `character0.ksd` нет. Поэтому preflight клиента по-прежнему обязан отклонить spawn.
+- Состояние адаптера после смены мира: новая session/epoch, `mode=absent`, `recovery_required=false`, `uncertain_spawn=false`, ошибок нет. Spawn не выполнялся.
+- Подтверждённый upstream-порядок выбора персонажа: в главном меню рядом с персонажем нажать **Change**, открыть вкладку **LOCAL**, выбрать или создать локального персонажа; метка должна быть `[LOCAL] <name>`. Для теста нужен LOCAL slot 1–16. Выбор локального мира сам по себе не переводит Steam-персонажа в local storage.
+- Логи проверки: `runtime/logs/20261030T193934Z-74370192a0044d22a9bdc17260e92c85.jsonl` и `runtime/logs/20261030T193934Z-4de91aaae3694bd087e680fac591c132.jsonl`.
+
+Следующий шаг: выйти в главное меню, через Change → LOCAL создать/выбрать отдельного локального `Body Test`, затем снова загрузить локальный мир и повторить read-only диагностику. До подтверждения `character.storage=local` spawn запрещён.
+
+### LOCAL-набор подтверждён
+
+- После создания локального персонажа read-only `diagnose/status` подтвердили полный тестовый набор: мир `AI Body Test`, `world.slot=1`, `status=running`, `kind=server`; персонаж `Body Test`, `character.storage=local`, `character.slot=1`.
+- EMF 0.3.2/API 20/build 1273043, Lua 1.9.0 и `aic_body` 0.1.0 подтверждены через bridge. Остальные моды остаются disabled.
+- Адаптер в безопасном исходном состоянии: `mode=absent`, `recovery_required=false`, `uncertain_spawn=false`, `orphaned=false`, `last_error` пуст, `safety_revision=2`. Spawn и другие команды тела не выполнялись.
+- Логи: `runtime/logs/20261030T194248Z-21c1739f9b324a8cac2201844b211411.jsonl` и `runtime/logs/20261030T194248Z-5231742ee4ff4d99a2c094fa7312d64c.jsonl`.
+
+Следующий шаг до spawn: пользователь выходит из игры, дожидается синхронизации и закрывает Steam; затем повторно выполняется малая проверенная копия сохранений, чтобы зафиксировать LOCAL character slot 1 и world slot 1. Только после `verified=true` можно отдельно согласовывать первый spawn.
+
+## 2026-10-30 — Проверенная копия LOCAL-набора до spawn
+
+- Пользователь закрыл игру и Steam после создания LOCAL character/world. Проверено отсутствие процессов `enshrouded`, `enshrouded_server`, `steam`, `steamwebhelper`.
+- Вторая малая копия создана в `C:\Enshrouded-ai-companion\runtime\backups\20261030T194446Z-778186bd`.
+- Манифест: `C:\Enshrouded-ai-companion\runtime\backups\20261030T194446Z-778186bd\manifest.json`; `mode=completed`, `verified=true`.
+- Скопировано **144 файла, 30 613 580 байт** из полного Steam save root приложения 1203620 и полного локального `Saved Games\keen games\Enshrouded`.
+- Встроенная тройная SHA-256-проверка прошла. Независимо повторно прочитаны все 144 источника и копии: **144 совпадения, 0 ошибок**, общий размер совпал.
+- Локальная исходная точка теста присутствует в копии:
+  - `local_saves\default\character0.ksd`, 1 878 байт, SHA-256 `0ef98058b8f9080d3560558f45fd8183c3f6087e5269f6bb2144e73ba0cc657f`;
+  - `local_saves\default\world0.ksd`, 87 937 байт, SHA-256 `b6483f9e72901f88af9822034662be34ae0733d06d910684a63d09925de32faf`.
+- `local_saves\default\global.ksd` отсутствует и в источнике: файл не был пропущен. Копия является точным снимком существующего набора, который игра успешно загрузила до spawn.
+- Игра не запускалась повторно, spawn и другие команды тела не выполнялись.
+- Перед публикацией документации повторно выполнены полный suite (**87 тестов PASS**), `compileall`, dry-run backup-конфигурации с текущими 144 файлами и `git diff --check`: PASS.
+
+Резервная точка перед первым spawn готова. Следующий шаг — отдельное согласование первой команды `spawn` для мира `AI Body Test` / LOCAL world slot 1 и персонажа `Body Test` / LOCAL character slot 1.

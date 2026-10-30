@@ -1,0 +1,13 @@
+{
+  "destination": "C:/Enshrouded-ai-companion/runtime/backups",
+  "sources": {
+    "steam_saves": {
+      "path": "C:/Program Files (x86)/Steam/userdata/298673494/1203620",
+      "required": true
+    },
+    "local_saves": {
+      "path": "C:/Users/user/Saved Games/keen games/Enshrouded",
+      "required": true
+    }
+  }
+}
