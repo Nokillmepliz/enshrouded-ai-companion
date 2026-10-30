@@ -476,3 +476,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - `aic_body` не входит в receipt и не менялся. Выявлено предварительно существовавшее legacy-состояние: установленный `body.lua` старше текущей repository-версии с `body_profiles.lua`, тогда как `main.lua` совпадает. Это не исправлялось; spawn и `aic_body.request` запрещены.
 - Создан ignored pre-run baseline install/manifest hashes, game root и metadata 55 DAT. Игра не запускалась; A/B/C, EML evidence, game load, save integrity и rollback остаются `NOT_EXECUTED`; `spawn_ready=false`.
 - Текущая контрольная точка: **INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START**. Пользователь должен один раз вручную запустить Steam/Enshrouded, выбрать LOCAL `Body Test` / `AI Body Test`, загрузить мир без команд мутации и сообщить «загрузился».
+
+## 2026-10-31 — Публикация этапа 10.2, части B
+
+- Проверенные результаты backup/установки и статус ожидания ручного запуска зафиксированы коммитом **`55b6665` — Record stage 10.2 installation readiness**.
+- Перед публикацией полный offline suite **184 PASS**, `compileall` и `git diff --check` PASS; процесс игры отсутствует.
+- В Git вошёл только обезличенный технический отчёт. Backup/manifest, install receipt, pre-run baseline, токенизированные Lua-копии, DLL, KFC/DAT/KSD, сохранения и runtime-журналы остались в ignored runtime/игровом каталоге.
+- Следующее действие принадлежит пользователю: один ручной запуск. Codex игру не запускал и spawn не выполнял.
