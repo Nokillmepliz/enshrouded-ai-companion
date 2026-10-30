@@ -131,3 +131,27 @@ Recovery: код, trusted/invalidated, destroy_result, новый dismiss ID, с
 - совместимость с прежними тестами Lua Body Adapter и Human Body.
 
 Эти тесты не эмулируют сетевой клиент, Steam authority, сохранение character или игровой input. Игровой этап 7 не выполняется.
+
+## Этап 8: независимый humanoid
+
+Автоматические тесты `test_independent_humanoid.py` и `test_humanoid_survey.py` проверяют:
+
+- неизвестный humanoid template всегда отклоняется;
+- все 18 подтверждённых workshop survivors классифицированы как unique story NPC и не входят в runtime allow-list;
+- missing model/animation GUID, unknown initial faction, unknown ownership и unproven dismiss блокируют preflight;
+- incomplete fingerprint и reflection error не создают trust;
+- identity change, session change и EntityId reuse необратимо переводят gate в recovery;
+- unknown spawn outcome не допускает повторного spawn;
+- dismiss требует текущего ownership и три последовательных наблюдения отсутствия;
+- даже подтверждённый engine-механизм остаётся выключен без body-specific runtime evidence;
+- survey manifest выключен, требует Lua 1.8+, сообщает ограничение template GUID и не содержит путей spawn/destroy/event/inventory/save/tick.
+
+Офлайн-тесты не доказывают, что candidate существует в текущем мире, имеет человеческую модель, безопасную faction, работает с navigation/combat/inventory/equipment или сохраняется. Первый игровой этап — только отдельно разрешённый read-only survey:
+
+1. Проверить резервную копию LOCAL save.
+2. Оставить `aic_body` выключенным и включить только `aic_humanoid_survey`.
+3. Пользователь вручную загружает LOCAL-мир и размещает доступного vanilla survivor штатным способом.
+4. Выполнить `aic_humanoid_survey.scan 40`, затем `inspect <entityId>`.
+5. Сохранить диагностические строки, закрыть игру; не выполнять spawn, faction write, destroy, inventory operation или save mutation со стороны мода.
+
+Spawn-тест допускается в отдельном будущем этапе только после полного descriptor: non-unique template, model/animation, safe initial faction, creation marker, ownership proof и safe dismiss.

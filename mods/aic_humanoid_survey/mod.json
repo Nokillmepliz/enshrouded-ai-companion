@@ -1,0 +1,12 @@
+{
+  "id": "aic_humanoid_survey",
+  "name": "AI Companion Humanoid Survey (read-only)",
+  "version": "0.1.0",
+  "description": "Read-only inspection of already existing humanoid NPCs. Never creates or changes entities.",
+  "authors": ["enshrouded-ai-companion"],
+  "emf": 20,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.8"},
+  "side": "server",
+  "enabled": false
+}

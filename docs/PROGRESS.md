@@ -369,3 +369,15 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Основной результат этапа 7 опубликован в `origin/master`: **`f62b303` — Research player-character companion architecture**, push `141ee9f..f62b303` подтверждён GitHub.
 - В коммит вошли офлайн policy-модуль, 13 тестов, два новых отчёта и обновления README/test/progress docs. Сохранения, игровые бинарники, runtime-логи и Steam user ID не вошли.
 - Игра и второй client не запускались; runtime-control остаётся заблокированным до отдельного разрешения и read-only испытания.
+
+## 2026-10-30 — Этап 8: независимый человекоподобный NPC
+
+- Перед работой `master` был чистым и совпадал с `origin/master` на `1e9215a`; выполнен `git fetch origin master`. Прочитаны правила, документы этапов 5–7, текущий Lua/Python и pinned EMF/Enshwick.
+- Решение со вторым игровым клиентом отклонено. Целевая архитектура: один Enshrouded/account/player и отдельный Human NPC Body Adapter, независимый от Brain и personality UUID.
+- В pinned данных не найден подтверждённый non-unique ordinary human template. Все villager templates с `ActiveNpcState` проходят uniqueness по template GUID и имеют `ForceSave`; 18 workshop survivor descriptors остаются unique story NPC и не могут служить независимым телом.
+- Public EMF Lua подтверждает spawn существующего template GUID и read-only template components, но не регистрацию нового entity template. Shared template model/animation write затронул бы все экземпляры; безопасной instance-local замены не найдено. EML data patch отмечен upstream как необходимый путь для нового villager GUID, но его готовый безопасный API/формат для проекта не подтверждён.
+- Созданы [INDEPENDENT_HUMANOID_RESEARCH.md](INDEPENDENT_HUMANOID_RESEARCH.md) и [INDEPENDENT_HUMANOID_ARCHITECTURE.md](INDEPENDENT_HUMANOID_ARCHITECTURE.md). Зафиксированы identity/ownership, lifecycle, recovery, movement/combat/inventory/equipment и точный следующий read-only этап.
+- Добавлен `companion/independent_humanoid.py`: `HumanBodyDescriptor`, evidence-aware capabilities, uniqueness checks и fail-closed lifecycle. Unknown/unique/missing resources/faction/ownership/dismiss блокируют preflight; uncertain spawn/reload/identity change блокируют повтор и cleanup неподтверждённой сущности.
+- Подготовлен выключенный read-only `mods/aic_humanoid_survey`: он читает существующих nearby active NPC и сообщает model/animation/faction/components. Public Lua не выдаёт template GUID, поэтому мод явно возвращает `template_guid_available=false`.
+- Полный suite: **126 тестов PASS**; `compileall` PASS. Игра не запускалась, мод не устанавливался, spawn/faction/destroy/inventory/save operations не выполнялись.
+- Runtime humanoid остаётся **BLOCKED**. Следующий шаг требует отдельного разрешения: backup LOCAL save и read-only survey существующего `hunter_assistant`. После него — отдельное исследование нового EML template; прямой spawn story survivor запрещён.

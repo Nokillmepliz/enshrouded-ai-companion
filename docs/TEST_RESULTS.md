@@ -61,3 +61,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Новый `companion/player_character.py` — только офлайн evidence/identity/authority policy. Он не входит в Lua-архив, не подключается к игре и не включает runtime-команды.
 - Read-only анализ сохранений ограничен метаданными файлов. Save-файлы, Steam ID, игровые бинарники и приватные логи в Git не добавлены.
 - Игра, второй клиент, spawn, input, inventory operations и AI Brain не запускались.
+
+## Этап 8 — Independent Humanoid, 30.10.2026
+
+- `.tools/python/python.exe -m unittest discover -s tests -v`: **126 тестов, PASS**. Сохранены прежние 110, добавлены 16 тестов independent lifecycle, read-only policy и компиляции Lua survey.
+- `.tools/python/python.exe -m compileall -q companion tests scripts`: **PASS**.
+- `git diff --check`: **PASS**.
+- `scripts/package.py`: **PASS**, legacy-пакет `aic_body` не изменился, SHA-256 `998bf16b03e6d7db41f5851dc51c70a840f35dab4d8796b8c4291cdb01335872`. Survey является отдельным исходным модом и в этот ZIP не включён.
+- `companion/independent_humanoid.py` не подключается к игре. Все реальные descriptors уникальны и выключены; неизвестные шаблоны и операции отклоняются.
+- `mods/aic_humanoid_survey` выключен по умолчанию. Статическая проверка запрещает spawn/destroy/event emission/inventory/save/tick paths; Lua syntax проверяется отдельно перед публикацией.
+- Игра не запускалась, survey не устанавливался, игровые файлы/сохранения/сущности не менялись. Human spawn, movement, combat, inventory, equipment и persistence: **NOT RUN / BLOCKED**.

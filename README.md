@@ -1,14 +1,16 @@
 # enshrouded-ai-companion
 
-**Текущий приоритет — настоящий второй игровой персонаж.** Этап 7 установил: EMF не предоставляет подтверждённого API создания второго player slot без клиента; визуальная копия не является полноценным игроком; наиболее реалистичный путь — отдельный штатный клиент с отдельным account authority. Этот путь даёт настоящий inventory/equipment/progress, но AI-управление вторым клиентом пока не подтверждено и отключено. Исследование: [PLAYER_CHARACTER_COMPANION_RESEARCH.md](docs/PLAYER_CHARACTER_COMPANION_RESEARCH.md), архитектура: [PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md](docs/PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md).
+**Текущий приоритет — независимый Human NPC Body Adapter в одном экземпляре игры.** Вариант со вторым клиентом отклонён. Этап 8 не нашёл безопасного неуникального человеческого template: все подтверждённые workshop survivors уникальны, а public EMF Lua не регистрирует новый entity template и не даёт instance-local замену model/animation graph. Runtime spawn человека выключен; подготовлены fail-closed lifecycle и отдельный disabled read-only survey. Исследование: [INDEPENDENT_HUMANOID_RESEARCH.md](docs/INDEPENDENT_HUMANOID_RESEARCH.md), архитектура: [INDEPENDENT_HUMANOID_ARCHITECTURE.md](docs/INDEPENDENT_HUMANOID_ARCHITECTURE.md).
+
+Исторический этап 7 сохранён: [PLAYER_CHARACTER_COMPANION_RESEARCH.md](docs/PLAYER_CHARACTER_COMPANION_RESEARCH.md), [PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md](docs/PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md). Его вариант со вторым account/client больше не является направлением проекта.
 
 **Текущее направление:** человекоподобный AI Companion. Исследованы 18 реальных workshop survivor templates, варианты player clone и отдельного humanoid body. Безопасный runtime spawn гуманоида пока заблокирован: uniqueness, начальная faction, ownership и dismiss независимого экземпляра не подтверждены. Выводы — [HUMAN_COMPANION_RESEARCH.md](docs/HUMAN_COMPANION_RESEARCH.md), контракты — [HUMAN_COMPANION_ARCHITECTURE.md](docs/HUMAN_COMPANION_ARCHITECTURE.md).
 
 **Первое игровое испытание:** `emf.spawn` создал Vukah, но fingerprint отсутствовал; faction не была изменена, NPC оказался враждебным. Сценарий остановлен, тестовые LOCAL-сохранения восстановлены и проверены. Vukah отложен как `legacy_vukah`; результат не переписывается — [FIRST_INGAME_TEST.md](docs/FIRST_INGAME_TEST.md).
 
-**Техническое состояние этапа 6:** 97 офлайн-тестов PASS, `safety_revision=2` не ослаблена. Реализованы только каталог human candidates, evidence-aware capabilities и fail-closed IdentityGate; ни одна игровая команда гуманоида не включена. Актуальные проверки и SHA-256 пакета — [TEST_RESULTS.md](docs/TEST_RESULTS.md).
+**Техническое состояние этапа 8:** 126 офлайн-тестов PASS, `safety_revision=2` старого адаптера не ослаблена. Добавлены `HumanBodyDescriptor`, capability registry, независимый lifecycle/ownership gate и read-only Lua survey; ни одна игровая команда нового гуманоида не включена. Актуальные проверки — [TEST_RESULTS.md](docs/TEST_RESULTS.md).
 
-**Этап 3: подготовка первого игрового испытания.** [Проверка установленной игры, резервная копия и пошаговый запуск](docs/STAGE3_PREFLIGHT.md). EXE соответствует сборке EMF 1273043. Body Adapter — Lua-мод, собственной DLL у него нет. Игровое испытание ещё не выполнялось.
+**История подготовки первого игрового испытания:** [проверка установленной игры, резервная копия и пошаговый запуск](docs/STAGE3_PREFLIGHT.md). EXE соответствовал сборке EMF 1273043. Body Adapter — Lua-мод, собственной DLL у него нет; фактический результат позднейшего теста Vukah приведён выше.
 
 Проект автономного ИИ-компаньона для Enshrouded. Долгосрочная цель: игровое тело, внешний ИИ, зрение, голос, личность, навыки и память.
 
@@ -50,4 +52,4 @@ py -3.12 -m venv .venv
 
 Исходники upstream находятся в `.research/` и исключены из Git. Копия Python bridge с лицензией включена в [vendor/](vendor/README.md), остальной upstream не нужен для запуска клиента. Официальный установщик EMF был выполнен 30.10.2026 после аудита дистрибутива; в игре выполнены только read-only `diagnose/status`.
 
-Следующий этап — отдельно согласованный **read-only** survey компонентов/model двух assistant templates. Spawn остаётся запрещённым до выбора тела и разработки protocol revision 3.
+Следующий этап — отдельно согласованный **read-only** survey уже существующего `hunter_assistant` через `aic_humanoid_survey`. Spawn остаётся запрещённым до появления подтверждённого non-unique template, исходной безопасной faction и ownership marker.
