@@ -1,5 +1,11 @@
 # План проверки тела
 
+## Этап 10.3 — model fingerprint
+
+До следующего runtime запуска офлайн-проверки обязаны покрывать typed model evidence v2: реальный UUID, неверный field path, отсутствующий component/field, GUID-object и другой неверный тип, два nil/MISSING, mismatch, повреждённый и устаревший evidence, неверные token/GUID/npcId/faction, изменение source, compact observer и постоянный `spawn_ready=false`.
+
+Повторный load-only запуск пока заблокирован. Если он будет отдельно разрешён, ожидаемый честный результат при текущем `hunter_assistant` — `model_status=MISSING`, `reason=component_missing`; такой результат не проходит уровень A. Spawn, faction/ECS/inventory/equipment mutations запрещены.
+
 Статус: первое Vukah-испытание завершилось `FAIL` и сохранено в [FIRST_INGAME_TEST.md](FIRST_INGAME_TEST.md). Vukah-сценарий ниже оставлен как исторический план и **не должен повторяться**. Этап 6 выполняет только офлайн-тесты и готовит read-only survey человекоподобных кандидатов; Human spawn заблокирован.
 
 ## Этап 6: автоматические инварианты Human Body

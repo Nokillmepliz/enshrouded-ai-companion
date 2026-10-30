@@ -23,10 +23,10 @@ EXPECTED_GAME_SHA256 = "d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc1
 EXPECTED_EMF_LOADER_SHA256 = "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee"
 EXPECTED_EML_DBGHELP_SHA256 = "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa"
 EXPECTED_EMM_SHA256 = "b1133f6b8ea7000596cc7710901bd8307b48165b0e650c0487a611d90ea49305"
-EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v1.txt")
+EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v2.txt")
 EXPECTED_TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 EXPECTED_SOURCE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
-EXPECTED_PATCH_VERSION = "0.1.0"
+EXPECTED_PATCH_VERSION = "0.2.0"
 RUN_TOKEN_PLACEHOLDER = "__AIC_STAGE10_RUN_TOKEN__"
 RUN_TOKEN_PATTERN = re.compile(r"^[0-9a-f]{32}$")
 DIRECT_LOOKUP_STATUS = "UNAVAILABLE_WITHOUT_ENTITY"
@@ -128,7 +128,7 @@ def evaluate_evidence(
     value: dict[str, str], *, writer_finalized: bool, expected_run_token: str | None = None,
 ) -> dict:
     required = {
-        "format": "aic_eml_humanoid_evidence_v1",
+        "format": "aic_eml_humanoid_evidence_v2",
         "template_guid": EXPECTED_TEMPLATE_GUID,
         "source_guid": EXPECTED_SOURCE_GUID,
         "npc_id": "2939921867",
@@ -139,16 +139,33 @@ def evaluate_evidence(
         "patch_version": EXPECTED_PATCH_VERSION,
     }
     checks = {key: value.get(key) == expected for key, expected in required.items()}
+    guid_pattern = re.compile(
+        r"^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+        re.IGNORECASE,
+    )
+
+    def confirmed_guid(prefix: str) -> bool:
+        candidate = value.get(prefix + "_value")
+        return (
+            value.get(prefix + "_status") == "CONFIRMED"
+            and value.get(prefix + "_value_type") == "GUID"
+            and value.get(prefix + "_component") == "keen::ecs::ModelResource"
+            and value.get(prefix + "_field_path") == "value.model"
+            and isinstance(candidate, str)
+            and guid_pattern.fullmatch(candidate.strip()) is not None
+        )
+
     def available(field: str) -> bool:
         candidate = value.get(field)
         return isinstance(candidate, str) and candidate.strip().lower() not in {
             "", "unavailable", "nil", "null", "none",
         }
 
-    checks["model_available"] = available("model_guid") and available("source_model_guid")
+    checks["model_available"] = confirmed_guid("model") and confirmed_guid("source_model")
     checks["model_matches_source"] = (
         checks["model_available"]
-        and value.get("model_guid") == value.get("source_model_guid")
+        and value.get("model_value").lower() == value.get("source_model_value").lower()
+        and value.get("model_match") == "true"
     )
     checks["animation_graph_available"] = (
         available("animation_graph_guid") and available("source_animation_graph_guid")

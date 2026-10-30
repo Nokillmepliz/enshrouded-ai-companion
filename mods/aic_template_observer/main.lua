@@ -4,7 +4,7 @@
 local json = require('json')
 
 local EXPECTED = {
-  format='aic_eml_humanoid_evidence_v1',
+  format='aic_eml_humanoid_evidence_v2',
   template_guid='a1c90001-5e4d-4a91-8a1c-000000000001',
   source_guid='e3736dff-0ad2-47fc-903c-66c1775836e8',
   npc_id='2939921867',
@@ -16,9 +16,9 @@ assert(EXPECTED_RUN_TOKEN:match('^[0-9a-f]+$') and #EXPECTED_RUN_TOKEN == 32,
   'aic_template_observer: missing Stage 10 run token')
 
 local function evidence_paths()
-  local paths = {'export/aic_eml_humanoid/template_evidence_v1.txt'}
+  local paths = {'export/aic_eml_humanoid/template_evidence_v2.txt'}
   if type(emf.dir) == 'string' then
-    paths[#paths + 1] = emf.dir .. '/../../../export/aic_eml_humanoid/template_evidence_v1.txt'
+    paths[#paths + 1] = emf.dir .. '/../../../export/aic_eml_humanoid/template_evidence_v2.txt'
   end
   return paths
 end
@@ -51,7 +51,21 @@ local function checks(value)
     return normalized ~= '' and normalized ~= 'unavailable' and normalized ~= 'nil'
       and normalized ~= 'null' and normalized ~= 'none'
   end
-  local model_available = available(value.model_guid) and available(value.source_model_guid)
+  local function confirmed_model(prefix)
+    local candidate = value[prefix .. '_value']
+    local valid_guid = type(candidate) == 'string' and #candidate == 36
+      and candidate:sub(9,9) == '-' and candidate:sub(14,14) == '-'
+      and candidate:sub(19,19) == '-' and candidate:sub(24,24) == '-'
+      and candidate:sub(15,15):match('^[1-5]$') ~= nil
+      and candidate:sub(20,20):match('^[89aAbB]$') ~= nil
+      and candidate:gsub('%-', ''):match('^[0-9a-fA-F]+$') ~= nil
+    return value[prefix .. '_status'] == 'CONFIRMED'
+      and value[prefix .. '_value_type'] == 'GUID'
+      and value[prefix .. '_component'] == 'keen::ecs::ModelResource'
+      and value[prefix .. '_field_path'] == 'value.model'
+      and valid_guid
+  end
+  local model_available = confirmed_model('model') and confirmed_model('source_model')
   local animation_available = available(value.animation_graph_guid)
     and available(value.source_animation_graph_guid)
   return {
@@ -63,7 +77,8 @@ local function checks(value)
     npc_id=value.npc_id == EXPECTED.npc_id,
     faction=value.faction == EXPECTED.faction,
     model_available=model_available,
-    model_matches_source=model_available and value.model_guid == value.source_model_guid,
+    model_matches_source=model_available and value.model_value:lower() == value.source_model_value:lower()
+      and value.model_match == 'true',
     animation_graph_available=animation_available,
     animation_graph_matches_source=animation_available
       and value.animation_graph_guid == value.source_animation_graph_guid,
@@ -102,8 +117,10 @@ end
 
 local function compact_evidence(value)
   if not value then return nil end
-  local keys = {'template_guid', 'source_guid', 'npc_id', 'faction', 'model_guid',
-    'source_model_guid', 'animation_graph_guid', 'source_animation_graph_guid',
+  local keys = {'template_guid', 'source_guid', 'npc_id', 'faction', 'model_status',
+    'model_value_type', 'model_value', 'model_reason', 'source_model_status',
+    'source_model_value_type', 'source_model_value', 'model_match',
+    'animation_graph_guid', 'source_animation_graph_guid',
     'component_clone', 'source_unchanged', 'resource_lookup_after_create'}
   local result = {}
   for _, key in ipairs(keys) do result[key] = value[key] end

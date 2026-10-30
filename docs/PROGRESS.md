@@ -1,5 +1,17 @@
 # Журнал прогресса Enshrouded AI Companion
 
+## 2026-10-31 — этап 10.3, диагностика человеческой модели
+
+- Причина `model_guid=nil` установлена: в реальном component fingerprint source и clone этапа 10.2 нет `keen::ecs::ModelResource`. `nil` возник при поиске компонента. Pinned EML source подтверждает: отсутствующее mapped field возвращает nil, а присутствующий GUID возвращается Lua-строкой.
+- Оригинальные KFC build 1273043 прочитаны только для SHA-256 и binary string search. Структурный dump получить не удалось: проверенного read-only parser-бинарника и Rust toolchain нет; официальный EMM не запускался из-за его patch-capable execution path.
+- `hunter_assistant` и `blacksmith_assistant` офлайн структурно сравнить нельзя. Точная цепочка от `RenderEquipment`/setup до mesh/skeleton остаётся `UNKNOWN`.
+- EML patch обновлён до 0.2.0 и typed evidence v2. `MISSING`, `UNSUPPORTED` и `CONFIRMED` различаются; GUID-object/неверный тип не строкифицируются в ложное подтверждение.
+- Evaluator требует два реальных UUID по подтверждённому контракту и их равенство. Observer обновлён под v2 и остаётся read-only/compact. `spawn_ready=false` сохранён.
+- Полный offline suite: **193 PASS**; `compileall`, Lua compile и `git diff --check` прошли. Три observer-ответа декодируются и укладываются в лимит 1023 байта в тестовом worst-case evidence.
+- Созданы `STAGE10_3_MODEL_RESOURCE_RESEARCH.md` и `STAGE10_3_MODEL_FINGERPRINT_FIX.md`; результат 10.2 не переписан.
+- Enshrouded не запускался, EML не устанавливался, игровые файлы/KFC/DAT/сохранения не изменялись, NPC не создавались.
+- Статус этапа: **BLOCKED**. Настоящий model fingerprint и blacksmith comparison не получены; повторный load-only требует отдельного разрешения и сам по себе не разрешает spawn.
+
 Обновляется после каждой завершённой задачи. Записи сохраняют историю: выполненные действия, проверки, блокеры и запланированные следующие шаги. Планы не означают разрешения на установку или игровые изменения.
 
 ## 2026-10-30 — Подготовка этапа 3: первое игровое испытание

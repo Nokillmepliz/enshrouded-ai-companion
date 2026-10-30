@@ -51,7 +51,7 @@ Windows загружает оба proxy по импорту игры; точны
 
 ## EML mod discovery и изменения данных
 
-Согласно [официальной инструкции EML](https://brabb3l.github.io/kfc-parser/eml/usage.html), proxy ищет `<game>\mods\<id>\mod.json` и `src\mod.lua`; конфигурация находится в `<game>\eml.json`. Для evidence требуется `use_export_flag=true`, output — `<game>\export\aic_eml_humanoid\template_evidence_v1.txt`.
+Согласно [официальной инструкции EML](https://brabb3l.github.io/kfc-parser/eml/usage.html), proxy ищет `<game>\mods\<id>\mod.json` и `src\mod.lua`; конфигурация находится в `<game>\eml.json`. Для текущего typed evidence v2 требуется `use_export_flag=true`, output — `<game>\export\aic_eml_humanoid\template_evidence_v2.txt`. Исторический запуск 10.2 использовал v1.
 
 Исходники [`mod-loader-lua`](https://github.com/Brabb3l/kfc-parser/tree/16708594d686b030d909f2d835b199d879ea9ad8/crates/mod-loader-lua) подтверждают:
 

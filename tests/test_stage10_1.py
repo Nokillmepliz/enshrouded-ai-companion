@@ -15,7 +15,7 @@ TOKEN = "0123456789abcdef0123456789abcdef"
 
 def artifacts():
     evidence = "\n".join((
-        "format=aic_eml_humanoid_evidence_v1",
+        "format=aic_eml_humanoid_evidence_v2",
         f"patch_version={EXPECTED_PATCH_VERSION}",
         f"run_token={TOKEN}",
         f"template_guid={EXPECTED_TEMPLATE_GUID}",
@@ -24,8 +24,19 @@ def artifacts():
         "npc_id=2939921867",
         "faction=PlayerAlly",
         "source_faction=Vukah",
-        "model_guid=human-model",
-        "source_model_guid=human-model",
+        "model_status=CONFIRMED",
+        "model_component=keen::ecs::ModelResource",
+        "model_field_path=value.model",
+        "model_value_type=GUID",
+        "model_value=11111111-2222-4333-8444-555555555555",
+        "model_reason=",
+        "source_model_status=CONFIRMED",
+        "source_model_component=keen::ecs::ModelResource",
+        "source_model_field_path=value.model",
+        "source_model_value_type=GUID",
+        "source_model_value=11111111-2222-4333-8444-555555555555",
+        "source_model_reason=",
+        "model_match=true",
         "animation_graph_guid=human-graph",
         "source_animation_graph_guid=human-graph",
         "components=A,B",
@@ -140,7 +151,8 @@ class Stage101AcceptanceTests(unittest.TestCase):
         self.assertFalse(evaluate_load_only(**value)["eml_patch_applied"])
 
     def test_incomplete_model_or_animation_fingerprint_is_rejected(self):
-        for old in ("model_guid=human-model", "animation_graph_guid=human-graph"):
+        for old in ("model_value=11111111-2222-4333-8444-555555555555",
+                    "animation_graph_guid=human-graph"):
             with self.subTest(field=old):
                 value = artifacts()
                 value["evidence_text"] = value["evidence_text"].replace(old, old.split("=")[0] + "=UNAVAILABLE", 1)
@@ -149,8 +161,9 @@ class Stage101AcceptanceTests(unittest.TestCase):
     def test_matching_lua_nil_model_values_do_not_pass_level_a(self):
         value = artifacts()
         value["evidence_text"] = value["evidence_text"].replace(
-            "model_guid=human-model", "model_guid=nil", 1).replace(
-            "source_model_guid=human-model", "source_model_guid=nil", 1)
+            "model_value=11111111-2222-4333-8444-555555555555", "model_value=nil", 1).replace(
+            "source_model_value=11111111-2222-4333-8444-555555555555",
+            "source_model_value=nil", 1)
         result = evaluate_load_only(**value)
         self.assertFalse(result["eml_patch_applied"])
         self.assertEqual(result["status"], "FAILED")

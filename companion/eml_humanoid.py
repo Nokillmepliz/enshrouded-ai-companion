@@ -17,7 +17,7 @@ from .human_body import Evidence
 
 
 PATCH_ID = "aic_eml_humanoid"
-PATCH_VERSION = "0.1.0"
+PATCH_VERSION = "0.2.0"
 TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 SOURCE_TEMPLATE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
 EXPECTED_FACTION = "PlayerAlly"
@@ -163,6 +163,7 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
         "comp.value.npcId = { value = NPC_ID }": "npc_identity_missing",
         'local RUN_TOKEN = "__AIC_STAGE10_RUN_TOKEN__"': "run_token_placeholder_missing",
         '"run_token=" .. RUN_TOKEN': "run_token_evidence_missing",
+        '"model_status=" .. new_model_fingerprint.status': "typed_model_evidence_missing",
         'print("AIC_EML_TEMPLATE_READY", RUN_TOKEN': "run_token_log_marker_missing",
     }
     for marker, error in required.items():

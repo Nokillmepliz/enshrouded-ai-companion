@@ -1,5 +1,11 @@
 # Результаты подготовки этапа 2
 
+## Этап 10.3
+
+Добавлены регрессии typed evidence v2 и Lua patch для `CONFIRMED`, отсутствующего component, отсутствующего field и неожиданного GUID-object/table. Evaluator проверяет UUID, status/type/path, source/clone mismatch, ручной `model_match`, старый формат и nil-like значения. Observer измеряется вместе с префиксом ответа и ограничен 1023 байтами.
+
+Полный suite: **193 PASS**. `compileall`, Lua compile (через Lupa) и `git diff --check` прошли. Все `status`/`inspect`/`compare` декодируются как JSON и в worst-case fixture укладываются в 1023 байта. Игровой тест не выполнялся; исторические 188 PASS этапа 10.2 не выдаются за текущий runtime результат.
+
 ## Этап 6 — Human Body research, 30.10.2026
 
 - `.tools/python/python.exe -m unittest discover -s tests -q`: **97 тестов, PASS**.

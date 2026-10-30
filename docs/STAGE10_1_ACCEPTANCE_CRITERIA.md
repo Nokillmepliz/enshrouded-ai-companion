@@ -17,7 +17,7 @@
 - complete install receipt с ожидаемыми build, версиями и уникальным `run_token`;
 - строка `Running mod` именно для `aic_eml_humanoid`;
 - `AIC_EML_TEMPLATE_READY` с тем же токеном, GUID и `npcId`;
-- свежий `template_evidence_v1.txt` с тем же токеном;
+- свежий `template_evidence_v2.txt` с тем же токеном и typed model status;
 - правильные patch version, template/source GUID, `npcId=2939921867`, `PlayerAlly`, model, animation и полный component fingerprint;
 - совпадение model/animation нового и source ресурсов, `source_unchanged=true`;
 - положительный EML lookup сразу после `create_resource`;
@@ -78,7 +78,7 @@ Read-only preflight:
 .\.tools\python\python.exe -m scripts.stage10 evaluate `
   --install-receipt runtime\stage10\install-receipt.json `
   --eml-log runtime\stage10\evidence\eml.log `
-  --evidence runtime\stage10\evidence\template_evidence_v1.txt `
+  --evidence runtime\stage10\evidence\template_evidence_v2.txt `
   --emf-log runtime\stage10\evidence\emf_core.log `
   --observer-results runtime\stage10\evidence\observer-results.json `
   --bridge-diagnostics runtime\stage10\evidence\bridge-diagnostics.json `

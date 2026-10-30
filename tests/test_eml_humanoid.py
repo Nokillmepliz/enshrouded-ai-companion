@@ -17,6 +17,31 @@ PATCH = ROOT / "experimental" / "eml_humanoid"
 
 
 class EmlHumanoidPatchTests(unittest.TestCase):
+    def _run_model_case(self, model_component):
+        lua = LuaRuntime(unpack_returned_tuples=True)
+        lua.execute(f'''loader = {{ features = {{ patch = true, export = true }} }}
+function deepcopy(value)
+  if type(value) ~= "table" then return value end
+  local copy = {{}}; for k, v in pairs(value) do copy[deepcopy(k)] = deepcopy(v) end; return copy
+end
+source = {{ guid = "{SOURCE_TEMPLATE_GUID}", data = {{ components = {{
+  {{ type = "keen::ecs::Faction", value = {{ faction = "Vukah" }} }},
+  {{ type = "keen::ecs::ActiveNpcState", value = {{ npcId = {{ value = 1 }} }} }},
+  {model_component}
+  {{ type = "keen::ecs::AnimationGraphResourceComponent2", value = {{ animationGraph = "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee" }} }}
+}} }} }}
+registry = {{ data = {{ guids = {{}} }} }}
+io.export = function(path, content) exported = content end
+game = {{ guid = {{ hash = function() return {EXPECTED_NPC_ID} end }}, assets = {{
+  get_resource = function(guid) if guid == "{SOURCE_TEMPLATE_GUID}" then return source else return created end end,
+  create_resource = function(value) created = {{data=deepcopy(value)}}; return created end,
+  get_resources_by_type = function() return {{registry}} end
+}} }}''')
+        source = (PATCH / "src" / "mod.lua").read_text(encoding="utf-8").replace(
+            "__AIC_STAGE10_RUN_TOKEN__", "0123456789abcdef0123456789abcdef")
+        lua.execute(source)
+        return str(lua.eval("exported"))
+
     def test_repository_patch_is_structurally_valid(self):
         checks = validate_patch(PATCH)
         self.assertIn("no_autospawn", checks)
@@ -34,8 +59,8 @@ end
 source = {{ guid = "{SOURCE_TEMPLATE_GUID}", data = {{ name = "HunterAssistant", components = {{
   {{ type = "keen::ecs::Faction", value = {{ faction = "Vukah" }} }},
   {{ type = "keen::ecs::ActiveNpcState", value = {{ npcId = {{ value = 1633192162 }} }} }},
-  {{ type = "keen::ecs::ModelResource", value = {{ model = "human-model" }} }},
-  {{ type = "keen::ecs::AnimationGraphResourceComponent2", value = {{ animationGraph = "human-graph" }} }}
+  {{ type = "keen::ecs::ModelResource", value = {{ model = "11111111-2222-4333-8444-555555555555" }} }},
+  {{ type = "keen::ecs::AnimationGraphResourceComponent2", value = {{ animationGraph = "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee" }} }}
 }} }} }}
 registry = {{ data = {{ guids = {{ "{SOURCE_TEMPLATE_GUID}" }} }} }}
 io.export = function(path, content) exported_path = path; exported = content end
@@ -65,12 +90,37 @@ game = {{
         self.assertEqual(lua.eval("created.data.components[1].value.faction"), "PlayerAlly")
         self.assertEqual(lua.eval("created.data.components[2].value.npcId.value"), EXPECTED_NPC_ID)
         self.assertEqual(lua.eval("registry.data.guids[2]"), TEMPLATE_GUID)
-        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v1.txt")
+        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v2.txt")
         exported = lua.eval("exported")
-        self.assertIn("model_guid=human-model", exported)
-        self.assertIn("animation_graph_guid=human-graph", exported)
+        self.assertIn("model_status=CONFIRMED", exported)
+        self.assertIn("model_value_type=GUID", exported)
+        self.assertIn("model_value=11111111-2222-4333-8444-555555555555", exported)
+        self.assertIn("source_model_value=11111111-2222-4333-8444-555555555555", exported)
+        self.assertIn("model_match=true", exported)
+        self.assertIn("animation_graph_guid=aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee", exported)
         self.assertIn("source_unchanged=true", exported)
         self.assertIn("run_token=0123456789abcdef0123456789abcdef", exported)
+
+    def test_missing_model_component_is_typed_missing(self):
+        exported = self._run_model_case("")
+        self.assertIn("model_status=MISSING", exported)
+        self.assertIn("model_reason=component_missing", exported)
+        self.assertIn("source_model_status=MISSING", exported)
+        self.assertIn("model_match=false", exported)
+
+    def test_missing_model_field_is_not_stringified_nil(self):
+        exported = self._run_model_case(
+            '{ type = "keen::ecs::ModelResource", value = { wrong = "x" } },')
+        self.assertIn("model_status=MISSING", exported)
+        self.assertIn("model_reason=field_absent_or_unmapped", exported)
+        self.assertNotIn("model_value=nil", exported)
+
+    def test_guid_object_and_wrong_reference_type_are_unsupported(self):
+        exported = self._run_model_case(
+            '{ type = "keen::ecs::ModelResource", value = { model = {} } },')
+        self.assertIn("model_status=UNSUPPORTED", exported)
+        self.assertIn("model_value_type=table", exported)
+        self.assertIn("model_reason=unexpected_lua_type", exported)
 
     def test_game_guid_hash_matches_pinned_survivors_and_new_id(self):
         self.assertEqual(guid_id(SOURCE_TEMPLATE_GUID), 1_633_192_162)

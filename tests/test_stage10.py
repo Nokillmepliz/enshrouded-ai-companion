@@ -19,13 +19,20 @@ OBSERVER = ROOT / "mods" / "aic_template_observer"
 
 
 def evidence(**changes):
+    model = "11111111-2222-4333-8444-555555555555"
     value = {
-        "format": "aic_eml_humanoid_evidence_v1",
-        "patch_version": "0.1.0",
+        "format": "aic_eml_humanoid_evidence_v2",
+        "patch_version": "0.2.0",
         "template_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
         "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
         "npc_id": "2939921867", "faction": "PlayerAlly",
-        "model_guid": "model-human", "source_model_guid": "model-human",
+        "model_status": "CONFIRMED", "model_component": "keen::ecs::ModelResource",
+        "model_field_path": "value.model", "model_value_type": "GUID",
+        "model_value": model, "model_reason": "",
+        "source_model_status": "CONFIRMED",
+        "source_model_component": "keen::ecs::ModelResource",
+        "source_model_field_path": "value.model", "source_model_value_type": "GUID",
+        "source_model_value": model, "source_model_reason": "", "model_match": "true",
         "animation_graph_guid": "graph-human", "source_animation_graph_guid": "graph-human",
         "components": "A,B", "source_components": "A,B", "component_clone": "true",
         "source_unchanged": "true", "resource_lookup_after_create": "true",
@@ -51,9 +58,10 @@ class Stage10EvidenceTests(unittest.TestCase):
 
     def test_incomplete_component_or_reflection_fingerprint_fails(self):
         self.assertFalse(evaluate_evidence(evidence(components=""), writer_finalized=True)["ok"])
-        self.assertFalse(evaluate_evidence(evidence(model_guid="UNAVAILABLE"), writer_finalized=True)["ok"])
+        self.assertFalse(evaluate_evidence(evidence(model_status="UNAVAILABLE"), writer_finalized=True)["ok"])
         self.assertFalse(evaluate_evidence(evidence(animation_graph_guid="UNAVAILABLE"), writer_finalized=True)["ok"])
-        self.assertFalse(evaluate_evidence(evidence(source_model_guid="different"), writer_finalized=True)["ok"])
+        self.assertFalse(evaluate_evidence(evidence(
+            source_model_value="aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee"), writer_finalized=True)["ok"])
         self.assertFalse(evaluate_evidence(
             evidence(source_animation_graph_guid="different"), writer_finalized=True)["ok"])
 
@@ -61,9 +69,26 @@ class Stage10EvidenceTests(unittest.TestCase):
         for missing in ("nil", "NIL", " null ", "none", ""):
             with self.subTest(value=missing):
                 self.assertFalse(evaluate_evidence(
-                    evidence(model_guid=missing, source_model_guid=missing),
+                    evidence(model_value=missing, source_model_value=missing),
                     writer_finalized=True,
                 )["ok"])
+
+    def test_model_contract_rejects_wrong_path_type_status_and_manual_match(self):
+        cases = (
+            {"model_field_path": "wrong.path"},
+            {"model_value_type": "OBJECT"},
+            {"model_status": "MISSING"},
+            {"model_value": "not-a-guid"},
+            {"model_match": "false"},
+        )
+        for change in cases:
+            with self.subTest(change=change):
+                self.assertFalse(evaluate_evidence(
+                    evidence(**change), writer_finalized=True)["ok"])
+
+    def test_old_evidence_format_is_rejected(self):
+        self.assertFalse(evaluate_evidence(evidence(
+            format="aic_eml_humanoid_evidence_v1"), writer_finalized=True)["ok"])
 
     def test_evidence_parser_rejects_duplicates_and_bad_lines(self):
         with self.assertRaisesRegex(Stage10Error, "evidence_malformed"):
@@ -112,12 +137,17 @@ class Stage10ObserverTests(unittest.TestCase):
         from lupa import LuaRuntime
         token = "a" * 32
         raw = "\n".join((
-            "format=aic_eml_humanoid_evidence_v1", "patch_version=0.1.0",
+            "format=aic_eml_humanoid_evidence_v2", "patch_version=0.2.0",
             f"run_token={token}",
             "template_guid=a1c90001-5e4d-4a91-8a1c-000000000001",
             "source_guid=e3736dff-0ad2-47fc-903c-66c1775836e8",
             "npc_id=2939921867", "faction=PlayerAlly",
-            "model_guid=nil", "source_model_guid=nil",
+            "model_status=MISSING", "model_component=keen::ecs::ModelResource",
+            "model_field_path=value.model", "model_value_type=NONE", "model_value=",
+            "model_reason=component_missing", "source_model_status=MISSING",
+            "source_model_component=keen::ecs::ModelResource",
+            "source_model_field_path=value.model", "source_model_value_type=NONE",
+            "source_model_value=", "source_model_reason=component_missing", "model_match=false",
             "animation_graph_guid=402df515-5965-4b01-a17b-17d482a91af4",
             "source_animation_graph_guid=402df515-5965-4b01-a17b-17d482a91af4",
             "components=keen::ecs::Movement,keen::ecs::Inventory,keen::ecs::NetworkActor",
@@ -147,13 +177,21 @@ class Stage10ObserverTests(unittest.TestCase):
         source = (OBSERVER / "main.lua").read_text(encoding="utf-8").replace(
             "__AIC_STAGE10_RUN_TOKEN__", token)
         lua.execute(source)
-        lua.globals().callbacks["inspect"]()
-        captured = str(lua.globals().captured)
-        self.assertLessEqual(len(captured), 1023)
-        payload = json.loads(captured.removeprefix("AIC_TEMPLATE_OBSERVER "))
+        messages = {}
+        for command in ("status", "inspect", "compare"):
+            lua.globals().callbacks[command]()
+            captured = str(lua.globals().captured)
+            self.assertLessEqual(len(captured), 1023, command)
+            messages[command] = json.loads(
+                captured.removeprefix("AIC_TEMPLATE_OBSERVER "))
+            self.assertEqual(messages[command]["run_token"], token)
+            self.assertTrue(messages[command]["read_only"])
+            self.assertTrue(messages[command]["spawn_forbidden"])
+        payload = messages["inspect"]
         self.assertEqual(payload["field_source"], "EML_EXPORT")
         self.assertNotIn("checks", payload)
-        self.assertEqual(payload["evidence"]["model_guid"], "nil")
+        self.assertEqual(payload["evidence"]["model_status"], "MISSING")
+        self.assertEqual(payload["evidence"]["model_reason"], "component_missing")
         self.assertEqual(payload["component_group_counts"]["navigation"], 1)
 
 
@@ -236,7 +274,7 @@ class Stage10PreflightTests(unittest.TestCase):
             self.run_preflight()
 
     def test_stale_evidence_is_rejected(self):
-        stale = self.game / "export" / "aic_eml_humanoid" / "template_evidence_v1.txt"
+        stale = self.game / "export" / "aic_eml_humanoid" / "template_evidence_v2.txt"
         stale.parent.mkdir(parents=True)
         stale.write_text("old", encoding="utf-8")
         with self.assertRaisesRegex(Stage10Error, "stale_evidence_present"):
