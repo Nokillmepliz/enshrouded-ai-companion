@@ -1,12 +1,12 @@
 # Этап 10.2 — runtime-результаты Humanoid Template
 
-Дата начала: 2026-10-31. Текущая контрольная точка: **PART A COMPLETE — PREPARATION_READY — WAITING FOR PART B APPROVAL**.
+Дата начала: 2026-10-31. Текущая контрольная точка: **INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START**.
 
-Игровой эксперимент ещё не выполнялся. EML не установлен, verified backup этапа 10.2 не создан, игра не запускалась, `run_token` и install receipt отсутствуют. Результат evaluator остаётся `NOT_EXECUTED`; `spawn_ready=false`.
+Часть B выполнена после явного разрешения пользователя. Новый verified backup создан, EML/patch/read-only observer установлены и проверены. Игра не запускалась. Результат evaluator остаётся `NOT_EXECUTED`; `spawn_ready=false`.
 
 ## Разрешение и граница действий
 
-ТЗ этапа 10.2 разрешило read-only часть A. Оно отдельно требует нового явного разрешения перед частью B, поэтому копирование backup и файлов в каталог игры не выполнялось. Spawn, destroy, faction, ECS, inventory, equipment и save mutations не выполнялись.
+ТЗ этапа 10.2 сначала разрешило read-only часть A. Затем пользователь отдельно разрешил часть B точной формулировкой: создать verified backup и установить EML, humanoid patch и read-only observer, игру не запускать. Spawn, destroy, faction, ECS, inventory, equipment и save mutations не выполнялись.
 
 ## Read-only preflight
 
@@ -39,13 +39,25 @@
 
 Две старые копии этапов 3/5 используют другой manifest format и намеренно не принимаются Stage 10 verifier. Обнаруженный при этой проверке `AttributeError` исправлен: несовместимый manifest теперь безопасно возвращает `False`. Для части B обязателен новый каталог `runtime/backups/stage10-pre-eml-<timestamp>/`.
 
-Состояние сейчас: `backup_verified=false`, `rollback_ready=false`, `installation_ready=false`. Единственный operational blocker — `verified_backup_missing` плюс отсутствующее разрешение на часть B.
+Создан новый backup `stage10-pre-eml-20261030T220012Z`: 20 файлов, 224 556 422 байта. Все копии повторно прочитаны; SHA-256 источников и копий совпали, mismatch 0. Manifest повторно прошёл `verify_backup`, а текущие источники после копирования совпали с записанными размерами и hashes. Состояние: `backup_verified=true`, `rollback_ready=true`.
 
 ## Dry-run установки и отката
 
 План установки содержит ровно девять файлов: проверенный `dbghelp.dll`, новый `eml.json`, три файла EML patch, три файла observer и его отдельную INI-конфигурацию. `dinput8.dll`, `aic_body`, остальные EMF-моды и пользовательские конфигурации в план не входят.
 
-Dry-run установки без нового manifest остановлен с `verified_backup_required`. Dry-run отката без install receipt остановлен с `rollback_receipt_invalid`. Это ожидаемое fail-closed поведение. Реальные install/rollback операции не выполнялись.
+До разрешения dry-run установки без нового manifest останавливался с `verified_backup_required`. После создания backup существующий installer добавил ровно девять запланированных файлов. Receipt имеет `state=complete`, 9/9 текущих hashes совпадают; временных `*.stage10-install` нет.
+
+Run correlation token этого испытания:
+
+```text
+69a6a5ff13e66c37614e212790464271
+```
+
+Токен присутствует в установленных EML patch и observer, repository placeholders сохранены, а в установленных копиях placeholder отсутствует. GUID template присутствует. `dbghelp.dll` совпадает с закреплённым SHA-256; `dinput8.dll` не изменился. `eml.json`: console выключена, export включён. Observer включён своей новой INI-конфигурацией. Microsoft Defender и real-time protection оставались включёнными; блокировок не возникло.
+
+`aic_body` не входит в receipt и не изменялся. Дополнительная сверка обнаружила ранее установленный legacy `body.lua`, не совпадающий с поздней repository-версией с `body_profiles.lua`; установленный `main.lua` совпадает. Это предварительно существовавшее состояние первого Vukah-теста, оно не исправлялось и не используется для spawn. На load-only этапе разрешены только read-only `diagnose/status`; `aic_body.request` запрещён.
+
+Создан игнорируемый Git pre-run baseline: install/manifest hashes, корневой список и metadata 55 существующих DAT. Копирование 51,5 ГБ DAT не выполнялось. После запуска новые/изменённые DAT будут сопоставлены с baseline и отдельно проверены.
 
 ## Runtime и evaluator
 
@@ -56,16 +68,16 @@ Dry-run установки без нового manifest остановлен с 
 | C — `EMF_RUNTIME_CONFIRMED` | `UNKNOWN / NOT_EXECUTED` |
 | Новый `TemplateResource` | не подтверждён |
 | Faction 11 / source unchanged | runtime не подтверждён |
-| Save integrity после запуска | не проверялась, запуска не было |
+| Save integrity после запуска | ещё не проверялась, запуска не было |
 | Rollback | `NOT_EXECUTED` |
 | Итог | `NOT_EXECUTED`, `load_only_success=false`, `spawn_ready=false` |
 
 ## Следующая контрольная точка
 
-После отдельного явного разрешения на часть B Codex должен при закрытой игре создать и повторно проверить новый backup, установить только девять перечисленных файлов, сверить receipt/hashes/token и остановиться с сообщением:
+Часть B завершена. Текущий статус:
 
 ```text
 INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START
 ```
 
-Игру после этого запускает только пользователь. Разрешение части B не является разрешением на автоматический запуск игры, spawn или повторный игровой запуск.
+Игру теперь запускает только пользователь через Steam. Нужно визуально выбрать LOCAL-персонажа `Body Test`, LOCAL-мир `AI Body Test`, загрузить мир один раз и сообщить «загрузился». Нельзя выполнять spawn или другие команды модификации. При вылете, зависании или необычной ошибке нужно закрыть игру и сообщить, не повторяя запуск.

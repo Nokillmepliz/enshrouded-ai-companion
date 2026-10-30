@@ -118,3 +118,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Backup dry-run: 20 файлов, 224 556 422 байта. Реальный backup и установка не выполнялись.
 - Dry-run install без нового verified manifest вернул `verified_backup_required`; rollback без receipt — `rollback_receipt_invalid`.
 - A/B/C, game load, EML evidence, EMF runtime и rollback: **NOT_EXECUTED**. `spawn_ready=false`.
+
+## Часть B
+
+- Новый backup: **20/20 файлов verified**, 224 556 422 байта; SHA-256 копий и текущих источников совпадают, mismatch 0.
+- Post-install: **9/9 receipt hashes PASS**, receipt `complete`, EML/EMF hashes PASS, run token в patch/observer, placeholders отсутствуют только в установленных копиях, install temporary отсутствуют.
+- Defender/real-time protection оставались включёнными. Игра не запускалась; evidence и KFC `.bak` до первого запуска отсутствуют.
+- `aic_body` исключён из receipt. Обнаружено предварительно существовавшее отличие legacy `body.lua` от текущего репозитория; оно не исправлялось и не относится к девяти установленным файлам.
+- Полный offline suite после установки: **184 PASS**; `compileall` и `git diff --check`: PASS.
+- Runtime A/B/C и post-run integrity по-прежнему **NOT_EXECUTED**; rollback не выполнялся.

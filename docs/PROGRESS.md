@@ -466,3 +466,13 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Перед публикацией полный suite **184 PASS**, Stage 10 suite **24 PASS**, `compileall`, Lua validation и `git diff --check` PASS.
 - Публикуются только исходники, тесты и Markdown. Игра, EML/EMF binaries, backup, KFC/DAT/KSD, сохранения, install receipt и приватные runtime-журналы не входят в Git.
 - Часть B не выполнялась. Статус остаётся `PREPARATION_READY`, runtime evaluator — `NOT_EXECUTED`; следующий шаг ожидает отдельного разрешения пользователя.
+
+## 2026-10-31 — Этап 10.2, часть B: backup и установка
+
+- Пользователь отдельно разрешил создать verified backup и установить EML/humanoid patch/read-only observer без запуска игры. Перед изменениями повторный preflight PASS; Enshrouded/server закрыты, hashes/build/conflicts повторно проверены.
+- Создан `stage10-pre-eml-20261030T220012Z`: 20 файлов / 224 556 422 байта. Manifest `verified=true`; 20/20 backup hashes и повторные hashes текущих источников совпали, mismatch 0. Старые backups не использовались.
+- Установлены ровно 9 файлов из существующего install plan. Receipt `complete`; run token `69a6a5ff13e66c37614e212790464271`; 9/9 hashes совпали. Токен внедрён в patch/observer, install placeholders отсутствуют, repository placeholders сохранены.
+- `dbghelp.dll` и неизменный `dinput8.dll` совпадают с закреплёнными SHA-256. `eml.json` включает export и выключает console. Observer включён отдельной INI. Временных install files, stale evidence и `enshrouded.kfc.bak` до первого запуска нет. Defender и real-time protection включены.
+- `aic_body` не входит в receipt и не менялся. Выявлено предварительно существовавшее legacy-состояние: установленный `body.lua` старше текущей repository-версии с `body_profiles.lua`, тогда как `main.lua` совпадает. Это не исправлялось; spawn и `aic_body.request` запрещены.
+- Создан ignored pre-run baseline install/manifest hashes, game root и metadata 55 DAT. Игра не запускалась; A/B/C, EML evidence, game load, save integrity и rollback остаются `NOT_EXECUTED`; `spawn_ready=false`.
+- Текущая контрольная точка: **INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START**. Пользователь должен один раз вручную запустить Steam/Enshrouded, выбрать LOCAL `Body Test` / `AI Body Test`, загрузить мир без команд мутации и сообщить «загрузился».
