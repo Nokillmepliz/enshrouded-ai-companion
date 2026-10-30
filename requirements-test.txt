@@ -1,0 +1,2 @@
+# Offline Lua integration tests use Lua 5.4 via this pinned test-only dependency.
+lupa==2.6

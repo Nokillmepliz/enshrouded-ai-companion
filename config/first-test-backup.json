@@ -1,0 +1,10 @@
+{
+  "destination": "C:/Enshrouded-ai-companion/runtime/backups",
+  "sources": {
+    "game": {"path": "D:/SteamLibrary/steamapps/common/Enshrouded", "required": true},
+    "steam_saves": {"path": "C:/Program Files (x86)/Steam/userdata/298673494/1203620", "required": true},
+    "local_saves": {"path": "C:/Users/user/Saved Games/keen games/Enshrouded", "required": true},
+    "steam_manifest": {"path": "D:/SteamLibrary/steamapps/appmanifest_1203620.acf", "required": true},
+    "personality": {"path": "C:/Enshrouded-ai-companion/runtime/personality.json", "required": false}
+  }
+}

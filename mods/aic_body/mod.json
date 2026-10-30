@@ -1,0 +1,12 @@
+{
+  "id": "aic_body",
+  "name": "AI Companion Body (experimental)",
+  "version": "0.1.0",
+  "description": "Explicit host-only spawn/follow/stay/dismiss. No automatic spawn. Use only in an approved local test world.",
+  "authors": ["enshrouded-ai-companion"],
+  "emf": 20,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.8"},
+  "side": "server",
+  "enabled": false
+}

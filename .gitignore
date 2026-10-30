@@ -1,0 +1,9 @@
+# Local upstream snapshots used for source research.
+.research/
+.tools/
+.venv/
+__pycache__/
+*.py[cod]
+runtime/
+dist/
+mods/aic_body/runtime.lock
