@@ -343,3 +343,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Все 18 записей локального каталога программно побайтно сопоставлены с pinned `WORKSHOP_SURVIVORS` (key, npcId, staff GUID, template GUID): **18 совпадений, 0 расхождений**. Две последовательные упаковки дали одинаковый SHA-256.
 - Обновлены README, PROTOCOL, TEST_PLAN и TEST_RESULTS. Исторический [FIRST_INGAME_TEST.md](FIRST_INGAME_TEST.md) не изменялся.
 - Игра не запускалась, spawn/игровые события не выполнялись, файлы игры и сохранения не менялись. Следующий шаг — отдельное согласование read-only survey `hunter_assistant` и `blacksmith_assistant`; human spawn до его результатов запрещён.
+- Основной результат этапа 6 отправлен в `origin/master`: **`bb6c879` — Research human companion body architecture**, push `159fa9e..bb6c879` подтверждён GitHub. Бинарники, сохранения, runtime и приватные логи в коммит не вошли.
