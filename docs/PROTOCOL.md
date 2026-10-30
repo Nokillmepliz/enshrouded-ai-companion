@@ -1,6 +1,8 @@
 # Body Adapter 0.1: контракт и реализация
 
-Это прототип, проверенный без игры. Базовое исследование — [RESEARCH.md](RESEARCH.md). После технического ревью 30.10.2026 используется **safety_revision=2** при том же wire protocol=1 и версии прототипа 0.1.0. Python отказывает в изменениях через старый адаптер без этой ревизии. Lua Body Adapter + Python Bridge сохранены. Исторические инструкции этапов 2–3 о rollback без fingerprint и снятии блокировки при смене сессии заменены правилами ниже.
+Текущий wire protocol=1 / **safety_revision=2** относится к историческому runtime-профилю `legacy_vukah`. После первого игрового `FAIL` он не является целевым human body и не должен повторно испытываться. Human Body на этапе 6 существует только как офлайн-каталог/capability/identity policy; его spawn заблокирован до отдельной protocol revision 3. Исследование и границы — [HUMAN_COMPANION_RESEARCH.md](HUMAN_COMPANION_RESEARCH.md), архитектура — [HUMAN_COMPANION_ARCHITECTURE.md](HUMAN_COMPANION_ARCHITECTURE.md).
+
+Базовое исследование старого прототипа — [RESEARCH.md](RESEARCH.md). Python отказывает в изменениях через адаптер без safety revision 2. Исторические инструкции этапов 2–3 о rollback без fingerprint и снятии блокировки при смене сессии заменены правилами ниже.
 
 ## Почему Lua
 
@@ -77,7 +79,7 @@ aic_body.request <request-id> <epoch> <companion-id> <spawn|follow|stay|dismiss>
 
 Клиент проверяет версию, формат, единственность JSON-ответа, request ID, действие, companion ID и epoch. Один запрос на изменение отправляется один раз; далее идут status-запросы. При потере ответа outcome неизвестен: нельзя автоматически создавать новое тело новым request ID. Узнать результат можно через status старого request ID.
 
-Дополнительные поля состояния: `body_trusted` / `marker_trusted`, `body_identity_invalidated` / `marker_identity_invalidated`, `body_destroy_requested` / `marker_destroy_requested`, `body_destroy_result` / `marker_destroy_result`, `uncertain_spawn`, `orphaned`, `observation_error`, `recovery_action`. `destroy_requested=true` означает, что вызов уже был предпринят и повторять его нельзя; результат отдельно обозначается `accepted`, `refused_or_unknown` или `outcome_unknown`. Ошибка отражения в status сохраняет диагностический ответ с `observation_error=inspect_failed`.
+Дополнительные поля состояния: `body_profile` (`legacy_vukah` для protocol 1), `body_trusted` / `marker_trusted`, `body_identity_invalidated` / `marker_identity_invalidated`, `body_destroy_requested` / `marker_destroy_requested`, `body_destroy_result` / `marker_destroy_result`, `uncertain_spawn`, `orphaned`, `observation_error`, `recovery_action`. `destroy_requested=true` означает, что вызов уже был предпринят и повторять его нельзя; результат отдельно обозначается `accepted`, `refused_or_unknown` или `outcome_unknown`. Ошибка отражения в status сохраняет диагностический ответ с `observation_error=inspect_failed`.
 
 ## Уровни подтверждения
 

@@ -1,8 +1,10 @@
 -- Engine-independent controller. All effects are supplied by main.lua.
 -- This module stores runtime handles only; personality lives in the Python profile.
 local M = {}
-M.BODY = 'd5d05217-52dc-467a-9192-26b4f661d8d9'
-M.MARKER = '0ce28db1-522f-4455-b358-3888fb5e089b'
+local profile = require('body_profiles').active()
+M.BODY_PROFILE = profile.id
+M.BODY = profile.template
+M.MARKER = profile.marker
 local LIMIT, DEADLINE, ARRIVE = 128, 1800, 8
 local actions = {spawn=true, follow=true, stay=true, dismiss=true}
 local C = {}; C.__index = C
@@ -92,7 +94,7 @@ function C:state()
     protocol=1, adapter='0.1.0', safety_revision=2, epoch=self.epoch, session=self.session,
     mode=self.mode, companion_id=self.identity, entity_id=self.body and self.body.id,
     marker_id=self.marker and self.marker.id, owner_id=self.owner,
-    template_guid=M.BODY, tick=self.seq, last_error=self.last_error,
+    body_profile=M.BODY_PROFILE, template_guid=M.BODY, tick=self.seq, last_error=self.last_error,
     position=b and b.position, health=b and b.health, ready=b and b.ready,
     faction=b and b.faction, guard_target=b and b.guard,
     distance_to_target=b and target_sample and distance(b.position, target_sample.position),

@@ -1,5 +1,17 @@
 # Результаты подготовки этапа 2
 
+## Этап 6 — Human Body research, 30.10.2026
+
+- `.tools/python/python.exe -m unittest discover -s tests -q`: **97 тестов, PASS**.
+- `.tools/python/python.exe -m compileall -q companion scripts tests`: PASS.
+- `git diff --check`: PASS.
+- `scripts/package.py`: архив содержит новый `body_profiles.lua`, выключен по умолчанию и воспроизводим; SHA-256 `998bf16b03e6d7db41f5851dc51c70a840f35dab4d8796b8c4291cdb01335872`.
+- Десять новых тестов проверяют каталог human candidates, запрет runtime-выбора, capabilities, missing/partial/delayed fingerprint, reflection timeout, identity change/EntityId reuse, exact-current-observation перед удалением и изоляцию legacy Vukah GUID.
+- Все прежние 87 тестов сохранены, включая partial spawn/dismiss, faction failure, unknown outcome, runtime.lock/reload и запрет удаления untrusted entity.
+- Старые GUID тела/маркера вынесены в `body_profiles.lua` как `legacy_vukah`; runtime-поведение protocol 1 / `safety_revision=2` не менялось.
+- Human runtime adapter, spawn, movement, inventory и equipment **не реализованы**. Тесты подтверждают fail-closed офлайн-политику, а не работу humanoid в Enshrouded.
+- Игра не запускалась; файлы игры и сохранения не менялись.
+
 ## Актуальное техническое ревью — 30.10.2026
 
 - Полный запуск `.tools/python/python.exe -m unittest discover -s tests -q`: **87 тестов, PASS** (56 прежних с уточнёнными ожиданиями и 31 новый тест).

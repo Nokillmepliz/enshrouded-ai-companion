@@ -5,7 +5,7 @@ from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES = ("mod.json", "main.lua", "body.lua", "json.lua")
+FILES = ("mod.json", "main.lua", "body.lua", "body_profiles.lua", "json.lua")
 
 
 def build(output=None):

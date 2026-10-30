@@ -328,3 +328,18 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Требуется отдельное исправление: диагностировать отсутствующую часть fingerprint, найти подтверждённый идентификатор для Vukah либо сменить body после отдельного решения, а также исключить активного врага при раннем отказе без ослабления идентификационной защиты. Переход к Brain/голосу/навыкам заблокирован.
 - После восстановления запущены проверки проекта: **87 тестов PASS**, `compileall` PASS, `git diff --check` PASS.
 - Отчёт первого игрового испытания и журнал отправлены в `origin/master`: **`7e05f17` — Record first in-game body test failure**, push `e351ff8..7e05f17` подтверждён GitHub. Сохранения, диагностический снимок, runtime-логи, скриншот и бинарники в коммит не вошли.
+
+## 2026-10-30 — Этап 6: исследование человекоподобного тела
+
+- Перед работой ветка `master` была чистой и совпадала с `origin/master` на `159fa9e`. Прочитаны отчёт первого теста, protocol/test docs, Lua/Python-код и локальные pinned sources EMF `08d6001` / Enshwick `1355611`.
+- Исследованы варианты A/B/C. Рекомендован долгосрочный вариант C: штатный workshop survivor как человеческое визуальное/физическое тело плюс отдельные Movement/Combat/Interaction/Inventory/Equipment controllers. Runtime spawn остаётся **BLOCKED**.
+- Enshwick даёт 18 реальных workshop survivor template GUID/npcId. Для build 1273043 подтверждено движение уже существующего active NPC через `NpcCommandEvent.GoToPosition`, но direct spawn, исходная faction, ownership, combat и безопасный dismiss независимого экземпляра не подтверждены. Движок сохраняет одного entity на survivor, duplicate uniqueness может удалить сущность; все villager templates имеют `ForceSave`.
+- Player clone без второго клиента/account authority не подтверждён. Наличие структур `PlayerInput`, `Inventory`, `Equipment` и `VisualEquipment` само по себе не делает spawnable player entity.
+- Inventory API и игровые транзакции существуют; ItemId и pide/gear semantics исследованы. Безопасный долговременный inventory survivor, атомарный transfer/escrow и equip path для NPC не подтверждены, поэтому item mutations не реализованы.
+- Созданы [HUMAN_COMPANION_RESEARCH.md](HUMAN_COMPANION_RESEARCH.md) и [HUMAN_COMPANION_ARCHITECTURE.md](HUMAN_COMPANION_ARCHITECTURE.md) с кандидатами, evidence-статусами, вариантами, lifecycle, capabilities и планом read-only survey.
+- Добавлен офлайн-модуль `companion/human_body.py`: закреплённый каталог 18 кандидатов, `runtime_enabled=false`, capability contract и fail-closed `IdentityGate`. Gate требует ожидаемый model GUID и три полных последовательных наблюдения; missing/partial/reflection/timeout/identity change запрещают trust/delete.
+- Vukah GUID и marker GUID вынесены из generic lifecycle в `mods/aic_body/body_profiles.lua` как `legacy_vukah`; protocol 1 / safety revision 2 и поведение старого адаптера не ослаблены. Пакет обновлён на пять Lua-файлов.
+- Добавлено 10 тестов Human Body; все прежние 87 сохранены. Полный suite: **97 тестов PASS**. `compileall`, упаковка и `git diff --check`: PASS. SHA-256 `dist/aic_body-0.1.0.zip`: `998bf16b03e6d7db41f5851dc51c70a840f35dab4d8796b8c4291cdb01335872`.
+- Все 18 записей локального каталога программно побайтно сопоставлены с pinned `WORKSHOP_SURVIVORS` (key, npcId, staff GUID, template GUID): **18 совпадений, 0 расхождений**. Две последовательные упаковки дали одинаковый SHA-256.
+- Обновлены README, PROTOCOL, TEST_PLAN и TEST_RESULTS. Исторический [FIRST_INGAME_TEST.md](FIRST_INGAME_TEST.md) не изменялся.
+- Игра не запускалась, spawn/игровые события не выполнялись, файлы игры и сохранения не менялись. Следующий шаг — отдельное согласование read-only survey `hunter_assistant` и `blacksmith_assistant`; human spawn до его результатов запрещён.

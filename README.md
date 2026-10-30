@@ -1,8 +1,10 @@
 # enshrouded-ai-companion
 
-**Техническое ревью перед игрой:** исправлены частичные ошибки spawn/dismiss, проверка отсутствия сущностей и runtime.lock; **87 тестов PASS**, `safety_revision=2`. Актуальные правила очистки и оставшиеся риски — [PROTOCOL.md](docs/PROTOCOL.md), хеш текущего ZIP и проверки — [TEST_RESULTS.md](docs/TEST_RESULTS.md). Lua + Python сохранены. Игровые испытания не проводились; ниже также сохранены итоги предыдущих этапов.
+**Текущее направление:** человекоподобный AI Companion. Исследованы 18 реальных workshop survivor templates, варианты player clone и отдельного humanoid body. Безопасный runtime spawn гуманоида пока заблокирован: uniqueness, начальная faction, ownership и dismiss независимого экземпляра не подтверждены. Выводы — [HUMAN_COMPANION_RESEARCH.md](docs/HUMAN_COMPANION_RESEARCH.md), контракты — [HUMAN_COMPANION_ARCHITECTURE.md](docs/HUMAN_COMPANION_ARCHITECTURE.md).
 
-**Текущее состояние этой Windows-машины:** официальный EMF 0.3.2 manual и `aic_body` установлены. Включены только Lua host, `aic_body` и bridge; остальные bundled-моды явно выключены. Read-only диагностика в игре подтвердила EMF/API/build и отдельные LOCAL character/world slot 1; исходное состояние сохранено в проверенной малой копии. Overlay-консоль не отрисовывается из-за Vulkan layer, но bridge работает. Spawn и другие команды тела не выполнялись. Подробности — в [журнале прогресса](docs/PROGRESS.md).
+**Первое игровое испытание:** `emf.spawn` создал Vukah, но fingerprint отсутствовал; faction не была изменена, NPC оказался враждебным. Сценарий остановлен, тестовые LOCAL-сохранения восстановлены и проверены. Vukah отложен как `legacy_vukah`; результат не переписывается — [FIRST_INGAME_TEST.md](docs/FIRST_INGAME_TEST.md).
+
+**Техническое состояние этапа 6:** 97 офлайн-тестов PASS, `safety_revision=2` не ослаблена. Реализованы только каталог human candidates, evidence-aware capabilities и fail-closed IdentityGate; ни одна игровая команда гуманоида не включена. Актуальные проверки и SHA-256 пакета — [TEST_RESULTS.md](docs/TEST_RESULTS.md).
 
 **Этап 3: подготовка первого игрового испытания.** [Проверка установленной игры, резервная копия и пошаговый запуск](docs/STAGE3_PREFLIGHT.md). EXE соответствует сборке EMF 1273043. Body Adapter — Lua-мод, собственной DLL у него нет. Игровое испытание ещё не выполнялось.
 
@@ -46,4 +48,4 @@ py -3.12 -m venv .venv
 
 Исходники upstream находятся в `.research/` и исключены из Git. Копия Python bridge с лицензией включена в [vendor/](vendor/README.md), остальной upstream не нужен для запуска клиента. Официальный установщик EMF был выполнен 30.10.2026 после аудита дистрибутива; в игре выполнены только read-only `diagnose/status`.
 
-Следующий этап — отдельно согласованный первый spawn в подтверждённых LOCAL character/world slot 1. Любые команды, создающие или изменяющие тело, остаются отдельным шагом.
+Следующий этап — отдельно согласованный **read-only** survey компонентов/model двух assistant templates. Spawn остаётся запрещённым до выбора тела и разработки protocol revision 3.
