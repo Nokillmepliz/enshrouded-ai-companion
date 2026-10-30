@@ -381,3 +381,9 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Подготовлен выключенный read-only `mods/aic_humanoid_survey`: он читает существующих nearby active NPC и сообщает model/animation/faction/components. Public Lua не выдаёт template GUID, поэтому мод явно возвращает `template_guid_available=false`.
 - Полный suite: **126 тестов PASS**; `compileall` PASS. Игра не запускалась, мод не устанавливался, spawn/faction/destroy/inventory/save operations не выполнялись.
 - Runtime humanoid остаётся **BLOCKED**. Следующий шаг требует отдельного разрешения: backup LOCAL save и read-only survey существующего `hunter_assistant`. После него — отдельное исследование нового EML template; прямой spawn story survivor запрещён.
+
+## 2026-10-30 — Публикация этапа 8
+
+- Основной результат этапа 8 опубликован в `origin/master`: **`69b502a` — Research independent humanoid companion body**, push `1e9215a..69b502a` подтверждён GitHub.
+- В коммит вошли только исходники offline gate/read-only survey, тесты и документация. Сохранения, runtime-логи, архивы и бинарники не публиковались.
+- Игра не запускалась, survey не устанавливался, игровой spawn не выполнялся.
