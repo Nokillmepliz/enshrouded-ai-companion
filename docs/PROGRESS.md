@@ -441,3 +441,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Текущий backup dry-run повторно насчитал 20 файлов / 224 556 422 байта. Реальная копия не создавалась.
 - Игра не запускалась, EML не устанавливался, DLL/KFC/DAT/KSD/saves не менялись, runtime artifacts A/B/C не создавались, spawn не выполнялся. Текущий evaluator без входов: `NOT_EXECUTED`.
 - Следующий шаг требует отдельного разрешения пользователя: создать и проверить новый backup, установить только EML/patch/observer, затем пользователь вручную выполняет load-only запуск LOCAL `Body Test` / `AI Body Test` без spawn.
+
+## 2026-10-31 — Публикация этапа 10.1
+
+- Пересмотренный acceptance gate, корреляция `run_token`, read-only CLI `preflight/evaluate`, 19 новых тестов и документация зафиксированы основным коммитом **`144af38` — Revise template load acceptance gate**.
+- Перед публикацией полный suite: **182 PASS**; целевой Stage 9/10/10.1 suite: **56 PASS**; `compileall` и `git diff --check`: PASS.
+- В Git включены только исходники, тесты и Markdown. DLL, EML/game binaries, KFC/DAT/KSD, сохранения, runtime evidence и приватные журналы не публикуются.
+- Игровые действия не выполнялись. Текущий runtime-результат остаётся `NOT_EXECUTED`; verified backup ещё не создан, поэтому установка и фаза B ожидают отдельного разрешения пользователя.
