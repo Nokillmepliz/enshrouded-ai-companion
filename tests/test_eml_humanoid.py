@@ -24,7 +24,7 @@ class EmlHumanoidPatchTests(unittest.TestCase):
 
     def test_real_lua_patch_clones_without_mutating_story_source(self):
         lua = LuaRuntime(unpack_returned_tuples=True)
-        lua.execute(f'''loader = {{ features = {{ patch = true }} }}
+        lua.execute(f'''loader = {{ features = {{ patch = true, export = true }} }}
 function deepcopy(value)
   if type(value) ~= "table" then return value end
   local copy = {{}}
@@ -33,14 +33,18 @@ function deepcopy(value)
 end
 source = {{ guid = "{SOURCE_TEMPLATE_GUID}", data = {{ name = "HunterAssistant", components = {{
   {{ type = "keen::ecs::Faction", value = {{ faction = "Vukah" }} }},
-  {{ type = "keen::ecs::ActiveNpcState", value = {{ npcId = {{ value = 1633192162 }} }} }}
+  {{ type = "keen::ecs::ActiveNpcState", value = {{ npcId = {{ value = 1633192162 }} }} }},
+  {{ type = "keen::ecs::ModelResource", value = {{ model = "human-model" }} }},
+  {{ type = "keen::ecs::AnimationGraphResourceComponent2", value = {{ animationGraph = "human-graph" }} }}
 }} }} }}
 registry = {{ data = {{ guids = {{ "{SOURCE_TEMPLATE_GUID}" }} }} }}
+io.export = function(path, content) exported_path = path; exported = content end
 game = {{
   guid = {{ hash = function(_) return {EXPECTED_NPC_ID} end }},
   assets = {{
     get_resource = function(guid, typ)
       if guid == "{SOURCE_TEMPLATE_GUID}" and typ == "keen::ecs::TemplateResource" then return source end
+      if guid == "{TEMPLATE_GUID}" and typ == "keen::ecs::TemplateResource" then return created end
       return nil
     end,
     create_resource = function(value, typ, guid, part)
@@ -59,6 +63,11 @@ game = {{
         self.assertEqual(lua.eval("created.data.components[1].value.faction"), "PlayerAlly")
         self.assertEqual(lua.eval("created.data.components[2].value.npcId.value"), EXPECTED_NPC_ID)
         self.assertEqual(lua.eval("registry.data.guids[2]"), TEMPLATE_GUID)
+        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v1.txt")
+        exported = lua.eval("exported")
+        self.assertIn("model_guid=human-model", exported)
+        self.assertIn("animation_graph_guid=human-graph", exported)
+        self.assertIn("source_unchanged=true", exported)
 
     def test_game_guid_hash_matches_pinned_survivors_and_new_id(self):
         self.assertEqual(guid_id(SOURCE_TEMPLATE_GUID), 1_633_192_162)
@@ -106,7 +115,7 @@ game = {{
                 validate_patch(tmp)
 
     def test_unsupported_capability_is_rejected(self):
-        self._mutated('"capabilities": ["patch"]', '"capabilities": ["runtime"]',
+        self._mutated('"capabilities": ["patch", "export"]', '"capabilities": ["runtime"]',
                       "unsupported_capabilities")
 
     def test_autospawn_is_rejected(self):

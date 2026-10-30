@@ -26,7 +26,7 @@ EML — отдельный от EMF Lua loader/framework для изменени
   src/mod.lua
 ```
 
-`.luarc.json` нужен только редактору. Manifest требует `id`, `name`, semver `version`, `capabilities`; наш prototype использует только `patch`. EML mod не является EMF Lua mod и не загружается EMF самостоятельно.
+`.luarc.json` нужен только редактору. Manifest требует `id`, `name`, semver `version`, `capabilities`; после подготовки этапа 10 prototype использует `patch` и `export`: первый создаёт ресурс, второй пишет диагностический fingerprint. EML mod не является EMF Lua mod и не загружается EMF самостоятельно.
 
 ## Новый resource и новый GUID
 

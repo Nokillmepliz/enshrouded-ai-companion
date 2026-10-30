@@ -150,7 +150,7 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
         raise PatchValidationError("invalid_manifest") from exc
     if manifest.get("id") != PATCH_ID or manifest.get("version") != PATCH_VERSION:
         raise PatchValidationError("unexpected_manifest_identity")
-    if manifest.get("capabilities") != ["patch"]:
+    if manifest.get("capabilities") != ["patch", "export"]:
         raise PatchValidationError("unsupported_capabilities")
 
     lua = lua_path.read_text(encoding="utf-8")

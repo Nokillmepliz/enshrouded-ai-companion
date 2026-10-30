@@ -159,7 +159,7 @@ Spawn-тест допускается в отдельном будущем эт�
 
 Офлайн-проверки, выполненные до любого игрового испытания:
 
-1. Проверить реальный layout `mod.json` + `src/mod.lua`, manifest identity и единственную capability `patch`.
+1. Проверить реальный layout `mod.json` + `src/mod.lua`, manifest identity и только необходимые capabilities `patch` + `export`.
 2. Сопоставить fixed template GUID, source GUID и FNV-1a `npcId`; отклонять unknown/collision GUID.
 3. Отклонять missing source resource, target story GUID, missing `Faction=PlayerAlly`, `ActiveNpcState.npcId`, autospawn, runtime EMF commands и save paths.
 4. Проверить fail-closed descriptor: runtime disabled, model/animation unknown, creation marker/ownership/dismiss отсутствуют.
@@ -171,3 +171,19 @@ Spawn-тест допускается в отдельном будущем эт�
 2. **Single spawn:** только после успешного patch-load и отдельного разрешения; один spawn, без повтора при ambiguous outcome, без follow/combat/inventory/dismiss до доказательства каждой capability.
 
 Критерии STOP: loader/type/resource error, GUID collision, source/component missing, faction не 11, vanilla source изменился, save неожиданно изменён, template fingerprint неполон, ownership/dismiss не доказаны.
+
+# Этап 10: load-only проверка собственного template
+
+Фаза A выполняется без установки и запуска игры. Команда preflight только читает известные файлы и всегда возвращает `phase_b_allowed=false`:
+
+```powershell
+.\.tools\python\python.exe -m scripts.stage10 `
+  --game 'D:\SteamLibrary\steamapps\common\Enshrouded' `
+  --eml runtime\stage10\downloads\dbghelp.dll
+```
+
+Автоматические проверки охватывают точные hashes game/EMF/EML, неправильный loader, конфликтующий `dbghelp.dll`, stale evidence, повторную и частичную установку, обязательный проверенный backup, запрет mutation helpers при работающей игре, отказ отката изменённых added files и явный review новых DAT. Lua patch выполняется через Lupa с fake EML API; observer компилируется и статически проверяется на отсутствие spawn/destroy/event/save/inventory путей.
+
+Фаза B пока **NOT RUN / BLOCKED**. Если блокер полного критерия будет устранён и пользователь отдельно разрешит фазу B, порядок остаётся таким: проверенный backup → повторный preflight → установка только перечисленных файлов → ручной запуск пользователем → load-only логи/evidence/observer/bridge → штатное закрытие → post-run diff → rollback review. Spawn, destroy, faction, inventory и save-команды запрещены.
+
+Успех EML требует свежего evidence, `AIC_EML_TEMPLATE_READY`, последующего `Applied N patches` с `N>0`, полного model/animation/component fingerprint и неизменного source. Ответ observer по внешнему export не считается прямым EMF lookup. Полный критерий остаётся недостижимым, пока публичный EMF Lua требует entity для `world:template`.

@@ -86,3 +86,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - `git diff --check`: PASS.
 
 Эти проверки подтверждают структуру EML patch и наши инварианты. Они не подтверждают, что build 1273043 загрузит новый template, что human model/animations и workshop lifecycle работают, или что entity можно безопасно создать/удалить.
+
+# Этап 10 — подготовка load-only проверки (2026-10-31)
+
+- Официальные `dbghelp.dll` и `emm.exe` EML 0.2.0 скачаны в ignored audit-каталог, не запускались и совпали с GitHub release digests. Оба x64 PE без Authenticode; Microsoft Defender custom scan не обнаружил угроз. Независимая воспроизводимая сборка не выполнялась.
+- Реальный read-only preflight: **PASS** для Enshrouded build `1273043`, EXE SHA-256 `d64966e…`, EMF loader `53b3f6e…`, EML `dbghelp.dll` `038b7a1…`, patch и observer. Baseline DAT: `000`–`054`. Результат намеренно содержит `phase_b_allowed=false`.
+- Stage 10 добавил **22 теста**; вместе с 15 тестами EML этапа 9 целевой прогон дал **37 PASS**. Полный suite: **163 tests PASS**.
+- `python -m compileall -q companion scripts tests`: **PASS**. Lua patch реально исполняется в Lupa/fake EML; observer Lua компилируется. Ошибочные hashes/loader, stale evidence, running game, partial/repeated install, corrupt backup, changed rollback file и неизвестный DAT fail closed.
+- Backup выполнен только как dry-run: 20 файлов, 224 556 422 байта. Реальная проверенная копия не создана.
+- EML не установлен; `dbghelp.dll`, patch и observer в игру не копировались; игра не запускалась; KFC/data/save не менялись; spawn/destroy/faction/inventory не выполнялись.
+- Прямой поиск нового `TemplateResource` через публичный EMF Lua недоступен без entity. Поэтому runtime-совместимость EML+EMF, writer finalization, game load и template acceptance остаются **NOT RUN**, а полный вердикт — **BLOCKED_BEFORE_PHASE_B_FULL_CRITERIA**.

@@ -1,0 +1,12 @@
+{
+  "id": "aic_template_observer",
+  "name": "AI Companion Template Observer (read-only)",
+  "version": "0.1.0",
+  "description": "Reads EML template evidence without spawning or changing entities.",
+  "authors": ["enshrouded-ai-companion"],
+  "emf": 20,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.9"},
+  "side": "server",
+  "enabled": false
+}

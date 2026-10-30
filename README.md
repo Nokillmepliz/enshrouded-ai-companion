@@ -1,6 +1,8 @@
 # enshrouded-ai-companion
 
-**Текущий результат — этап 9, собственный humanoid template через EML.** Исходники EML 0.2.0 подтверждают создание нового `keen::ecs::TemplateResource` с фиксированным GUID. Подготовлен настоящий, но не установленный EML patch [`experimental/eml_humanoid`](experimental/eml_humanoid/): он клонирует human template в новый resource, задаёт отдельный `npcId` и `PlayerAlly` до будущего spawn, не изменяет story NPC и ничего не создаёт автоматически.
+**Текущий результат — этап 10, подготовка load-only проверки EML.** Официальные бинарники EML 0.2.0 проверены без запуска, patch дополнен положительным evidence, а выключенный по умолчанию [`aic_template_observer`](mods/aic_template_observer/) подготовлен для read-only диагностики через EMF/Python Bridge. Фаза B не выполнялась: EML не установлен, игра не запускалась, spawn запрещён. Полный критерий пока заблокирован, потому что публичный EMF Lua не умеет искать `TemplateResource` по GUID без сущности. Подробности: [аудит совместимости](docs/EML_EMF_COMPATIBILITY.md), [план](docs/STAGE10_TEMPLATE_LOAD_PLAN.md), [результаты](docs/STAGE10_TEMPLATE_LOAD_RESULTS.md).
+
+Исходники EML 0.2.0 подтверждают создание нового `keen::ecs::TemplateResource` с фиксированным GUID. Подготовлен настоящий, но не установленный EML patch [`experimental/eml_humanoid`](experimental/eml_humanoid/): он клонирует human template в новый resource, задаёт отдельный `npcId` и `PlayerAlly` до будущего spawn, не изменяет story NPC и ничего не создаёт автоматически.
 
 Runtime остаётся выключенным: загрузка patch игрой, точные model/animation GUID, workshop/save behavior, instance ownership marker и безопасный dismiss ещё не проверены. Исследование: [EML_HUMANOID_TEMPLATE_RESEARCH.md](docs/EML_HUMANOID_TEMPLATE_RESEARCH.md), архитектура и разделённый план patch-load/spawn: [EML_HUMANOID_TEMPLATE_ARCHITECTURE.md](docs/EML_HUMANOID_TEMPLATE_ARCHITECTURE.md). Игра не запускалась, EML не устанавливался, игровые файлы и сохранения не менялись.
 
@@ -56,4 +58,4 @@ py -3.12 -m venv .venv
 
 Исходники upstream находятся в `.research/` и исключены из Git. Копия Python bridge с лицензией включена в [vendor/](vendor/README.md), остальной upstream не нужен для запуска клиента. Официальный установщик EMF был выполнен 30.10.2026 после аудита дистрибутива; в игре выполнены только read-only `diagnose/status`.
 
-Следующий этап — отдельно согласованный **read-only** survey уже существующего `hunter_assistant` через `aic_humanoid_survey`. Spawn остаётся запрещённым до появления подтверждённого non-unique template, исходной безопасной faction и ownership marker.
+Следующий технический шаг — получить подтверждённый native read-only lookup ресурса в EMF либо явно пересмотреть критерий этапа 10. До этого установка EML и запуск фазы B не запрашиваются. Spawn остаётся запрещённым до отдельного следующего этапа с ownership marker и безопасным dismiss.
