@@ -155,3 +155,19 @@ Recovery: код, trusted/invalidated, destroy_result, новый dismiss ID, с
 5. Сохранить диагностические строки, закрыть игру; не выполнять spawn, faction write, destroy, inventory operation или save mutation со стороны мода.
 
 Spawn-тест допускается в отдельном будущем этапе только после полного descriptor: non-unique template, model/animation, safe initial faction, creation marker, ownership proof и safe dismiss.
+# Этап 9: EML humanoid template
+
+Офлайн-проверки, выполненные до любого игрового испытания:
+
+1. Проверить реальный layout `mod.json` + `src/mod.lua`, manifest identity и единственную capability `patch`.
+2. Сопоставить fixed template GUID, source GUID и FNV-1a `npcId`; отклонять unknown/collision GUID.
+3. Отклонять missing source resource, target story GUID, missing `Faction=PlayerAlly`, `ActiveNpcState.npcId`, autospawn, runtime EMF commands и save paths.
+4. Проверить fail-closed descriptor: runtime disabled, model/animation unknown, creation marker/ownership/dismiss отсутствуют.
+5. Запустить полный Python suite, `compileall`, доступные Lua checks, `git diff --check`, privacy/binary/save scan.
+
+Будущий runtime разделён на два независимых согласования:
+
+1. **Patch-load only:** backup отдельного LOCAL test world, установка проверенного EML и patch, ручной запуск, read-only fingerprint нового resource, выход и проверка сохранений. Spawn запрещён.
+2. **Single spawn:** только после успешного patch-load и отдельного разрешения; один spawn, без повтора при ambiguous outcome, без follow/combat/inventory/dismiss до доказательства каждой capability.
+
+Критерии STOP: loader/type/resource error, GUID collision, source/component missing, faction не 11, vanilla source изменился, save неожиданно изменён, template fingerprint неполон, ownership/dismiss не доказаны.

@@ -387,3 +387,16 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Основной результат этапа 8 опубликован в `origin/master`: **`69b502a` — Research independent humanoid companion body**, push `1e9215a..69b502a` подтверждён GitHub.
 - В коммит вошли только исходники offline gate/read-only survey, тесты и документация. Сохранения, runtime-логи, архивы и бинарники не публиковались.
 - Игра не запускалась, survey не устанавливался, игровой spawn не выполнялся.
+## 2026-10-30 — Этап 9: собственный Humanoid Template через EML
+
+- До работы `master`, `origin/master` и HEAD совпадали на `cb44c3c`; рабочее дерево было чистым. Прочитаны правила, отчёты этапов 5–8, protocol/test docs и текущие Lua/Python модули.
+- Получен официальный source EML/KFC parser `Brabb3l/kfc-parser`, tag 0.2.0, commit `16708594d686b030d909f2d835b199d879ea9ad8`, GPL-3.0. Установка и запуск EML не выполнялись; checkout находится в ignored `.research/`.
+- Исходники EML подтверждают настоящий `create_resource` с новым/fixed GUID, duplicate rejection, reflected typed resource mutation и запись новых resources. Pinned EMF `make_mod.py` подтверждает практический clone нового `keen::ecs::TemplateResource`, component edits и условную регистрацию GUID.
+- Установлено: EML и EMF — независимые loaders; EML патчит asset data до загрузки, EMF управляет runtime entity. Совместный runtime build 1273043 + EML 0.2.0 + EMF 0.3.2 ещё не испытан.
+- Создан реальный offline EML patch `experimental/eml_humanoid`: clone `hunter_assistant` в fixed GUID `a1c90001-5e4d-4a91-8a1c-000000000001`, новый FNV-1a `npcId=2939921867`, initial `PlayerAlly`, fail-closed assertions и conditional GuidRegistry registration. Source story resource не меняется; autospawn/runtime/save/inventory операций нет.
+- Добавлен `companion/eml_humanoid.py`: immutable descriptor, fixed GUID catalog/FNV verification, structural validator и runtime gate. `runtime_enabled=false`; model/animation GUID, creation marker, ownership и safe dismiss остаются неподтверждёнными. Старый spawn allow-list и IdentityGate не ослаблены.
+- Созданы `EML_HUMANOID_TEMPLATE_RESEARCH.md` и `EML_HUMANOID_TEMPLATE_ARCHITECTURE.md`; обновлены README, TEST_PLAN и TEST_RESULTS. История этапов 5–8 не переписывалась.
+- Добавлено 15 tests. Полный suite: **141 PASS**; `compileall`, Lua checks через Lupa и `git diff --check`: PASS. Системного `lua/luac` нет, что явно зафиксировано.
+- Игра не запускалась, EML не устанавливался, игровые файлы/сохранения не менялись, spawn/faction/destroy/inventory runtime не выполнялись.
+- Вердикт: новый human TemplateResource технически возможен и offline prototype корректен по подтверждённому EML API. Runtime остаётся **BLOCKED** до раздельных испытаний: сначала patch-load/read-only fingerprint, затем — после нового разрешения — один контролируемый spawn. Главные блокеры: совместная загрузка EML/EMF, точные model/animation/components, workshop/ForceSave behavior, instance marker/ownership и safe dismiss.
+- Следующий практический шаг: отдельное согласование эксперимента patch-load only с проверенным EML 0.2.0 binary, backup/restore отдельного LOCAL test world и read-only observer; первый spawn с ним не совмещать.

@@ -71,3 +71,18 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - `companion/independent_humanoid.py` не подключается к игре. Все реальные descriptors уникальны и выключены; неизвестные шаблоны и операции отклоняются.
 - `mods/aic_humanoid_survey` выключен по умолчанию. Статическая проверка запрещает spawn/destroy/event emission/inventory/save/tick paths; Lua syntax проверяется отдельно перед публикацией.
 - Игра не запускалась, survey не устанавливался, игровые файлы/сохранения/сущности не менялись. Human spawn, movement, combat, inventory, equipment и persistence: **NOT RUN / BLOCKED**.
+# Этап 9 — EML humanoid template (2026-10-30)
+
+Среда: repository offline, `.tools/python/python.exe`, pinned EML `16708594`, EMF `08d60015`, Enshwick `13556119`. Игра и EML binary не запускались; каталог игры и сохранения не читались/не менялись.
+
+Результаты:
+
+- полный suite: **141 tests PASS**;
+- новые Stage 9 tests: **15 PASS**, включая исполнение настоящего `src/mod.lua` через Lua 5.4/Lupa с fake EML API;
+- Lua test доказал deep-copy: source story faction осталась `Vukah`, новый resource получил `PlayerAlly`, новый `npcId=2939921867`, новый GUID добавлен в fake registry;
+- negative validation: unsupported layout/capability, unknown/conflicting GUID, missing source, story target, unsafe faction, autospawn, runtime command, missing marker/ownership/dismiss и runtime activation — отклонены;
+- `python -m compileall -q companion scripts tests`: PASS;
+- существующие Lua source compilation tests: PASS; системный `lua/luac` отсутствует (`NO_SYSTEM_LUA`), поэтому отдельный внешний `luac` не выполнялся;
+- `git diff --check`: PASS.
+
+Эти проверки подтверждают структуру EML patch и наши инварианты. Они не подтверждают, что build 1273043 загрузит новый template, что human model/animations и workshop lifecycle работают, или что entity можно безопасно создать/удалить.

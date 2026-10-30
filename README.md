@@ -1,5 +1,9 @@
 # enshrouded-ai-companion
 
+**Текущий результат — этап 9, собственный humanoid template через EML.** Исходники EML 0.2.0 подтверждают создание нового `keen::ecs::TemplateResource` с фиксированным GUID. Подготовлен настоящий, но не установленный EML patch [`experimental/eml_humanoid`](experimental/eml_humanoid/): он клонирует human template в новый resource, задаёт отдельный `npcId` и `PlayerAlly` до будущего spawn, не изменяет story NPC и ничего не создаёт автоматически.
+
+Runtime остаётся выключенным: загрузка patch игрой, точные model/animation GUID, workshop/save behavior, instance ownership marker и безопасный dismiss ещё не проверены. Исследование: [EML_HUMANOID_TEMPLATE_RESEARCH.md](docs/EML_HUMANOID_TEMPLATE_RESEARCH.md), архитектура и разделённый план patch-load/spawn: [EML_HUMANOID_TEMPLATE_ARCHITECTURE.md](docs/EML_HUMANOID_TEMPLATE_ARCHITECTURE.md). Игра не запускалась, EML не устанавливался, игровые файлы и сохранения не менялись.
+
 **Текущий приоритет — независимый Human NPC Body Adapter в одном экземпляре игры.** Вариант со вторым клиентом отклонён. Этап 8 не нашёл безопасного неуникального человеческого template: все подтверждённые workshop survivors уникальны, а public EMF Lua не регистрирует новый entity template и не даёт instance-local замену model/animation graph. Runtime spawn человека выключен; подготовлены fail-closed lifecycle и отдельный disabled read-only survey. Исследование: [INDEPENDENT_HUMANOID_RESEARCH.md](docs/INDEPENDENT_HUMANOID_RESEARCH.md), архитектура: [INDEPENDENT_HUMANOID_ARCHITECTURE.md](docs/INDEPENDENT_HUMANOID_ARCHITECTURE.md).
 
 Исторический этап 7 сохранён: [PLAYER_CHARACTER_COMPANION_RESEARCH.md](docs/PLAYER_CHARACTER_COMPANION_RESEARCH.md), [PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md](docs/PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md). Его вариант со вторым account/client больше не является направлением проекта.
