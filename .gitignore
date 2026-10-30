@@ -1,5 +1,6 @@
 # Local upstream snapshots used for source research.
 .research/
+artifacts/
 .tools/
 .venv/
 __pycache__/
