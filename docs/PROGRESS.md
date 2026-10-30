@@ -163,3 +163,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Создан подробный [EMF_DISTRIBUTION_AUDIT.md](EMF_DISTRIBUTION_AUDIT.md) с источниками, всеми PE-хешами, составом, предупреждением Nexus, планом установки/отката и рисками. Вердикт: **`READY_FOR_BACKUP_AND_INSTALL_REVIEW`**.
 - Полный локальный запуск `.tools/python/python.exe -m unittest discover -s tests -q`: **87 тестов PASS**. `compileall` для `companion`, `scripts`, `tests` и `git diff --check`: PASS.
 - Граница работы соблюдена: EMF не устанавливался, игра и скачанные PE не запускались, каталог игры и сохранения не менялись, резервная копия не создавалась. Следующий шаг требует отдельного разрешения пользователя.
+- Отчёт, `.gitignore` и результаты проверки опубликованы в `origin/master`: основной коммит аудита **`dfd3f1e` — Audit official EMF 0.3.2 distribution**. Бинарники EMF в push не входили; эта строка о результате отправки сохраняется следующим журнальным коммитом.
