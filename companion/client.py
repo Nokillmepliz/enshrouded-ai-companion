@@ -105,10 +105,14 @@ class BodyClient:
         rid = token(request_id if request_id is not None else uuid4().hex)
         before = self.status()["state"]
         epoch = before["epoch"]
+        if before.get('safety_revision') != 2:
+            raise ClientError('unsupported_adapter_safety_revision', before)
         # Capture epoch BEFORE the world check. Any later world transition must
         # make the adapter reject this epoch, not silently select the new world.
         self.preflight(world_slot=world_slot, character_slot=character_slot, character_name=character_name)
-        if before.get("recovery_required"):
+        # Dismiss is also the explicit retry path for recoverable partial cleanup.
+        # The controller refuses orphaned/unknown entities; never bypass its identity checks.
+        if before.get("recovery_required") and action != 'dismiss':
             raise ClientError("recovery_required", before)
         def request_console(line):
             try:
@@ -127,6 +131,8 @@ class BodyClient:
                 raise ClientError("request_correlation_failed", result)
             status = request.get("status")
             if status == "succeeded":
+                if request.get('state_confirmed') is not True or request.get('phase') != 'state_confirmed':
+                    raise ClientError('unconfirmed_command_result', result)
                 return result
             if status in {"failed", "cancelled"}:
                 raise ClientError("body_command_" + status, result)

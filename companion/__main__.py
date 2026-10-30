@@ -16,7 +16,9 @@ def main(argv=None):
     init.add_argument("--profile", default="runtime/personality.json")
     init.add_argument("--name", default="Спутник")
     for name in ("diagnose", "status", "spawn", "follow", "stay", "dismiss"):
-        cmd = commands.add_parser(name)
+        cmd = commands.add_parser(name, help=(
+            'explicit cleanup or continuation after partial failure; never removes untrusted entities'
+            if name == 'dismiss' else None))
         target = cmd.add_mutually_exclusive_group(required=True)
         target.add_argument("--game", help="Explicit folder containing enshrouded.exe")
         target.add_argument("--pid", type=int)
@@ -28,8 +30,9 @@ def main(argv=None):
             cmd.add_argument("--world-slot", type=int, required=True)
             cmd.add_argument("--character-slot", type=int, required=True)
             cmd.add_argument("--character-name", required=True)
-            cmd.add_argument("--request-id")
-            cmd.add_argument("--timeout", type=float, default=40)
+            cmd.add_argument("--request-id", help='same ID reads the original result; use a NEW ID for an explicit dismiss retry')
+            cmd.add_argument("--timeout", type=float, default=40,
+                             help='verification seconds (default 40); timeout does not cancel game effects')
     args = parser.parse_args(argv)
     journal = None
     try:

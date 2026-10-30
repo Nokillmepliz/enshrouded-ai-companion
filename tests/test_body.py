@@ -149,24 +149,28 @@ class BodyTests(unittest.TestCase):
         self.assertEqual(self.rig.fake.spawns, 0)
 
     def test_storage_failure_blocks_spawn(self):
-        self.rig.fake.io_error = True
+        self.rig.fake.io_write_error = True
         r = self.rig.request("spawn")
         self.assertEqual(r["request"]["code"], "runtime_lock_write_failed")
         self.assertEqual(self.rig.fake.spawns, 0)
 
-    def test_missing_model_rolls_back_and_locks(self):
+    def test_missing_model_keeps_untrusted_id_and_locks(self):
         self.rig.fake.no_model = True
         r = self.rig.request("spawn")
         self.assertEqual(r["request"]["status"], "failed")
         self.assertTrue(r["state"]["recovery_required"])
-        self.assertEqual(self.rig.fake.destroys, 1)
+        self.assertEqual(self.rig.fake.destroys, 0)
+        self.assertFalse(r['state']['body_trusted'])
 
-    def test_missing_faction_rolls_back_without_guard(self):
+    def test_missing_faction_keeps_handle_for_explicit_cleanup_without_guard(self):
         self.rig.fake.no_faction = True
         r = self.rig.request('spawn')
         self.assertTrue(r['state']['recovery_required'])
-        self.assertEqual(self.rig.fake.destroys, 1)
+        self.assertEqual(self.rig.fake.destroys, 0)
+        self.assertTrue(r['state']['body_trusted'])
         self.assertEqual(len(self.rig.fake.events), 0)
+        self.rig.request('dismiss', 'cleanup'); self.rig.step(8)
+        self.assertEqual(self.rig.status('cleanup')['request']['status'], 'succeeded')
 
     def test_full_cache_still_allows_cleanup(self):
         self.rig.spawned()
@@ -188,8 +192,8 @@ class BodyTests(unittest.TestCase):
     def test_marker_failure_does_not_claim_stay(self):
         self.rig.spawned(); self.rig.fake.spawn_refused = True
         r = self.rig.request('stay', 's')
-        self.assertEqual(r['request']['code'], 'marker_spawn_refused')
-        self.assertEqual(r['state']['mode'], 'follow')
+        self.assertEqual(r['request']['code'], 'marker_spawn_outcome_unknown')
+        self.assertEqual(r['state']['mode'], 'recovery_required')
 
     def test_missing_marker_fails_instead_of_guarding_reused_id(self):
         self.rig.spawned(); self.rig.request('stay', 's')
@@ -245,12 +249,12 @@ class BodyTests(unittest.TestCase):
         self.assertEqual(self.rig.request("spawn")["error"], "local_console_only")
         self.assertEqual(self.rig.fake.spawns, 0)
 
-    def test_spawn_refused_and_later_explicit_retry(self):
+    def test_spawn_zero_is_unknown_and_later_spawn_refused(self):
         self.rig.fake.spawn_refused = True
-        self.assertEqual(self.rig.request("spawn")["request"]["code"], "spawn_refused")
+        self.assertEqual(self.rig.request("spawn")["request"]["code"], "spawn_outcome_unknown")
         self.rig.fake.spawn_refused = False
-        self.rig.request("spawn", "retry"); self.rig.step()
-        self.assertEqual(self.rig.status("retry")["request"]["status"], "succeeded")
+        self.assertEqual(self.rig.request("spawn", "retry")['error'], 'recovery_required')
+        self.assertIsNotNone(self.rig.fake.files['FAKE/runtime.lock'])
 
     def test_json_escapes_control_characters(self):
         encode = self.rig.lua.eval("require('json').encode")

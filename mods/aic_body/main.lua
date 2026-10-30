@@ -3,26 +3,49 @@ local body = require('body')
 local json = require('json')
 emf.emits({'StartGuardingEvent', 'StopGuardingEvent'})
 local current_world
+local entity_ids
 local lock_path = emf.dir .. '/runtime.lock'
 local function read_lock()
-  local f = io.open(lock_path, 'r')
-  if not f then return nil end
-  local text = f:read('*l'); f:close(); return text
+  local f, _, errno = io.open(lock_path, 'r')
+  if not f then return nil, errno == 2 and 'missing' or 'error' end
+  local text = f:read('*a')
+  local closed = f:close()
+  if text == nil or not closed then return nil, 'error' end
+  return text, 'present' -- empty, truncated and legacy locks still block spawn
 end
 local env = {
   instance=(tostring({}) .. string.format('%.9f', os.clock())):gsub('[^%w]', ''),
   session=function() return emf.session_token() end,
   owner=function() return emf.local_player() end,
-  locked=function(session) return read_lock() == session end,
-  lock=function(session)
+  locked=function() local _, state = read_lock(); return state ~= 'missing' end,
+  lock=function(expected)
+    local _, state = read_lock()
+    if state ~= 'missing' then return false end -- never overwrite another/old lock
     local f = io.open(lock_path, 'w')
     if not f then return false end
-    local ok = f:write(session .. '\n'); local closed = f:close()
-    return ok ~= nil and closed ~= nil and read_lock() == session
+    local ok = f:write(expected)
+    local flushed = f:flush()
+    local closed = f:close()
+    local text, after = read_lock()
+    return ok ~= nil and flushed ~= nil and closed ~= nil and after == 'present' and text == expected
   end,
-  unlock=function()
-    if read_lock() == nil then return true end
-    return os.remove(lock_path) ~= nil
+  unlock=function(expected)
+    local text, state = read_lock()
+    if state ~= 'present' or text ~= expected then return false end
+    if not os.remove(lock_path) then return false end
+    local _, after = read_lock()
+    return after == 'missing'
+  end,
+  exists=function(entity)
+    -- position=nil is NOT evidence that an entity was destroyed.
+    -- Build at most one snapshot per callback, only when absence needs checking.
+    if not entity_ids then
+      entity_ids = {}
+      for _, id in ipairs(current_world:entities()) do entity_ids[id] = true end
+      local owner = emf.local_player()
+      if not owner or owner == 0 or not entity_ids[owner] then error('entity_snapshot_unavailable') end
+    end
+    return entity_ids[entity] == true
   end,
   spawn=function(guid, position)
     return emf.spawn(current_world, guid, position.x, position.y, position.z)
@@ -69,14 +92,14 @@ local function log_transition()
 end
 local function run(world, fn)
   if not world:is_server() then return end
-  current_world = world
+  current_world, entity_ids = world, nil
   local ok, result = pcall(fn)
-  pcall(log_transition) -- diagnostics must not change command execution
-  current_world = nil -- no game/component pointers escape the callback
   if not ok then
-    controller.recovery, controller.mode = true, 'recovery_required'
-    controller.last_error = 'callback_error'
-    controller:finish('failed', 'callback_error')
+    controller:halt('callback_error')
+  end
+  pcall(log_transition) -- diagnostics must not change command execution
+  current_world, entity_ids = nil, nil -- no game/component pointers escape the callback
+  if not ok then
     emf.log('Body adapter halted: ' .. tostring(result))
     return {protocol=1, error='callback_error'}
   end
