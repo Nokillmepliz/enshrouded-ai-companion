@@ -264,3 +264,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Перед публикацией документации повторно выполнены полный suite (**87 тестов PASS**), `compileall`, dry-run backup-конфигурации с текущими 144 файлами и `git diff --check`: PASS.
 
 Резервная точка перед первым spawn готова. Следующий шаг — отдельное согласование первой команды `spawn` для мира `AI Body Test` / LOCAL world slot 1 и персонажа `Body Test` / LOCAL character slot 1.
+
+### Публикация результатов подготовки
+
+- Документация установки/первого запуска, полная история read-only диагностики и `config/first-test-saves-backup.json` опубликованы в `origin/master`.
+- Основной коммит: **`e237c5b` — Record EMF installation and verified local test setup**; push `78badab..e237c5b` подтверждён GitHub.
+- В коммит вошли только `README.md`, `docs/FIRST_RUN.md`, `docs/PROGRESS.md` и конфигурация backup. `runtime/` с сохранениями/логами, `artifacts/`, `dist/` и бинарники EMF остаются исключёнными из Git.
+- Эта запись о результате push сохраняется следующим отдельным журнальным коммитом.
