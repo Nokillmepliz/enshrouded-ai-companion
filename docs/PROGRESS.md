@@ -1,5 +1,18 @@
 # Журнал прогресса Enshrouded AI Companion
 
+## 2026-10-31 — этап 10.4, RenderEquipment и visual resources
+
+- Pinned EMF reflection разобран новым read-only `tools/reflection_schema.py`. Подтверждены все поля шести целевых компонентов и вложенных `Equipment`, `ItemVisual`, `ItemRenderColors`, `HashKey32`.
+- `RenderEquipment` — dynamic/client-only data component: 24 runtime handles, 24 GUID `lastModels`, цвета, masks и render pose. `CharacterSetup` хранит gender/preset/hair/beard/colors как U8/HashKey32. `NewCharacterSetup` и `EquipmentCheck` — server-only маркеры; `InventorySetup` хранит entity links, не model GUID.
+- ECS program map подтвердил цепочку: `apply_charactersetup` использует preset/item registries и inventory, `equipment_visuals` пишет `Equipment`, `render_equipment_models_ag2` пишет `RenderEquipment` и `RenderScene`. Конкретные model/mesh/skeleton GUID остаются неизвестны.
+- Создан standalone fail-closed visual fingerprint contract: текущий evidence даёт только `STRUCTURAL_MATCH`; resource match/dependency resolution/runtime render остаются `UNKNOWN`, `spawn_ready=false`.
+- Подготовлен source-only Rust inspector `tools/kfc_readonly_inspect` на pinned kfc-parser. Read-only preflight оригинального KFC подтвердил `KFC4` и `writes_performed=false`, но `cargo`/`rustc` отсутствуют. Бинарник не собран и не запускался; системные инструменты не устанавливались.
+- EML patch, Stage 10 evaluator и observer не менялись: доказательств для нового обязательного visual-контракта недостаточно.
+- Полный offline suite: **205 PASS**; `compileall`, Lua validation существующих модов и `git diff --check` прошли. Rust source не компилировался и не включён в число runtime-проверок.
+- Созданы `STAGE10_4_VISUAL_RESOURCE_RESEARCH.md` и `STAGE10_4_VISUAL_FINGERPRINT_DESIGN.md`. История этапов 10.2/10.3 сохранена.
+- Enshrouded не запускался; EML, игровые DLL/KFC/DAT/сохранения/entities/inventory/equipment не изменялись.
+- Статус: **BLOCKED**. Следующий шаг требует отдельного разрешения на локальный Rust 1.88 toolchain, сборку/audit inspector и read-only KFC extraction.
+
 ## 2026-10-31 — этап 10.3, диагностика человеческой модели
 
 - Причина `model_guid=nil` установлена: в реальном component fingerprint source и clone этапа 10.2 нет `keen::ecs::ModelResource`. `nil` возник при поиске компонента. Pinned EML source подтверждает: отсутствующее mapped field возвращает nil, а присутствующий GUID возвращается Lua-строкой.

@@ -1,5 +1,11 @@
 # План проверки тела
 
+## Этап 10.4 — visual resources
+
+Офлайн-проверки валидируют parser generated reflection, точные поля/типы visual components, structural match без повышения до resource/runtime proof, непустые UUID references, mismatch/unknown dependencies, стабильную сериализацию и `spawn_ready=false`. Safety tests проверяют pinned inspector source, отсутствие writer API/бинарников, повреждённый KFC header, запрет output в каталог игры и неизменность входов preflight.
+
+Rust inspector нельзя считать протестированным до сборки pinned source Rust 1.88 и проверки на копии либо read-only оригиналах. До resource extraction EML/evaluator/observer остаются на v2; повторный load-only не планируется.
+
 ## Этап 10.3 — model fingerprint
 
 До следующего runtime запуска офлайн-проверки обязаны покрывать typed model evidence v2: реальный UUID, неверный field path, отсутствующий component/field, GUID-object и другой неверный тип, два nil/MISSING, mismatch, повреждённый и устаревший evidence, неверные token/GUID/npcId/faction, изменение source, compact observer и постоянный `spawn_ready=false`.

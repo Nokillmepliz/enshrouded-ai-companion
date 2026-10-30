@@ -1,5 +1,11 @@
 # Результаты подготовки этапа 2
 
+## Этап 10.4
+
+Добавлены тесты reflection schema, полей/типов шести компонентов, corrupt reflection, structural/resource/dependency levels, GUID validation, mismatch, stable SHA-256 и safety envelope KFC inspector. Preflight tests отклоняют повреждённый KFC header и output в game directory и проверяют неизменность входов. Реальная Rust-сборка/декодирование не выполнялись из-за отсутствия toolchain и не считаются PASS.
+
+Полный suite: **205 PASS**. `compileall`, Lua validation существующих модов и `git diff --check` прошли. Rust source не компилировался из-за отсутствия cargo/rustc и не считается проверенным бинарником. Игровых проверок этапа 10.4 нет.
+
 ## Этап 10.3
 
 Добавлены регрессии typed evidence v2 и Lua patch для `CONFIRMED`, отсутствующего component, отсутствующего field и неожиданного GUID-object/table. Evaluator проверяет UUID, status/type/path, source/clone mismatch, ручной `model_match`, старый формат и nil-like значения. Observer измеряется вместе с префиксом ответа и ограничен 1023 байтами.
