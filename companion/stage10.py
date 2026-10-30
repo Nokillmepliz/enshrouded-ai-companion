@@ -177,6 +177,7 @@ def preflight(
     expected_game_dir: str | Path | None = None,
     game_running: bool = False,
     backup_manifest: str | Path | None = None,
+    receipt_path: str | Path | None = None,
 ) -> dict:
     game = Path(game_dir).resolve()
     if expected_game_dir is not None and game != Path(expected_game_dir).resolve():
@@ -201,16 +202,41 @@ def preflight(
     existing_dbghelp = game / "dbghelp.dll"
     if existing_dbghelp.exists():
         raise Stage10Error("conflicting_or_repeated_dbghelp_install")
+    if (game / "eml.json").exists():
+        raise Stage10Error("conflicting_or_repeated_eml_config")
+    if (game / "enshrouded.kfc.bak").exists():
+        raise Stage10Error("unexpected_kfc_backup")
     if (game / "mods" / "aic_eml_humanoid").exists():
         raise Stage10Error("patch_already_installed")
+    eml_mods = game / "mods"
+    if eml_mods.is_dir() and any(eml_mods.iterdir()):
+        raise Stage10Error("conflicting_eml_mods_present")
     if (game / "emf" / "mods" / "aic_template_observer").exists():
         raise Stage10Error("observer_already_installed")
+    if (game / "emf" / "config" / "aic_template_observer.ini").exists():
+        raise Stage10Error("observer_config_already_installed")
     if (game / EVIDENCE_RELATIVE).exists():
         raise Stage10Error("stale_evidence_present")
+    install_roots = (game, game / "mods", game / "emf")
+    if any(
+        any(root.rglob("*.stage10-install"))
+        for root in install_roots if root.is_dir()
+    ):
+        raise Stage10Error("partial_install_temporary_present")
+    if receipt_path is not None and Path(receipt_path).exists():
+        raise Stage10Error("partial_or_repeated_install_receipt")
     patch_checks = validate_patch(patch_dir)
     observer_checks = validate_observer(observer_dir)
     if not os.access(game, os.W_OK):
         raise Stage10Error("game_directory_not_writable")
+    required_free_bytes = (
+        (game / "enshrouded.kfc").stat().st_size
+        + (game / "enshrouded.kfc_resources").stat().st_size
+        + 1024 ** 3
+    )
+    free_bytes = shutil.disk_usage(game).free
+    if free_bytes < required_free_bytes:
+        raise Stage10Error("insufficient_game_disk_space")
     baseline_dat = sorted(path.name for path in game.glob("enshrouded_[0-9][0-9][0-9].dat"))
     backup_verified = bool(backup_manifest and verify_backup(backup_manifest))
     blockers = [] if backup_verified else ["verified_backup_missing"]
@@ -226,6 +252,8 @@ def preflight(
         "patch_checks": list(patch_checks),
         "observer_checks": list(observer_checks),
         "baseline_dat": baseline_dat,
+        "game_disk_free_bytes": free_bytes,
+        "game_disk_required_bytes": required_free_bytes,
         "eml_state": "OFFLINE_VERIFIED",
         "emf_state": "INSTALLED_VERIFIED",
         "patch_state": "OFFLINE_VALIDATED",
@@ -313,9 +341,12 @@ def verify_backup(manifest_path: str | Path) -> bool:
     path = Path(manifest_path)
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        if data.get("verified") is not True or not data.get("entries"):
+        entries = data.get("entries")
+        if data.get("verified") is not True or not isinstance(entries, list) or not entries:
             return False
-        for entry in data["entries"]:
+        for entry in entries:
+            if not isinstance(entry, dict):
+                return False
             if not isinstance(entry.get("reason"), str) or not entry["reason"].strip():
                 return False
             backup = Path(entry["backup"])

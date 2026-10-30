@@ -34,6 +34,7 @@ def build_parser() -> argparse.ArgumentParser:
     prepare.add_argument("--game", default=DEFAULT_GAME)
     prepare.add_argument("--eml", default=DEFAULT_EML)
     prepare.add_argument("--backup-manifest")
+    prepare.add_argument("--install-receipt", default=r"runtime\stage10\install-receipt.json")
 
     evaluate = commands.add_parser("evaluate", help="evaluate already collected artifacts")
     evaluate.add_argument("--eml-log")
@@ -57,6 +58,7 @@ def main(argv: list[str] | None = None) -> int:
                 expected_game_dir=DEFAULT_GAME,
                 game_running=detect_game_process(),
                 backup_manifest=args.backup_manifest,
+                receipt_path=args.install_receipt,
             )
         else:
             result = evaluate_load_only(

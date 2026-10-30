@@ -118,6 +118,7 @@ class Stage10PreflightTests(unittest.TestCase):
         result = self.run_preflight()
         self.assertTrue(result["ok"])
         self.assertFalse(result["phase_b_allowed"])
+        self.assertGreater(result["game_disk_free_bytes"], result["game_disk_required_bytes"])
 
     def test_process_detection_is_positive_and_fails_closed(self):
         completed = __import__("subprocess").CompletedProcess(
@@ -174,6 +175,33 @@ class Stage10PreflightTests(unittest.TestCase):
         with self.assertRaisesRegex(Stage10Error, "stale_evidence_present"):
             self.run_preflight()
 
+    def test_eml_config_backup_mod_temp_observer_config_and_receipt_are_rejected(self):
+        collisions = (
+            (self.game / "eml.json", "conflicting_or_repeated_eml_config"),
+            (self.game / "enshrouded.kfc.bak", "unexpected_kfc_backup"),
+            (self.game / "mods" / "foreign" / "mod.json", "conflicting_eml_mods_present"),
+            (self.game / "emf" / "config" / "aic_template_observer.ini",
+             "observer_config_already_installed"),
+            (self.game / "orphan.stage10-install", "partial_install_temporary_present"),
+        )
+        for path, error in collisions:
+            with self.subTest(error=error):
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("collision", encoding="utf-8")
+                with self.assertRaisesRegex(Stage10Error, error):
+                    self.run_preflight()
+                path.unlink()
+                for parent in (path.parent, path.parent.parent):
+                    if parent not in (self.game, self.game / "emf") and parent.is_dir():
+                        try:
+                            parent.rmdir()
+                        except OSError:
+                            pass
+        receipt = self.root / "install-receipt.json"
+        receipt.write_text("{}", encoding="utf-8")
+        with self.assertRaisesRegex(Stage10Error, "partial_or_repeated_install_receipt"):
+            self.run_preflight(receipt_path=receipt)
+
 
 class Stage10BackupInstallRollbackTests(unittest.TestCase):
     def setUp(self):
@@ -218,6 +246,14 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
         self.assertFalse(verify_backup(self.manifest))
         with self.assertRaisesRegex(Stage10Error, "verified_backup_required"):
             install(self.game, self.eml, PATCH, OBSERVER, self.manifest, self.receipt, apply=False)
+
+    def test_legacy_manifest_shape_is_rejected_without_exception(self):
+        legacy = self.root / "legacy-manifest.json"
+        legacy.write_text(json.dumps({
+            "verified": True,
+            "entries": {"local/character0.ksd": {"sha256": "old-format"}},
+        }), encoding="utf-8")
+        self.assertFalse(verify_backup(legacy))
 
     def test_install_is_dry_run_by_default(self):
         plan = self.verified_install(

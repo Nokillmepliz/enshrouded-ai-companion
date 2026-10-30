@@ -199,3 +199,12 @@ Spawn-тест допускается в отдельном будущем эт�
 5. Только A+B+C плюс verified backup/source/save/rollback дают `LOAD_ONLY_SUCCESS`. `spawn_ready=false` при любом результате.
 
 Negative tests обязаны покрывать отсутствие writer finalization, stale token, неверные GUID/npcId/faction, неполный fingerprint, отсутствие observer/bridge, game/resource errors, неизвестные KFC/DAT и save changes, missing backup и rollback failure. Пустой evaluator возвращает `NOT_EXECUTED`.
+
+# Этап 10.2: orchestration первого load-only запуска
+
+1. `preflight` дополнительно обязан отклонять существующие `eml.json`, `enshrouded.kfc.bak`, любые сторонние EML-моды, observer config collision, `*.stage10-install`, install receipt и недостаток места.
+2. Несовместимый или legacy backup manifest должен возвращать `False`, не выбрасывая исключение.
+3. Реальный read-only preflight повторно сверяет build/hashes/process/DAT и сообщает размер свободного места; отсутствие нового backup сохраняет `installation_ready=false`.
+4. Dry-run install без verified manifest и rollback без receipt обязаны завершаться fail closed и не создавать файлы.
+5. Часть B выполняется только после отдельного разрешения: новый verified backup → девять install files → post-install verification → остановка до ручного запуска.
+6. Runtime A/B/C не записываются как успешные без одного реального запуска и коррелированных evidence/logs/reports. Spawn остаётся запрещённым.

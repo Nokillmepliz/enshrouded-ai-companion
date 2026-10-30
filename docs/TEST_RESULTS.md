@@ -109,3 +109,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Реальный read-only `preflight`: `PREPARATION_READY`, exact build/hashes PASS, patch/observer PASS, direct lookup `UNAVAILABLE_WITHOUT_ENTITY`. `installation_ready=false` только потому, что новый verified backup ещё не создан.
 - Повторный backup dry-run: 20 файлов, 224 556 422 байта; копирование не выполнялось.
 - Игровой эксперимент, установка, A/B/C runtime evaluation, изменения KFC/saves и spawn: **NOT EXECUTED**.
+
+# Этап 10.2 — часть A (2026-10-31)
+
+- Усиленный реальный read-only preflight: **PREPARATION_READY**; exact build/game/EMF/EML hashes, patch/observer, process, collisions, stale evidence, DAT baseline и disk-space checks PASS.
+- Добавлены 2 regression tests: legacy manifest безопасно отклоняется; `eml.json`/KFC backup/EML mod/install temp/observer config/receipt collisions блокируют preflight. Stage 10 suite: **24 PASS**.
+- Полный suite: **184 PASS**. `compileall`, Lua validation и `git diff --check`: PASS.
+- Backup dry-run: 20 файлов, 224 556 422 байта. Реальный backup и установка не выполнялись.
+- Dry-run install без нового verified manifest вернул `verified_backup_required`; rollback без receipt — `rollback_receipt_invalid`.
+- A/B/C, game load, EML evidence, EMF runtime и rollback: **NOT_EXECUTED**. `spawn_ready=false`.

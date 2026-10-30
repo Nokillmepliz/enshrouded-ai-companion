@@ -448,3 +448,14 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Перед публикацией полный suite: **182 PASS**; целевой Stage 9/10/10.1 suite: **56 PASS**; `compileall` и `git diff --check`: PASS.
 - В Git включены только исходники, тесты и Markdown. DLL, EML/game binaries, KFC/DAT/KSD, сохранения, runtime evidence и приватные журналы не публикуются.
 - Игровые действия не выполнялись. Текущий runtime-результат остаётся `NOT_EXECUTED`; verified backup ещё не создан, поэтому установка и фаза B ожидают отдельного разрешения пользователя.
+
+## 2026-10-31 — Этап 10.2, часть A: read-only preflight
+
+- ТЗ этапа 10.2 прочитано как трёхчастная процедура. Выполнена только разрешённая часть A; отдельного разрешения на backup/установку нет. Игра не запускалась, EML не устанавливался, игровые файлы и сохранения не менялись.
+- Усиленный фактический preflight: `PREPARATION_READY`; build `1273043`, EXE/EMF/EML SHA-256, patch и observer PASS. Enshrouded/server не запущены; `dbghelp.dll`, `eml.json`, `enshrouded.kfc.bak`, сторонние EML-моды, stale evidence, install temp/receipt и observer collision отсутствуют. DAT baseline `000`–`054`.
+- На диске игры свободно 434 613 178 368 байт при минимуме preflight 1 297 670 144 байт. На проектном диске свободно 618 937 020 416 байт.
+- Новый backup dry-run: 20 файлов / 224 556 422 байта, включая два KFC/resources и 18 файлов из LOCAL `default`. Там ровно один текущий character и world; связь с `Body Test` / `AI Body Test` ранее подтверждена пользователем, но KSD офлайн не декодируется.
+- Старые backups этапов 3/5 не совместимы с manifest Stage 10 и не будут переиспользованы. Исправлен fail-closed дефект `verify_backup`: legacy `entries`-mapping больше не вызывает `AttributeError`, а возвращает `False`.
+- Preflight расширен проверками `eml.json`, KFC `.bak`, сторонних EML-модов, observer config, install temporary/receipt и свободного места. План содержит ровно 9 install files. Dry-run install без нового backup остановлен `verified_backup_required`; rollback без receipt — `rollback_receipt_invalid`.
+- Добавлены 2 теста; Stage 10 suite **24 PASS**, полный suite **184 PASS**, `compileall` и `git diff --check` PASS. Пустой evaluator повторно вернул `NOT_EXECUTED`. Runtime A/B/C, новый resource, game load, evidence, save integrity и rollback остаются `NOT_EXECUTED`; `spawn_ready=false`.
+- Создан [STAGE10_2_RUNTIME_RESULTS.md](STAGE10_2_RUNTIME_RESULTS.md). Следующий шаг требует отдельного явного разрешения пользователя на часть B: создать verified backup и установить EML/patch/observer; затем остановиться до ручного запуска игры.
