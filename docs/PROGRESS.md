@@ -493,3 +493,12 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Verified backup цел; все install hashes совпадают. DAT `000–054` не менялись; EML создал нулевые `055–063`, KFC backup/cache/export/logs. Неатрибутированных изменений нет.
 - Итог `FAILED`, `load_only_success=false`, `spawn_ready=false`, `rollback_ready=true`, реальный rollback не выполнялся.
 - Observer/evaluator исправлены для nil fingerprints, JSON-escaped tabs и компактного inspect. Полный suite: 188 PASS.
+
+## 2026-10-31 — безопасный откат этапа 10.2
+
+- Откат выполнен после отдельного явного разрешения пользователя; процесс Enshrouded до и после операции отсутствовал.
+- `enshrouded.kfc` и `enshrouded.kfc_resources` восстановлены из verified backup и совпали с исходными SHA-256.
+- Удалены только атрибутированные outputs: `enshrouded.kfc.bak`, DAT `055–063`, 9 файлов EML/patch/observer, `.cache`, `export`, `logs` и оставшиеся пустые каталоги patch.
+- DAT `000–054` точно совпадают с baseline по именам, размерам и mtime. EMF `dinput8.dll` сохранил закреплённый SHA-256. Не осталось install/restore temporary files.
+- LOCAL-сохранения не восстанавливались; их pre-run версии продолжают храниться в проверенном backup.
+- Итоговая rollback verification: `ok=true`. Игра не запускалась, spawn не выполнялся. Этап 10.2 остаётся `FAILED`; повторная установка и новый запуск не разрешены.
