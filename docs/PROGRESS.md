@@ -459,3 +459,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Preflight расширен проверками `eml.json`, KFC `.bak`, сторонних EML-модов, observer config, install temporary/receipt и свободного места. План содержит ровно 9 install files. Dry-run install без нового backup остановлен `verified_backup_required`; rollback без receipt — `rollback_receipt_invalid`.
 - Добавлены 2 теста; Stage 10 suite **24 PASS**, полный suite **184 PASS**, `compileall` и `git diff --check` PASS. Пустой evaluator повторно вернул `NOT_EXECUTED`. Runtime A/B/C, новый resource, game load, evidence, save integrity и rollback остаются `NOT_EXECUTED`; `spawn_ready=false`.
 - Создан [STAGE10_2_RUNTIME_RESULTS.md](STAGE10_2_RUNTIME_RESULTS.md). Следующий шаг требует отдельного явного разрешения пользователя на часть B: создать verified backup и установить EML/patch/observer; затем остановиться до ручного запуска игры.
+
+## 2026-10-31 — Публикация этапа 10.2, части A
+
+- Read-only preflight, усиленные fail-closed проверки, 2 regression tests и технический отчёт зафиксированы основным коммитом **`40d08af` — Prepare stage 10.2 load test preflight**.
+- Перед публикацией полный suite **184 PASS**, Stage 10 suite **24 PASS**, `compileall`, Lua validation и `git diff --check` PASS.
+- Публикуются только исходники, тесты и Markdown. Игра, EML/EMF binaries, backup, KFC/DAT/KSD, сохранения, install receipt и приватные runtime-журналы не входят в Git.
+- Часть B не выполнялась. Статус остаётся `PREPARATION_READY`, runtime evaluator — `NOT_EXECUTED`; следующий шаг ожидает отдельного разрешения пользователя.
