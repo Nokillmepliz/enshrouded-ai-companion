@@ -161,6 +161,9 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
         "game.assets.create_resource": "resource_creation_missing",
         f'comp.value.faction = "{EXPECTED_FACTION}"': "safe_faction_unconfirmed",
         "comp.value.npcId = { value = NPC_ID }": "npc_identity_missing",
+        'local RUN_TOKEN = "__AIC_STAGE10_RUN_TOKEN__"': "run_token_placeholder_missing",
+        '"run_token=" .. RUN_TOKEN': "run_token_evidence_missing",
+        'print("AIC_EML_TEMPLATE_READY", RUN_TOKEN': "run_token_log_marker_missing",
     }
     for marker, error in required.items():
         if marker not in lua:
@@ -180,4 +183,5 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
     if re.search(r"create_resource\s*\([^\n]+SOURCE_GUID", lua):
         raise PatchValidationError("vanilla_guid_mutation")
     return ("layout", "manifest", "fixed_guid", "source_reference", "safe_faction",
-            "npc_identity", "no_autospawn", "no_runtime_commands", "no_save_access")
+            "npc_identity", "run_correlation", "no_autospawn", "no_runtime_commands",
+            "no_save_access")

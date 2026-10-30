@@ -7,6 +7,11 @@ local TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 local SOURCE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8" -- hunter_assistant
 local TEMPLATE_NAME = "AIC_Humanoid_Companion_Experimental"
 local NPC_ID = game.guid.hash(TEMPLATE_GUID)
+-- Replaced with a cryptographically random value by the Stage 10 installer.
+-- Repository source containing the placeholder is never runtime evidence.
+local RUN_TOKEN = "__AIC_STAGE10_RUN_TOKEN__"
+assert(RUN_TOKEN:match("^[0-9a-f]+$") and #RUN_TOKEN == 32,
+	"aic_eml_humanoid: missing Stage 10 run token")
 
 local function text(value)
 	local ok, result = pcall(tostring, value)
@@ -95,6 +100,7 @@ if loader.features.export then
 	local evidence = {
 		"format=aic_eml_humanoid_evidence_v1",
 		"patch_version=0.1.0",
+		"run_token=" .. RUN_TOKEN,
 		"template_guid=" .. TEMPLATE_GUID,
 		"source_guid=" .. SOURCE_GUID,
 		"template_name=" .. TEMPLATE_NAME,
@@ -117,5 +123,5 @@ if loader.features.export then
 	io.export("aic_eml_humanoid/template_evidence_v1.txt", table.concat(evidence, "\n") .. "\n")
 end
 
-print("AIC_EML_TEMPLATE_READY", TEMPLATE_GUID, NPC_ID, text(new_model and new_model.model),
+print("AIC_EML_TEMPLATE_READY", RUN_TOKEN, TEMPLATE_GUID, NPC_ID, text(new_model and new_model.model),
 	text(new_graph and new_graph.animationGraph), registry_added)

@@ -1,10 +1,10 @@
 # Этап 10 — план загрузки собственного template
 
-Текущий статус: **ФАЗА A ЗАВЕРШЕНА; ФАЗА B НЕ ВЫПОЛНЯЛАСЬ И ПОКА BLOCKED ПОЛНЫМ КРИТЕРИЕМ EMF LOOKUP**.
+Текущий статус: **PREPARATION_READY; игровой эксперимент НЕ ВЫПОЛНЯЛСЯ**. Этап 10.1 принимает `UNAVAILABLE_WITHOUT_ENTITY` как известное ограничение и оценивает три независимых уровня A/B/C. До установки всё равно нужны новый verified backup и отдельное разрешение пользователя.
 
 ## Preflight
 
-Подготовлен `python -m scripts.stage10`, всегда read-only. Фактический dry-run 2026-10-31 подтвердил:
+Подготовлен `python -m scripts.stage10 preflight`, всегда read-only. Фактический dry-run 2026-10-31 подтвердил:
 
 - точный путь `D:\SteamLibrary\steamapps\common\Enshrouded`;
 - закрытый процесс Enshrouded на момент ручной проверки;
@@ -15,7 +15,7 @@
 - patch и observer проходят offline validation;
 - baseline содержит `enshrouded_000.dat` … `enshrouded_054.dat`.
 
-Dry-run намеренно возвращает `phase_b_allowed=false`. Он не является установщиком и не выражает согласие пользователя.
+Dry-run возвращает `PREPARATION_READY`, фактическое состояние backup, `installation_ready`, blockers и `requires_user_approval=true`. `phase_b_allowed=false` остаётся границей авторизации: preflight не является разрешением пользователя.
 
 ## Backup перед фазой B
 
@@ -43,6 +43,8 @@ Backup ещё не создавался. Dry-run плана: 20 файлов, 22
 
 `eml.json` включает export и не включает console. `dinput8.dll` не меняется. Существующий `aic_body` и остальные EMF-моды не переписываются. Любой destination collision, повторная/частичная установка или неверный backup останавливает процесс. Install receipt записывает hash каждого добавленного файла после каждого шага, чтобы частичную установку можно было убрать без угадывания.
 
+При реальной установке создаётся случайный `run_token`, который встраивается в EML patch и observer. Он связывает receipt, evidence и оба журнала одного запуска. Исходники с placeholder вручную не запускаются: Lua assertions откажут загрузку.
+
 Официальный `emm.exe` в игру не копируется и для proxy-сценария не запускается.
 
 ## Запуск и диагностика
@@ -66,18 +68,15 @@ aic_template_observer.compare
 
 Observer возвращает model/animation/component/faction/npcId из EML evidence, отдельно сопоставляет model/animation с source и группирует фактически перечисленные component types по navigation/inventory/equipment/save/network. Отсутствующее поле получает `UNAVAILABLE`; источник полей обозначается `EML_EXPORT`. Он также возвращает ограничение `UNAVAILABLE_WITHOUT_ENTITY`: публичный EMF Lua не может искать template GUID без entity. Внешняя проверка объединяет evidence с `Applied N patches`; сам observer не называет pending writer успешным.
 
-## Критерии успеха
+## Критерии успеха 10.1
 
-Частичный runtime-успех load-only:
+Evaluator независимо подтверждает:
 
-- EML и EMF стартовали вместе;
-- writer завершился;
-- игра дошла до меню/LOCAL test world без asset errors;
-- evidence подтверждает новый resource и неизменность source;
-- EMF Lua observer и Python Bridge доступны;
-- KFC/save post-state объясним и rollback dry-run проходит.
+- **A / `EML_PATCH_APPLIED`:** exact mod, run token, новый resource fingerprint, неизменный source, marker и writer finalization без ошибок;
+- **B / `GAME_LOAD_CONFIRMED`:** меню и LOCAL test world загрузились на том же build/token, resource errors отсутствуют, backup/save/file integrity и rollback подтверждены;
+- **C / `EMF_RUNTIME_CONFIRMED`:** EMF/Lua/observer/Python Bridge работают на том же token, все три read-only команды отвечают.
 
-Полный критерий исходного ТЗ дополнительно требует прямого обнаружения resource через EMF. Он сейчас технически недоступен без entity или нового native read-only API, поэтому фаза B не может дать полный ответ на главный вопрос в текущем виде.
+Только A+B+C и обязательные safety checks дают `LOAD_ONLY_SUCCESS`. Прямой EMF lookup не требуется и остаётся отдельным `UNAVAILABLE_WITHOUT_ENTITY`. `LOAD_ONLY_SUCCESS` никогда не включает `spawn_ready`.
 
 ## Критерии остановки
 
@@ -107,11 +106,23 @@ Observer возвращает model/animation/component/faction/npcId из EML e
 
 Реализация `restore_game_data` протестирована на временных каталогах и по умолчанию работает как dry-run. Она не запускалась на игре.
 
-## Оставшийся блокер
+## Оставшиеся ограничения
 
-Для полного критерия нужен один из двух вариантов:
+Прямой EMF lookup по GUID остаётся недоступен без entity, но после пересмотра критерия он не блокирует load-only испытание. До реального теста остаются неизвестны совместный runtime EML+EMF, writer/game load и сохранность post-state.
 
-1. подтверждённое новое read-only EMF API `get_template_resource(guid)`/enumeration, либо
-2. явное изменение критерия этапа: принять EML positive evidence + успешный game load + работающий EMF observer/bridge как достаточное доказательство доступности данных процессу.
+Эксперимент готов к отдельному согласованию только после фактического создания и проверки нового backup и визуального подтверждения LOCAL `Body Test` / `AI Body Test`. Установка и запуск в этапе 10.1 не выполняются.
 
-До решения этого пункта запрос на фазу B не выдаётся.
+Полные правила и форматы evaluator: [STAGE10_1_ACCEPTANCE_CRITERIA.md](STAGE10_1_ACCEPTANCE_CRITERIA.md).
+
+## Действия пользователя при отдельно согласованном запуске
+
+1. Явно разрешить только этап 10.1: создание verified backup, установку EML/patch/observer и последующий rollback без spawn.
+2. Дождаться отчёта Codex `installation_ready=true`; до него игру не запускать.
+3. Самостоятельно запустить Enshrouded через Steam и сообщить, когда открыто главное меню.
+4. В меню визуально выбрать только LOCAL-персонажа `Body Test` и LOCAL-мир `AI Body Test`; при несовпадении имён остановиться.
+5. Загрузить мир и сообщить об успешной загрузке. Не открывать консоль, не выполнять spawn/destroy/faction/inventory команды и не активировать `aic_body`.
+6. Пока мир открыт, дождаться завершения read-only observer/bridge диагностики Codex.
+7. Штатно выйти в меню, закрыть игру и сообщить `закрыл`.
+8. Не запускать игру повторно до post-run integrity check, evaluator и согласованного rollback.
+
+Codex в этой последовательности не запускает игру: он проверяет backup/install, выполняет только read-only диагностику, оценивает A/B/C и при закрытой игре проводит точный rollback по receipt/manifest.

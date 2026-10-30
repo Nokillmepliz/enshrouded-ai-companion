@@ -426,3 +426,18 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Подготовка load-only проверки, fail-closed инструменты, 22 новых теста и документация опубликованы в `origin/master`: **`e5ef303` — Prepare EML humanoid template load audit**, push `26ae31a..e5ef303` подтверждён GitHub.
 - В публикацию вошли только исходники, тесты и Markdown. EML/game binaries, KFC/DAT/KSD, сохранения, runtime-логи и приватные данные не публиковались.
 - Фаза B не выполнялась и остаётся заблокированной полным критерием прямого EMF lookup.
+
+## 2026-10-31 — Этап 10.1: acceptance gate load-only
+
+- Пользователь явно пересмотрел критерий: прямой EMF lookup остаётся `UNAVAILABLE_WITHOUT_ENTITY`, но не блокирует load-only проверку. Успех теперь разделён на A=`EML_PATCH_APPLIED`, B=`GAME_LOAD_CONFIRMED`, C=`EMF_RUNTIME_CONFIRMED`.
+- В `companion/stage10.py` добавлен вычисляемый evaluator со статусами `NOT_EXECUTED`, `PREPARATION_READY`, `PARTIAL_SUCCESS`, `LOAD_ONLY_SUCCESS`, `FAILED`, `RECOVERY_REQUIRED`. Отсутствующие данные остаются `null/UNKNOWN`; `spawn_ready` всегда `false`.
+- Для корреляции одного запуска будущая установка генерирует случайный 128-битный `run_token`, внедряет его в EML patch и observer и сохраняет в install receipt. EML evidence/marker, EMF marker/observer replies и отчёты должны содержать тот же token; timestamp отдельно не принимается.
+- Repository patch и observer содержат placeholder и fail-closed assertions. Ручная установка без штатной подстановки token не считается доказательством и не должна загрузиться.
+- CLI разделён на read-only `scripts.stage10 preflight` и `evaluate`. Preflight сообщает binaries/patch/observer/backup/install readiness и blockers. Evaluate принимает только собранные logs/evidence/JSON/manifest, не запускает игру и не изменяет файлы.
+- Observer сохраняет `status`, `inspect`, `compare`, отмечает источник `EML_EXPORT`, runtime-факт `EMF_RUNTIME` и ограничение `UNAVAILABLE_WITHOUT_ENTITY`; spawn/faction/ECS/inventory/destroy/save writes отсутствуют.
+- Добавлен [STAGE10_1_ACCEPTANCE_CRITERIA.md](STAGE10_1_ACCEPTANCE_CRITERIA.md); обновлены README, compatibility, plan/results и test docs. Исторические результаты реального Vukah и этапов 9/10 не переписывались.
+- Добавлено 19 тестов: полный synthetic A/B/C, writer/stale/mismatch/fingerprint/observer/bridge/game/files/saves/backup/rollback failures, корреляция сегментов журналов и реального tab-separated Lua marker, direct lookup limitation и вечный запрет spawn. Все прежние 163 сохранены; полный suite **182 PASS**, `compileall` и `git diff --check` PASS.
+- Реальный read-only preflight установленной игры: `PREPARATION_READY`; exact build/game/EMF/EML hashes, patch и observer PASS. Новый backup отсутствует, поэтому `installation_ready=false`, blocker `verified_backup_missing`, `phase_b_allowed=false`.
+- Текущий backup dry-run повторно насчитал 20 файлов / 224 556 422 байта. Реальная копия не создавалась.
+- Игра не запускалась, EML не устанавливался, DLL/KFC/DAT/KSD/saves не менялись, runtime artifacts A/B/C не создавались, spawn не выполнялся. Текущий evaluator без входов: `NOT_EXECUTED`.
+- Следующий шаг требует отдельного разрешения пользователя: создать и проверить новый backup, установить только EML/patch/observer, затем пользователь вручную выполняет load-only запуск LOCAL `Body Test` / `AI Body Test` без spawn.

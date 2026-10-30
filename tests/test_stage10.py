@@ -21,6 +21,7 @@ OBSERVER = ROOT / "mods" / "aic_template_observer"
 def evidence(**changes):
     value = {
         "format": "aic_eml_humanoid_evidence_v1",
+        "patch_version": "0.1.0",
         "template_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
         "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
         "npc_id": "2939921867", "faction": "PlayerAlly",
@@ -227,8 +228,13 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
     def test_repeat_and_partial_install_are_fail_closed(self):
         with self.assertRaisesRegex(Stage10Error, "injected_partial_install"):
             self.verified_install(self.game, self.eml, PATCH, OBSERVER, self.manifest,
-                                  self.receipt, apply=True, fail_after=2, game_running=False)
+                                  self.receipt, apply=True, fail_after=5, game_running=False)
         self.assertEqual(json.loads(self.receipt.read_text())["state"], "in_progress")
+        receipt = json.loads(self.receipt.read_text())
+        self.assertRegex(receipt["run_token"], r"^[0-9a-f]{32}$")
+        installed_patch = self.game / "mods" / "aic_eml_humanoid" / "src" / "mod.lua"
+        self.assertIn(receipt["run_token"], installed_patch.read_text(encoding="utf-8"))
+        self.assertNotIn("__AIC_STAGE10_RUN_TOKEN__", installed_patch.read_text(encoding="utf-8"))
         with self.assertRaisesRegex(Stage10Error, "installation_collision"):
             self.verified_install(self.game, self.eml, PATCH, OBSERVER, self.manifest,
                                   self.root / "again.json", apply=True, game_running=False)

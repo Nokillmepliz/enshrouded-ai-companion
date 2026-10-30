@@ -58,7 +58,9 @@ game = {{
     end
   }}
 }}''')
-        lua.execute((PATCH / "src" / "mod.lua").read_text(encoding="utf-8"))
+        patch_source = (PATCH / "src" / "mod.lua").read_text(encoding="utf-8").replace(
+            "__AIC_STAGE10_RUN_TOKEN__", "0123456789abcdef0123456789abcdef")
+        lua.execute(patch_source)
         self.assertEqual(lua.eval("source.data.components[1].value.faction"), "Vukah")
         self.assertEqual(lua.eval("created.data.components[1].value.faction"), "PlayerAlly")
         self.assertEqual(lua.eval("created.data.components[2].value.npcId.value"), EXPECTED_NPC_ID)
@@ -68,6 +70,7 @@ game = {{
         self.assertIn("model_guid=human-model", exported)
         self.assertIn("animation_graph_guid=human-graph", exported)
         self.assertIn("source_unchanged=true", exported)
+        self.assertIn("run_token=0123456789abcdef0123456789abcdef", exported)
 
     def test_game_guid_hash_matches_pinned_survivors_and_new_id(self):
         self.assertEqual(guid_id(SOURCE_TEMPLATE_GUID), 1_633_192_162)

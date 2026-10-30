@@ -187,3 +187,15 @@ Spawn-тест допускается в отдельном будущем эт�
 Фаза B пока **NOT RUN / BLOCKED**. Если блокер полного критерия будет устранён и пользователь отдельно разрешит фазу B, порядок остаётся таким: проверенный backup → повторный preflight → установка только перечисленных файлов → ручной запуск пользователем → load-only логи/evidence/observer/bridge → штатное закрытие → post-run diff → rollback review. Spawn, destroy, faction, inventory и save-команды запрещены.
 
 Успех EML требует свежего evidence, `AIC_EML_TEMPLATE_READY`, последующего `Applied N patches` с `N>0`, полного model/animation/component fingerprint и неизменного source. Ответ observer по внешнему export не считается прямым EMF lookup. Полный критерий остаётся недостижимым, пока публичный EMF Lua требует entity для `world:template`.
+
+# Этап 10.1: критерий A/B/C
+
+Предыдущее последнее предложение этапа 10 сохранено как историческое состояние до пересмотра. В 10.1 прямой lookup вынесен за пределы load-only критерия.
+
+1. `preflight` проверяет процесс, exact game/EMF/EML hashes, patch/observer, conflicts/stale evidence и отдельно состояние verified backup. Он не устанавливает файлы.
+2. Разрешённая будущая установка создаёт уникальный `run_token`, внедряет его в patch/observer и сохраняет в receipt.
+3. После ручного запуска собираются EML log/evidence, EMF log, три ответа observer, bridge diagnostics, game-load и integrity reports.
+4. `evaluate` сопоставляет все артефакты по токену и независимо вычисляет A=`EML_PATCH_APPLIED`, B=`GAME_LOAD_CONFIRMED`, C=`EMF_RUNTIME_CONFIRMED`.
+5. Только A+B+C плюс verified backup/source/save/rollback дают `LOAD_ONLY_SUCCESS`. `spawn_ready=false` при любом результате.
+
+Negative tests обязаны покрывать отсутствие writer finalization, stale token, неверные GUID/npcId/faction, неполный fingerprint, отсутствие observer/bridge, game/resource errors, неизвестные KFC/DAT и save changes, missing backup и rollback failure. Пустой evaluator возвращает `NOT_EXECUTED`.

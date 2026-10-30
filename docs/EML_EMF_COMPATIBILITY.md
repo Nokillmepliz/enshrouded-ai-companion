@@ -43,6 +43,12 @@ Windows загружает оба proxy по импорту игры; точны
 
 Последнее ограничение существенно: при запрете spawn EMF Lua не может независимо получить новый `TemplateResource` по GUID. Публичный контракт описывает только [`world:template(component, id)`](https://github.com/matenm/emf-enshrouded/blob/08d600155fcadc8e45cc9c6f3932a67c717345be/docs/modding/lua.md#L169), а [реализация binding](https://github.com/matenm/emf-enshrouded/blob/08d600155fcadc8e45cc9c6f3932a67c717345be/src/lua_host/bindings.cpp#L225-L248) принимает entity ID. API перечисления или lookup `TemplateResource` по GUID в публичном Lua surface не найден. `aic_template_observer` читает положительный export EML и честно возвращает `direct_emf_template_lookup=UNAVAILABLE_WITHOUT_ENTITY`. Это доказывает загрузку observer и доступ к evidence, но не прямой lookup ресурса через EMF.
 
+## Критерий этапа 10.1
+
+Прямой lookup остаётся отдельной неподтверждённой capability. Он больше не блокирует узкий результат `LOAD_ONLY_SUCCESS`. Для него нужны три независимых результата: EML создал и writer записал resource; игра загрузила изменённую asset database и тестовый LOCAL-мир без ошибок; EMF/Lua/observer/Python Bridge работают в том же процессе. Ни один из этих результатов не выдаётся за прямое чтение нового GUID через EMF.
+
+Один запуск связывает случайный `run_token`: install receipt → установленный EML patch → evidence/EML marker → установленный observer → EMF marker/ответы → bridge/game/integrity reports. Совпадение timestamp без токена недостаточно. Формальные правила приведены в [STAGE10_1_ACCEPTANCE_CRITERIA.md](STAGE10_1_ACCEPTANCE_CRITERIA.md).
+
 ## EML mod discovery и изменения данных
 
 Согласно [официальной инструкции EML](https://brabb3l.github.io/kfc-parser/eml/usage.html), proxy ищет `<game>\mods\<id>\mod.json` и `src\mod.lua`; конфигурация находится в `<game>\eml.json`. Для evidence требуется `use_export_flag=true`, output — `<game>\export\aic_eml_humanoid\template_evidence_v1.txt`.

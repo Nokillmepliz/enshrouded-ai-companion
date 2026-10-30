@@ -96,3 +96,16 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Backup выполнен только как dry-run: 20 файлов, 224 556 422 байта. Реальная проверенная копия не создана.
 - EML не установлен; `dbghelp.dll`, patch и observer в игру не копировались; игра не запускалась; KFC/data/save не менялись; spawn/destroy/faction/inventory не выполнялись.
 - Прямой поиск нового `TemplateResource` через публичный EMF Lua недоступен без entity. Поэтому runtime-совместимость EML+EMF, writer finalization, game load и template acceptance остаются **NOT RUN**, а полный вердикт — **BLOCKED_BEFORE_PHASE_B_FULL_CRITERIA**.
+
+# Этап 10.1 — acceptance gate A/B/C (2026-10-31)
+
+- Все прежние **163 теста сохранены**; добавлено **19 тестов** Stage 10.1. Полный suite: **182 test PASS**. Отдельный regression test проверяет реальный tab-separated формат Lua `print()` для `AIC_EML_TEMPLATE_READY`.
+- Синтетический полный набор с одним `run_token` подтверждает A/B/C и даёт `LOAD_ONLY_SUCCESS`; `spawn_ready` остаётся `false`.
+- Negative tests: writer finalization отсутствует, stale token/evidence, неверные GUID/npcId/faction, неполные model/animation, observer/bridge недоступны, game/resource error, неизвестный KFC/DAT, нецелевой save изменён, backup отсутствует и rollback не готов.
+- Пустой `evaluate` и CLI без артефактов возвращают `NOT_EXECUTED`; UNKNOWN не превращается в PASS.
+- Установка в тестовом каталоге генерирует 128-битный token, внедряет его в patch и observer и сохраняет в receipt. Partial/repeated install и rollback protections прежних тестов проходят.
+- Lua patch исполняется через Lupa только после тестовой замены placeholder; repository placeholder сам по себе fail closed. Observer Lua компилируется и остаётся read-only.
+- `python -m compileall -q companion scripts tests`: **PASS**; `git diff --check`: **PASS**.
+- Реальный read-only `preflight`: `PREPARATION_READY`, exact build/hashes PASS, patch/observer PASS, direct lookup `UNAVAILABLE_WITHOUT_ENTITY`. `installation_ready=false` только потому, что новый verified backup ещё не создан.
+- Повторный backup dry-run: 20 файлов, 224 556 422 байта; копирование не выполнялось.
+- Игровой эксперимент, установка, A/B/C runtime evaluation, изменения KFC/saves и spawn: **NOT EXECUTED**.

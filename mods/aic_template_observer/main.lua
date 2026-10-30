@@ -10,6 +10,10 @@ local EXPECTED = {
   npc_id='2939921867',
   faction='PlayerAlly',
 }
+-- Replaced together with the EML patch during the separately approved install.
+local EXPECTED_RUN_TOKEN = '__AIC_STAGE10_RUN_TOKEN__'
+assert(EXPECTED_RUN_TOKEN:match('^[0-9a-f]+$') and #EXPECTED_RUN_TOKEN == 32,
+  'aic_template_observer: missing Stage 10 run token')
 
 local function evidence_paths()
   local paths = {'export/aic_eml_humanoid/template_evidence_v1.txt'}
@@ -43,6 +47,7 @@ local function checks(value)
   local source_registered = value.source_registered == 'true'
   return {
     evidence_present=true,
+    run_token=value.run_token == EXPECTED_RUN_TOKEN,
     format=value.format == EXPECTED.format,
     template_guid=value.template_guid == EXPECTED.template_guid,
     source_guid=value.source_guid == EXPECTED.source_guid,
@@ -92,6 +97,7 @@ local function reply(kind, extra)
   extra.read_only = true
   extra.spawn_forbidden = true
   extra.direct_emf_template_lookup = 'UNAVAILABLE_WITHOUT_ENTITY'
+  extra.run_token = EXPECTED_RUN_TOKEN
   emf.reply('AIC_TEMPLATE_OBSERVER ' .. json.encode(extra))
 end
 
@@ -100,6 +106,7 @@ emf.command('status', 'read-only EML evidence status', function()
   reply('status', {evidence_available=value ~= nil, evidence_error=err, evidence_path=path,
     new_template_eml_evidence=value ~= nil and value.template_guid == EXPECTED.template_guid,
     original_template_eml_evidence=value ~= nil and value.source_guid == EXPECTED.source_guid,
+    evidence_run_token=value and value.run_token or 'UNAVAILABLE',
     reflection_error=err, direct_new_template='UNAVAILABLE', direct_original_template='UNAVAILABLE',
     limitation='public EMF Lua requires an entity for world:template'})
 end)
@@ -118,4 +125,5 @@ emf.command('compare', 'read-only clone/source comparison', function()
     status='INCOMPLETE_UNTIL_EML_LOG_CONFIRMS_WRITER_FINALIZE'})
 end)
 
-emf.log('Template observer loaded; read-only commands: aic_template_observer.status / inspect / compare')
+emf.log('AIC_TEMPLATE_OBSERVER_READY ' .. EXPECTED_RUN_TOKEN ..
+  '; read-only commands: aic_template_observer.status / inspect / compare')
