@@ -24,7 +24,7 @@ d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882
 |---|---|
 | Проект | `C:\Enshrouded-ai-companion` |
 | Игра | `D:\SteamLibrary\steamapps\common\Enshrouded` |
-| Steam-сохранения | `C:\Program Files (x86)\Steam\userdata\298673494\1203620` |
+| Steam-сохранения | `C:\Program Files (x86)\Steam\userdata\<SteamUserID>\1203620` |
 | Локальные настройки/сохранения | `C:\Users\user\Saved Games\keen games\Enshrouded` |
 | Архив адаптера | `C:\Enshrouded-ai-companion\dist\aic_body-0.1.0.zip` |
 | Подготовленный Python | `C:\Enshrouded-ai-companion\.tools\python\python.exe` |
@@ -344,3 +344,21 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Обновлены README, PROTOCOL, TEST_PLAN и TEST_RESULTS. Исторический [FIRST_INGAME_TEST.md](FIRST_INGAME_TEST.md) не изменялся.
 - Игра не запускалась, spawn/игровые события не выполнялись, файлы игры и сохранения не менялись. Следующий шаг — отдельное согласование read-only survey `hunter_assistant` и `blacksmith_assistant`; human spawn до его результатов запрещён.
 - Основной результат этапа 6 отправлен в `origin/master`: **`bb6c879` — Research human companion body architecture**, push `159fa9e..bb6c879` подтверждён GitHub. Бинарники, сохранения, runtime и приватные логи в коммит не вошли.
+
+
+## 2026-10-30 — Этап 7: второй игровой персонаж как тело AI Companion
+
+- Перед началом `master`, `origin/master` и `HEAD` совпадали на `141ee9f`; рабочее дерево было чистым. Прочитаны обязательные отчёты этапов 5/6 и текущие Lua/Python-модули.
+- Исследованы pinned EMF `08d600155fcadc8e45cc9c6f3932a67c717345be`, Enshwick `135561192969af9ec9ffd0957b97ca6a7aa31820`, SDK официального EMF 0.3.2 и официальные материалы Enshrouded/Steam.
+- Вариант A (второй полноценный player без клиента) классифицирован `UNSUPPORTED`: EMF умеет получить локального/подключённых игроков и spawn template entity, но не создаёт player slot, network peer, account authority и не загружает второй character save в сессию.
+- Вариант B классифицирован `UNKNOWN`: визуальная/NPC-копия может быть резервным телом, но не является настоящим player и не получает автоматически штатные inventory/equipment/skills/save semantics. Результаты этапа 6 сохранены без переписывания.
+- Вариант C классифицирован `LIKELY` и рекомендован как единственный реалистичный путь к настоящему игровому персонажу. Штатный второй client даёт account/slot/entity и character persistence, но AI-control channel, работа двух клиентов на одном ПК и производительность не подтверждены.
+- Официальные правила Steam требуют отдельный account и доступную отдельную копию для одновременной игры. Обход авторизации/лицензии не исследовался и не предлагался.
+- Read-only перечисление подтвердило отдельные LOCAL `character0.ksd/world0.ksd` и Steam remote character/world slots. Содержимое сохранений не редактировалось и не публиковалось; Steam ID исключён из документации.
+- При privacy-review найден числовой Steam user ID в ранее отслеживаемых `STAGE3_PREFLIGHT.md`, `PROGRESS.md` и двух backup-конфигурациях; все записи заменены на `<SteamUserID>`. Конфигурации теперь требуют локально подставить ID перед будущим запуском backup; исторические технические результаты не изменены.
+- Созданы [PLAYER_CHARACTER_COMPANION_RESEARCH.md](PLAYER_CHARACTER_COMPANION_RESEARCH.md) и [PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md](PLAYER_CHARACTER_COMPANION_ARCHITECTURE.md): ECS, saves, A/B/C, inventory/equipment, authority, интерфейс команд, риски и безопасный план следующего этапа.
+- Добавлен офлайн-модуль `companion/player_character.py`: evidence-каталог вариантов и команд, проверка distinct host/companion account, session token, player slot/entity, network peer и обязательных компонентов. Даже trusted identity не включает runtime-control; неподтверждённые операции fail closed.
+- Добавлено 13 тестов: классификация, отсутствие runtime API, разделение основного персонажа/companion, ownership, missing components, disconnect, session/account/slot/entity changes, unknown network authority и отказ придуманным операциям.
+- Полный suite: **110 тестов PASS**; `compileall` PASS. Пакет пересобран дважды, обе сборки: SHA-256 `998bf16b03e6d7db41f5851dc51c70a840f35dab4d8796b8c4291cdb01335872`.
+- Ограничение: игровой тест этапа 7 не выполнялся. Игра и второй client не запускались, spawn/input/inventory не выполнялись, файлы игры и сохранения не изменялись.
+- Следующий шаг после отдельного разрешения: подготовить read-only Host Observer, отдельный test account/character и проверенные backups; пользователь вручную подключает второй client. Сначала подтверждаются два разных account/slot/entity и штатное сохранение, затем отдельно исследуется один безопасный input только второго процесса.

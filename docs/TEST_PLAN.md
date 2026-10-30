@@ -115,3 +115,19 @@ Recovery: код, trusted/invalidated, destroy_result, новый dismiss ID, с
 Повторная загрузка без остатков:
 Решение: подтверждено на build X / требуется исправление:
 ```
+
+
+## Этап 7: офлайн-инварианты Player Character Companion
+
+Новые тесты `tests/test_player_character.py` проверяют:
+
+- классификацию A=`UNSUPPORTED`, B=`UNKNOWN`, C=`LIKELY` без объявления AI-control готовым;
+- запрет всех runtime-команд при отсутствии подтверждённого client-control backend;
+- отделение основного персонажа от компаньона по account key и entity id;
+- обязательные session token, live player slot, network peer и player components;
+- три последовательных стабильных наблюдения до trust;
+- fail-closed при смене session/account/slot/entity и неизвестной network authority;
+- отказ неизвестным или придуманным операциям;
+- совместимость с прежними тестами Lua Body Adapter и Human Body.
+
+Эти тесты не эмулируют сетевой клиент, Steam authority, сохранение character или игровой input. Игровой этап 7 не выполняется.

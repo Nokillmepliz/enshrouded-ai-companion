@@ -28,8 +28,8 @@
 | FileVersion / ProductVersion | Пустые; версию определяли по хешу, не по этим полям |
 | Существующий лог игры | `D:\SteamLibrary\steamapps\common\Enshrouded\enshrouded.log` |
 | Version из этого лога | `f68140a380119c1aa8ab5898460e6b4a45faecf7` (master); дополнительное свидетельство, не номер совместимости |
-| Steam-сохранения | `C:\Program Files (x86)\Steam\userdata\298673494\1203620\remote` |
-| Полный каталог Cloud-копии | `C:\Program Files (x86)\Steam\userdata\298673494\1203620`, включая `remotecache.vdf`: 104 файла, 29 351 330 байт |
+| Steam-сохранения | `C:\Program Files (x86)\Steam\userdata\<SteamUserID>\1203620\remote` |
+| Полный каталог Cloud-копии | `C:\Program Files (x86)\Steam\userdata\<SteamUserID>\1203620`, включая `remotecache.vdf`: 104 файла, 29 351 330 байт |
 | Локальные сохранения/настройки | `C:\Users\user\Saved Games\keen games\Enshrouded`; сейчас только `local_settings.json`, подкаталог `default` отсутствует |
 | Личность (будет создана отдельно) | `C:\Enshrouded-ai-companion\runtime\personality.json`, сейчас отсутствует |
 | Предложенное место копии | `C:\Enshrouded-ai-companion\runtime\backups\<UTC-дата>-<id>` |

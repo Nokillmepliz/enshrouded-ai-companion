@@ -51,3 +51,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 Установка EMF/адаптера, включение bridge, подключение к игровому процессу, изменение файлов игры/сохранений, запуск мира, спавн реальной сущности и игровые испытания. Наличие ModelResource на выбранных теле/маркере, работа reflection на установленной версии и длительное физическое следование пока не подтверждены.
 
 Следующий этап — [FIRST_RUN.md](FIRST_RUN.md) и [TEST_PLAN.md](TEST_PLAN.md), отдельно после подтверждения пользователя. Текущий результат подтверждает логику прототипа и его контракт, а не работу внутри игры.
+
+
+## Этап 7 — Player Character Companion, 30.10.2026
+
+- `.tools/python/python.exe -m unittest discover -s tests -q`: **110 тестов, PASS**. Сохранены прежние 97 и добавлены 13 тестов player-character policy.
+- `.tools/python/python.exe -m compileall -q companion tests scripts`: **PASS**.
+- `.tools/python/python.exe scripts/package.py`: **PASS**; две последовательные сборки дали одинаковый SHA-256 `998bf16b03e6d7db41f5851dc51c70a840f35dab4d8796b8c4291cdb01335872`.
+- Новый `companion/player_character.py` — только офлайн evidence/identity/authority policy. Он не входит в Lua-архив, не подключается к игре и не включает runtime-команды.
+- Read-only анализ сохранений ограничен метаданными файлов. Save-файлы, Steam ID, игровые бинарники и приватные логи в Git не добавлены.
+- Игра, второй клиент, spawn, input, inventory operations и AI Brain не запускались.
