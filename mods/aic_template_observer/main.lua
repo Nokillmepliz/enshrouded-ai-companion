@@ -45,6 +45,15 @@ end
 local function checks(value)
   if not value then return {evidence_present=false} end
   local source_registered = value.source_registered == 'true'
+  local function available(candidate)
+    if type(candidate) ~= 'string' then return false end
+    local normalized = candidate:lower():match('^%s*(.-)%s*$')
+    return normalized ~= '' and normalized ~= 'unavailable' and normalized ~= 'nil'
+      and normalized ~= 'null' and normalized ~= 'none'
+  end
+  local model_available = available(value.model_guid) and available(value.source_model_guid)
+  local animation_available = available(value.animation_graph_guid)
+    and available(value.source_animation_graph_guid)
   return {
     evidence_present=true,
     run_token=value.run_token == EXPECTED_RUN_TOKEN,
@@ -53,10 +62,11 @@ local function checks(value)
     source_guid=value.source_guid == EXPECTED.source_guid,
     npc_id=value.npc_id == EXPECTED.npc_id,
     faction=value.faction == EXPECTED.faction,
-    model_available=value.model_guid ~= nil and value.model_guid ~= '' and value.model_guid ~= 'UNAVAILABLE',
-    model_matches_source=value.model_guid ~= nil and value.model_guid == value.source_model_guid,
-    animation_graph_available=value.animation_graph_guid ~= nil and value.animation_graph_guid ~= '' and value.animation_graph_guid ~= 'UNAVAILABLE',
-    animation_graph_matches_source=value.animation_graph_guid ~= nil and value.animation_graph_guid == value.source_animation_graph_guid,
+    model_available=model_available,
+    model_matches_source=model_available and value.model_guid == value.source_model_guid,
+    animation_graph_available=animation_available,
+    animation_graph_matches_source=animation_available
+      and value.animation_graph_guid == value.source_animation_graph_guid,
     component_clone=value.component_clone == 'true' and value.components == value.source_components,
     source_unchanged=value.source_unchanged == 'true',
     resource_lookup_after_create=value.resource_lookup_after_create == 'true',
@@ -81,6 +91,23 @@ local function component_groups(raw)
     end
   end
   return groups
+end
+
+local function group_counts(raw)
+  local groups = component_groups(raw)
+  local result = {}
+  for name, values in pairs(groups) do result[name] = #values end
+  return result
+end
+
+local function compact_evidence(value)
+  if not value then return nil end
+  local keys = {'template_guid', 'source_guid', 'npc_id', 'faction', 'model_guid',
+    'source_model_guid', 'animation_graph_guid', 'source_animation_graph_guid',
+    'component_clone', 'source_unchanged', 'resource_lookup_after_create'}
+  local result = {}
+  for _, key in ipairs(keys) do result[key] = value[key] end
+  return result
 end
 
 local function all_required(value)
@@ -113,8 +140,8 @@ end)
 
 emf.command('inspect', 'read-only exported template fingerprint', function()
   local value, err, path = read_evidence()
-  reply('inspect', {evidence=value, evidence_error=err, evidence_path=path, checks=checks(value),
-    component_groups=component_groups(value and value.components),
+  reply('inspect', {evidence=compact_evidence(value), evidence_error=err, evidence_path=path,
+    component_group_counts=group_counts(value and value.components),
     field_source=value and 'EML_EXPORT' or 'UNAVAILABLE'})
 end)
 

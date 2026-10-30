@@ -1,83 +1,63 @@
-# Этап 10.2 — runtime-результаты Humanoid Template
+# Этап 10.2 — результат первого load-only запуска Humanoid Template
 
-Дата начала: 2026-10-31. Текущая контрольная точка: **INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START**.
+Дата испытания: 2026-10-31. Итог evaluator: **`FAILED`**. Уровень B подтверждён, уровень A отклонён, уровень C остался неполным. `load_only_success=false`, `spawn_ready=false`, следующий этап заблокирован.
 
-Часть B выполнена после явного разрешения пользователя. Новый verified backup создан, EML/patch/read-only observer установлены и проверены. Игра не запускалась. Результат evaluator остаётся `NOT_EXECUTED`; `spawn_ready=false`.
+## Границы испытания
 
-## Разрешение и граница действий
+Пользователь вручную запустил Enshrouded через Steam и загрузил LOCAL-персонажа `Body Test` в LOCAL-мир `AI Body Test`. Codex выполнял только чтение состояния через EMF Bridge и сбор журналов. Команды spawn/destroy/faction/ECS/inventory/equipment не выполнялись. Игра закрыта пользователем; процесс `enshrouded.exe` после закрытия отсутствует.
 
-ТЗ этапа 10.2 сначала разрешило read-only часть A. Затем пользователь отдельно разрешил часть B точной формулировкой: создать verified backup и установить EML, humanoid patch и read-only observer, игру не запускать. Spawn, destroy, faction, ECS, inventory, equipment и save mutations не выполнялись.
+Run token: `69a6a5ff13e66c37614e212790464271`. Сборка игры: `1273043`. EMF: `0.3.2`, API 20. EML: официальный проверенный `dbghelp.dll` с SHA-256 `038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa`.
 
-## Read-only preflight
+## Результаты A/B/C
 
-Усиленный фактический preflight завершился `PREPARATION_READY`:
+| Уровень | Результат | Доказательство |
+|---|---|---|
+| A — `EML_PATCH_APPLIED` | **FAIL** | EML загрузил `aic_eml_humanoid`, вывел коррелированный READY marker и `Applied 1 patches`, но export содержит `model_guid=nil` и `source_model_guid=nil`. Это не является подтверждённым model fingerprint. |
+| B — `GAME_LOAD_CONFIRMED` | **PASS** | EMF зафиксировал главное меню, загрузку LOCAL-мира и сохранения; Bridge показал running world `AI Body Test`, LOCAL character `Body Test`; в game/EMF-журналах нет resource/game errors. |
+| C — `EMF_RUNTIME_CONFIRMED` | **UNKNOWN** | EMF 0.3.2, build 1273043, 50/50 signatures, Lua и observer загрузились; `status` и `compare` получены. Ответ `inspect` был обрезан EMF на 1023 байтах и не разобрался как JSON. |
 
-| Проверка | Результат |
-|---|---|
-| Процесс Enshrouded/server | отсутствует |
-| Build | `1273043` |
-| `enshrouded.exe` SHA-256 | `d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882` |
-| EMF `dinput8.dll` SHA-256 | `53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee` |
-| EML `dbghelp.dll` SHA-256 | `038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa` |
-| Patch | offline validation PASS, fixed GUID/source/faction/npcId/run correlation, no runtime/save paths |
-| Observer | offline validation PASS, disabled by default, read-only, `status/inspect/compare` |
-| Existing `dbghelp.dll` / `eml.json` | отсутствуют |
-| `enshrouded.kfc.bak` | отсутствует |
-| Сторонние EML-моды | отсутствуют |
-| Stale evidence | отсутствует |
-| Stage 10 install temp/receipt | отсутствуют |
-| Observer install/config collision | отсутствует |
-| Baseline DAT | `enshrouded_000.dat`–`enshrouded_054.dat` |
-| Свободно на диске игры | 434 613 178 368 байт |
-| Минимум preflight | 1 297 670 144 байт |
+Положительно подтверждены GUID нового template и source, `npc_id=2939921867`, `faction=PlayerAlly`, одинаковый animation graph, component clone, `source_unchanged=true`, resource lookup после создания и финализация writer по `Applied 1 patches`. Однако одинаковые строковые значения `nil` раньше ошибочно считались доступной моделью. После исправления evaluator корректно отклоняет этот результат.
 
-В установленном EMF включены `lua` и существующий `aic_body`; остальные комплектные моды выключены. Этап 10.2 не менял эту конфигурацию и не активировал основной Body Adapter. Будущий observer добавляется отдельной конфигурацией и не вызывает `aic_body.request`.
+Direct lookup template GUID через public EMF Lua остаётся `UNAVAILABLE_WITHOUT_ENTITY`; это известное ограничение, а не доказательство отсутствия template. Новый template не спавнился, поэтому его визуальная модель, самостоятельность экземпляра, ownership и dismiss не проверены.
 
-## Backup и LOCAL scope
+## Целостность и runtime outputs
 
-Текущий dry-run повторно определил 20 файлов и 224 556 422 байта: два игровых KFC/resources и 18 файлов из изолированного LOCAL-набора. В LOCAL-наборе ровно один текущий `character0.ksd` и один текущий `world0.ksd`; их связь с `Body Test` / `AI Body Test` ранее подтверждена пользователем и зафиксирована в результате первого игрового теста. Формат KSD офлайн не декодировался, поэтому при ручном запуске имена снова проверяются визуально.
+Verified backup `stage10-pre-eml-20261030T220012Z` повторно проверен: 20/20 копий совпадают с manifest. Все 9 установленных файлов совпадают с install receipt. Исходные DAT `000–054` не менялись по размеру и mtime.
 
-Две старые копии этапов 3/5 используют другой manifest format и намеренно не принимаются Stage 10 verifier. Обнаруженный при этой проверке `AttributeError` исправлен: несовместимый manifest теперь безопасно возвращает `False`. Для части B обязателен новый каталог `runtime/backups/stage10-pre-eml-<timestamp>/`.
+EML создал ожидаемые и атрибутированные outputs:
 
-Создан новый backup `stage10-pre-eml-20261030T220012Z`: 20 файлов, 224 556 422 байта. Все копии повторно прочитаны; SHA-256 источников и копий совпали, mismatch 0. Manifest повторно прошёл `verify_backup`, а текущие источники после копирования совпали с записанными размерами и hashes. Состояние: `backup_verified=true`, `rollback_ready=true`.
+- `enshrouded.kfc.bak`, чей SHA-256 совпадает с backup исходного KFC;
+- изменённые `enshrouded.kfc` и `enshrouded.kfc_resources`;
+- нулевые последовательные DAT `055–063` с timestamp применения patch;
+- `.cache` с `types.json` и Lua definition files, прямо перечисленными в EML log;
+- `export` с evidence и `logs` с журналом EML.
 
-## Dry-run установки и отката
+Неатрибутированных изменений нет. LOCAL-профиль штатно изменил `character0.ksd`, `world0.ksd` и две ротационные копии мира после загрузки/сохранения; все исходные версии остаются в проверенном backup. Steam-сохранения не использовались и инструменты этапа к ним не писали.
 
-План установки содержит ровно девять файлов: проверенный `dbghelp.dll`, новый `eml.json`, три файла EML patch, три файла observer и его отдельную INI-конфигурацию. `dinput8.dll`, `aic_body`, остальные EMF-моды и пользовательские конфигурации в план не входят.
+Dry-run отката принят: восстановить оба KFC из verified backup, удалить `enshrouded.kfc.bak` и только явно перечисленные DAT `055–063`, затем удалить девять файлов по receipt. Реальный откат **не выполнен**, поскольку для него требуется отдельное разрешение пользователя. `.cache`, `export` и `logs` также являются известными EML outputs; решение об их удалении будет включено в конкретный план отката.
 
-До разрешения dry-run установки без нового manifest останавливался с `verified_backup_required`. После создания backup существующий installer добавил ровно девять запланированных файлов. Receipt имеет `state=complete`, 9/9 текущих hashes совпадают; временных `*.stage10-install` нет.
+## Исправления после испытания
 
-Run correlation token этого испытания:
+- Python evaluator и Lua observer теперь считают `nil`, `null`, `none`, пустую строку и `UNAVAILABLE` отсутствующим fingerprint; совпадение двух отсутствующих значений не проходит.
+- Parser writer finalization поддерживает реальные JSON-escaped `\t` из EML log.
+- Проверка Lua host принимает фактический marker `[lua] ready` EMF 0.3.2.
+- `inspect` сокращён: вместо полных массивов компонентов передаются compact fingerprint и количества групп, чтобы не превышать лимит строки EMF.
+- Добавлены регрессионные тесты. Полный offline suite: **188 PASS**.
 
-```text
-69a6a5ff13e66c37614e212790464271
-```
+Эти изменения внесены только в репозиторий. Установленные Lua-копии после игры не менялись, повторный запуск не выполнялся.
 
-Токен присутствует в установленных EML patch и observer, repository placeholders сохранены, а в установленных копиях placeholder отсутствует. GUID template присутствует. `dbghelp.dll` совпадает с закреплённым SHA-256; `dinput8.dll` не изменился. `eml.json`: console выключена, export включён. Observer включён своей новой INI-конфигурацией. Microsoft Defender и real-time protection оставались включёнными; блокировок не возникло.
-
-`aic_body` не входит в receipt и не изменялся. Дополнительная сверка обнаружила ранее установленный legacy `body.lua`, не совпадающий с поздней repository-версией с `body_profiles.lua`; установленный `main.lua` совпадает. Это предварительно существовавшее состояние первого Vukah-теста, оно не исправлялось и не используется для spawn. На load-only этапе разрешены только read-only `diagnose/status`; `aic_body.request` запрещён.
-
-Создан игнорируемый Git pre-run baseline: install/manifest hashes, корневой список и metadata 55 существующих DAT. Копирование 51,5 ГБ DAT не выполнялось. После запуска новые/изменённые DAT будут сопоставлены с baseline и отдельно проверены.
-
-## Runtime и evaluator
-
-| Уровень | Результат |
-|---|---|
-| A — `EML_PATCH_APPLIED` | `UNKNOWN / NOT_EXECUTED` |
-| B — `GAME_LOAD_CONFIRMED` | `UNKNOWN / NOT_EXECUTED` |
-| C — `EMF_RUNTIME_CONFIRMED` | `UNKNOWN / NOT_EXECUTED` |
-| Новый `TemplateResource` | не подтверждён |
-| Faction 11 / source unchanged | runtime не подтверждён |
-| Save integrity после запуска | ещё не проверялась, запуска не было |
-| Rollback | `NOT_EXECUTED` |
-| Итог | `NOT_EXECUTED`, `load_only_success=false`, `spawn_ready=false` |
-
-## Следующая контрольная точка
-
-Часть B завершена. Текущий статус:
+## Вердикт
 
 ```text
-INSTALLATION_READY — WAITING_FOR_MANUAL_GAME_START
+FAILED
+A=false
+B=true
+C=unknown
+load_only_success=false
+spawn_ready=false
+next_stage_allowed=false
+rollback_ready=true
+rollback_executed=false
 ```
 
-Игру теперь запускает только пользователь через Steam. Нужно визуально выбрать LOCAL-персонажа `Body Test`, LOCAL-мир `AI Body Test`, загрузить мир один раз и сообщить «загрузился». Нельзя выполнять spawn или другие команды модификации. При вылете, зависании или необычной ошибке нужно закрыть игру и сообщить, не повторяя запуск.
+Следующее допустимое действие — отдельно разрешённый безопасный откат. Повторное load-only испытание возможно лишь после отката, подготовки новой установки исправленного observer и решения проблемы `model_guid=nil`. Spawn остаётся запрещённым.

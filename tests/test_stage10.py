@@ -57,6 +57,14 @@ class Stage10EvidenceTests(unittest.TestCase):
         self.assertFalse(evaluate_evidence(
             evidence(source_animation_graph_guid="different"), writer_finalized=True)["ok"])
 
+    def test_lua_nil_like_fingerprints_are_unavailable(self):
+        for missing in ("nil", "NIL", " null ", "none", ""):
+            with self.subTest(value=missing):
+                self.assertFalse(evaluate_evidence(
+                    evidence(model_guid=missing, source_model_guid=missing),
+                    writer_finalized=True,
+                )["ok"])
+
     def test_evidence_parser_rejects_duplicates_and_bad_lines(self):
         with self.assertRaisesRegex(Stage10Error, "evidence_malformed"):
             parse_evidence("a=1\na=2\n")
@@ -69,6 +77,15 @@ class Stage10EvidenceTests(unittest.TestCase):
         self.assertFalse(eml_log_writer_finalized("Applied 2 patches"))
         self.assertFalse(eml_log_writer_finalized(good.replace("Applied 2", "Applied 0")))
 
+    def test_writer_finalization_accepts_json_escaped_lua_tabs(self):
+        token = "a" * 32
+        log = (
+            '"message":"AIC_EML_TEMPLATE_READY\\t' + token
+            + '\\ta1c90001-5e4d-4a91-8a1c-000000000001\\t2939921867\\tnil"\n'
+            + '"message":"Applied 1 patches"\n'
+        )
+        self.assertTrue(eml_log_writer_finalized(log, token))
+
 
 class Stage10ObserverTests(unittest.TestCase):
     def test_observer_is_disabled_and_read_only(self):
@@ -78,6 +95,8 @@ class Stage10ObserverTests(unittest.TestCase):
             self.assertNotIn(forbidden, source)
         self.assertNotIn("'w'", source)
         self.assertIn("UNAVAILABLE_WITHOUT_ENTITY", source)
+        self.assertIn("component_group_counts", source)
+        self.assertNotIn("component_groups=", source)
 
     def test_observer_lua_sources_compile(self):
         from lupa import LuaRuntime
@@ -88,6 +107,54 @@ class Stage10ObserverTests(unittest.TestCase):
             if isinstance(result, tuple):
                 self.fail(result[1])
             self.assertTrue(callable(result))
+
+    def test_observer_compact_inspect_fits_emf_console_line(self):
+        from lupa import LuaRuntime
+        token = "a" * 32
+        raw = "\n".join((
+            "format=aic_eml_humanoid_evidence_v1", "patch_version=0.1.0",
+            f"run_token={token}",
+            "template_guid=a1c90001-5e4d-4a91-8a1c-000000000001",
+            "source_guid=e3736dff-0ad2-47fc-903c-66c1775836e8",
+            "npc_id=2939921867", "faction=PlayerAlly",
+            "model_guid=nil", "source_model_guid=nil",
+            "animation_graph_guid=402df515-5965-4b01-a17b-17d482a91af4",
+            "source_animation_graph_guid=402df515-5965-4b01-a17b-17d482a91af4",
+            "components=keen::ecs::Movement,keen::ecs::Inventory,keen::ecs::NetworkActor",
+            "source_components=keen::ecs::Movement,keen::ecs::Inventory,keen::ecs::NetworkActor",
+            "component_clone=true", "source_unchanged=true",
+            "resource_lookup_after_create=true", "source_registered=false",
+            "registry_added=false",
+        )) + "\n"
+        lua = LuaRuntime(unpack_returned_tuples=True)
+        lua.globals().json_module = lua.execute(
+            (OBSERVER / "json.lua").read_text(encoding="utf-8"))
+        lua.globals().evidence_raw = raw
+        lua.execute("""
+          require = function(name) assert(name == 'json'); return json_module end
+          callbacks = {}
+          captured = nil
+          emf = {
+            command = function(name, description, callback) callbacks[name] = callback end,
+            reply = function(value) captured = value end,
+            log = function(value) end,
+          }
+          io.open = function(path, mode)
+            return {read = function(self, kind) return evidence_raw end,
+                    close = function(self) end}
+          end
+        """)
+        source = (OBSERVER / "main.lua").read_text(encoding="utf-8").replace(
+            "__AIC_STAGE10_RUN_TOKEN__", token)
+        lua.execute(source)
+        lua.globals().callbacks["inspect"]()
+        captured = str(lua.globals().captured)
+        self.assertLessEqual(len(captured), 1023)
+        payload = json.loads(captured.removeprefix("AIC_TEMPLATE_OBSERVER "))
+        self.assertEqual(payload["field_source"], "EML_EXPORT")
+        self.assertNotIn("checks", payload)
+        self.assertEqual(payload["evidence"]["model_guid"], "nil")
+        self.assertEqual(payload["component_group_counts"]["navigation"], 1)
 
 
 class Stage10PreflightTests(unittest.TestCase):

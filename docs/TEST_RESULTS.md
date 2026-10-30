@@ -127,3 +127,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - `aic_body` исключён из receipt. Обнаружено предварительно существовавшее отличие legacy `body.lua` от текущего репозитория; оно не исправлялось и не относится к девяти установленным файлам.
 - Полный offline suite после установки: **184 PASS**; `compileall` и `git diff --check`: PASS.
 - Runtime A/B/C и post-run integrity по-прежнему **NOT_EXECUTED**; rollback не выполнялся.
+
+## 2026-10-31 — этап 10.2, фактический load-only результат
+
+- Пользователь вручную загрузил LOCAL `Body Test` / `AI Body Test`; Codex выполнил только read-only диагностику. Spawn и команды мутации не выполнялись.
+- A=`false`: EML загрузил мод и применил 1 patch, но `model_guid=nil`; nil-подобный fingerprint теперь fail-closed.
+- B=`true`: главное меню и LOCAL-мир загрузились, resource/game errors отсутствуют.
+- C=`unknown`: EMF/Bridge/status/compare подтверждены, но `inspect` обрезан на 1023 байтах.
+- Verified backup цел; все install hashes совпадают. DAT `000–054` не менялись; EML создал нулевые `055–063`, KFC backup/cache/export/logs. Неатрибутированных изменений нет.
+- Итог `FAILED`, `load_only_success=false`, `spawn_ready=false`, `rollback_ready=true`, реальный rollback не выполнялся.
+- Observer/evaluator исправлены для nil fingerprints, JSON-escaped tabs и компактного inspect. Полный suite: 188 PASS.

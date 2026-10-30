@@ -146,6 +146,15 @@ class Stage101AcceptanceTests(unittest.TestCase):
                 value["evidence_text"] = value["evidence_text"].replace(old, old.split("=")[0] + "=UNAVAILABLE", 1)
                 self.assertFalse(evaluate_load_only(**value)["eml_patch_applied"])
 
+    def test_matching_lua_nil_model_values_do_not_pass_level_a(self):
+        value = artifacts()
+        value["evidence_text"] = value["evidence_text"].replace(
+            "model_guid=human-model", "model_guid=nil", 1).replace(
+            "source_model_guid=human-model", "source_model_guid=nil", 1)
+        result = evaluate_load_only(**value)
+        self.assertFalse(result["eml_patch_applied"])
+        self.assertEqual(result["status"], "FAILED")
+
     def test_missing_observer_keeps_emf_runtime_unknown(self):
         result = self.evaluate(observer_results=None)
         self.assertIsNone(result["emf_runtime_confirmed"])

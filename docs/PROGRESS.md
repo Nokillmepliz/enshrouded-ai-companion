@@ -483,3 +483,13 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Перед публикацией полный offline suite **184 PASS**, `compileall` и `git diff --check` PASS; процесс игры отсутствует.
 - В Git вошёл только обезличенный технический отчёт. Backup/manifest, install receipt, pre-run baseline, токенизированные Lua-копии, DLL, KFC/DAT/KSD, сохранения и runtime-журналы остались в ignored runtime/игровом каталоге.
 - Следующее действие принадлежит пользователю: один ручной запуск. Codex игру не запускал и spawn не выполнял.
+
+## 2026-10-31 — этап 10.2, фактический load-only результат
+
+- Пользователь вручную загрузил LOCAL `Body Test` / `AI Body Test`; Codex выполнил только read-only диагностику. Spawn и команды мутации не выполнялись.
+- A=`false`: EML загрузил мод и применил 1 patch, но `model_guid=nil`; nil-подобный fingerprint теперь fail-closed.
+- B=`true`: главное меню и LOCAL-мир загрузились, resource/game errors отсутствуют.
+- C=`unknown`: EMF/Bridge/status/compare подтверждены, но `inspect` обрезан на 1023 байтах.
+- Verified backup цел; все install hashes совпадают. DAT `000–054` не менялись; EML создал нулевые `055–063`, KFC backup/cache/export/logs. Неатрибутированных изменений нет.
+- Итог `FAILED`, `load_only_success=false`, `spawn_ready=false`, `rollback_ready=true`, реальный rollback не выполнялся.
+- Observer/evaluator исправлены для nil fingerprints, JSON-escaped tabs и компактного inspect. Полный suite: 188 PASS.

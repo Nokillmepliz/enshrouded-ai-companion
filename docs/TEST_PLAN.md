@@ -208,3 +208,13 @@ Negative tests обязаны покрывать отсутствие writer fin
 4. Dry-run install без verified manifest и rollback без receipt обязаны завершаться fail closed и не создавать файлы.
 5. Часть B выполняется только после отдельного разрешения: новый verified backup → девять install files → post-install verification → остановка до ручного запуска.
 6. Runtime A/B/C не записываются как успешные без одного реального запуска и коррелированных evidence/logs/reports. Spawn остаётся запрещённым.
+
+## 2026-10-31 — этап 10.2, фактический load-only результат
+
+- Пользователь вручную загрузил LOCAL `Body Test` / `AI Body Test`; Codex выполнил только read-only диагностику. Spawn и команды мутации не выполнялись.
+- A=`false`: EML загрузил мод и применил 1 patch, но `model_guid=nil`; nil-подобный fingerprint теперь fail-closed.
+- B=`true`: главное меню и LOCAL-мир загрузились, resource/game errors отсутствуют.
+- C=`unknown`: EMF/Bridge/status/compare подтверждены, но `inspect` обрезан на 1023 байтах.
+- Verified backup цел; все install hashes совпадают. DAT `000–054` не менялись; EML создал нулевые `055–063`, KFC backup/cache/export/logs. Неатрибутированных изменений нет.
+- Итог `FAILED`, `load_only_success=false`, `spawn_ready=false`, `rollback_ready=true`, реальный rollback не выполнялся.
+- Observer/evaluator исправлены для nil fingerprints, JSON-escaped tabs и компактного inspect. Полный suite: 188 PASS.

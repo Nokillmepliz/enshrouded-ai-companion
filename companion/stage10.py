@@ -139,11 +139,23 @@ def evaluate_evidence(
         "patch_version": EXPECTED_PATCH_VERSION,
     }
     checks = {key: value.get(key) == expected for key, expected in required.items()}
-    checks["model_available"] = value.get("model_guid") not in (None, "", "UNAVAILABLE")
-    checks["model_matches_source"] = value.get("model_guid") == value.get("source_model_guid")
-    checks["animation_graph_available"] = value.get("animation_graph_guid") not in (None, "", "UNAVAILABLE")
+    def available(field: str) -> bool:
+        candidate = value.get(field)
+        return isinstance(candidate, str) and candidate.strip().lower() not in {
+            "", "unavailable", "nil", "null", "none",
+        }
+
+    checks["model_available"] = available("model_guid") and available("source_model_guid")
+    checks["model_matches_source"] = (
+        checks["model_available"]
+        and value.get("model_guid") == value.get("source_model_guid")
+    )
+    checks["animation_graph_available"] = (
+        available("animation_graph_guid") and available("source_animation_graph_guid")
+    )
     checks["animation_graph_matches_source"] = (
-        value.get("animation_graph_guid") == value.get("source_animation_graph_guid")
+        checks["animation_graph_available"]
+        and value.get("animation_graph_guid") == value.get("source_animation_graph_guid")
     )
     checks["component_fingerprint_complete"] = (
         bool(value.get("components")) and value.get("components") == value.get("source_components")
@@ -158,9 +170,11 @@ def evaluate_evidence(
 
 
 def eml_log_writer_finalized(text: str, run_token: str | None = None) -> bool:
-    token = rf"{re.escape(run_token)}\s+" if run_token else r"(?:[0-9a-f]{32}\s+)?"
+    separator = r"(?:\s+|\\t)"
+    token = rf"{re.escape(run_token)}{separator}" if run_token else rf"(?:[0-9a-f]{{32}}{separator})?"
     ready = re.search(
-        rf"AIC_EML_TEMPLATE_READY\s+{token}{re.escape(EXPECTED_TEMPLATE_GUID)}\s+2939921867\b",
+        rf"AIC_EML_TEMPLATE_READY{separator}{token}{re.escape(EXPECTED_TEMPLATE_GUID)}"
+        rf"{separator}2939921867\b",
         text,
     )
     if ready is None:
@@ -678,7 +692,7 @@ def evaluate_load_only(
         else:
             eml_segment = _correlated_segment(
                 eml_log,
-                rf"AIC_EML_TEMPLATE_READY\s+{re.escape(token)}\b",
+                rf"AIC_EML_TEMPLATE_READY(?:\s+|\\t){re.escape(token)}\b",
                 "Running mod",
                 marker_is_pattern=True,
             )
@@ -702,8 +716,8 @@ def evaluate_load_only(
             ),
             "ready_marker_correlated": (
                 bool(isinstance(token, str) and eml_segment is not None and re.search(
-                    rf"AIC_EML_TEMPLATE_READY\s+{re.escape(token)}\s+"
-                    rf"{re.escape(EXPECTED_TEMPLATE_GUID)}\s+2939921867\b", eml_segment,
+                    rf"AIC_EML_TEMPLATE_READY(?:\s+|\\t){re.escape(token)}(?:\s+|\\t)"
+                    rf"{re.escape(EXPECTED_TEMPLATE_GUID)}(?:\s+|\\t)2939921867\b", eml_segment,
                 )) if eml_log is not None else None
             ),
             "writer_finalized": writer_finalized if eml_log is not None else None,
@@ -859,7 +873,7 @@ def evaluate_load_only(
                 if emf_segment is not None else (False if emf_log is not None else None)
             ),
             "lua_host": (
-                "Lua host 1.9.0" in emf_segment
+                ("Lua host 1.9.0" in emf_segment or "[lua] ready:" in emf_segment)
                 if emf_segment is not None else (False if emf_log is not None else None)
             ),
             "emf_log_clean": (
