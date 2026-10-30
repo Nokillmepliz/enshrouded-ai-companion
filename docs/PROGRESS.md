@@ -420,3 +420,9 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Документация: `EML_EMF_COMPATIBILITY.md`, `STAGE10_TEMPLATE_LOAD_PLAN.md`, `STAGE10_TEMPLATE_LOAD_RESULTS.md`, а также README/TEST_PLAN/TEST_RESULTS обновлены. Бинарники EML, игра, сохранения и runtime-логи не войдут в Git.
 - Блокер: public EMF Lua предоставляет `world:template(component, entity)`, но не read-only lookup/enumeration `TemplateResource` по GUID. Без запрещённого spawn observer не может независимо подтвердить новый resource. Вердикт **BLOCKED_BEFORE_PHASE_B_FULL_CRITERIA**.
 - Следующий шаг: подтвердить/реализовать native read-only EMF lookup либо явно изменить критерий на EML evidence + успешный game load + EMF observer/bridge. До решения установка и фаза B не запрашиваются.
+
+## 2026-10-31 — Публикация этапа 10
+
+- Подготовка load-only проверки, fail-closed инструменты, 22 новых теста и документация опубликованы в `origin/master`: **`e5ef303` — Prepare EML humanoid template load audit**, push `26ae31a..e5ef303` подтверждён GitHub.
+- В публикацию вошли только исходники, тесты и Markdown. EML/game binaries, KFC/DAT/KSD, сохранения, runtime-логи и приватные данные не публиковались.
+- Фаза B не выполнялась и остаётся заблокированной полным критерием прямого EMF lookup.
