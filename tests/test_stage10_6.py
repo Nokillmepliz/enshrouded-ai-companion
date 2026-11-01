@@ -95,6 +95,11 @@ class VisualV2Tests(unittest.TestCase):
   r=assess_visual_pair(self.template(),self.template()); self.assertIn("RUNTIME_RENDER_UNKNOWN",r["provenance"]); self.assertFalse(r["spawn_ready"])
 
 class ObserverSourceTests(unittest.TestCase):
+ def test_patch_readme_matches_v3_contract(self):
+  value=(ROOT/"experimental/eml_humanoid/README.md").read_text(encoding="utf-8")
+  self.assertIn("patch **0.3.0**",value)
+  self.assertIn("aic_eml_humanoid_evidence_v3",value)
+  self.assertNotIn("версия patch 0.2.0",value)
  def test_tracked_baseline_hash_is_self_consistent(self):
   import hashlib,json
   value=json.loads((ROOT/"companion/data/hunter_visual_baseline.json").read_text())

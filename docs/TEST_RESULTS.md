@@ -185,3 +185,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Реальный Stage 10.6 dry-run preflight: **PREPARATION_READY**; exact hashes/patch/observer/DAT/free-space checks PASS, blocker только `verified_backup_missing`.
 - Реальные read-only hashes игры повторно совпали с baseline build 1273043; EML/patch/observer/export в каталоге игры отсутствуют.
 - Runtime: **NOT_EXECUTED**. Игра не запускалась, backup/install не выполнялись, игровые файлы и saves не менялись.
+
+# Этап 10.6, Phase B — 2026-11-01
+
+- Установка завершила verified receipt: backup 24/24, install hashes 9/9, rollback dry-run PASS.
+- Post-install semantic review обнаружил stale README 0.2.0. Исполняемые `mod.json`/Lua соответствуют 0.3.0/evidence v3; дальнейшая установка остановлена.
+- Добавлен validator и regression test для соответствия README контракту v3.
+- Полный Python suite: **259 tests run: 258 PASS, 1 skipped**.
+- `compileall` и `git diff --check`: PASS.
+- Runtime/игра: **NOT EXECUTED**.

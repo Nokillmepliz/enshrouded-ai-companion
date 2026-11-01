@@ -140,7 +140,8 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
     root = Path(root)
     manifest_path = root / "mod.json"
     lua_path = root / "src" / "mod.lua"
-    if not manifest_path.is_file() or not lua_path.is_file():
+    readme_path = root / "README.md"
+    if not manifest_path.is_file() or not lua_path.is_file() or not readme_path.is_file():
         raise PatchValidationError("unsupported_patch_layout")
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -152,6 +153,9 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
         raise PatchValidationError("unsupported_capabilities")
 
     lua = lua_path.read_text(encoding="utf-8")
+    readme = readme_path.read_text(encoding="utf-8")
+    if "patch **0.3.0**" not in readme or "aic_eml_humanoid_evidence_v3" not in readme:
+        raise PatchValidationError("stale_patch_readme")
     required = {
         f'local TEMPLATE_GUID="{TEMPLATE_GUID}"': "unknown_template_guid",
         f'local SOURCE_GUID="{SOURCE_TEMPLATE_GUID}"': "unknown_source_guid",

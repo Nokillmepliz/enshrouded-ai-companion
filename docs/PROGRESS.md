@@ -566,3 +566,16 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Созданы план, evidence contract и runtime report со статусом **NOT_EXECUTED**. Часть B не разрешена: новый backup не создавался, EML не устанавливался, игра/сохранения не менялись.
 - Следующий шаг: отдельное разрешение пользователя на часть B — новый verified backup и установка без запуска игры.
 - Checkpoint реализации опубликован в `origin/master`: `d8d843d` (`Prepare Stage 10.6 visual evidence verification`).
+
+## 2026-11-01 — Stage 10.6, Phase B: verified backup и установка
+
+- Пользователь отдельно разрешил Phase B. До backup, непосредственно перед установкой и после неё процессы `Enshrouded`/server отсутствовали. Игра не запускалась.
+- Повторный preflight подтвердил build 1273043, закреплённые SHA-256 EXE/KFC/resources/EMF/EML, отсутствие конфликтов и install plan ровно из 9 файлов.
+- Создан новый backup `stage10-6-pre-eml-20261101T083034Z`: **24 файла / 224 564 012 байт** (2 KFC + 22 LOCAL saves). Backup hashes и текущие source hashes совпали 24/24.
+- Установлены EML, patch 0.3.0 и observer 0.2.0. Receipt `complete`; 9/9 post-install hashes совпали. Создан новый 128-bit run token; публично сохранён только SHA-256 `12161c78d96705d70edba23e1cb139b05adbc96ac40aa33155b891f3ae413a`.
+- Placeholder отсутствует в установленных Lua; token внедрён в patch/observer ровно по одному разу. KFC и LOCAL saves установкой не менялись; pre-run baseline содержит 55 DAT и 22 saves.
+- Rollback dry-run подтвердил все 9 файлов. WinDefend и SecurityHealthService работают; защита не отключалась и не перенастраивалась.
+- Runtime A/V/B/C остаётся **NOT_EXECUTED**, `spawn_ready=false`: игра, EML runtime и NPC не запускались. Следующий шаг требует отдельного разрешения пользователя на Phase C.
+- После hash-сверки найдено содержательное расхождение: runtime `mod.json`/Lua — 0.3.0/evidence v3, но установленный README остался с текстом 0.2.0/«не установлен». По условию пользователя дальнейшие установочные действия остановлены; игровой файл и receipt не исправлялись.
+- Repository README исправлен, validator теперь отклоняет stale README, добавлен regression test. Текущий статус — **BLOCKED_POST_INSTALL_DOCUMENTATION_MISMATCH**; Phase C не готова до отдельного разрешения на remediation.
+- После исправления исходников полный suite: **259 tests run: 258 PASS, 1 skip**; compileall и `git diff --check` PASS.

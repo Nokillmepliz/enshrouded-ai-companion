@@ -187,6 +187,8 @@ game = {{
                 manifest = manifest.replace(old, new, 1)
             (root / "mod.json").write_text(manifest, encoding="utf-8")
             (root / "src" / "mod.lua").write_text(script, encoding="utf-8")
+            (root / "README.md").write_text(
+                (PATCH / "README.md").read_text(encoding="utf-8"), encoding="utf-8")
             with self.assertRaisesRegex(PatchValidationError, error):
                 validate_patch(root, known_resources=KNOWN_RESOURCES)
 

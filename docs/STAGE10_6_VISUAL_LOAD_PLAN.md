@@ -1,6 +1,6 @@
 # Stage 10.6 — план visual load-only проверки
 
-Дата: 2026-11-01. Текущий checkpoint: **PHASE_A_COMPLETE; PHASE_B_NOT_AUTHORIZED**.
+Дата: 2026-11-01. Текущий checkpoint: **PHASE_B_STOPPED; PHASE_C_BLOCKED**.
 
 ## Подтверждено офлайн
 
@@ -11,14 +11,9 @@
 - Observer 0.2.0 выключен по умолчанию, read-only, имеет предел 1023 байта.
 - Полный source baseline содержит 18 preset paths, 35 подтверждённых RenderModel с gender overrides и общий hierarchy `87b29df6…` / 102 joints.
 
-## Часть B — только после отдельного разрешения
+## Часть B — выполнена
 
-1. Убедиться, что Enshrouded закрыт.
-2. Создать новый backup KFC, KFC resources, LOCAL saves и всех заменяемых/добавляемых путей; проверить SHA-256 копий и исходников.
-3. Повторить exact hashes, stale evidence/collision/conflict checks и проверить достаточное место.
-4. Установить только проверенный EML `dbghelp.dll`, EML runtime, patch 0.3.0 и observer 0.2.0 с новым случайным run token.
-5. Не запускать игру. Проверить receipt, hashes, отсутствие placeholder, права чтения и готовность rollback.
-6. Остановиться и представить post-install отчёт.
+Verified backup создан и проверен; девять файлов установлены по plan; новый run token и complete receipt созданы; post-install hashes и rollback dry-run подтверждены. Дополнительная проверка обнаружила stale README 0.2.0 при фактическом patch 0.3.0, поэтому дальнейшая установка остановлена. Игра не запускалась. См. [отчёт Phase B](STAGE10_6_PHASE_B_REPORT.md).
 
 ## Часть C — только после ещё одного разрешения
 
@@ -30,9 +25,9 @@
 
 Rollback использует новый verified manifest и install receipt. Удаляются только файлы, чьи post-install hashes совпадают с receipt; заменённые файлы восстанавливаются только из verified backup. Неизвестное изменение, работающая игра, mismatch или новый неатрибутированный DAT останавливают откат. Затем повторно сверяются KFC/resources, исходные DAT, LOCAL saves и отсутствие temp/export/cache.
 
-## Блокеры до части B
+## Блокеры до части C
 
-- отдельного разрешения на backup/install нет;
-- новый verified backup ещё не создан;
-- runtime writer/registry acceptance, collision и clone evidence не проверены;
-- новый verified backup ещё не создан; поэтому `installation_ready=false`, `rollback_ready=false` и `phase_b_allowed=false`.
+- установленный README не соответствует patch 0.3.0; исправленный файл подготовлен только в репозитории;
+- требуется отдельное разрешение на исправление установленного plan/receipt;
+- отдельного разрешения на ручной load-only запуск нет;
+- runtime writer/registry acceptance, collision и clone evidence не проверены до Phase C.

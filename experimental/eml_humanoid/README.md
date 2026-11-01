@@ -1,13 +1,17 @@
 # Experimental EML humanoid template
 
-Это офлайн-прототип для EML 0.2.0; версия patch 0.2.0. Он клонирует `hunter_assistant` в новый `TemplateResource`, задаёт новому ресурсу фиксированный GUID, отдельный `npcId` и исходную faction `PlayerAlly`. Исходный story template не изменяется. Capability `export` создаёт типизированный диагностический fingerprint нового и исходного ресурсов; завершение записи всё равно должно отдельно подтверждаться положительным журналом writer.
+Это data-only patch **0.3.0** для проверяемого EML 0.2.0. Он клонирует `hunter_assistant` в новый `TemplateResource`, задаёт отдельные GUID/npcId и faction `PlayerAlly`, но не создаёт игровую сущность. Исходный story template не изменяется.
 
-`src/mod.lua` в репозитории содержит `__AIC_STAGE10_RUN_TOKEN__`. Отдельно разрешённый Stage 10 installer заменяет его случайным токеном, общим с observer и install receipt. Ручная копия исходника с placeholder завершается assertion и не может служить runtime evidence.
+Capability `export` создаёт `aic_eml_humanoid_evidence_v3`: полный typed `CharacterSetup` source/clone, animation/retarget, component fingerprint, pinned visual-reference baseline, registry/source-integrity и provenance. `ModelResource` и runtime `RenderEquipment.lastModels` не считаются обязательными. Завершение writer, загрузка игры и runtime render подтверждаются отдельно.
 
-Прототип **не установлен**, не содержит spawn, runtime-команд, доступа к сохранениям и не входит в пакет `aic_body`. Его структурная проверка:
+`src/mod.lua` в репозитории содержит `__AIC_STAGE10_RUN_TOKEN__`. Штатный installer заменяет его новым 128-bit token, общим с observer и ignored install receipt. Исходник с placeholder fail-closed.
+
+Patch не содержит spawn, entity-команд, доступа к сохранениям или runtime Body Adapter. Descriptor сохраняет `runtime_enabled=false`; `spawn_ready=false`. Установка patch сама по себе не доказывает загрузку template, визуал entity, ownership или безопасный dismiss.
+
+Офлайн-проверка:
 
 ```powershell
-.\.tools\python\python.exe -m unittest tests.test_eml_humanoid -v
+.\\.tools\\python\\python.exe -m unittest tests.test_eml_humanoid tests.test_stage10_6 -v
 ```
 
-Даже успешная проверка не доказывает загрузку template игрой. Публичный EMF Lua не может независимо найти template GUID без сущности, поэтому observer честно сообщает `UNAVAILABLE_WITHOUT_ENTITY`. До отдельного теста неизвестны совместная загрузка EML/EMF, точные runtime model/animation graph, зависимости workshop lifecycle, ownership конкретного экземпляра и безопасный dismiss. Descriptor имеет `runtime_enabled = false`; spawn запрещён.
+Read-only observer использует evidence v3 и сообщает ограничение публичного EMF Lua: `UNAVAILABLE_WITHOUT_ENTITY`. Load-only A/V/B/C проверяется отдельно и не разрешает spawn.
