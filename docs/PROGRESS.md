@@ -599,3 +599,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - После установки backup 24/24, DAT 55/55 и LOCAL saves 22/22 повторно совпали по SHA-256. Неизвестные файлы и saves не удалялись и не изменялись.
 - Полный suite: **260 tests run: 259 PASS, 1 skip**; compileall и `git diff --check` PASS.
 - Статус: **PHASE_B_COMPLETE — READY_FOR_PHASE_C_REVIEW**. Phase C не запускалась и требует отдельного разрешения; A/V/B/C остаются `NOT_EXECUTED`, `spawn_ready=false`.
+- Реализация, regression test и отчёты зафиксированы коммитом `6ec5e0c` (`Complete Stage 10.6 Phase B remediation`).
