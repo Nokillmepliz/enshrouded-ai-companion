@@ -7,6 +7,7 @@ import unittest
 from tools.kfc_readonly_inspect.audit import (
     AuditError,
     audit_manifest,
+    audit_project_lock,
     audit_source,
     audit_upstream_lock,
     canonical_plan,
@@ -18,6 +19,7 @@ from tools.kfc_readonly_inspect.audit import (
     rust_compatible,
 )
 from tools.kfc_readonly_inspect.preflight import InspectorPreflightError, inspect_plan
+from tools.kfc_readonly_inspect.integrity import collect_inputs, compare, snapshot
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,8 +68,26 @@ class ToolchainAuditTests(unittest.TestCase):
         manifest = audit_manifest(TOOL / "Cargo.toml")
         source = audit_source(TOOL / "src/main.rs")
         self.assertTrue(manifest["ok"], manifest)
-        self.assertFalse(manifest["cargo_lock_present"])
+        self.assertTrue(manifest["cargo_lock_present"])
         self.assertTrue(source["ok"], source)
+        lock = audit_project_lock(TOOL / "Cargo.lock")
+        self.assertTrue(lock["ok"], lock)
+        self.assertEqual(lock["package_count"], 42)
+
+    def test_gnu_toolchain_is_accepted_with_linker(self):
+        available = {
+            "rustc": "C:/rustc.exe", "cargo": "C:/cargo.exe",
+            "gcc": "C:/gcc.exe", "g++": "C:/g++.exe",
+            "ld": "C:/ld.exe", "ar": "C:/ar.exe",
+        }
+
+        def run(command, **_):
+            output = "rustc 1.88.0 (abc)" if command[0].endswith("rustc.exe") else "cargo 1.88.0"
+            return subprocess.CompletedProcess(command, 0, output, "")
+
+        result = detect_toolchain(which=available.get, run=run)
+        self.assertEqual(result["status"], "READY")
+        self.assertTrue(result["native_linker_available"])
 
     def test_pinned_upstream_lock_records_native_zstd_build(self):
         packages = ("anyhow", "serde_json", "zstd", "zstd-safe", "cc")
@@ -87,6 +107,25 @@ class ToolchainAuditTests(unittest.TestCase):
 
 
 class PathAndIntegrityTests(unittest.TestCase):
+    def test_integrity_snapshot_covers_game_and_saves_and_compares(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            game = game_fixture(root)
+            (game / "enshrouded_000.dat").write_bytes(b"dat")
+            (game / "steam_api64.dll").write_bytes(b"dll")
+            saves = root / "saves"
+            saves.mkdir()
+            save = saves / "world0.ksd"
+            save.write_bytes(b"before")
+            inputs = collect_inputs(game, [saves])
+            self.assertEqual(len(inputs), 6)
+            before = snapshot(game, [saves])
+            self.assertTrue(compare(before, snapshot(game, [saves]))["identical"])
+            save.write_bytes(b"after")
+            result = compare(before, snapshot(game, [saves]))
+            self.assertFalse(result["identical"])
+            self.assertEqual(result["changed"], [str(save.resolve())])
+
     def test_output_outside_game_is_canonicalized(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -1,6 +1,17 @@
 # Результаты подготовки этапа 2
 
-## Этап 10.5 — контрольная точка A
+## Этап 10.5 — части B/C
+
+- Local Rust/Cargo 1.88.0 и MSYS2 GCC 16.2.0/ld 2.47: установлены в `.tools`, системный/user PATH и Rust env не изменены.
+- `Cargo.lock`: 42 package entries, crates.io checksums и pinned KFC commit проверены; активные build scripts проверены до build.
+- `cargo test --locked`: **2 PASS**; release build: PASS; binary SHA-256 `fb106699dd0edad8afa5d39b4264c3ed29652099882a573cfd6f207db49be0c8`.
+- Python suite после изменений: **218 PASS, 1 SKIP**. Skip — privileged directory symlink; отдельный unprivileged Windows junction test: PASS.
+- Negative binary cases: malformed GUID, missing GUID и unknown resource type корректно завершились с code 2 без создания output.
+- Read-only KFC: hunter/blacksmith, preset collection, item registry, 24 target ItemInfo, 35 RenderModel и общий 102-joint hierarchy декодированы.
+- Integrity: **210/210 файлов идентичны** до/после (`added=[]`, `removed=[]`, `changed=[]`).
+- Игра/EML не запускались, игровые файлы, saves и entities не изменялись. Canonical fingerprint не повышен выше `STRUCTURAL_MATCH=true`; `spawn_ready=false`.
+
+## Этап 10.5 — историческая контрольная точка A
 
 Фактически выполнены Python safety/audit tests и полный offline suite: **216 PASS, 1 SKIP**. Skip относится к созданию Windows directory symlink без доступной привилегии; canonical path guards проверены остальными fixtures, а реальный junction/symlink test остаётся gate части C. `compileall` и `git diff --check` прошли. Rust unit tests, Cargo lock/build/test, binary audit, KFC GUID lookup и игровые integrity hashes имеют статус `NOT_EXECUTED`: toolchain отсутствует и установка не разрешена.
 

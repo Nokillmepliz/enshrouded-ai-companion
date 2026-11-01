@@ -1,5 +1,17 @@
 # Журнал прогресса Enshrouded AI Companion
 
+## 2026-11-01 — этап 10.5, части B/C завершены
+
+- Из официальных источников локально в `.tools` установлены Rust/Cargo 1.88.0 (`x86_64-pc-windows-gnu`) и MSYS2 MINGW64 GCC 16.2.0/binutils 2.47 без admin, системной установки и постоянного PATH. Rust bootstrap SHA-256 совпал с опубликованным; MSYS2 archive получил `GOODSIG/VALIDSIG` от subkey `E0AA…4964`. User PATH/Rust env не изменены.
+- Создан `Cargo.lock` v4 (42 packages), проверены registry checksums, pinned KFC commit и активные build scripts. Неизвестных сетевых/autostart/write-outside-OUT_DIR действий не найдено.
+- KFC Inspector собран в игнорируемый `.tools/kfc-inspector/bin`; итоговый SHA-256 `fb106699dd0edad8afa5d39b4264c3ed29652099882a573cfd6f207db49be0c8`. Добавлены безопасные exact-type index и single-GUID type lookup; KFC writer/create/patch API отсутствуют.
+- Rust tests: 2 PASS. Python suite: 218 PASS, 1 SKIP; отдельный Windows junction test PASS. Malformed/missing GUID и unknown type отклонены реальным бинарником без output. Skip относится только к privileged symlink fixture.
+- Read-only декодированы `hunter_assistant` и `blacksmith_assistant` (по 81 component), `CharacterPresetCollection` (54 presets), `ItemRegistryResource` (4207 refs/names), 24 связанных `ItemInfo`, 35/35 `RenderModel` и общий `ModelHierarchyResource` на 102 joints.
+- Подтверждена source visual chain `Template → preset → ItemInfo → RenderModel → hierarchy`. `RenderEquipment.lastModels` в template пустой runtime output. Clone reference equality и runtime render остаются UNKNOWN; canonical fingerprint не повышен, `spawn_ready=false`.
+- SHA-256 до/после полностью совпал для 210 файлов: 62 game files (включая 55 DAT), 23 LOCAL saves и 125 Steam saves. Added/removed/changed отсутствуют.
+- Enshrouded не запускался, EML не устанавливался, KFC/DAT/DLL/saves/entities не изменялись. Статус этапа: **PARTIAL_SUCCESS**.
+- Следующий шаг: отдельно согласованный load-only export точных `CharacterSetup` и preset/item/model references у EML clone без spawn.
+
 ## 2026-11-01 — этап 10.5, контрольная точка A
 
 - Прочитаны ТЗ и история 10.2–10.4; `master` исходно совпадал с `origin/master` на `87fc2fb`, локальных изменений не было.

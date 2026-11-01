@@ -1,70 +1,87 @@
-# Этап 10.5 — аудит KFC Inspector, контрольная точка A
+# Этап 10.5 — KFC Inspector: сборка и результаты
 
-Дата: 2026-11-01. Статус: **CHECKPOINT_A_COMPLETE / BLOCKED_TOOLCHAIN**. Выполнены только разрешённые аудит, усиление исходника и синтетические тесты. Rust не устанавливался, inspector не собирался и оригинальные ресурсы по GUID не читались.
+Дата: 2026-11-01. Итог: **PARTIAL_SUCCESS**. Инспектор собран и безопасно прочитал выбранные ресурсы оригинального KFC. Цепочка визуальных ресурсов исходных NPC подтверждена до `RenderModel` и общего hierarchy. Совпадение этих ссылок у создаваемого EML-клона и фактический runtime render не проверялись, поэтому `spawn_ready=false`.
 
-## Toolchain и совместимость
+## Локальная цепочка сборки
 
-| Проверка | Фактический результат |
+Все инструменты размещены в игнорируемой Git папке `.tools`; административные права, системная установка и постоянное изменение `PATH` не применялись.
+
+| Компонент | Фактическая версия / проверка |
 |---|---|
-| `rustc`, `cargo` | `NOT_FOUND` |
-| `cl.exe`, `link.exe`, `clang-cl`, `gcc`, `cmake`, `ninja` | `NOT_FOUND` |
-| Visual Studio / Build Tools | install path и registry registration не найдены |
-| Edition | `2024` |
-| MSRV инспектора | `1.88` |
-| MSRV pinned kfc-parser | `1.88.0` в workspace commit `16708594d686b030d909f2d835b199d879ea9ad8` |
-| Rust 1.88 | Совместим по manifest/MSRV; фактическая компиляция ещё не выполнена |
+| Rust host | `rustc 1.88.0 (6b00bc388 2025-06-23)`, `x86_64-pc-windows-gnu` |
+| Cargo | `1.88.0 (873a06493 2025-05-10)` |
+| GCC | MSYS2 MINGW64 `16.2.0-6` |
+| GNU ld | Binutils `2.47-4` |
+| rustup bootstrap | SHA-256 `d2845ad914acf5add202100c0a7ddf19ab1c3e52521e12841bafff13888e49bb`, совпал с опубликованным `.sha256`; Authenticode отсутствует |
+| MSYS2 base `20260927` | SHA-256 `8a2095647afbf799d113d0cae35f7544589d059819042635504e75bd2179bd02`; detached OpenPGP `GOODSIG/VALIDSIG` |
+| MSYS2 signing key | primary `0EBF782C5D53F7E5FB02A66746BD761F7A49B0EC`, signing subkey `E0AA0F031DBD80FFBA57B06D5A62D0CAB6264964` |
 
-Edition 2024 стабилизирован в Rust 1.85, но pinned upstream требует именно 1.88.0. Официальный Rust для Windows рекомендует MSVC build tools; target `x86_64-pc-windows-msvc` также требует host tooling. Источники: [Rust install](https://rust-lang.org/install), [архив официальных standalone installers 1.88.0](https://forge.rust-lang.org/infra/archive-stable-version-installers.html), [Windows MSVC target](https://doc.rust-lang.org/rustc/platform-support/windows-msvc.html), [Rust 1.85 release notes](https://doc.rust-lang.org/releases.html#version-1850-2025-02-20).
+Источники: [официальный Rust rustup](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe), [архив Rust 1.88.0](https://forge.rust-lang.org/infra/archive-stable-version-installers.html), [официальный MSYS2 repository](https://repo.msys2.org/distrib/x86_64/), [MSYS2 MINGW64 environment](https://www.msys2.org/docs/environments/). OpenPGP-подпись криптографически валидна, но локальный GPG сообщил `TRUST_UNDEFINED`: imported key не сертифицирован отдельной локальной цепочкой доверия. Архив получен по HTTPS с официального домена.
 
-## Dependencies
+После установки пользовательские `RUSTUP_HOME`, `CARGO_HOME` остались пустыми, а пользовательский `PATH` не изменился. Антивирус и защита Windows не отключались.
 
-Прямые зависимости ограничены `anyhow`, `serde_json` и `kfc` с git URL и точным `rev=16708594d686b030d909f2d835b199d879ea9ad8`; включён только feature `resource`. Pinned upstream `Cargo.lock` v4 фиксирует среди необходимой цепочки:
+## Cargo audit
 
-| Package | Версия upstream lock | Значение для сборки |
+Собственный [Cargo.lock](../tools/kfc_readonly_inspect/Cargo.lock) v4 содержит 42 package entries. Его SHA-256 на момент сборки: `b072fc08491f5c5ccda99f2cf4a793472e35a6d410a12e86c50b5ed12d6423ed`. Все crates.io entries имеют checksum; `kfc`, `kfc-base` и `kfc-resource` закреплены на commit `16708594d686b030d909f2d835b199d879ea9ad8`.
+
+Перед сборкой исходники были получены через `cargo fetch --locked`, после чего проверены все активные `build.rs`. Они выполняют feature/version probes, генерируют файлы только в `OUT_DIR` и собирают vendored zstd через `cc`; сетевых клиентов, PowerShell/cmd, автозапуска или записи в игровой каталог не обнаружено. Неиспользуемые workspace build scripts upstream proxy/mod-loader в активный dependency graph не входят.
+
+## Бинарник
+
+Результат: `.tools/kfc-inspector/bin/kfc-readonly-inspect.exe`, 3 513 481 байт, SHA-256 `fb106699dd0edad8afa5d39b4264c3ed29652099882a573cfd6f207db49be0c8`. Это локальная сборка без Authenticode. Импорты: стандартные `KERNEL32`, `msvcrt`, `ntdll`, `USERENV`, `WS2_32`, Windows API sets и `bcryptprimitives`. Бинарник и `.tools` не публикуются.
+
+Инспектор поддерживает три ограниченных read-only операции:
+
+- декодирование одного точного GUID/type;
+- перечисление GUID только одного явно указанного type;
+- поиск фактического type по одному GUID.
+
+Он не импортирует `KFCWriter`, patch writer или create/update API. Output канонизируется, запрещён внутри game directory, создаётся через `create_new(true)` и не перезаписывается.
+
+## Проверки безопасности
+
+- Rust unit tests: **2 PASS**.
+- Полная Python suite после изменений: **217 PASS, 1 SKIP**; skip относится к symlink, требующему Windows privilege.
+- Отдельный Windows junction test без admin: **PASS**, ссылка на game fixture разрешена до реального пути и output отклонён как `output_inside_game_forbidden`.
+- Повреждённый/truncated KFC, неверный magic, input/output collision и существующий output отклоняются до записи.
+- Реальный бинарник отдельно отклонил malformed GUID, отсутствующий GUID и неизвестный resource type с exit code 2; во всех трёх случаях output не создан.
+- `cargo test --locked` и `cargo build --release --locked`: **PASS**.
+
+Синтетический fixture не покрывает успешное декодирование минимального ресурса: pinned parser не предоставляет безопасный fixture writer без включения write-path в inspector. Успешный decode проверен отдельными точечными чтениями оригинальных ресурсов после прохождения guards.
+
+## Чтение оригинального KFC
+
+Игра не была запущена. Отчёты записаны только в игнорируемый `runtime/research/stage10_5`.
+
+| Ресурс | GUID / type | Результат |
 |---|---|---|
-| `anyhow` | `1.0.100` | error context |
-| `serde_json` | `1.0.140` | JSON export |
-| `zstd` | `0.13.3` | KFC decompression |
-| `zstd-safe` | `7.2.4` | wrapper |
-| `zstd-sys` | `2.0.15+zstd.1.5.7` | native dependency |
-| `cc` | `1.2.48` | компиляция bundled zstd C source |
+| hunter | `e3736dff-0ad2-47fc-903c-66c1775836e8`, `keen::ecs::TemplateResource` | декодирован, 81 component |
+| blacksmith | `04d42ed2-beb4-4013-8f10-5d63efae2015`, `keen::ecs::TemplateResource` | декодирован, 81 component |
+| character presets | `a1bea7fc-2122-4dd3-a471-2b815a65134b`, `keen::CharacterPresetCollection` | 54 presets, target IDs найдены |
+| item registry | `3064d35d-7342-40ca-bdc9-aad58f83bf45`, `keen::ItemRegistryResource` | 4207 `itemRefs` и 4207 parallel `dbgNames` |
+| связанные items | `keen::ItemInfo` | декодированы 24 target resources |
+| visual models | `keen::RenderModel` | найдены и декодированы 35/35 target GUID |
+| общий hierarchy | `87b29df6-6518-43ef-9298-e3f85a6204b9`, `keen::ModelHierarchyResource` | найден, 102 joint names |
 
-У inspector пока нет собственного `Cargo.lock`. Поэтому первая разрешённая Cargo-операция должна только создать lock; затем источники, checksums, build scripts и отличие от upstream lock проверяются до `cargo build --locked`. Наличие `zstd-sys -> cc` означает, что одного Rust toolchain недостаточно: нужен совместимый локальный C compiler/linker. В текущей машине он не найден.
+`CharacterPresetRegistry` не является отдельным KFC type в найденной цепочке. Runtime singleton строится из одного сериализованного `keen::CharacterPresetCollection`; именно в нём `presetId` связывается с item/body references. `ItemRegistry` аналогично является runtime singleton, а его сериализованный источник — `keen::ItemRegistryResource`.
 
-## Аудит read-only режима
+## Контроль целостности
 
-Pinned `KFCReader` открывает `enshrouded.kfc`, `enshrouded.kfc_resources` и DAT через `File::open`; inspector не импортирует `KFCWriter`, patch writer или API создания ресурсов. Запись возможна только для запрошенного JSON-отчёта вне game directory.
+До первого чтения и после всех чтений вычислен SHA-256 одинакового набора из **210 файлов**: 62 game files (EXE, оба KFC, 55 DAT и root DLL), 23 LOCAL save files и 125 Steam save files. Итог сравнения: `added=[]`, `removed=[]`, `changed=[]`, `identical=true`.
 
-Исправлены найденные проблемы:
+Ключевые исходные хеши:
 
-- game и output parent канонизируются; symlink/junction на game directory отклоняется;
-- output внутри game directory, существующий output и input/output collision отклоняются;
-- `OpenOptions.create_new(true)` закрывает перезапись и гонку с созданием существующего пути;
-- JSON полностью строится до создания output;
-- при ошибке `write/flush/sync_all` удаляется только новый частичный report вне game directory;
-- обязательные input открываются только для чтения;
-- добавлены toolchain, manifest, source и upstream-lock audits.
+- `enshrouded.exe`: `d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882`;
+- `enshrouded.kfc`: `54a8cb76b3229c486ef55a7ababcd48828fa0ffc5bb144d206f687fd0ab00a92`;
+- `enshrouded.kfc_resources`: `53786c45797d275661f3ccc1fd8c84527a74f376e01f05fc76351f91fb17cb3d`;
+- установленный EMF proxy `dinput8.dll`: `53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee`.
 
-В Rust source нет `unsafe`, временных файлов, логов, сетевых операций или удаления игровых файлов. `remove_file` применяется только к новому output при ошибке его финализации. Rust unit tests подготовлены для запрета output внутри игры и защиты существующего отчёта, но не запускались без toolchain.
+## Ограничения
 
-## Выполненные и невыполненные проверки
+- KFC подтверждает исходные NPC, но не сериализованные ссылки будущего `aic_eml_humanoid`; этот GUID ожидаемо отсутствует в original KFC.
+- `RenderEquipment.lastModels` в обоих template содержит 24 `null`: это runtime output, а не источник visual references.
+- Ни clone reference equality, ни фактический render не проверены.
+- Материалы внутри `RenderModel` и весь runtime selection pipeline не проверялись как отдельный полный dependency closure.
+- Игра, EML, NPC и сохранения не запускались и не изменялись.
 
-- Проверен фактический 96-байтовый header оригинального `enshrouded.kfc`: magic `KFC4`. Это был ограниченный read-only header check, не resource lookup.
-- Размеры обнаруженных inputs: KFC `9,392,128`, resources `214,536,192`, EXE `35,338,312` байт.
-- Resource index, hunter/blacksmith, registries и зависимости: **NOT_EXECUTED**.
-- Pre/post SHA-256 игровых файлов: **NOT_EXECUTED**, потому что inspector ещё не запускается. Их нужно снять непосредственно перед и после разрешённого чтения в части C.
-- Binary SHA-256: **NOT_EXECUTED**, бинарника нет.
-- Игра, EML и spawn: **NOT_EXECUTED**.
-- Python/offline suite: **216 PASS, 1 SKIP**; `compileall` и `git diff --check` PASS. Skip — ОС не разрешила создать тестовый directory symlink; перед частью C это должно быть повторено с доступным junction/symlink fixture.
-
-## План после отдельного разрешения
-
-1. Сначала решить блокер native compiler/linker. Установка только Rust 1.88 не позволит собрать `zstd-sys`.
-2. Получить Rust 1.88.0 только из официального источника, проверить подпись/checksum и использовать process-local `RUSTUP_HOME`, `CARGO_HOME`, `CARGO_TARGET_DIR`; передать `--no-modify-path`. Никакой глобальный PATH не менять.
-3. Создать lock локальным Cargo, проверить его и все build scripts; дальнейшие команды выполнять с `--locked`.
-4. Запустить Rust unit tests и fixture tests. При любом отказе safety-теста остановиться.
-5. Собрать в `.tools/kfc-inspector`, вычислить SHA-256 EXE и проверить imports/signature metadata.
-6. Снять полный baseline KFC/resources, DAT, игровых DLL и обоих наборов saves. После единичного read-only lookup повторить и потребовать полное совпадение.
-7. Сначала прочитать один hunter resource, затем blacksmith; отчёты писать только в ignored `runtime/research/stage10_5/`.
-
-Части B/C не начаты: текущего запроса недостаточно для установки Rust или дополнительного native toolchain.
+Следующий допустимый шаг — отдельный load-only эксперимент, который экспортирует у EML-клона точные `CharacterSetup` values и подтверждённые preset/item/model reference paths без spawn.

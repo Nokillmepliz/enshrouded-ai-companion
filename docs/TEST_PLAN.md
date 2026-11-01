@@ -2,9 +2,9 @@
 
 ## Этап 10.5 — KFC Inspector
 
-Контрольная точка A проверяет отсутствие toolchain без аварии, Rust 1.88 compatibility, project-local environment, pinned manifest/upstream lock, наличие native `zstd-sys -> cc`, отсутствие writer API, канонизацию путей, symlink/junction, запрет overwrite/collision/game output, KFC4 header, неизменность fixture inputs, SHA-256 и deterministic JSON. Подготовлены Rust unit tests для `create_new` и game-output guard; до появления toolchain они имеют статус `NOT_EXECUTED`.
+Выполненные gates частей B/C: официальный local-only Rust/MSYS2 provenance, точные версии, project-local environment, собственный Cargo.lock/checksums, audit активных build scripts, `--locked` build/test, отсутствие writer API, канонизация путей, реальный Windows junction, запрет overwrite/collision/game output, KFC4 header, SHA-256 и deterministic JSON.
 
-До оригинального KFC обязательны: собственный проверенный `Cargo.lock`, audit build scripts, Rust tests на синтетических fixtures, binary SHA-256 и pre-read integrity baseline. После каждого единичного lookup требуется полное совпадение post-read KFC/resources, DAT, DLL и saves. Любой mismatch блокирует дальнейшее чтение.
+Оригинальные lookup выполняются только точечно: exact GUID/type, exact type index или lookup type одного GUID. До чтения и после полной серии требуется совпадение EXE/KFC/resources, всех DAT/root DLL и LOCAL/Steam saves. Следующий load-only gate обязан сравнить source и clone `CharacterSetup`/preset/item/model references; ни успешный KFC decode, ни source dependency resolution не повышают `RUNTIME_RENDER_CONFIRMED` и не разрешают spawn.
 
 ## Этап 10.4 — visual resources
 

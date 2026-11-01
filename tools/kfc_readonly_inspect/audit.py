@@ -41,7 +41,10 @@ def detect_toolchain(
     which: Callable[[str], str | None] = shutil.which,
     run: Callable[..., subprocess.CompletedProcess[str]] = subprocess.run,
 ) -> dict:
-    found = {name: which(name) for name in ("rustc", "cargo", "cl", "link", "clang-cl")}
+    found = {
+        name: which(name)
+        for name in ("rustc", "cargo", "cl", "link", "clang-cl", "gcc", "g++", "ld", "ar")
+    }
     versions: dict[str, str | None] = {"rustc": None, "cargo": None}
     for name in versions:
         if found[name]:
@@ -54,14 +57,19 @@ def detect_toolchain(
         compatible = bool(versions["rustc"] and rust_compatible(versions["rustc"]))
     except AuditError:
         compatible = False
-    native_compiler = found["cl"] or found["clang-cl"]
+    native_compiler = found["cl"] or found["clang-cl"] or found["gcc"]
+    native_linker = found["link"] or found["ld"]
     return {
         "tools": found,
         "versions": versions,
         "rust_compatible": compatible,
         "native_compiler_available": bool(native_compiler),
-        "msvc_linker_available": bool(found["link"]),
-        "status": "READY" if compatible and native_compiler and found["cargo"] else "BLOCKED",
+        "native_linker_available": bool(native_linker),
+        "status": (
+            "READY"
+            if compatible and native_compiler and native_linker and found["cargo"]
+            else "BLOCKED"
+        ),
     }
 
 
@@ -186,6 +194,34 @@ def audit_upstream_lock(path: str | Path) -> dict:
         "ok": lock.get("version") == 4 and not missing and any(
             value.split()[0] == "cc" for value in zstd_sys_deps
         ),
+    }
+
+
+def audit_project_lock(path: str | Path) -> dict:
+    """Validate the generated lock before any locked build is accepted."""
+    lock = tomllib.loads(Path(path).read_text(encoding="utf-8"))
+    packages = lock.get("package", [])
+    failures: list[str] = []
+    kfc_packages = [item for item in packages if item.get("name") in {"kfc", "kfc-base", "kfc-resource"}]
+    expected_source = (
+        "git+https://github.com/Brabb3l/kfc-parser.git?"
+        f"rev={PINNED_KFC_REV}#{PINNED_KFC_REV}"
+    )
+    if len(kfc_packages) != 3 or any(item.get("source") != expected_source for item in kfc_packages):
+        failures.append("kfc_lock_source_unexpected")
+    registry_packages = [item for item in packages if str(item.get("source", "")).startswith("registry+")]
+    if any(not item.get("checksum") for item in registry_packages):
+        failures.append("registry_checksum_missing")
+    local_packages = [item for item in packages if "source" not in item]
+    if [item.get("name") for item in local_packages] != ["kfc-readonly-inspect"]:
+        failures.append("unexpected_local_package")
+    return {
+        "lock_version": lock.get("version"),
+        "package_count": len(packages),
+        "registry_package_count": len(registry_packages),
+        "kfc_revision": PINNED_KFC_REV,
+        "failures": failures,
+        "ok": lock.get("version") == 4 and not failures,
     }
 
 

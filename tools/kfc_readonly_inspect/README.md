@@ -1,13 +1,32 @@
 # kfc-readonly-inspect
 
-Минимальный read-only extractor для одного ресурса KFC. Исходник использует закреплённый `kfc-parser` commit `16708594d686b030d909f2d835b199d879ea9ad8`, открывает KFC через `KFCReader`, декодирует один GUID/type и пишет JSON только в stdout либо в новый файл вне каталога игры.
+Минимальный read-only inspector для закреплённого `kfc-parser` commit `16708594d686b030d909f2d835b199d879ea9ad8`. Инструмент открывает KFC через `KFCReader`, не импортирует writer/patch API и записывает только новый JSON вне game directory.
 
-Текущий статус: **AUDITED_SOURCE / BUILD_BLOCKED**. В рабочей среде отсутствуют `cargo`, `rustc` и native C compiler/linker; бинарник не собирался и не запускался. Никакой бинарник в репозиторий не включён. Pinned parser требует Rust 1.88, а `zstd-sys` требует C compiler. Установка toolchain, генерация и аудит собственного `Cargo.lock`, сборка с сетевой загрузкой зависимостей и чтение игровых KFC должны согласовываться отдельно.
-
-После появления проверенного локального toolchain предполагаемая команда сборки:
+Требования: Rust 1.88, compatible C compiler для vendored zstd и проверенный [Cargo.lock](Cargo.lock). Сборка выполняется только с `--locked`:
 
 ```powershell
-cargo build --release --manifest-path tools/kfc_readonly_inspect/Cargo.toml
+cargo test --locked --manifest-path tools/kfc_readonly_inspect/Cargo.toml
+cargo build --release --locked --manifest-path tools/kfc_readonly_inspect/Cargo.toml
 ```
 
-Запуск без output выводит JSON в stdout. Если указан output, его canonical parent должен находиться вне каталога игры; существующий файл не перезаписывается, новый создаётся через `create_new`, а частичный report удаляется при ошибке финализации. В исходнике отсутствуют KFC writer/patch API. Результаты аудита: [STAGE10_5_KFC_INSPECTOR_RESULTS.md](../../docs/STAGE10_5_KFC_INSPECTOR_RESULTS.md).
+Точечное декодирование одного ресурса:
+
+```text
+kfc-readonly-inspect <game-dir> <guid> <qualified-type> [output.json]
+```
+
+Индекс GUID только для одного точного типа:
+
+```text
+kfc-readonly-inspect --list-type <game-dir> <qualified-type> [output.json]
+```
+
+Определение фактического type одного GUID:
+
+```text
+kfc-readonly-inspect --lookup-guid <game-dir> <guid> [output.json]
+```
+
+Без output JSON выводится в stdout. С output канонизируется существующий parent, запрещается путь внутри game directory и перезапись; файл создаётся через `create_new(true)`. При ошибке decode output не создаётся. Инструмент и собранный EXE нельзя помещать в каталог игры.
+
+Локальный бинарник этапа 10.5 хранится только в игнорируемой `.tools/kfc-inspector/bin` и не публикуется. Результаты аудита и контроль целостности: [STAGE10_5_KFC_INSPECTOR_RESULTS.md](../../docs/STAGE10_5_KFC_INSPECTOR_RESULTS.md).
