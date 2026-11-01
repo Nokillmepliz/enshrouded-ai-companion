@@ -244,3 +244,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Post-run: backup 24/24, install 9/9, исходные DAT 55/55; expected DAT 055–063; unknown changes 0; rollback ready и не выполнен.
 - LOCAL: 22 файла, 7 штатных изменений текущего character/world, added/removed 0.
 - Spawn/NPC/entity/faction/inventory mutations не выполнялись; runtime render остаётся UNKNOWN; `spawn_ready=false`.
+
+# Stage 10.8 Phase A — 2026-11-01
+
+- Targeted offline safety suite: **54 PASS**. Он покрывает все 50 обязательных сценариев ТЗ и 4 дополнительные проверки Lua syntax/evidence/redaction/verdict.
+- Полный Python suite: **355 tests run: 354 PASS, 1 skipped**. Skip — прежняя Windows directory-symlink privilege проверка; Stage 10.8 failures отсутствуют.
+- `compileall`, Lua syntax и `git diff --check`: PASS. Новые tracked-кандидаты не содержат бинарников, saves, runtime dumps или приватного Stage 10.7 token.
+- Lua scaffold manifest выключен; source не содержит spawn/destroy/event/tick/autoload path. Mutation-команды всегда fail-closed.
+- Runtime: **NOT_EXECUTED**. Синтетические mocks не считаются доказательством spawn/despawn/render/persistence.
+- Итог: `BLOCKED_FOR_SPAWN`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.

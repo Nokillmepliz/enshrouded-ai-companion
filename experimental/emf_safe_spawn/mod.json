@@ -1,0 +1,12 @@
+{
+  "id": "aic_safe_spawn",
+  "name": "AI Companion Safe Spawn Controller (Phase A disabled)",
+  "version": "0.1.0",
+  "description": "Offline-reviewed command surface. All entity mutations are disabled in Stage 10.8 Phase A.",
+  "authors": ["enshrouded-ai-companion"],
+  "emf": 20,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.9"},
+  "side": "server",
+  "enabled": false
+}

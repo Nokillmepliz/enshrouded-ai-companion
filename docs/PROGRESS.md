@@ -667,3 +667,16 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 ## 2026-11-01 — публикация Stage 10.7 Phase C
 
 - Runtime-отчёт, итог `LOAD_ONLY_SUCCESS`, post-run integrity и результаты проверок опубликованы в `origin/master` коммитом `6c03b4b` (`Record Stage 10.7 load-only success`). Runtime evidence, приватный run token, игровые ресурсы и LOCAL-сохранения в Git не добавлялись.
+
+## 2026-11-01 — Stage 10.8 Phase A: safe humanoid spawn preparation
+
+- Прочитано полное ТЗ; выполнены только разрешённые research/offline implementation действия. Игра/server не запускались; моды не устанавливались; KFC/resources, DAT/KSD и LOCAL saves не изменялись; spawn/despawn/rollback не выполнялись.
+- Исследован закреплённый EMF commit `08d600155fcadc8e45cc9c6f3932a67c717345be`. Подтверждены `emf.spawn(world,guid,x,y,z)` → uint32 EntityId/0 и `emf.destroy(world,id)` → принятие native вызова; orientation spawn фиксирована identity quaternion. Custom GUID синтаксически принимается, но spawnability нашего EML resource не доказана.
+- Установлены блокеры: public Lua не имеет pre-spawn ground/geometry/navmesh query; EntityId переиспользуется и native instance identity/ownership marker отсутствует; clone является villager с `ForceSave`, поэтому persistence/unique lifecycle неизвестны. `destroy=true` не доказывает исчезновение.
+- Реализован `companion/safe_spawn.py`: конечный автомат, fail-closed game/template/entity/position/persistence gates, запрет retry/reconnect/reload/duplicate, mock-only emergency stop, evidence v5 validator и publication redaction. Phase A не имеет runtime effect path и всегда `spawn_ready=false`.
+- Добавлен выключенный `experimental/emf_safe_spawn` с отдельным namespace. В нём нет spawn/destroy/faction/inventory/save/event/tick/autoload вызовов; mutation-команды возвращают `phase_a_mutation_prohibited`.
+- Созданы шесть документов Stage 10.8: API research, safety/evidence contracts, test/install plans и runtime results `NOT_EXECUTED`.
+- Targeted Stage 10.8 suite: **54 PASS**, включая все 50 обязательных сценариев ТЗ и Lua syntax. Полный Python suite: **355 run / 354 PASS / 1 skipped**; skip — прежняя Windows directory-symlink privilege проверка.
+- `compileall`, Lua syntax и `git diff --check`: PASS. Аудит новых tracked-кандидатов не нашёл бинарников, saves, runtime dumps, приватного Stage 10.7 token или ключей/паролей.
+- Read-only локальная сверка: Enshrouded/server закрыты; фактические SHA-256 совпали с Stage 10.7 для `dbghelp.dll`, `dinput8.dll`, patch 0.4.0 Lua и observer. Реальный EMF loader находится в `dinput8.dll`; предположенный путь `emf/emf.dll` отсутствует и не используется.
+- Текущий verdict: **BLOCKED_FOR_SPAWN**. Phase B небезопасна до закрытия identity/position/persistence blockers. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
