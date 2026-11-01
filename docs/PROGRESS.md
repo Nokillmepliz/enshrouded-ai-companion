@@ -10,6 +10,7 @@
 - Подтверждена source visual chain `Template → preset → ItemInfo → RenderModel → hierarchy`. `RenderEquipment.lastModels` в template пустой runtime output. Clone reference equality и runtime render остаются UNKNOWN; canonical fingerprint не повышен, `spawn_ready=false`.
 - SHA-256 до/после полностью совпал для 210 файлов: 62 game files (включая 55 DAT), 23 LOCAL saves и 125 Steam saves. Added/removed/changed отсутствуют.
 - Enshrouded не запускался, EML не устанавливался, KFC/DAT/DLL/saves/entities не изменялись. Статус этапа: **PARTIAL_SUCCESS**.
+- Исходники inspector, `Cargo.lock`, integrity tooling, тесты и отчёты опубликованы в `origin/master`; основной implementation commit: `2180fdf`.
 - Следующий шаг: отдельно согласованный load-only export точных `CharacterSetup` и preset/item/model references у EML clone без spawn.
 
 ## 2026-11-01 — этап 10.5, контрольная точка A
