@@ -680,3 +680,7 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - `compileall`, Lua syntax и `git diff --check`: PASS. Аудит новых tracked-кандидатов не нашёл бинарников, saves, runtime dumps, приватного Stage 10.7 token или ключей/паролей.
 - Read-only локальная сверка: Enshrouded/server закрыты; фактические SHA-256 совпали с Stage 10.7 для `dbghelp.dll`, `dinput8.dll`, patch 0.4.0 Lua и observer. Реальный EMF loader находится в `dinput8.dll`; предположенный путь `emf/emf.dll` отсутствует и не используется.
 - Текущий verdict: **BLOCKED_FOR_SPAWN**. Phase B небезопасна до закрытия identity/position/persistence blockers. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+
+## 2026-11-01 — публикация Stage 10.8 Phase A
+
+- Research, fail-closed controller/scaffold, evidence v5, 54 новых теста и документация опубликованы в `origin/master` коммитом `ed467f1` (`Prepare safe humanoid spawn gates`). Runtime artifacts, игровые файлы, saves и приватные токены не публиковались.
