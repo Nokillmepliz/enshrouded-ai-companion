@@ -617,3 +617,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Typed gate отклонил девять `HashKey32` полей: source/clone имеют `UNSUPPORTED` и пустые values. Только `gender` и `useNewProportions` подтверждены. `source_registered=false`, `registry_added=false`; независимый runtime template lookup не подтверждён.
 - После закрытия процессы отсутствовали. Backup 24/24 и install 9/9 PASS; исходные DAT `000–054` совпали 55/55 по SHA-256, добавлены только нулевые `055–063`. KFC/resources изменены EML, KFC `.bak` совпал с baseline. LOCAL-набор сохранил 22 файла, штатно изменены 6; неизвестных изменений 0.
 - Rollback readiness=true, но rollback по условию не выполнялся. `load_only_success=false`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+- Runtime evidence, integrity review и подробный Phase C report зафиксированы коммитом `d91569d` (`Record Stage 10.6 Phase C load-only results`).
