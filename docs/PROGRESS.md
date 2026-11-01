@@ -579,3 +579,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - После hash-сверки найдено содержательное расхождение: runtime `mod.json`/Lua — 0.3.0/evidence v3, но установленный README остался с текстом 0.2.0/«не установлен». По условию пользователя дальнейшие установочные действия остановлены; игровой файл и receipt не исправлялись.
 - Repository README исправлен, validator теперь отклоняет stale README, добавлен regression test. Текущий статус — **BLOCKED_POST_INSTALL_DOCUMENTATION_MISMATCH**; Phase C не готова до отдельного разрешения на remediation.
 - После исправления исходников полный suite: **259 tests run: 258 PASS, 1 skip**; compileall и `git diff --check` PASS.
+- Отчёт Phase B, исправленный repository README и regression-защита опубликованы в `origin/master`: `34fcc93` (`Record Stage 10.6 Phase B installation`).
