@@ -565,3 +565,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - KFC Inspector повторно собран из locked dependencies: **2 Rust tests PASS**. Реальный dry-run preflight вернул `PREPARATION_READY`; свободного места достаточно, единственный blocker — отсутствие нового verified backup.
 - Созданы план, evidence contract и runtime report со статусом **NOT_EXECUTED**. Часть B не разрешена: новый backup не создавался, EML не устанавливался, игра/сохранения не менялись.
 - Следующий шаг: отдельное разрешение пользователя на часть B — новый verified backup и установка без запуска игры.
+- Checkpoint реализации опубликован в `origin/master`: `d8d843d` (`Prepare Stage 10.6 visual evidence verification`).
