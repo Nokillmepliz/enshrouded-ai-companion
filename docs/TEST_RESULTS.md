@@ -1,5 +1,11 @@
 # Результаты подготовки этапа 2
 
+## Этап 10.5 — контрольная точка A
+
+Фактически выполнены Python safety/audit tests и полный offline suite: **216 PASS, 1 SKIP**. Skip относится к созданию Windows directory symlink без доступной привилегии; canonical path guards проверены остальными fixtures, а реальный junction/symlink test остаётся gate части C. `compileall` и `git diff --check` прошли. Rust unit tests, Cargo lock/build/test, binary audit, KFC GUID lookup и игровые integrity hashes имеют статус `NOT_EXECUTED`: toolchain отсутствует и установка не разрешена.
+
+Текущий environment audit: `rustc/cargo/cl/link/clang-cl/gcc/cmake/ninja=NOT_FOUND`; manifest и pinned upstream lock прошли статическую проверку. `zstd-sys -> cc` подтвердил обязательность native C compiler. Оригинальный KFC использовался только для ограниченного read-only KFC4 header check; resource data не извлекались.
+
 ## Этап 10.4
 
 Добавлены тесты reflection schema, полей/типов шести компонентов, corrupt reflection, structural/resource/dependency levels, GUID validation, mismatch, stable SHA-256 и safety envelope KFC inspector. Preflight tests отклоняют повреждённый KFC header и output в game directory и проверяют неизменность входов. Реальная Rust-сборка/декодирование не выполнялись из-за отсутствия toolchain и не считаются PASS.

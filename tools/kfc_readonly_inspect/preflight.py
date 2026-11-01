@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import shutil
 import struct
+
+from tools.kfc_readonly_inspect.audit import AuditError, canonical_plan, detect_toolchain
 
 
 class InspectorPreflightError(ValueError):
@@ -13,7 +14,11 @@ class InspectorPreflightError(ValueError):
 
 
 def inspect_plan(game_dir: str | Path, output: str | Path | None = None) -> dict:
-    game = Path(game_dir).resolve()
+    try:
+        plan = canonical_plan(game_dir, output)
+    except (AuditError, OSError) as exc:
+        raise InspectorPreflightError(str(exc)) from exc
+    game = Path(plan["game_dir"])
     kfc = game / "enshrouded.kfc"
     resources = game / "enshrouded.kfc_resources"
     executable = game / "enshrouded.exe"
@@ -29,24 +34,14 @@ def inspect_plan(game_dir: str | Path, output: str | Path | None = None) -> dict
         raise InspectorPreflightError("kfc_magic_invalid")
     if marker != 12 or declared_size < 12 or declared_size > kfc.stat().st_size:
         raise InspectorPreflightError("kfc_header_invalid")
-    output_path = None
-    if output is not None:
-        output_path = Path(output).resolve()
-        if output_path == game or game in output_path.parents:
-            raise InspectorPreflightError("output_inside_game_forbidden")
-        if output_path.exists():
-            raise InspectorPreflightError("output_exists")
-        if not output_path.parent.is_dir():
-            raise InspectorPreflightError("output_parent_missing")
-    cargo, rustc = shutil.which("cargo"), shutil.which("rustc")
+    toolchain = detect_toolchain()
     return {
         "mode": "READ_ONLY_PREFLIGHT",
         "kfc_header": "KFC4",
-        "inputs": [str(kfc), str(resources), str(executable)],
-        "output": str(output_path) if output_path else "STDOUT",
-        "cargo": cargo,
-        "rustc": rustc,
-        "status": "READY_TO_BUILD" if cargo and rustc else "BLOCKED_TOOLCHAIN",
+        "inputs": plan["inputs"],
+        "output": plan["output"],
+        "toolchain": toolchain,
+        "status": "READY_TO_BUILD" if toolchain["status"] == "READY" else "BLOCKED_TOOLCHAIN",
         "writes_performed": False,
     }
 

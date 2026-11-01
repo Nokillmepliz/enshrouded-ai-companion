@@ -11,12 +11,44 @@ use kfc::{
     resource::value::{ConversionOptions, Value},
 };
 use serde_json::json;
-use std::{env, fs, path::{Path, PathBuf}};
+use std::{env, fs::{self, File, OpenOptions}, io::Write, path::{Path, PathBuf}};
 
 const PINNED_REV: &str = "16708594d686b030d909f2d835b199d879ea9ad8";
 
 fn inside(path: &Path, root: &Path) -> bool {
     path.starts_with(root)
+}
+
+fn output_path(raw: &Path, game_dir: &Path) -> Result<PathBuf> {
+    let raw = if raw.is_absolute() {
+        raw.to_path_buf()
+    } else {
+        env::current_dir().context("current directory is unavailable")?.join(raw)
+    };
+    let parent = raw.parent().context("output has no parent")?.canonicalize()
+        .context("output parent is unavailable")?;
+    let output = parent.join(raw.file_name().context("output has no file name")?);
+    if inside(&output, game_dir) {
+        bail!("refusing to write inside game directory");
+    }
+    if output.exists() {
+        bail!("refusing to overwrite output");
+    }
+    Ok(output)
+}
+
+fn write_new(output: &Path, encoded: &[u8]) -> Result<()> {
+    let mut file = OpenOptions::new().write(true).create_new(true).open(output)
+        .context("cannot create new report")?;
+    let result = file.write_all(encoded)
+        .and_then(|_| file.flush())
+        .and_then(|_| file.sync_all());
+    if let Err(error) = result {
+        drop(file);
+        let _ = fs::remove_file(output);
+        return Err(error).context("cannot finalize report");
+    }
+    Ok(())
 }
 
 fn run() -> Result<()> {
@@ -27,6 +59,12 @@ fn run() -> Result<()> {
     let game_dir = PathBuf::from(&args[1]).canonicalize()
         .context("game directory is unavailable")?;
     let executable = game_dir.join("enshrouded.exe");
+    let kfc = game_dir.join("enshrouded.kfc");
+    let resources = game_dir.join("enshrouded.kfc_resources");
+    for input in [&executable, &kfc, &resources] {
+        let resolved = input.canonicalize().context("required input is unavailable")?;
+        File::open(&resolved).context("required input is not readable")?;
+    }
     let registry = TypeRegistry::load_from_executable(&executable)
         .context("cannot load reflection from executable")?;
     let type_name = args[3].to_string_lossy();
@@ -54,16 +92,8 @@ fn run() -> Result<()> {
     });
     let encoded = serde_json::to_vec_pretty(&report)?;
     if let Some(output) = args.get(4) {
-        let output = PathBuf::from(output);
-        let parent = output.parent().context("output has no parent")?.canonicalize()
-            .context("output parent is unavailable")?;
-        if inside(&parent, &game_dir) {
-            bail!("refusing to write inside game directory");
-        }
-        if output.exists() {
-            bail!("refusing to overwrite output");
-        }
-        fs::write(&output, encoded).context("cannot write report")?;
+        let output = output_path(&PathBuf::from(output), &game_dir)?;
+        write_new(&output, &encoded)?;
     } else {
         println!("{}", String::from_utf8(encoded)?);
     }
@@ -74,5 +104,37 @@ fn main() {
     if let Err(error) = run() {
         eprintln!("{error:#}");
         std::process::exit(2);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::time::{SystemTime, UNIX_EPOCH};
+
+    fn sandbox() -> PathBuf {
+        let nonce = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_nanos();
+        let path = env::temp_dir().join(format!("aic-kfc-inspector-{nonce}"));
+        fs::create_dir(&path).unwrap();
+        path.canonicalize().unwrap()
+    }
+
+    #[test]
+    fn output_inside_game_is_rejected() {
+        let game = sandbox();
+        let error = output_path(&game.join("report.json"), &game).unwrap_err();
+        assert!(error.to_string().contains("inside game directory"));
+        fs::remove_dir(&game).unwrap();
+    }
+
+    #[test]
+    fn create_new_never_overwrites_existing_report() {
+        let root = sandbox();
+        let report = root.join("report.json");
+        write_new(&report, b"first").unwrap();
+        assert!(write_new(&report, b"second").is_err());
+        assert_eq!(fs::read(&report).unwrap(), b"first");
+        fs::remove_file(report).unwrap();
+        fs::remove_dir(root).unwrap();
     }
 }

@@ -1,5 +1,18 @@
 # Журнал прогресса Enshrouded AI Companion
 
+## 2026-11-01 — этап 10.5, контрольная точка A
+
+- Прочитаны ТЗ и история 10.2–10.4; `master` исходно совпадал с `origin/master` на `87fc2fb`, локальных изменений не было.
+- Аудит среды подтвердил отсутствие `rustc`, `cargo`, `cl.exe`, `link.exe`, `clang-cl`, GCC/CMake/Ninja и зарегистрированных Visual Studio Build Tools. Rust и другое ПО не устанавливались.
+- Pinned kfc-parser требует Rust 1.88.0/edition 2024. Upstream lock подтвердил цепочку `zstd 0.13.3 -> zstd-sys 2.0.15 -> cc 1.2.48`; поэтому одного Rust недостаточно, необходим native C compiler/linker.
+- Усилен source-only inspector: canonical output parent, запрет game path/overwrite/collision, `create_new`, read-only input opens и удаление только нового частичного report при ошибке finalize. KFC writer/patch/create APIs отсутствуют.
+- Добавлен offline audit module и синтетические тесты toolchain/version/manifest/dependencies/path/symlink/KFC4/hash/deterministic JSON. Rust unit tests подготовлены, но не запускались.
+- Полный offline suite: **216 PASS, 1 SKIP**; skip — недоступное создание Windows directory symlink без привилегии. `compileall` и `git diff --check` прошли; реальный junction/symlink gate перенесён в обязательные проверки перед KFC read.
+- Выполнен только ограниченный read-only header check оригинального KFC (`KFC4`); resource lookup, hunter/blacksmith/registries extraction и pre/post game hashes не выполнялись.
+- Visual fingerprint не повышен: `STRUCTURAL_MATCH=true`, остальные уровни `UNKNOWN`, `spawn_ready=false`. EML patch, observer и evaluator не менялись.
+- Ограничение: собственный `Cargo.lock` отсутствует; Rust/native toolchain, сборка, binary SHA-256 и KFC extraction ждут отдельного разрешения и успешного safety audit.
+- Следующий шаг: согласовать способ получить локальные Rust 1.88.0 и native C compiler/linker без глобального PATH/админ-установки; затем создать и проверить lock до build.
+
 ## 2026-10-31 — этап 10.4, RenderEquipment и visual resources
 
 - Pinned EMF reflection разобран новым read-only `tools/reflection_schema.py`. Подтверждены все поля шести целевых компонентов и вложенных `Equipment`, `ItemVisual`, `ItemRenderColors`, `HashKey32`.
