@@ -587,3 +587,4 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Штатный installer не имеет single-file update/revision операции: preflight остановился `conflicting_or_repeated_dbghelp_install`, install dry-run — `installation_collision:dbghelp.dll`. Ручное редактирование receipt запрещено условиями и не выполнялось.
 - Установленный README, остальные 8 файлов, receipt, Lua/DLL/JSON, KFC/DAT/saves не менялись. Игра не запускалась, NPC не создавался.
 - Итог: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**. Phase C не готова; следующий безопасный шаг требует отдельного разрешения на разработку атомарного update-механизма либо полный rollback/reinstall.
+- Read-only remediation audit опубликован в `origin/master`: `b536271` (`Audit Stage 10.6 README remediation blocker`).
