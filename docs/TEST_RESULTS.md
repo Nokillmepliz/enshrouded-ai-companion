@@ -224,3 +224,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - `git diff --check`: **PASS** после нормализации EOF.
 - Read-only current-state integrity: backup 24/24, installed files 9/9, DAT baseline 55/55, unknown changes 0, rollback ready. KFC/resources остаются ожидаемо изменены EML; `.bak` совпадает baseline; LOCAL changed 6, added/removed 0.
 - Runtime patch 0.4.0/evidence v4: **NOT_EXECUTED**. Синтетический полный A/H/R/V/B/C PASS не считается игровым доказательством; `spawn_ready=false`.
+
+# Stage 10.7 Phase B — 2026-11-01
+
+- Pre-rollback audit: old receipt complete and 9/9 hashes PASS; old backup 24/24; DAT baseline 55/55; attributed zero DAT 055–063; KFC backup baseline PASS; LOCAL 22 files with six expected historical changes; unknown changes 0.
+- Controlled rollback: 9 receipt files removed; KFC/resources restored; only attributed `.bak`, DAT 055–063 and `.cache/export/logs` removed. Clean state PASS; LOCAL hashes unchanged.
+- New backup: **24/24 verified**, 224 564 012 bytes. New patch 0.4.0/evidence v4 install: **9/9 hashes PASS**, receipt complete, token/versions/observer PASS, rollback dry-run **9/9**.
+- Independent post-install verify: backup sources 24/24, DAT 55, no runtime outputs before Phase C, LOCAL unchanged, game/server stopped.
+- Full Python suite: **301 tests run: 300 PASS, 1 skipped**. `compileall` and `git diff --check`: PASS.
+- Game/runtime Phase C: **NOT EXECUTED**; spawn/entity/faction/inventory mutations: none; `spawn_ready=false`.

@@ -89,4 +89,17 @@ class RegistrationAndContractTests(unittest.TestCase):
   r=evaluate(evidence(),observer=OBS,game_report=GAME,integrity=INTEGRITY)
   self.assertEqual(r["status"],"LOAD_ONLY_SUCCESS"); self.assertFalse(r["spawn_ready"])
 
+class PhaseBSourceTests(unittest.TestCase):
+ def source(self): return (ROOT/"scripts/stage10_7_phase_b.py").read_text(encoding="utf-8")
+ def test_phase_b_never_launches_game(self):
+  s=self.source(); self.assertNotIn("Popen",s); self.assertNotIn("Start-Process",s)
+  self.assertIn('["tasklist", "/FI"',s)
+ def test_phase_b_never_restores_or_writes_local_saves(self):
+  s=self.source(); self.assertNotIn("restore_saves",s); self.assertNotIn("SAVES /",s)
+  self.assertIn("local_saves_changed_during_install",s)
+ def test_phase_b_has_audit_apply_verify_modes(self):
+  s=self.source()
+  for marker in ('"audit", "apply", "verify"','stage10_7_output_collision','rollback_dry_run'):
+   self.assertIn(marker,s)
+
 if __name__=="__main__": unittest.main()

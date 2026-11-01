@@ -631,3 +631,15 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Повторная read-only проверка текущей 0.3.0 установки: игра/server закрыты; backup 24/24, install 9/9, DAT baseline 55/55, unknown changes 0, KFC `.bak` совпадает baseline, LOCAL changed 6 и added/removed 0; rollback ready, не выполнен.
 - Проверки: Python **298 run / 297 PASS / 1 skipped**; Stage 10.7 targeted **97 PASS**; KFC Inspector **2 PASS**; compileall и `git diff --check` PASS.
 - Итог Phase A: **PARTIAL_SUCCESS**. Офлайн механизм обоснован и покрыт тестами, но patch 0.4.0 ещё не установлен и runtime A/H/R/V/B/C не подтверждены. Следующий шаг требует отдельного разрешения на Phase B controlled rollback/reinstall; затем отдельного разрешения на Phase C load-only. Spawn/entity mutations остаются запрещены.
+
+## 2026-11-01 — Stage 10.7 Phase B: controlled rollback и patch 0.4.0 install
+
+- Пользователь отдельно разрешил Phase B при запрете запуска игры, spawn и любых entity/faction/inventory mutations. Перед rollback Enshrouded/server отсутствовали.
+- Read-only audit подтвердил старый receipt `complete`, SHA-256 `d8ca5937f03663e7c9e1468890f1126be8e0dcad403bade47384c70d6a1aa15a`, installed hashes 9/9, backup 24/24, исходные DAT 55/55 и атрибутированные нулевые DAT 055–063. KFC `.bak` совпал baseline; неизвестных изменений нет.
+- LOCAL набор содержит 22 файла. От исторического pre-run baseline отличаются шесть ожидаемых файлов: `character0.ksd`, `world0.ksd` и по две backup-копии. Они не восстанавливались; их hashes до/после Phase B совпали.
+- Штатный rollback удалил ровно 9 receipt paths. Восстановлены только KFC/resources из verified backup; удалены атрибутированные `.bak`, DAT 055–063 и EML runtime directories `.cache/export/logs`. Clean verification: KFC/resources baseline, DAT 000–054, old install paths absent, unknown changes 0.
+- Создан новый backup `stage10-7-pre-eml-20261101`: 24 файла, 224 564 012 bytes, 24/24 verified; manifest SHA-256 `7ac4df3609d2609673345d029844dcf8d9181ba768762aa6eb6b62752cb9b651`.
+- Установлены ровно 9 файлов patch 0.4.0/evidence v4/read-only observer. Новый receipt `complete`, SHA-256 `3280870774f3b0283bad0cb6e3063e03ca57f42de8de876578fdf90a269bf2e6`; hashes 9/9, semantic version/token/placeholder checks PASS. Публично сохранён только SHA-256 run token `53d2a97472f31e0f3501b584d199c826e1ef86e2b42f4c0b3f63f8af921b871f`.
+- Независимая post-install verification: backup files и current sources 24/24, DAT 55, pre-runtime `.cache/export/logs/.bak` отсутствуют, rollback dry-run 9/9, LOCAL unchanged, процессы закрыты.
+- Полный Python suite: **301 run / 300 PASS / 1 skipped**; compileall и `git diff --check` PASS.
+- Статус: **READY_FOR_PHASE_C_REVIEW**. Phase C не разрешена и не выполнялась; игра не запускалась, evidence v4 runtime ещё отсутствует, A/H/R/V/B/C не оценивались, `spawn_ready=false`.

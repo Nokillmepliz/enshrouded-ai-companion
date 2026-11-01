@@ -23,10 +23,11 @@ EXPECTED_GAME_SHA256 = "d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc1
 EXPECTED_EMF_LOADER_SHA256 = "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee"
 EXPECTED_EML_DBGHELP_SHA256 = "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa"
 EXPECTED_EMM_SHA256 = "b1133f6b8ea7000596cc7710901bd8307b48165b0e650c0487a611d90ea49305"
-EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v3.txt")
+EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v4.txt")
+LEGACY_EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v3.txt")
 EXPECTED_TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 EXPECTED_SOURCE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
-EXPECTED_PATCH_VERSION = "0.3.0"
+EXPECTED_PATCH_VERSION = "0.4.0"
 RUN_TOKEN_PLACEHOLDER = "__AIC_STAGE10_RUN_TOKEN__"
 RUN_TOKEN_PATTERN = re.compile(r"^[0-9a-f]{32}$")
 DIRECT_LOOKUP_STATUS = "UNAVAILABLE_WITHOUT_ENTITY"
@@ -248,7 +249,7 @@ def preflight(
         raise Stage10Error("observer_already_installed")
     if (game / "emf" / "config" / "aic_template_observer.ini").exists():
         raise Stage10Error("observer_config_already_installed")
-    if (game / EVIDENCE_RELATIVE).exists():
+    if any((game / relative).exists() for relative in (EVIDENCE_RELATIVE, LEGACY_EVIDENCE_RELATIVE)):
         raise Stage10Error("stale_evidence_present")
     install_roots = (game, game / "mods", game / "emf")
     if any(
