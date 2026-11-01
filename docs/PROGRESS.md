@@ -600,3 +600,20 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Полный suite: **260 tests run: 259 PASS, 1 skip**; compileall и `git diff --check` PASS.
 - Статус: **PHASE_B_COMPLETE — READY_FOR_PHASE_C_REVIEW**. Phase C не запускалась и требует отдельного разрешения; A/V/B/C остаются `NOT_EXECUTED`, `spawn_ready=false`.
 - Реализация, regression test и отчёты зафиксированы коммитом `6ec5e0c` (`Complete Stage 10.6 Phase B remediation`).
+
+## 2026-11-01 — Stage 10.6 Phase C preflight
+
+- Пользователь разрешил контролируемый load-only тест с ручным запуском игры и запретом spawn/entity/faction/inventory/save mutations. Rollback не разрешён.
+- Read-only preflight выполнен при закрытых `Enshrouded` и server. Новый receipt `complete`, SHA-256 `d8ca5937f03663e7c9e1468890f1126be8e0dcad403bade47384c70d6a1aa15a`; установленные hashes совпали 9/9, rollback dry-run распознал 9/9.
+- Verified backup прошёл проверку 24/24; текущие KFC/resources и все LOCAL source-файлы совпали с manifest. Baseline содержит 55 DAT и 22 LOCAL save-файла.
+- Stale evidence, KFC `.bak`, EML cache/export/logs, bridge descriptor и `.stage10-install` отсутствуют. В EML `mods` находится только `aic_eml_humanoid`; прочие штатные EMF-моды выключены, кроме необходимых Lua/observer и защищённого от autospawn `aic_body`.
+- Создана ignored preflight snapshot и подготовлен read-only collector с fail-closed проверкой LOCAL `Body Test` slot 1 / `AI Body Test` slot 1 до observer-запросов. Статус: **READY_FOR_MANUAL_START**, `spawn_ready=false`.
+
+## 2026-11-01 — Stage 10.6 Phase C runtime и post-run
+
+- Пользователь вручную запустил и закрыл Enshrouded. Bridge до observer-запросов подтвердил LOCAL character `Body Test`, slot 1, и LOCAL world `AI Body Test`, slot 1.
+- EML применил patch 0.3.0 (`Applied 1 patches`) и создал evidence v3. Observer `status/inspect/compare` ответил без ошибок, с read-only/spawn-forbidden flags и совпадающим token/fingerprint. Команды spawn/faction/inventory/entity/save не выполнялись.
+- Evaluator: **A=true, V=false, B=true, C=true**; verdict **FAILED — V:CHARACTER_SETUP**. Structure/81 components, animation graph, retarget, 18 references, dependency closure и source integrity прошли.
+- Typed gate отклонил девять `HashKey32` полей: source/clone имеют `UNSUPPORTED` и пустые values. Только `gender` и `useNewProportions` подтверждены. `source_registered=false`, `registry_added=false`; независимый runtime template lookup не подтверждён.
+- После закрытия процессы отсутствовали. Backup 24/24 и install 9/9 PASS; исходные DAT `000–054` совпали 55/55 по SHA-256, добавлены только нулевые `055–063`. KFC/resources изменены EML, KFC `.bak` совпал с baseline. LOCAL-набор сохранил 22 файла, штатно изменены 6; неизвестных изменений 0.
+- Rollback readiness=true, но rollback по условию не выполнялся. `load_only_success=false`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.

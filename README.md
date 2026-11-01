@@ -1,6 +1,6 @@
 # enshrouded-ai-companion
 
-**Текущий результат — этап 10.6 Phase B remediation: `COMPLETE — READY_FOR_PHASE_C_REVIEW`.** Выполнены контролируемый rollback старого набора и повторная установка исправленного plan: новый receipt `complete`, hashes 9/9 и rollback dry-run подтверждены; 24-file backup, 55 DAT и 22 LOCAL saves целы. Игра не запускалась, Phase C ещё не разрешена, `spawn_ready=false`. [Remediation report](docs/STAGE10_6_REMEDIATION_REPORT.md), [отчёт Phase B](docs/STAGE10_6_PHASE_B_REPORT.md), [план](docs/STAGE10_6_VISUAL_LOAD_PLAN.md).
+**Текущий результат — этап 10.6 Phase C: `FAILED — V:CHARACTER_SETUP`.** Контролируемый load-only запуск дал A/B/C=PASS, V=FAIL: структура, animation, retarget и 18 visual references совпали, но девять `HashKey32` полей `CharacterSetup` остались `UNSUPPORTED`. Post-run integrity подтверждена, неизвестных изменений нет, rollback не выполнялся. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`. [Phase C report](docs/STAGE10_6_PHASE_C_REPORT.md), [evidence contract](docs/STAGE10_6_VISUAL_EVIDENCE_CONTRACT.md), [план](docs/STAGE10_6_VISUAL_LOAD_PLAN.md).
 
 **Предыдущий результат — этап 10.5: `PARTIAL_SUCCESS`.** Read-only исследование разрешило source-цепочку `TemplateResource → CharacterPresetCollection → ItemRegistryResource/ItemInfo → RenderModel → ModelHierarchyResource`; 35/35 target models найдены, общий hierarchy содержит 102 joints. Подробности: [результаты inspector](docs/STAGE10_5_KFC_INSPECTOR_RESULTS.md) и [visual dependencies](docs/STAGE10_5_VISUAL_DEPENDENCIES.md).
 

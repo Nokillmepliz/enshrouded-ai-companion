@@ -1,6 +1,6 @@
 # Stage 10.6 — план visual load-only проверки
 
-Дата: 2026-11-01. Текущий checkpoint: **PHASE_B_COMPLETE; READY_FOR_PHASE_C_REVIEW**.
+Дата: 2026-11-01. Текущий checkpoint: **PHASE_C_COMPLETE; FAILED_V_CHARACTER_SETUP**.
 
 ## Подтверждено офлайн
 
@@ -15,9 +15,9 @@
 
 Verified backup создан и проверен. После обнаружения stale README выполнены отдельно разрешённые полный rollback и повторная установка исправленного plan. Новый run token и отдельный complete receipt созданы; post-install hashes и rollback dry-run подтверждены 9/9. DAT 55/55 и LOCAL saves 22/22 совпали с baseline. Игра не запускалась. См. [remediation report](STAGE10_6_REMEDIATION_REPORT.md).
 
-## Часть C — только после ещё одного разрешения
+## Часть C — выполнена
 
-Пользователь запускает игру вручную, открывает главное меню и LOCAL test world. Spawn, console mutation и NPC-команды запрещены. Codex читает только EML/EMF logs, evidence v3, observer `status/inspect/compare`, bridge diagnostics и hashes. После закрытия игры выполняется post-run integrity review.
+Пользователь вручную загрузил LOCAL `Body Test` / `AI Body Test`. Выполнены только read-only EML/EMF/observer/Bridge diagnostics и post-run integrity. Результат A=true, V=false, B=true, C=true: девять `HashKey32` полей `CharacterSetup` экспортированы как `UNSUPPORTED`. Подробности: [Phase C report](STAGE10_6_PHASE_C_REPORT.md).
 
 Порядок evaluator: A → V → B → C. Кратковременная загрузка ресурса не считается render proof. Даже `LOAD_ONLY_SUCCESS` оставляет `RUNTIME_RENDER_CONFIRMED=UNKNOWN` и `spawn_ready=false`.
 

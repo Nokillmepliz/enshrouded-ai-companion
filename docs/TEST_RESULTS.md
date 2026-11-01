@@ -204,3 +204,12 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Verified backup: **24/24 PASS**; DAT: **55/55 PASS**; LOCAL saves: **22/22 PASS** после rollback и после установки.
 - `compileall` и `git diff --check`: PASS.
 - Runtime/игра: **NOT EXECUTED**; Phase C не разрешена.
+
+# Этап 10.6, Phase C — 2026-11-01
+
+- Ручной LOCAL load-only запуск: A=PASS, V=FAIL, B=PASS, C=PASS; verdict `FAILED — V:CHARACTER_SETUP`.
+- Patch 0.3.0 применён один раз; Bridge и observer read-only contract PASS.
+- Post-run: backup 24/24, install 9/9, исходные DAT 55/55 SHA-256 PASS; unknown changes 0.
+- Полный Python suite: **260 tests run: 259 PASS, 1 skipped**.
+- `compileall` и `git diff --check`: PASS.
+- Spawn/NPC/entity mutations: не выполнялись; `spawn_ready=false`.
