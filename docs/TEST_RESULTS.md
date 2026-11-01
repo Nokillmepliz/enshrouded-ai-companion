@@ -233,3 +233,14 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Independent post-install verify: backup sources 24/24, DAT 55, no runtime outputs before Phase C, LOCAL unchanged, game/server stopped.
 - Full Python suite: **301 tests run: 300 PASS, 1 skipped**. `compileall` and `git diff --check`: PASS.
 - Game/runtime Phase C: **NOT EXECUTED**; spawn/entity/faction/inventory mutations: none; `spawn_ready=false`.
+
+# Stage 10.7 Phase C — 2026-11-01
+
+- Полный Python suite после runtime-проверки: **301 tests run: 300 PASS, 1 skipped**.
+- `compileall` и `git diff --check`: PASS.
+- Реальный контролируемый LOCAL load-only запуск: **LOAD_ONLY_SUCCESS**; A/H/R/V/B/C = PASS.
+- Evidence v4 подтвердил 9/9 HashKey32 source/clone, provenance, GUID, 81-компонентный fingerprint, writer и read-only lookup.
+- Observer `status`/`inspect`/`compare`: 3/3 PASS; Bridge: EMF 0.3.2, API 20, protocol 1, build 1273043.
+- Post-run: backup 24/24, install 9/9, исходные DAT 55/55; expected DAT 055–063; unknown changes 0; rollback ready и не выполнен.
+- LOCAL: 22 файла, 7 штатных изменений текущего character/world, added/removed 0.
+- Spawn/NPC/entity/faction/inventory mutations не выполнялись; runtime render остаётся UNKNOWN; `spawn_ready=false`.

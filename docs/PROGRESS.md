@@ -643,3 +643,23 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Независимая post-install verification: backup files и current sources 24/24, DAT 55, pre-runtime `.cache/export/logs/.bak` отсутствуют, rollback dry-run 9/9, LOCAL unchanged, процессы закрыты.
 - Полный Python suite: **301 run / 300 PASS / 1 skipped**; compileall и `git diff --check` PASS.
 - Статус: **READY_FOR_PHASE_C_REVIEW**. Phase C не разрешена и не выполнялась; игра не запускалась, evidence v4 runtime ещё отсутствует, A/H/R/V/B/C не оценивались, `spawn_ready=false`.
+
+## 2026-11-01 — Stage 10.7 Phase C preflight
+
+- Пользователь разрешил контролируемый load-only тест с исключительно ручным запуском Enshrouded и запретом spawn/entity/faction/inventory mutations и rollback.
+- Read-only preflight выполнен при закрытых игре/server: receipt `complete`, SHA-256 `3280870774f3b0283bad0cb6e3063e03ca57f42de8de876578fdf90a269bf2e6`; installed hashes 9/9; verified backup и его current sources 24/24; DAT 000–054 — 55 файлов; LOCAL baseline — 22 файла; rollback dry-run 9/9.
+- Patch 0.4.0, evidence v4 path, observer и общий run token согласованы. Stale evidence, `.cache`, `export`, `logs`, KFC `.bak`, bridge descriptor, install temporary и посторонние EML-моды отсутствуют; conflicts 0.
+- Сохранён ignored preflight snapshot с SHA-256 KFC/DAT/LOCAL/install files и log offsets для post-run comparison. Run token не публикуется; его SHA-256 `53d2a97472f31e0f3501b584d199c826e1ef86e2b42f4c0b3f63f8af921b871f`.
+- Статус: **READY_FOR_MANUAL_START**. Codex игру не запускал. Следующее действие пользователя: вручную запустить Enshrouded и загрузить только LOCAL `Body Test` slot 1 / `AI Body Test` slot 1, затем сообщить `загрузился`. `spawn_ready=false`.
+
+## 2026-11-01 — Stage 10.7 Phase C: load-only runtime
+
+- Пользователь вручную запустил Enshrouded, загрузил LOCAL `Body Test` slot 1 / `AI Body Test` slot 1 и затем закрыл игру. Codex игру не запускал и выполнил только read-only Bridge/observer/evidence диагностику. Spawn, NPC, entity/faction/inventory mutations и rollback не выполнялись.
+- Bridge подтвердил EMF 0.3.2, API 20, protocol 1, build 1273043 и правильный LOCAL-контекст. Observer `status`, `inspect`, `compare` вернул 3/3 полных согласованных ответа; protocol/JSON/token errors отсутствуют, safety flags PASS.
+- EML patch 0.4.0 создал evidence v4, сообщил `AIC_EML_TEMPLATE_V4_READY` и `Applied 1 patches`; writer finalized. Export-directory warning восстановился через default path и не помешал созданию export/evidence; serialization/fatal errors отсутствуют.
+- Девять HashKey32 source/clone имеют `CONFIRMED`, точные UInt32 совпадают, provenance получен из EML reflection, unsupported list пуст. Template GUID, source GUID, 81 компонентов, component fingerprint `412d61b0`, lookup fingerprint `a7f38d80`, animation graph и visual dependency closure подтверждены. Read-only lookup через EML AssetManager вернул ожидаемую identity.
+- Итог evaluator: **LOAD_ONLY_SUCCESS**, A/H/R/V/B/C = PASS, errors/unknowns отсутствуют. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`: entity не создавалась, поэтому экранная модель/материалы/skeleton/animation и lifecycle ещё не проверены. `spawn_ready=false`.
+- Post-run при закрытых игре/server: backup 24/24; installed 9/9; исходные DAT 55/55; только ожидаемые пустые DAT 055–063; KFC `.bak` совпадает baseline; resources baseline сохранён; LOCAL 22 файла, changed 7, added/removed 0; unknown changes 0. Rollback ready=true, executed=false.
+- Полный Python suite после испытания: **301 run / 300 PASS / 1 skipped**.
+- `compileall` и `git diff --check`: PASS.
+- Созданы подробный `docs/STAGE10_7_PHASE_C_REPORT.md` и обновлён runtime report. Следующий возможный этап требует отдельного ТЗ и отдельного разрешения на ограниченный spawn-тест; текущий результат такого разрешения не даёт.

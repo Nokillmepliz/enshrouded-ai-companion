@@ -1,13 +1,18 @@
 # Stage 10.7 — runtime results
 
-**NOT_EXECUTED**
+**LOAD_ONLY_SUCCESS**
 
-Phase A не запускала Enshrouded, не устанавливала patch 0.4.0, не выполняла rollback и не создавала entity. Поэтому runtime source/clone HashKey32 equality, writer/reload loadability, A/H/R/V/B/C и отображение NPC не подтверждены. Исторический Stage 10.6 результат остаётся `FAILED — V:CHARACTER_SETUP`.
+Контролируемый Phase C выполнен 2026-11-01 в LOCAL-персонаже `Body Test` (slot 1) и LOCAL-мире `AI Body Test` (slot 1). Enshrouded запускал и закрывал пользователь. Codex выполнял только read-only запросы Bridge/observer и чтение evidence/logs. Spawn, создание NPC, faction, inventory, entity mutations и rollback не выполнялись.
 
-Read-only повторная integrity-проверка текущей установки 0.3.0: игра/server закрыты; backup 24/24 verified; installed files 9/9 match receipt; исходные DAT 55/55 без изменений, ожидаемые DAT 055–063 присутствуют; KFC/resources изменены EML, `.bak` совпадает baseline; LOCAL changed 6, added/removed 0; unknown changes 0; rollback ready; rollback не выполнялся. `spawn_ready=false`.
+| Gate | Результат | Подтверждение |
+|---|---|---|
+| A — patch | PASS | evidence v4, GUID, `npcId`, faction, source, run token и завершение writer согласованы. |
+| H — HashKey32 | PASS | Все 9 полей source/clone имеют `CONFIRMED`, точные UInt32 совпадают, provenance получен через EML reflection. |
+| R — registration/lookup | PASS | Resource создан и сериализован; read-only `EML_ASSET_MANAGER_GET_RESOURCE` вернул ожидаемые GUID, тип, 81 компонент и fingerprint. |
+| V — visual clone | PASS | Структура, `CharacterSetup`, animation graph, visual references и dependencies совпадают. |
+| B — game/integrity | PASS | Нужный LOCAL-мир загружен; post-run source integrity подтверждена. |
+| C — EMF runtime | PASS | Bridge и все три observer-команды доступны, ответы полны и имеют safety flags. |
 
-## Phase B
+`RUNTIME_RENDER_CONFIRMED=UNKNOWN`: entity не создавалась, поэтому фактическое отображение модели, материалов, skeleton и анимации на экране не проверялось. Результат не является разрешением на spawn; `spawn_ready=false`.
 
-Phase B завершена без запуска игры. Установка 0.3.0 штатно откатилась, KFC/resources восстановлены, атрибутированные DAT/runtime outputs удалены, LOCAL saves не восстанавливались. Создан новый verified backup 24/24 и установлен patch 0.4.0/evidence v4 с совместимым read-only observer: receipt complete, hashes 9/9, rollback dry-run 9/9. Подробности: [Phase B report](STAGE10_7_PHASE_B_REPORT.md).
-
-Runtime Phase C по-прежнему **NOT_EXECUTED**; `spawn_ready=false`.
+Подробности, хеши и оставшиеся ограничения: [Stage 10.7 Phase C report](STAGE10_7_PHASE_C_REPORT.md).
