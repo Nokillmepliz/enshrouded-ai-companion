@@ -89,10 +89,10 @@ game = {{
         self.assertEqual(lua.eval("source.data.components[1].value.faction"), "Vukah")
         self.assertEqual(lua.eval("created.data.components[1].value.faction"), "PlayerAlly")
         self.assertEqual(lua.eval("created.data.components[2].value.npcId.value"), EXPECTED_NPC_ID)
-        self.assertEqual(lua.eval("registry.data.guids[2]"), TEMPLATE_GUID)
-        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v3.txt")
+        self.assertIsNone(lua.eval("registry.data.guids[2]"))
+        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v4.txt")
         exported = lua.eval("exported")
-        self.assertIn("format=aic_eml_humanoid_evidence_v3", exported)
+        self.assertIn("format=aic_eml_humanoid_evidence_v4", exported)
         self.assertIn("fingerprint_hash=", exported)
         self.assertIn("animation_graph_guid=aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee", exported)
         self.assertIn("source_unchanged=true", exported)
@@ -106,7 +106,7 @@ game = {{
     def test_missing_model_field_is_not_stringified_nil(self):
         exported = self._run_model_case(
             '{ type = "keen::ecs::ModelResource", value = { wrong = "x" } },')
-        self.assertIn("format=aic_eml_humanoid_evidence_v3", exported)
+        self.assertIn("format=aic_eml_humanoid_evidence_v4", exported)
         self.assertNotIn("model_value=nil", exported)
 
     def test_guid_object_and_wrong_reference_type_are_unsupported(self):
@@ -164,11 +164,11 @@ game = {{
                       "unsupported_capabilities")
 
     def test_autospawn_is_rejected(self):
-        self._mutated("-- Stage 10.6", "spawn()\n-- Stage 10.6",
+        self._mutated("-- Stage 10.7", "spawn()\n-- Stage 10.7",
                       "automatic_spawn_forbidden", lua=True)
 
     def test_runtime_command_is_rejected(self):
-        self._mutated("-- Stage 10.6", "emf.destroy(1)\n-- Stage 10.6",
+        self._mutated("-- Stage 10.7", "emf.destroy(1)\n-- Stage 10.7",
                       "runtime_command_forbidden", lua=True)
 
     def test_validation_rejects_missing_safe_faction_marker(self):

@@ -213,3 +213,14 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Полный Python suite: **260 tests run: 259 PASS, 1 skipped**.
 - `compileall` и `git diff --check`: PASS.
 - Spawn/NPC/entity mutations: не выполнялись; `spawn_ready=false`.
+
+
+# Stage 10.7 Phase A — 2026-11-01
+
+- Полный Python suite: **298 tests run: 297 PASS, 1 skipped**. Stage 10.7 добавил 38 тестов, включая 35 обязательных сценариев HashKey32/registration/evidence/observer.
+- Targeted Stage 10.7 + patch + v3 compatibility: **97 PASS**.
+- KFC Inspector `cargo test --locked`: **2 PASS** с project-local Rust 1.88.0/MinGW.
+- `python -m compileall -q companion scripts tests`: **PASS**.
+- `git diff --check`: **PASS** после нормализации EOF.
+- Read-only current-state integrity: backup 24/24, installed files 9/9, DAT baseline 55/55, unknown changes 0, rollback ready. KFC/resources остаются ожидаемо изменены EML; `.bak` совпадает baseline; LOCAL changed 6, added/removed 0.
+- Runtime patch 0.4.0/evidence v4: **NOT_EXECUTED**. Синтетический полный A/H/R/V/B/C PASS не считается игровым доказательством; `spawn_ready=false`.

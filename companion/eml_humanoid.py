@@ -17,7 +17,7 @@ from .human_body import Evidence
 
 
 PATCH_ID = "aic_eml_humanoid"
-PATCH_VERSION = "0.3.0"
+PATCH_VERSION = "0.4.0"
 TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 SOURCE_TEMPLATE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
 EXPECTED_FACTION = "PlayerAlly"
@@ -154,7 +154,7 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
 
     lua = lua_path.read_text(encoding="utf-8")
     readme = readme_path.read_text(encoding="utf-8")
-    if "patch **0.3.0**" not in readme or "aic_eml_humanoid_evidence_v3" not in readme:
+    if "patch **0.4.0**" not in readme or "aic_eml_humanoid_evidence_v4" not in readme:
         raise PatchValidationError("stale_patch_readme")
     required = {
         f'local TEMPLATE_GUID="{TEMPLATE_GUID}"': "unknown_template_guid",
@@ -164,11 +164,11 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
         f'c.value.faction="{EXPECTED_FACTION}"': "safe_faction_unconfirmed",
         "c.value.npcId={value=NPC_ID}": "npc_identity_missing",
         'local RUN_TOKEN="__AIC_STAGE10_RUN_TOKEN__"': "run_token_placeholder_missing",
-        '"format=aic_eml_humanoid_evidence_v3"': "evidence_v3_missing",
-        'setup_lines("source",source_setup,"SOURCE_KFC_VERIFIED")': "source_setup_evidence_missing",
-        'setup_lines("clone",clone_setup,"CLONE_EML_VERIFIED")': "clone_setup_evidence_missing",
+        '"format=aic_eml_humanoid_evidence_v4"': "evidence_v4_missing",
+        'setup_lines("source",source_setup,"SOURCE_EML_REFLECTION")': "source_setup_evidence_missing",
+        'setup_lines("clone",clone_setup,"CLONE_EML_REFLECTION")': "clone_setup_evidence_missing",
         '"fingerprint_hash="..fingerprint': "fingerprint_evidence_missing",
-        'print("AIC_EML_TEMPLATE_V3_READY",RUN_TOKEN': "run_token_log_marker_missing",
+        'print("AIC_EML_TEMPLATE_V4_READY",RUN_TOKEN': "run_token_log_marker_missing",
     }
     for marker, error in required.items():
         if marker not in lua:

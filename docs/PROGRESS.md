@@ -618,3 +618,16 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - После закрытия процессы отсутствовали. Backup 24/24 и install 9/9 PASS; исходные DAT `000–054` совпали 55/55 по SHA-256, добавлены только нулевые `055–063`. KFC/resources изменены EML, KFC `.bak` совпал с baseline. LOCAL-набор сохранил 22 файла, штатно изменены 6; неизвестных изменений 0.
 - Rollback readiness=true, но rollback по условию не выполнялся. `load_only_success=false`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
 - Runtime evidence, integrity review и подробный Phase C report зафиксированы коммитом `d91569d` (`Record Stage 10.6 Phase C load-only results`).
+
+
+## 2026-11-01 — Stage 10.7 Phase A: HashKey32 и registration
+
+- Прочитаны Stage 10.6 результаты и закреплённые исходники EML/KFC commit `16708594d686b030d909f2d835b199d879ea9ad8`. Причина девяти `UNSUPPORTED` подтверждена: reflected `HashKey32` — `MappedStructValue` userdata; старый Lua разворачивал `.value` только у table. Вложенный UInt32 EML отдаёт точным Lua integer.
+- Из проверенного KFC baseline подтверждены все девять source values hunter: voice `3178345104`, preset `1602195472`, hair `100818570`, beard `0`, hair/beard color `2593349132`, skin `510686028`, eyebrow `1294605571`, eye `1843389514`. Runtime equality source/clone новым accessor ещё не выполнялась.
+- Подготовлен patch 0.4.0: безопасный userdata `.value` accessor с uint32 bounds, evidence v4, per-field provenance и unsupported list. Константы KFC не подставляются в runtime evidence.
+- Исследован `create_resource`: EML сразу добавляет composite GUID/type/part в AppState, а writer сериализует dirty resource после выполнения модов. `GuidRegistryResource` в этом механизме не участвует; неподтверждённая conditional registry mutation удалена. Добавлен read-only `get_resource` lookup по GUID/type без entity с identity/count/fingerprint diagnostics.
+- Добавлен evaluator v4 с независимыми A/H/R/V/B/C, совместимостью v3 без синтеза H/R и безусловным `spawn_ready=false`. Observer читает v4 с fallback на v3, остаётся read-only и укладывается в лимит ответа.
+- Созданы документы HashKey32/registration/evidence/test/runtime. Runtime report: `NOT_EXECUTED`. Подготовлен только план будущего rollback/reinstall; rollback, установка 0.4.0 и игра не выполнялись.
+- Повторная read-only проверка текущей 0.3.0 установки: игра/server закрыты; backup 24/24, install 9/9, DAT baseline 55/55, unknown changes 0, KFC `.bak` совпадает baseline, LOCAL changed 6 и added/removed 0; rollback ready, не выполнен.
+- Проверки: Python **298 run / 297 PASS / 1 skipped**; Stage 10.7 targeted **97 PASS**; KFC Inspector **2 PASS**; compileall и `git diff --check` PASS.
+- Итог Phase A: **PARTIAL_SUCCESS**. Офлайн механизм обоснован и покрыт тестами, но patch 0.4.0 ещё не установлен и runtime A/H/R/V/B/C не подтверждены. Следующий шаг требует отдельного разрешения на Phase B controlled rollback/reinstall; затем отдельного разрешения на Phase C load-only. Spawn/entity mutations остаются запрещены.

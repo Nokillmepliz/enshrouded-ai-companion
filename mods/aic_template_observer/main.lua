@@ -1,12 +1,15 @@
--- Stage 10.6 read-only observer. Reads EML evidence; never touches an entity.
+-- Stage 10.7 read-only observer. Reads EML evidence; never touches an entity.
 local json=require('json')
 local TOKEN='__AIC_STAGE10_RUN_TOKEN__'
 local TEMPLATE='a1c90001-5e4d-4a91-8a1c-000000000001'
 local SOURCE='e3736dff-0ad2-47fc-903c-66c1775836e8'
 assert(TOKEN:match('^[0-9a-f]+$') and #TOKEN==32,'aic_template_observer: missing run token')
 local function paths()
- local p={'export/aic_eml_humanoid/template_evidence_v3.txt'}
- if type(emf.dir)=='string' then p[#p+1]=emf.dir..'/../../../export/aic_eml_humanoid/template_evidence_v3.txt' end
+ local p={'export/aic_eml_humanoid/template_evidence_v4.txt','export/aic_eml_humanoid/template_evidence_v3.txt'}
+ if type(emf.dir)=='string' then
+  p[#p+1]=emf.dir..'/../../../export/aic_eml_humanoid/template_evidence_v4.txt'
+  p[#p+1]=emf.dir..'/../../../export/aic_eml_humanoid/template_evidence_v3.txt'
+ end
  return p
 end
 local function read()
@@ -26,7 +29,7 @@ local function read()
 end
 local function base(command)
  return {command=command,loaded=true,read_only=true,spawn_forbidden=true,run_token=TOKEN,
-  direct_emf_template_lookup='UNAVAILABLE_WITHOUT_ENTITY'}
+  bridge_available=true,truncated=false,direct_emf_template_lookup='UNAVAILABLE_WITHOUT_ENTITY'}
 end
 local function send(command,extra)
  local r=base(command); for k,v in pairs(extra or {}) do r[k]=v end
@@ -36,17 +39,20 @@ local function send(command,extra)
  emf.reply('AIC_TEMPLATE_OBSERVER '..encoded)
 end
 local function valid(e)
- return e and e.format=='aic_eml_humanoid_evidence_v3' and e.run_token==TOKEN
+ return e and (e.format=='aic_eml_humanoid_evidence_v4' or e.format=='aic_eml_humanoid_evidence_v3') and e.run_token==TOKEN
   and e.template_guid==TEMPLATE and e.source_guid==SOURCE
 end
-emf.command('status','Stage 10.6 evidence status',function()
+emf.command('status','Stage 10.7 evidence status',function()
  local e,err,path=read()
  send('status',{evidence_available=e~=nil,evidence_error=err,evidence_path=path,
   new_template_eml_evidence=e~=nil and e.template_guid==TEMPLATE,
   original_template_eml_evidence=e~=nil and e.source_guid==SOURCE,
-  evidence_run_token=e and e.run_token or 'UNAVAILABLE',writer_finalized=e~=nil})
+  evidence_format=e and e.format or 'UNAVAILABLE',evidence_run_token=e and e.run_token or 'UNAVAILABLE',
+  writer_finalized=false,writer_status='UNAVAILABLE_FROM_OBSERVER',
+  hashkey32_method=e and e.hashkey32_extraction_method or 'UNAVAILABLE',
+  lookup_status=e and e.lookup_status or 'UNAVAILABLE'})
 end)
-emf.command('inspect','Stage 10.6 compact visual fingerprint',function()
+emf.command('inspect','Stage 10.7 compact visual fingerprint',function()
  local e,err=read()
  send('inspect',{ok=valid(e),error=err,template_guid=e and e.template_guid,
   evidence={model_status=e and e.model_status or 'MISSING',
@@ -58,14 +64,16 @@ emf.command('inspect','Stage 10.6 compact visual fingerprint',function()
   character_setup_match=e and e.character_setup_match,
   references_match=e and e.visual_references_match,
   dependencies_resolved=e and e.visual_dependencies_resolved,
+  hashkey32_unsupported=e and e.hashkey32_unsupported_fields,
+  lookup_method=e and e.template_lookup_method,lookup_confirmed=e and e.template_lookup_confirmed,
   field_source=e and 'EML_EXPORT' or 'UNAVAILABLE'})
 end)
-emf.command('compare','Stage 10.6 clone/source comparison',function()
+emf.command('compare','Stage 10.7 clone/source comparison',function()
  local e,err=read(); local ok=valid(e) and e.source_unchanged=='true'
   and e.character_setup_match=='true' and e.visual_references_match=='true'
- send('compare',{ok=ok,error=err,writer_finalized=e~=nil,
+ send('compare',{ok=ok,error=err,writer_finalized=false,writer_status='UNAVAILABLE_FROM_OBSERVER',
   fingerprint_hash=e and e.fingerprint_hash,source_unchanged=e and e.source_unchanged,
   character_setup_match=e and e.character_setup_match,
   runtime_render='UNKNOWN',spawn_ready=false})
 end)
-emf.log('AIC_TEMPLATE_OBSERVER_READY '..TOKEN..'; Stage10.6 read-only; spawn forbidden')
+emf.log('AIC_TEMPLATE_OBSERVER_READY '..TOKEN..'; Stage10.7 read-only; spawn forbidden')
