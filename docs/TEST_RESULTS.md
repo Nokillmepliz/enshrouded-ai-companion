@@ -177,7 +177,7 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Итоговая rollback verification: `ok=true`. Игра не запускалась, spawn не выполнялся. Этап 10.2 остаётся `FAILED`; повторная установка и новый запуск не разрешены.
 # Этап 10.6, часть A — 2026-11-01
 
-- Полный Python suite: **258 tests PASS, 1 skipped**.
+- Полный Python suite: **258 tests run: 257 PASS, 1 skipped**.
 - Новые Stage 10.6 tests: **40 PASS**. Они покрывают evidence v3, все состояния typed CharacterSetup, A/V/B/C, stale token, writer finalization, component/reference/animation mismatch, integrity, compact observer и mutation API ban.
 - `python -m compileall -q companion scripts tests`: **PASS**.
 - `git diff --check`: **PASS**.

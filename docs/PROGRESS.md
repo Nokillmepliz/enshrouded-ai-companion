@@ -561,7 +561,7 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Visual fingerprint обновлён до v2 с уровнями STRUCTURAL/CHARACTER_SETUP/REFERENCES/DEPENDENCIES/RUNTIME_RENDER. `ModelResource` и `RenderEquipment.lastModels` не требуются; runtime render остаётся UNKNOWN; `spawn_ready=false`.
 - Добавлен fail-closed evaluator Stage 10.6 A/V/B/C. Observer 0.2.0 читает только evidence v3, коррелирует run token/hash и ограничивает ответ 1023 байтами. Spawn/entity/save mutation отсутствуют.
 - Реальная среда проверена только чтением: Enshrouded не запущен; SHA-256 EXE/KFC/resources/EMF loader совпадают с baseline; после отката EML, observer и export отсутствуют.
-- Добавлено 40 тестов Stage 10.6. Полный suite: **258 PASS, 1 skip**; compileall и `git diff --check` PASS.
+- Добавлено 40 тестов Stage 10.6. Полный suite: **258 tests run: 257 PASS, 1 skip**; compileall и `git diff --check` PASS.
 - KFC Inspector повторно собран из locked dependencies: **2 Rust tests PASS**. Реальный dry-run preflight вернул `PREPARATION_READY`; свободного места достаточно, единственный blocker — отсутствие нового verified backup.
 - Созданы план, evidence contract и runtime report со статусом **NOT_EXECUTED**. Часть B не разрешена: новый backup не создавался, EML не устанавливался, игра/сохранения не менялись.
 - Следующий шаг: отдельное разрешение пользователя на часть B — новый verified backup и установка без запуска игры.
