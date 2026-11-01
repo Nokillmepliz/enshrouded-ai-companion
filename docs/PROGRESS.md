@@ -698,3 +698,7 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Targeted Stage 10.9: **54 PASS**. Полный suite: **409 run / 408 PASS / 1 skipped**; skip — прежняя Windows directory-symlink privilege проверка. `compileall`, Lua syntax 12/12 и `git diff --check`: PASS.
 - Итог: **NATIVE_EXTENSION_REQUIRED / BLOCKED_FOR_SPAWN**. Существующий EMF не закрывает одновременно identity, pre-spawn position и custom villager lifecycle. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
 - Следующий шаг: отдельный этап реализации и офлайн-аудита минимального C++ EMF extension только после нахождения подтверждённого identity primitive и read-only geometry ABI. Установка и runtime требуют новых отдельных разрешений.
+
+## 2026-11-01 — публикация Stage 10.9 Phase A
+
+- Код fail-closed gates/identity/position/persistence/destroy, 54 новых теста и девять документов исследования опубликованы в `origin/master` коммитом `4c47045` (`Engineer Stage 10.9 spawn safety`). Бинарники, игровые файлы, saves, runtime dumps и приватные токены не публиковались.
