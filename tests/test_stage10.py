@@ -389,6 +389,20 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
         rollback_added_files(self.game, self.receipt, apply=True, game_running=False)
         self.assertFalse((self.game / "dbghelp.dll").exists())
 
+    def test_complete_rollback_removes_known_empty_mod_directories(self):
+        self.verified_install(self.game, self.eml, PATCH, OBSERVER, self.manifest,
+                              self.receipt, apply=True, game_running=False)
+        unrelated = self.game / "mods" / "unrelated.txt"
+        unrelated.write_text("keep", encoding="utf-8")
+
+        result = rollback_added_files(
+            self.game, self.receipt, apply=True, game_running=False)
+
+        self.assertEqual(result["removed"], 9)
+        self.assertFalse((self.game / "mods" / "aic_eml_humanoid").exists())
+        self.assertFalse((self.game / "emf" / "mods" / "aic_template_observer").exists())
+        self.assertEqual(unrelated.read_text(encoding="utf-8"), "keep")
+
     def test_rollback_refuses_unknown_changed_state(self):
         with self.assertRaises(Stage10Error):
             self.verified_install(self.game, self.eml, PATCH, OBSERVER, self.manifest,

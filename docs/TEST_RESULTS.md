@@ -194,3 +194,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Полный Python suite: **259 tests run: 258 PASS, 1 skipped**.
 - `compileall` и `git diff --check`: PASS.
 - Runtime/игра: **NOT EXECUTED**.
+
+# Этап 10.6, Phase B full remediation — 2026-11-01
+
+- Добавлен regression test полного rollback: известные пустые patch/observer directories удаляются deepest-first, посторонний файл сохраняется.
+- Полный Python suite: **260 tests run: 259 PASS, 1 skipped**.
+- Контролируемый rollback: **9/9 removed**; исходный receipt остался неизменным.
+- Повторная установка: новый receipt `complete`, фактические hashes **9/9 PASS**, rollback dry-run **9/9 PASS**.
+- Verified backup: **24/24 PASS**; DAT: **55/55 PASS**; LOCAL saves: **22/22 PASS** после rollback и после установки.
+- `compileall` и `git diff --check`: PASS.
+- Runtime/игра: **NOT EXECUTED**; Phase C не разрешена.

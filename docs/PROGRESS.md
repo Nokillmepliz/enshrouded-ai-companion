@@ -588,3 +588,14 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Установленный README, остальные 8 файлов, receipt, Lua/DLL/JSON, KFC/DAT/saves не менялись. Игра не запускалась, NPC не создавался.
 - Итог: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**. Phase C не готова; следующий безопасный шаг требует отдельного разрешения на разработку атомарного update-механизма либо полный rollback/reinstall.
 - Read-only remediation audit опубликован в `origin/master`: `b536271` (`Audit Stage 10.6 README remediation blocker`).
+
+## 2026-11-01 — Stage 10.6 Phase B full rollback/reinstall remediation
+
+- Пользователь отдельно разрешил полный контролируемый rollback и повторную установку исправленного plan. До, между мутациями и после операции `Enshrouded`/server отсутствовали; игра не запускалась.
+- Перед rollback verified backup прошёл проверку 24/24; исходный receipt был `complete`, все 9/9 installed hashes совпали. Его SHA-256 сохранён неизменным для истории.
+- Исправлен дефект штатной очистки: rollback теперь удаляет известный пустой `mods/aic_eml_humanoid/src` deepest-first. Добавлен regression test, подтверждающий сохранение посторонних файлов.
+- Штатный rollback удалил ровно 9 путей receipt. После него backup, 55 DAT, 22 LOCAL saves, KFC/resources и EMF loader прошли integrity-проверку.
+- Новый preflight прошёл; исправленный plan установлен с отдельным run token и отдельным receipt `state=complete`. Исправленный README 0.3.0 установлен; post-install hashes и rollback dry-run совпали 9/9.
+- После установки backup 24/24, DAT 55/55 и LOCAL saves 22/22 повторно совпали по SHA-256. Неизвестные файлы и saves не удалялись и не изменялись.
+- Полный suite: **260 tests run: 259 PASS, 1 skip**; compileall и `git diff --check` PASS.
+- Статус: **PHASE_B_COMPLETE — READY_FOR_PHASE_C_REVIEW**. Phase C не запускалась и требует отдельного разрешения; A/V/B/C остаются `NOT_EXECUTED`, `spawn_ready=false`.

@@ -1,6 +1,6 @@
 # Stage 10.6 — Phase B installation report
 
-Дата: 2026-11-01. Вердикт: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**.
+Дата: 2026-11-01. Итоговый вердикт после remediation: **COMPLETE — READY_FOR_PHASE_C_REVIEW**.
 
 ## Preflight
 
@@ -64,4 +64,10 @@ Receipt имеет `state=complete`, `patch_version=0.3.0`, build `1273043` и 9
 
 Разрешённая попытка remediation остановлена без изменений: штатный installer не поддерживает revision существующего receipt и fail-closed возвращает `installation_collision:dbghelp.dll`. Полный аудит: [STAGE10_6_REMEDIATION_REPORT.md](STAGE10_6_REMEDIATION_REPORT.md).
 
-Следующее действие — отдельное разрешение на разработку атомарного receipt-revision механизма либо на полный rollback и повторную установку исправленного plan. Phase C остаётся заблокированной. Spawn и любые команды мутации запрещены.
+## Full rollback/reinstall remediation
+
+После отдельного разрешения выполнен штатный rollback всех девяти файлов исходного receipt и повторная установка исправленного plan. Исходный receipt сохранён неизменным как история; новый complete receipt создан отдельно. Исправленный README 0.3.0 установлен, фактические hashes совпали 9/9, новый rollback dry-run прошёл 9/9.
+
+После rollback и после повторной установки verified backup прошёл проверку 24/24; 55 DAT и 22 LOCAL save-файла совпали с baseline по SHA-256. Игра/server не запускались, NPC не создавался. Полный итог: [STAGE10_6_REMEDIATION_REPORT.md](STAGE10_6_REMEDIATION_REPORT.md).
+
+Phase B завершена. Phase C готова только к отдельному рассмотрению и всё ещё требует явного разрешения пользователя. Spawn и любые команды мутации запрещены.

@@ -2,9 +2,9 @@
 
 Дата: 2026-11-01.
 
-Статус runtime: **NOT_EXECUTED**. Статус подготовки: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**.
+Статус runtime: **NOT_EXECUTED**. Статус подготовки: **READY_FOR_PHASE_C_REVIEW**.
 
-Phase B дошла до complete receipt без запуска игры: создан новый verified backup (24 файла / 224 564 012 байт), установлены 9/9 файлов, hashes и rollback dry-run подтверждены. Затем содержательная проверка обнаружила stale README 0.2.0 внутри установленного patch 0.3.0; дальнейшие установочные действия остановлены. Подробности: [STAGE10_6_PHASE_B_REPORT.md](STAGE10_6_PHASE_B_REPORT.md).
+Phase B remediation завершена без запуска игры: старые девять файлов штатно удалены по исходному receipt, затем исправленный plan установлен с отдельным complete receipt. Hashes и rollback dry-run подтверждены 9/9; backup 24/24, DAT 55/55 и LOCAL saves 22/22 целы. Подробности: [STAGE10_6_REMEDIATION_REPORT.md](STAGE10_6_REMEDIATION_REPORT.md).
 
 | Уровень | Результат |
 |---|---|
@@ -17,4 +17,4 @@ Phase B дошла до complete receipt без запуска игры: соз�
 
 На Phase B игра не запускалась. Установка не меняла KFC или LOCAL saves; NPC не создавался. Фактические A/V/B/C появятся только после отдельно разрешённой Phase C.
 
-Разрешённая README remediation не выполнена: существующий штатный installer не умеет атомарно обновить один файл и сохранить revision receipt. Он остановился до записи; 9/9 прежних hashes и receipt сохранились. См. [remediation audit](STAGE10_6_REMEDIATION_REPORT.md).
+Phase C не выполнялась и по-прежнему требует отдельного разрешения. Игра, EML runtime и NPC не запускались.

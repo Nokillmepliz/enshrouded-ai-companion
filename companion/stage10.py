@@ -523,7 +523,14 @@ def rollback_added_files(
         return {"mode": "dry_run", "removable": [entry["path"] for entry in applied]}
     for entry in reversed(applied):
         (game / entry["path"]).unlink()
-    for relative in ("mods/aic_eml_humanoid", "emf/mods/aic_template_observer"):
+    # Remove only the known directories created by this installer, deepest first.
+    # The patch contains src/mod.lua, so trying its root first leaves an empty
+    # src directory behind and makes the next preflight report a false collision.
+    for relative in (
+        "mods/aic_eml_humanoid/src",
+        "mods/aic_eml_humanoid",
+        "emf/mods/aic_template_observer",
+    ):
         path = game / relative
         if path.is_dir() and not any(path.iterdir()):
             path.rmdir()
