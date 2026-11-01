@@ -1,6 +1,6 @@
 # Stage 10.6 — Phase B installation report
 
-Дата: 2026-11-01. Вердикт: **BLOCKED_POST_INSTALL_DOCUMENTATION_MISMATCH**.
+Дата: 2026-11-01. Вердикт: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**.
 
 ## Preflight
 
@@ -62,4 +62,6 @@ Receipt имеет `state=complete`, `patch_version=0.3.0`, build `1273043` и 9
 
 Согласно условию пользователя «при любых несовпадениях остановиться», установочные действия прекращены. Игровой README и complete receipt не изменялись после обнаружения. В репозитории README исправлен, а offline validator усилен, чтобы stale README блокировал будущий plan. Для приведения установленной копии к исправленному plan требуется отдельное разрешение; до этого Phase C **BLOCKED**.
 
-Следующее действие — отдельное разрешение на безопасную переустановку/исправление документационного файла с новым verified plan и receipt. Разрешение на Phase C следует давать только после устранения blocker. Spawn и любые команды мутации остаются запрещены.
+Разрешённая попытка remediation остановлена без изменений: штатный installer не поддерживает revision существующего receipt и fail-closed возвращает `installation_collision:dbghelp.dll`. Полный аудит: [STAGE10_6_REMEDIATION_REPORT.md](STAGE10_6_REMEDIATION_REPORT.md).
+
+Следующее действие — отдельное разрешение на разработку атомарного receipt-revision механизма либо на полный rollback и повторную установку исправленного plan. Phase C остаётся заблокированной. Spawn и любые команды мутации запрещены.

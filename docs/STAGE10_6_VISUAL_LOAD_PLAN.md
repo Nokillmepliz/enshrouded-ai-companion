@@ -1,6 +1,6 @@
 # Stage 10.6 — план visual load-only проверки
 
-Дата: 2026-11-01. Текущий checkpoint: **PHASE_B_STOPPED; PHASE_C_BLOCKED**.
+Дата: 2026-11-01. Текущий checkpoint: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM; PHASE_C_BLOCKED**.
 
 ## Подтверждено офлайн
 
@@ -28,6 +28,7 @@ Rollback использует новый verified manifest и install receipt. �
 ## Блокеры до части C
 
 - установленный README не соответствует patch 0.3.0; исправленный файл подготовлен только в репозитории;
-- требуется отдельное разрешение на исправление установленного plan/receipt;
+- штатный installer не поддерживает single-file revision receipt; разрешённая remediation остановлена без записи;
+- требуется отдельное разрешение на разработку и тест атомарного update-механизма либо полный rollback/reinstall;
 - отдельного разрешения на ручной load-only запуск нет;
 - runtime writer/registry acceptance, collision и clone evidence не проверены до Phase C.

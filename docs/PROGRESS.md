@@ -580,3 +580,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Repository README исправлен, validator теперь отклоняет stale README, добавлен regression test. Текущий статус — **BLOCKED_POST_INSTALL_DOCUMENTATION_MISMATCH**; Phase C не готова до отдельного разрешения на remediation.
 - После исправления исходников полный suite: **259 tests run: 258 PASS, 1 skip**; compileall и `git diff --check` PASS.
 - Отчёт Phase B, исправленный repository README и regression-защита опубликованы в `origin/master`: `34fcc93` (`Record Stage 10.6 Phase B installation`).
+
+## 2026-11-01 — Stage 10.6 Phase B remediation audit
+
+- Пользователь разрешил заменить только installed README при обязательном безопасном update plan/receipt. Перед проверкой игра/server отсутствовали, backup verified, receipt `complete`, hashes совпали 9/9, rollback dry-run PASS.
+- Штатный installer не имеет single-file update/revision операции: preflight остановился `conflicting_or_repeated_dbghelp_install`, install dry-run — `installation_collision:dbghelp.dll`. Ручное редактирование receipt запрещено условиями и не выполнялось.
+- Установленный README, остальные 8 файлов, receipt, Lua/DLL/JSON, KFC/DAT/saves не менялись. Игра не запускалась, NPC не создавался.
+- Итог: **BLOCKED_NO_SAFE_RECEIPT_UPDATE_MECHANISM**. Phase C не готова; следующий безопасный шаг требует отдельного разрешения на разработку атомарного update-механизма либо полный rollback/reinstall.
