@@ -253,3 +253,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - Lua scaffold manifest выключен; source не содержит spawn/destroy/event/tick/autoload path. Mutation-команды всегда fail-closed.
 - Runtime: **NOT_EXECUTED**. Синтетические mocks не считаются доказательством spawn/despawn/render/persistence.
 - Итог: `BLOCKED_FOR_SPAWN`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+
+# Stage 10.9 Phase A — 2026-11-01
+
+- Targeted Stage 10.9 suite: **54 PASS**. Покрыты identity/generation/reuse/session/marker, tri-state position, villager persistence, faction gates, atomic destroy/postcondition и regression Stage 10.7/10.8.
+- Полный Python suite: **409 tests run: 408 PASS, 1 skipped**. Skip — прежняя Windows directory-symlink privilege проверка; новых failures нет.
+- `python -m compileall -q companion scripts tests`: **PASS**.
+- Lua syntax через Lupa 2.6: **12/12 tracked Lua files PASS**.
+- `git diff --check`: **PASS**.
+- Runtime, game/server, install, rollback, spawn/destroy и game/save mutations: **NOT_EXECUTED**.
+- Итог: `NATIVE_EXTENSION_REQUIRED / BLOCKED_FOR_SPAWN`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.

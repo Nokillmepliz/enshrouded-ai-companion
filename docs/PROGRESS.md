@@ -684,3 +684,17 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 ## 2026-11-01 — публикация Stage 10.8 Phase A
 
 - Research, fail-closed controller/scaffold, evidence v5, 54 новых теста и документация опубликованы в `origin/master` коммитом `ed467f1` (`Prepare safe humanoid spawn gates`). Runtime artifacts, игровые файлы, saves и приватные токены не публиковались.
+
+## 2026-11-01 — Stage 10.9 Phase A: spawn safety research и lifecycle engineering
+
+- Прочитано полное ТЗ и выполнена только разрешённая offline Phase A. Игра/server не запускались; моды не устанавливались; игровые файлы, KFC/DAT/KSD и LOCAL saves не читались и не изменялись; spawn, destroy и rollback не выполнялись.
+- Исследован закреплённый EMF commit `08d600155fcadc8e45cc9c6f3932a67c717345be`. `EntityId` подтверждён как один `uint32`; доступный entity generation, stable instance GUID и ownership metadata не найдены. Lua callback generation и EntityGrid query generation не являются entity generation.
+- Подтверждён public native `spawn_ex`: до 15 существующих компонентов добавляются в один spawn slice. API не регистрирует безопасный custom ownership component, поэтому atomic instance marker не получен. Sidecar по EntityId не решает reuse.
+- Ground search найден внутри mutation-based teleport: он работает только для существующей entity и возвращается к raw target при отсутствии walkable cell. Стабильные read-only ABI surface normal/capsule clearance/navmesh/danger query не подтверждены; `POSITION=UNKNOWN`.
+- Уточнён persistence: runtime research EMF показал, что добавленный `ForceSave` не сохраняет произвольный spawned object, но villagers — отдельное исключение с `ActiveNpcState`, `ActiveNpcStateSaved`, `unique_npc_init/spawns`. Lifecycle custom EML villager остаётся `UNKNOWN`.
+- В `companion/safe_spawn.py` добавлены `OwnedEntityIdentity` (`CONFIRMED/AMBIGUOUS/STALE/REUSED/LOST`), identity classifier без выдуманного generation, position validator `VALID/INVALID/UNKNOWN`, persistence classification, atomic-destroy authorization/postcondition и восемь независимых gates с provenance/evidence/confidence/session. Phase A всегда сообщает `spawn_ready=false`.
+- Спроектированы два template variant без назначения GUID/npcId и без изменения patch 0.4.0: временный visual test и будущий permanent companion. Подготовлен design-only native extension ABI с fail-closed error codes; DLL/hooks/memory writes не реализовывались.
+- Созданы девять документов Stage 10.9 с исследованиями identity/position/persistence/faction/destroy, extension design, variants, gates/recovery, test plan и runtime `NOT_EXECUTED`. README и TEST_RESULTS обновлены.
+- Targeted Stage 10.9: **54 PASS**. Полный suite: **409 run / 408 PASS / 1 skipped**; skip — прежняя Windows directory-symlink privilege проверка. `compileall`, Lua syntax 12/12 и `git diff --check`: PASS.
+- Итог: **NATIVE_EXTENSION_REQUIRED / BLOCKED_FOR_SPAWN**. Существующий EMF не закрывает одновременно identity, pre-spawn position и custom villager lifecycle. `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+- Следующий шаг: отдельный этап реализации и офлайн-аудита минимального C++ EMF extension только после нахождения подтверждённого identity primitive и read-only geometry ABI. Установка и runtime требуют новых отдельных разрешений.
