@@ -553,3 +553,15 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - DAT `000–054` точно совпадают с baseline по именам, размерам и mtime. EMF `dinput8.dll` сохранил закреплённый SHA-256. Не осталось install/restore temporary files.
 - LOCAL-сохранения не восстанавливались; их pre-run версии продолжают храниться в проверенном backup.
 - Итоговая rollback verification: `ok=true`. Игра не запускалась, spawn не выполнялся. Этап 10.2 остаётся `FAILED`; повторная установка и новый запуск не разрешены.
+## 2026-11-01 — Stage 10.6, часть A: EML Humanoid Clone Visual Verification
+
+- Прочитаны результаты 10.2–10.5, текущие EML/observer/evaluator и KFC evidence. Исторический результат 10.2 сохранён.
+- Patch обновлён до 0.3.0 и evidence `aic_eml_humanoid_evidence_v3`: source/clone GUID, npcId/faction, component fingerprint, все 11 typed полей `CharacterSetup`, animation/retarget, source integrity, registry, writer status и provenance.
+- Создан canonical source baseline из Stage 10.5: 18 preset paths с ItemInfo/item/RenderModel/gender override, animation graph и hierarchy 102 joints. SHA-256 baseline `535732bda93e41ff3b3070e362d649b9c6875101826d2c1823c81945b22d8837`.
+- Visual fingerprint обновлён до v2 с уровнями STRUCTURAL/CHARACTER_SETUP/REFERENCES/DEPENDENCIES/RUNTIME_RENDER. `ModelResource` и `RenderEquipment.lastModels` не требуются; runtime render остаётся UNKNOWN; `spawn_ready=false`.
+- Добавлен fail-closed evaluator Stage 10.6 A/V/B/C. Observer 0.2.0 читает только evidence v3, коррелирует run token/hash и ограничивает ответ 1023 байтами. Spawn/entity/save mutation отсутствуют.
+- Реальная среда проверена только чтением: Enshrouded не запущен; SHA-256 EXE/KFC/resources/EMF loader совпадают с baseline; после отката EML, observer и export отсутствуют.
+- Добавлено 40 тестов Stage 10.6. Полный suite: **258 PASS, 1 skip**; compileall и `git diff --check` PASS.
+- KFC Inspector повторно собран из locked dependencies: **2 Rust tests PASS**. Реальный dry-run preflight вернул `PREPARATION_READY`; свободного места достаточно, единственный blocker — отсутствие нового verified backup.
+- Созданы план, evidence contract и runtime report со статусом **NOT_EXECUTED**. Часть B не разрешена: новый backup не создавался, EML не устанавливался, игра/сохранения не менялись.
+- Следующий шаг: отдельное разрешение пользователя на часть B — новый verified backup и установка без запуска игры.

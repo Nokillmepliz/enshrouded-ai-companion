@@ -192,7 +192,7 @@ class Stage10ObserverTests(unittest.TestCase):
         self.assertNotIn("checks", payload)
         self.assertEqual(payload["evidence"]["model_status"], "MISSING")
         self.assertEqual(payload["evidence"]["model_reason"], "component_missing")
-        self.assertEqual(payload["component_group_counts"]["navigation"], 1)
+        self.assertEqual(payload["component_count"], 3)
 
 
 class Stage10PreflightTests(unittest.TestCase):
@@ -274,7 +274,7 @@ class Stage10PreflightTests(unittest.TestCase):
             self.run_preflight()
 
     def test_stale_evidence_is_rejected(self):
-        stale = self.game / "export" / "aic_eml_humanoid" / "template_evidence_v2.txt"
+        stale = self.game / "export" / "aic_eml_humanoid" / "template_evidence_v3.txt"
         stale.parent.mkdir(parents=True)
         stale.write_text("old", encoding="utf-8")
         with self.assertRaisesRegex(Stage10Error, "stale_evidence_present"):

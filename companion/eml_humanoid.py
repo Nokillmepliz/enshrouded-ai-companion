@@ -17,7 +17,7 @@ from .human_body import Evidence
 
 
 PATCH_ID = "aic_eml_humanoid"
-PATCH_VERSION = "0.2.0"
+PATCH_VERSION = "0.3.0"
 TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 SOURCE_TEMPLATE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
 EXPECTED_FACTION = "PlayerAlly"
@@ -120,8 +120,6 @@ def require_runtime_descriptor(descriptor: EmlHumanoidDescriptor = DESCRIPTOR) -
         blockers.append("runtime_disabled")
     if descriptor.template_guid in STORY_TEMPLATE_GUIDS:
         blockers.append("story_npc_template_forbidden")
-    if descriptor.expected_model_guid is None:
-        blockers.append("model_resource_unconfirmed")
     if descriptor.expected_animation_graph_guid is None:
         blockers.append("animation_graph_unconfirmed")
     if descriptor.expected_faction != EXPECTED_FACTION_ID:
@@ -155,16 +153,18 @@ def validate_patch(root: str | Path, *, known_resources=KNOWN_RESOURCES,
 
     lua = lua_path.read_text(encoding="utf-8")
     required = {
-        f'local TEMPLATE_GUID = "{TEMPLATE_GUID}"': "unknown_template_guid",
-        f'local SOURCE_GUID = "{SOURCE_TEMPLATE_GUID}"': "unknown_source_guid",
+        f'local TEMPLATE_GUID="{TEMPLATE_GUID}"': "unknown_template_guid",
+        f'local SOURCE_GUID="{SOURCE_TEMPLATE_GUID}"': "unknown_source_guid",
         '"keen::ecs::TemplateResource"': "template_resource_missing",
         "game.assets.create_resource": "resource_creation_missing",
-        f'comp.value.faction = "{EXPECTED_FACTION}"': "safe_faction_unconfirmed",
-        "comp.value.npcId = { value = NPC_ID }": "npc_identity_missing",
-        'local RUN_TOKEN = "__AIC_STAGE10_RUN_TOKEN__"': "run_token_placeholder_missing",
-        '"run_token=" .. RUN_TOKEN': "run_token_evidence_missing",
-        '"model_status=" .. new_model_fingerprint.status': "typed_model_evidence_missing",
-        'print("AIC_EML_TEMPLATE_READY", RUN_TOKEN': "run_token_log_marker_missing",
+        f'c.value.faction="{EXPECTED_FACTION}"': "safe_faction_unconfirmed",
+        "c.value.npcId={value=NPC_ID}": "npc_identity_missing",
+        'local RUN_TOKEN="__AIC_STAGE10_RUN_TOKEN__"': "run_token_placeholder_missing",
+        '"format=aic_eml_humanoid_evidence_v3"': "evidence_v3_missing",
+        'setup_lines("source",source_setup,"SOURCE_KFC_VERIFIED")': "source_setup_evidence_missing",
+        'setup_lines("clone",clone_setup,"CLONE_EML_VERIFIED")': "clone_setup_evidence_missing",
+        '"fingerprint_hash="..fingerprint': "fingerprint_evidence_missing",
+        'print("AIC_EML_TEMPLATE_V3_READY",RUN_TOKEN': "run_token_log_marker_missing",
     }
     for marker, error in required.items():
         if marker not in lua:

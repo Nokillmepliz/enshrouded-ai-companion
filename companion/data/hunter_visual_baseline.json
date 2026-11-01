@@ -1,0 +1,217 @@
+{
+  "animation_graph": "402df515-5965-4b01-a17b-17d482a91af4",
+  "canonical_sha256": "535732bda93e41ff3b3070e362d649b9c6875101826d2c1823c81945b22d8837",
+  "format": "aic_source_visual_baseline_v1",
+  "gender": "Male",
+  "hierarchy_guid": "87b29df6-6518-43ef-9298-e3f85a6204b9",
+  "hierarchy_joints": 102,
+  "preset_id": 1602195472,
+  "provenance": "SOURCE_KFC_VERIFIED",
+  "references": [
+    {
+      "debug_name": "Armor_T4_Ranger_Archer_DPS_Arms",
+      "field": "armourArms",
+      "item_guid": "f218d9b0-ef38-49fd-b0a4-3e59d00a19c3",
+      "visual_model": "d66fab50-cc98-46e7-a523-81c725a35641",
+      "visual_models": []
+    },
+    {
+      "debug_name": "Armor_T4_Ranger_Archer_DPS_Boots",
+      "field": "armourFeet",
+      "item_guid": "3fd4b70c-296c-409d-bb38-5f6795c8d753",
+      "visual_model": "2c9aefde-3fef-49b7-8ead-865192b7c80c",
+      "visual_models": []
+    },
+    {
+      "debug_name": "Armor_T4_Ranger_Archer_DPS_Helmet",
+      "field": "armourHead",
+      "item_guid": "84ff3867-116c-48ec-aef9-c8a6ba33a199",
+      "visual_model": "13f3b9ae-b04c-423d-af40-acf150a0ece3",
+      "visual_models": []
+    },
+    {
+      "debug_name": "Armor_T4_Ranger_Archer_DPS_Legs",
+      "field": "armourLowerBody",
+      "item_guid": "cad0997d-e66d-417c-98f6-e03f6745611d",
+      "visual_model": "66835ac0-9d44-425a-bbe7-cea2597f4101",
+      "visual_models": []
+    },
+    {
+      "debug_name": "Armor_T4_Ranger_Archer_DPS_Chest",
+      "field": "armourUpperBody",
+      "item_guid": "94404c05-250a-4b14-8c16-283c85391d16",
+      "visual_model": "0ca2ba0d-95c8-49b9-8599-3d66d38fa9c5",
+      "visual_models": []
+    },
+    {
+      "debug_name": "VC_Body_Chest_01",
+      "field": "chest",
+      "item_guid": "5bb45d4b-0310-42a7-a0db-41e977608ce1",
+      "visual_model": "81765092-09c5-4413-9fd5-49bbb8d707f0",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "16dafa21-38c0-403a-a788-8a95c26d135c"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Collar_01",
+      "field": "collar",
+      "item_guid": "54f89d91-d59c-4fd8-b39c-ee30632bf57f",
+      "visual_model": "ac5ad9d8-5f69-43e3-9319-07ab82e191bb",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "e7791ac1-75f9-449f-85b2-759af2692773"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Crotch_01",
+      "field": "crotch",
+      "item_guid": "3b5653a0-13a6-417c-b0f3-a393ad27d697",
+      "visual_model": "5480cdc1-074f-4cf8-9aba-2aa2a349c398",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "bb2170f4-b9a8-4a0d-8e7e-fa626dbcdb24"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Feet_01",
+      "field": "feet",
+      "item_guid": "f9b354fe-a4da-40cb-a194-680b65447c84",
+      "visual_model": "0ce0cff8-8ce9-4c56-aab2-5379cbebe422",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "d64c65ac-b8cb-4256-9477-057967f5bc29"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Hair_05_01_fauxhawk",
+      "field": "hair",
+      "item_guid": "533c1226-dddd-4ddc-a338-22a006452b88",
+      "visual_model": "098e874d-1847-4d80-9a3e-78aa39428d91",
+      "visual_models": []
+    },
+    {
+      "debug_name": "VC_Body_Hands_01",
+      "field": "hands",
+      "item_guid": "3e41c49a-56e9-4a96-8be8-a60c2f3167c7",
+      "visual_model": "f3c14ee4-3f5e-406c-9bcd-54016e3c4af9",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "c987ffb8-5efe-4339-9956-4aa8a96e66d0"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Head_Male_02_young_african",
+      "field": "head",
+      "item_guid": "cba24116-4074-41d6-a452-d1ba8db91eec",
+      "visual_model": "8f02c1cc-d349-4963-8a73-f63b498fdd29",
+      "visual_models": []
+    },
+    {
+      "debug_name": "VC_Body_LowerArms_01",
+      "field": "lowerArms",
+      "item_guid": "a173466b-7991-4612-badb-935cdcd5b4c8",
+      "visual_model": "6f9b89fa-35eb-4e07-b2f0-73f5d148c356",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "fe9dfadd-08e0-4356-ae74-85436af47b95"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_LowerLegs_01",
+      "field": "lowerLegs",
+      "item_guid": "49ac99c6-4dd2-4716-af56-93dfff83e10b",
+      "visual_model": "61f0f911-7ef9-46c2-b869-ccf55faf284e",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "a0291c61-4892-4f09-b5a0-7e0ab108f5ec"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Neck_01",
+      "field": "neck",
+      "item_guid": "ef17e0da-f771-4ac7-b97c-fd6028b8cb6d",
+      "visual_model": "d2e419cf-cd52-401d-8930-e8e553fc4dd0",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "3027115a-711f-40ca-99b0-3bc46f1f4a1f"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_UpperArms_01",
+      "field": "upperArms",
+      "item_guid": "93c3c73e-cb3a-443f-8e10-b81c972a8bf7",
+      "visual_model": "83064ed9-de8f-40fc-8168-260ad25093ac",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "fb8d2387-2826-4c83-87aa-5735c09f22a9"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_UpperLegs_01",
+      "field": "upperLegs",
+      "item_guid": "6e23e774-8e7c-48a5-8129-55cf09b7c48b",
+      "visual_model": "2f64ec88-3e8e-434f-b2fa-5cb0820336ad",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "28a383fa-3548-4edc-aaca-a21975952bab"
+        }
+      ]
+    },
+    {
+      "debug_name": "VC_Body_Waist_01",
+      "field": "waist",
+      "item_guid": "8ee3d2d2-0027-4ebc-b2e1-ea0d02bc216c",
+      "visual_model": "51628ea5-dfe2-4273-88de-2be2276c4b79",
+      "visual_models": [
+        {
+          "mask": [
+            "Female"
+          ],
+          "model": "f48fb353-a975-4ffc-bf92-82863e4cc383"
+        }
+      ]
+    }
+  ],
+  "retarget_data": null,
+  "source_template_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8"
+}

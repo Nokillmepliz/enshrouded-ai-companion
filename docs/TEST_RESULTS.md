@@ -175,3 +175,13 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - DAT `000–054` точно совпадают с baseline по именам, размерам и mtime. EMF `dinput8.dll` сохранил закреплённый SHA-256. Не осталось install/restore temporary files.
 - LOCAL-сохранения не восстанавливались; их pre-run версии продолжают храниться в проверенном backup.
 - Итоговая rollback verification: `ok=true`. Игра не запускалась, spawn не выполнялся. Этап 10.2 остаётся `FAILED`; повторная установка и новый запуск не разрешены.
+# Этап 10.6, часть A — 2026-11-01
+
+- Полный Python suite: **258 tests PASS, 1 skipped**.
+- Новые Stage 10.6 tests: **40 PASS**. Они покрывают evidence v3, все состояния typed CharacterSetup, A/V/B/C, stale token, writer finalization, component/reference/animation mismatch, integrity, compact observer и mutation API ban.
+- `python -m compileall -q companion scripts tests`: **PASS**.
+- `git diff --check`: **PASS**.
+- KFC Inspector `cargo test --locked`: **2 PASS**.
+- Реальный Stage 10.6 dry-run preflight: **PREPARATION_READY**; exact hashes/patch/observer/DAT/free-space checks PASS, blocker только `verified_backup_missing`.
+- Реальные read-only hashes игры повторно совпали с baseline build 1273043; EML/patch/observer/export в каталоге игры отсутствуют.
+- Runtime: **NOT_EXECUTED**. Игра не запускалась, backup/install не выполнялись, игровые файлы и saves не менялись.

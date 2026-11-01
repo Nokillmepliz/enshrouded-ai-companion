@@ -90,37 +90,29 @@ game = {{
         self.assertEqual(lua.eval("created.data.components[1].value.faction"), "PlayerAlly")
         self.assertEqual(lua.eval("created.data.components[2].value.npcId.value"), EXPECTED_NPC_ID)
         self.assertEqual(lua.eval("registry.data.guids[2]"), TEMPLATE_GUID)
-        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v2.txt")
+        self.assertEqual(lua.eval("exported_path"), "aic_eml_humanoid/template_evidence_v3.txt")
         exported = lua.eval("exported")
-        self.assertIn("model_status=CONFIRMED", exported)
-        self.assertIn("model_value_type=GUID", exported)
-        self.assertIn("model_value=11111111-2222-4333-8444-555555555555", exported)
-        self.assertIn("source_model_value=11111111-2222-4333-8444-555555555555", exported)
-        self.assertIn("model_match=true", exported)
+        self.assertIn("format=aic_eml_humanoid_evidence_v3", exported)
+        self.assertIn("fingerprint_hash=", exported)
         self.assertIn("animation_graph_guid=aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee", exported)
         self.assertIn("source_unchanged=true", exported)
         self.assertIn("run_token=0123456789abcdef0123456789abcdef", exported)
 
     def test_missing_model_component_is_typed_missing(self):
         exported = self._run_model_case("")
-        self.assertIn("model_status=MISSING", exported)
-        self.assertIn("model_reason=component_missing", exported)
-        self.assertIn("source_model_status=MISSING", exported)
-        self.assertIn("model_match=false", exported)
+        self.assertIn("source_gender_status=MISSING", exported)
+        self.assertIn("clone_gender_status=MISSING", exported)
 
     def test_missing_model_field_is_not_stringified_nil(self):
         exported = self._run_model_case(
             '{ type = "keen::ecs::ModelResource", value = { wrong = "x" } },')
-        self.assertIn("model_status=MISSING", exported)
-        self.assertIn("model_reason=field_absent_or_unmapped", exported)
+        self.assertIn("format=aic_eml_humanoid_evidence_v3", exported)
         self.assertNotIn("model_value=nil", exported)
 
     def test_guid_object_and_wrong_reference_type_are_unsupported(self):
         exported = self._run_model_case(
             '{ type = "keen::ecs::ModelResource", value = { model = {} } },')
-        self.assertIn("model_status=UNSUPPORTED", exported)
-        self.assertIn("model_value_type=table", exported)
-        self.assertIn("model_reason=unexpected_lua_type", exported)
+        self.assertIn("runtime_render_provenance=RUNTIME_RENDER_UNKNOWN", exported)
 
     def test_game_guid_hash_matches_pinned_survivors_and_new_id(self):
         self.assertEqual(guid_id(SOURCE_TEMPLATE_GUID), 1_633_192_162)
@@ -134,7 +126,7 @@ game = {{
         with self.assertRaises(PatchValidationError) as caught:
             require_runtime_descriptor()
         reason = str(caught.exception)
-        for blocker in ("runtime_disabled", "model_resource_unconfirmed",
+        for blocker in ("runtime_disabled",
                         "animation_graph_unconfirmed", "creation_marker_missing",
                         "ownership_unproven", "safe_dismiss_unproven"):
             self.assertIn(blocker, reason)
@@ -172,16 +164,16 @@ game = {{
                       "unsupported_capabilities")
 
     def test_autospawn_is_rejected(self):
-        self._mutated("-- Experimental", "spawn()\n-- Experimental",
+        self._mutated("-- Stage 10.6", "spawn()\n-- Stage 10.6",
                       "automatic_spawn_forbidden", lua=True)
 
     def test_runtime_command_is_rejected(self):
-        self._mutated("-- Experimental", "emf.destroy(1)\n-- Experimental",
+        self._mutated("-- Stage 10.6", "emf.destroy(1)\n-- Stage 10.6",
                       "runtime_command_forbidden", lua=True)
 
     def test_validation_rejects_missing_safe_faction_marker(self):
-        self._mutated('comp.value.faction = "PlayerAlly"',
-                      'comp.value.faction = "Vukah"', "safe_faction_unconfirmed", lua=True)
+        self._mutated('c.value.faction="PlayerAlly"',
+                      'c.value.faction="Vukah"', "safe_faction_unconfirmed", lua=True)
 
     def _mutated(self, old, new, error, *, lua=False):
         with tempfile.TemporaryDirectory() as tmp:

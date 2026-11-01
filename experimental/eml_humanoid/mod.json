@@ -1,8 +1,8 @@
 {
   "id": "aic_eml_humanoid",
   "name": "AI Companion experimental humanoid template",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "capabilities": ["patch", "export"],
-  "description": "Offline Stage 9 experiment: clone a human NPC template under a new fixed GUID. Does not spawn anything.",
+  "description": "Stage 10.6 data-only humanoid clone evidence v3. Does not spawn anything.",
   "authors": ["Enshrouded AI Companion"]
 }

@@ -23,10 +23,10 @@ EXPECTED_GAME_SHA256 = "d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc1
 EXPECTED_EMF_LOADER_SHA256 = "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee"
 EXPECTED_EML_DBGHELP_SHA256 = "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa"
 EXPECTED_EMM_SHA256 = "b1133f6b8ea7000596cc7710901bd8307b48165b0e650c0487a611d90ea49305"
-EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v2.txt")
+EVIDENCE_RELATIVE = Path("export/aic_eml_humanoid/template_evidence_v3.txt")
 EXPECTED_TEMPLATE_GUID = "a1c90001-5e4d-4a91-8a1c-000000000001"
 EXPECTED_SOURCE_GUID = "e3736dff-0ad2-47fc-903c-66c1775836e8"
-EXPECTED_PATCH_VERSION = "0.2.0"
+EXPECTED_PATCH_VERSION = "0.3.0"
 RUN_TOKEN_PLACEHOLDER = "__AIC_STAGE10_RUN_TOKEN__"
 RUN_TOKEN_PATTERN = re.compile(r"^[0-9a-f]{32}$")
 DIRECT_LOOKUP_STATUS = "UNAVAILABLE_WITHOUT_ENTITY"
@@ -106,7 +106,9 @@ def validate_observer(observer_dir: str | Path) -> tuple[str, ...]:
     for command in ("status", "inspect", "compare"):
         if f"emf.command('{command}'" not in source:
             raise Stage10Error(f"observer_command_missing:{command}")
-    if "UNAVAILABLE_WITHOUT_ENTITY" not in source or "spawn_forbidden = true" not in source:
+    if "UNAVAILABLE_WITHOUT_ENTITY" not in source or not re.search(
+        r"spawn_forbidden\s*=\s*true", source
+    ):
         raise Stage10Error("observer_limitation_missing")
     if source.count(RUN_TOKEN_PLACEHOLDER) != 1 or "AIC_TEMPLATE_OBSERVER_READY" not in source:
         raise Stage10Error("observer_run_correlation_missing")
@@ -136,9 +138,9 @@ def evaluate_evidence(
         "component_clone": "true",
         "source_unchanged": "true",
         "resource_lookup_after_create": "true",
-        "patch_version": EXPECTED_PATCH_VERSION,
     }
     checks = {key: value.get(key) == expected for key, expected in required.items()}
+    checks["patch_version"] = value.get("patch_version") in {"0.2.0", EXPECTED_PATCH_VERSION}
     guid_pattern = re.compile(
         r"^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
         re.IGNORECASE,

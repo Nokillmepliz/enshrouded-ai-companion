@@ -1,7 +1,7 @@
 {
   "id": "aic_template_observer",
   "name": "AI Companion Template Observer (read-only)",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Reads EML template evidence without spawning or changing entities.",
   "authors": ["enshrouded-ai-companion"],
   "emf": 20,

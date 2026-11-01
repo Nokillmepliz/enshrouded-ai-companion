@@ -236,3 +236,13 @@ Negative tests обязаны покрывать отсутствие writer fin
 - Verified backup цел; все install hashes совпадают. DAT `000–054` не менялись; EML создал нулевые `055–063`, KFC backup/cache/export/logs. Неатрибутированных изменений нет.
 - Итог `FAILED`, `load_only_success=false`, `spawn_ready=false`, `rollback_ready=true`, реальный rollback не выполнялся.
 - Observer/evaluator исправлены для nil fingerprints, JSON-escaped tabs и компактного inspect. Полный suite: 188 PASS.
+# Этап 10.6 — visual clone evidence v3
+
+- Проверить 11 typed полей CharacterSetup для source/clone и различать CONFIRMED/MISSING/UNKNOWN/UNSUPPORTED.
+- Проверить structural, CharacterSetup, reference set, dependency closure и отдельный UNKNOWN runtime render.
+- Проверить GUID/npcId/faction/run token/writer correlation, source integrity, registry и stale evidence.
+- Проверить A/V/B/C evaluator на missing/false/unknown и полный synthetic success.
+- Проверить compact observer <=1023, read-only API, fingerprint correlation и отсутствие spawn.
+- Проверить install/rollback regressions, конфликтующие файлы и исторический evaluator v2.
+
+Фактический runtime выполняется только после отдельных разрешений на части B и C. Spawn не входит в Stage 10.6.
