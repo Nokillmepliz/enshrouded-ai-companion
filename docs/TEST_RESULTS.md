@@ -1,5 +1,17 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Stage10.10.1 Phase A
+
+- Полный suite: **586 testsRun /585 PASS /1 skipped /0 failures**. Новые61 PASS; regression524 PASS/1skip.
+- Skip: прежняя directory-symlink privilege проверка Windows. Новый реальный junction escape/root test PASS; hardlink отказ PASS.
+- Backup/quarantine выполнялись исключительно на временных fixture файлах, не в игре/LOCAL. Проверены corrupt/incomplete backup, default authorization refusal, cross-build/receipt/hash guards, protected game resources/DAT/saves, copy/unlink failures и появление игры перед unlink.
+- Lua observer register/emitter проверены через Lupa: только status/inspect/compare; mutations rejected; frame roundtrip, malformed no partial output, missing writer/baseline refusal. Python parser проверяет exact nine HashKey32 names/types/ranges и duplicate JSON keys.
+- Lua syntax **15/15 PASS** (все tracked/new project Lua, включая tests/fake_emf.lua); Python compileall PASS.
+- Fresh before/after: **249/249 game +23/23 LOCAL unchanged**, zero added/removed/changed по paths/size/SHA/mtime. Историческая Stage10.10 инвентаризация тоже совпала.
+- Реальный recovery CLI dry-run: **DRY_RUN_VALID**, unresolved51, cleanup_executed=false; процессы/build/Steam/receipt и полный manifest проверены без записи в игру.
+- Rust/C++ не изменялись и в этом этапе повторно не собирались. Исторические результаты ниже относятся к прежним запускам.
+- Это offline Phase A. Реальные backup/quarantine/restore/install/Steam Verify/game/Bridge/spawn не выполнялись. [Подробный отчёт](STAGE10_10_1_PHASE_A_REPORT.md).
+
 ## 2026-11-18 — Stage 10.10 Phase A
 
 - Python: **525 discovered / 525 runner testsRun / 524 executed / 524 PASS / 0 failures / 1 skipped**.

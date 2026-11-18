@@ -1,0 +1,22 @@
+{
+  "phase_a": {
+    "game": {
+      "before": 249,
+      "after": 249,
+      "added": [],
+      "removed": [],
+      "changed": []
+    },
+    "saves": {
+      "before": 23,
+      "after": 23,
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "since_stage10_10": {
+    "game": [],
+    "saves": []
+  }
+}

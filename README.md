@@ -1,5 +1,15 @@
 # enshrouded-ai-companion
 
+**Stage10.10.1 Phase A: `BLOCKED_BY_UNKNOWN_ARTIFACTS`, `PARTIAL_UPSTREAM_REUSE`.**
+Подготовлены точный recovery manifest272 файлов, безопасные backup/quarantine
+инструменты и offline observer/evidence libraries. Карантин81 подтверждённого файла
+только запланирован;51 файл требует review. Рекомендован integrated EMF content
+после clean baseline. Patch0.5/установка/runtime пока не готовы; `spawn_ready=false`.
+Новые61 тест PASS; весь suite585 PASS/1skip. Игра249/249 и LOCAL23/23 неизменны.
+[Итог и ответы по ТЗ](docs/STAGE10_10_1_PHASE_A_REPORT.md),
+[план recovery](docs/STAGE10_10_1_RECOVERY_PLAN.md),
+[обновлённый roadmap](docs/STAGE10_10_1_UPDATED_ROADMAP.md).
+
 **Stage 10.10 Phase A: `BLOCKED_BY_GAME_INTEGRITY`.** Установлена игра 1.0.1.2 /
 build1287369; старый EMF0.3.2 несовместим. Проверен официальный EMF0.6.18/API46,
 но установки не было. Текущая база содержит старый custom clone; source теперь
