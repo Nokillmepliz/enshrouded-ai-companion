@@ -1,0 +1,12 @@
+{
+  "id": "aic_first_spawn",
+  "name": "AI Companion single experimental spawn",
+  "version": "0.1.0",
+  "description": "Explicit one-shot visual experiment only; no automatic spawn or cleanup.",
+  "authors": ["Enshrouded AI Companion"],
+  "emf": 46,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.39"},
+  "side": "server",
+  "enabled": false
+}

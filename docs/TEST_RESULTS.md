@@ -448,3 +448,13 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 ## 2026-11-18 — Stage10.10.3
 
 29 новых regression tests: Bridge error classification, точная post-close attribution, metadata-only/identity/content/hardlink запреты, независимые semantic clone/source/dependency проверки, resource redirection. Полный suite758 testsRun /757 PASS /1 skip /0 failures,16.179s. Compileall companion/scripts/tests и git diff check PASS. Реальные readback/attribution v2/shadow77/redirected read opens66 PASS; before/after game234 и LOCAL23 неизменны. Runtime Bridge/observer ещё не выполнен. [Отчёт](STAGE10_10_3_REPORT.md).
+
+## 2026-11-18 — Stage 10.11: First Humanoid Spawn, только offline
+
+- Полный suite: **824 testsRun / 823 PASS / 1 skip / 0 failures**, 14.964 s, exit0.
+- 66 новых целевых тестов: настоящий Lua controller/main через Lua5.4 mocks, Python authorization/LOCAL/GUID/session/position gates, одноразовый spawn, потеря ответа и запрет повторов, write/flush/close failures, reload и corrupt latch, отсутствие destroy, receipt и backup gates, experimental vs production readiness.
+- Прежний skip: создание directory symlink, Windows error1314 (нет привилегии); права не менялись.
+- Compileall companion/scripts/tests и git diff check PASS; package7/7 hash/size/source match PASS.
+- Фактическая read-only подготовка: закрытая игра, installed16 PASS, current235 game/23 LOCAL точно совпали с baseline Stage10.10.3. Backup plan23/637447bytes проверен без копирования. Пакет не установлен, живой Spawn API не вызывался.
+- Mocks не подтверждают engine ABI, реальное появление, рендер, faction/поведение или cleanup. Все spawn readiness flags остаются false; RUNTIME_RENDER_CONFIRMED=UNKNOWN.
+- [Отчёт](STAGE10_11_REPORT.md), [machine results](../compatibility/experiments/stage10_11/tests.json). Private log: runtime/stage10_11/full-tests.log.

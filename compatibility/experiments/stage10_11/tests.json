@@ -1,0 +1,20 @@
+{
+  "tests_run": 824,
+  "passed": 823,
+  "skipped": 1,
+  "errors": 0,
+  "failures": 0,
+  "seconds": 14.964,
+  "exit_code": 0,
+  "new_targeted_tests": 66,
+  "log_sha256": "de6d3b061021eae7cbfd026a3420ce3d9c3a49dd785d8bc6883f1798b017724e",
+  "skip_reason": "Directory symlink unavailable: WinError1314; privileges unchanged",
+  "compileall": "PASS",
+  "diff_check": "PASS",
+  "package_files_verified": 7,
+  "scope": "OFFLINE_MOCK_TESTS_NOT_GAME_EXECUTION",
+  "experimental_spawn_executed": false,
+  "production_spawn_ready": false,
+  "spawn_ready": false,
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN"
+}

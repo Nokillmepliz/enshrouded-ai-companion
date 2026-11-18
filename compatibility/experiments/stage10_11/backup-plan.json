@@ -1,0 +1,147 @@
+{
+  "format": "aic_stage10_11_local_backup_plan_v1",
+  "baseline_inventory_sha256": "2fe87275d6c666bdf8aae2ba810cc606e2a52e1daeb4d95ccbf19d86f60a4987",
+  "files": [
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-0",
+      "sha256": "c851bdc67379565a7c54d564188f849b48413435db216526f0acf3c93aecab93",
+      "bytes": 1990
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-1",
+      "sha256": "f8fba7f0b1adf64efdc5ada31d9535108d2b038a1ebac633a22df4fe3adaf6e1",
+      "bytes": 1990
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-2",
+      "sha256": "c1bdab904aaf3aac5c8733717822df4a4235bb4f24e774e14669e826a20fe099",
+      "bytes": 1974
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-3",
+      "sha256": "8b61f8c6a90a6f1ae160b392bba8c19a92e5b258e4ff27bb9a4f67fcfa414439",
+      "bytes": 1926
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-4",
+      "sha256": "0ef98058b8f9080d3560558f45fd8183c3f6087e5269f6bb2144e73ba0cc657f",
+      "bytes": 1878
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-5",
+      "sha256": "3250c903778bb56d46b3ef891b517bcaaf26599eaeaa4c6ab46e8c02611f7d21",
+      "bytes": 1878
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-6",
+      "sha256": "9dd73cd2ff19e64b931406a6bf4fb24c8a1b1b53f00e0bbdc0176db4428d6321",
+      "bytes": 1798
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-7",
+      "sha256": "d07ab7781cc0903c05f3d5543726949fe5361f0dfc45dd258183a5fbe5975380",
+      "bytes": 1590
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-8",
+      "sha256": "9cabe2cf7eade79293acd8f6ae2261948cd8489001438b3560b6b58ea9b133bf",
+      "bytes": 1590
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-9",
+      "sha256": "68aebb311e2e45748f9610210ae62239526edfc958e18eee7dd6491e6c577945",
+      "bytes": 294
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-0",
+      "sha256": "c9568ff41873256ce2cc3724359268a0afdcd16a69501e49353a20a17f00ff73",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-1",
+      "sha256": "ce34ec5ed73c94cb5e237d78a5ec45e29731fc5e3caf1095515ccd88a2029e03",
+      "bytes": 87937
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-2",
+      "sha256": "74d50c0735152f65d6c90704d7539ed5d408d0d27bbe8133e47c9a497daa9ec8",
+      "bytes": 87937
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-3",
+      "sha256": "cd3e994172e17e13d84b8cbdfd12e29e22f3a6accfad34d6558e712fd8374a31",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-4",
+      "sha256": "1d6751eb8815202e4e76a3261b7aedab8ac3414baa4037c6d14792c6300dda43",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-5",
+      "sha256": "1241a1df90cd2de7f43d675cff4cd7fedfa6e824daf8b5259d672030325bc3d5",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-6",
+      "sha256": "b72cfeadd89c6ef265104f53b0a8242dde403832239f0e5897a270672dc8d40a",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-7",
+      "sha256": "bb11637d60cfaf6adb0d9b2a7eefc1cac1e989113f87beb1c127300e73e3a23e",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-8",
+      "sha256": "808eba4a2e00ae617d9625cb0b5b859091d56d514fcc6e0b70a8f79ede27ccc7",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-9",
+      "sha256": "a7212b444c6b11d9b0953e141af59fa49d3e50c58d6a7f54d492135c9ddbbbff",
+      "bytes": 194
+    },
+    {
+      "group": "saves",
+      "path": "default/character0.ksd",
+      "sha256": "f8fba7f0b1adf64efdc5ada31d9535108d2b038a1ebac633a22df4fe3adaf6e1",
+      "bytes": 1990
+    },
+    {
+      "group": "saves",
+      "path": "default/world0.ksd",
+      "sha256": "ce34ec5ed73c94cb5e237d78a5ec45e29731fc5e3caf1095515ccd88a2029e03",
+      "bytes": 87937
+    },
+    {
+      "group": "saves",
+      "path": "local_settings.json",
+      "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+      "bytes": 1419
+    }
+  ],
+  "payload_bytes": 637447,
+  "save_restore_authorized": false,
+  "created": false
+}

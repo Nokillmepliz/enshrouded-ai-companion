@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-11-18T14:45:00.902424+00:00",
+  "closed": true,
+  "game_file_set_and_metadata_unchanged": 235,
+  "LOCAL_full_hash_records_unchanged": 23,
+  "original_full_hashes": "Performed in preparation preflight; not repeated in final metadata check",
+  "private_key_not_published": true,
+  "installed": false,
+  "backup_created": false,
+  "spawn_ready": false
+}

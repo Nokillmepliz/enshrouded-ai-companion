@@ -1,0 +1,83 @@
+{
+  "format": "aic_stage10_11_additive_install_v1",
+  "stage": "10.11",
+  "created_utc": "2026-11-18T14:39:32.109510+00:00",
+  "build": 1287369,
+  "package": "C:\\Enshrouded-ai-companion\\dist\\stage10_11_first_spawn_0_1_0",
+  "game": "D:\\SteamLibrary\\steamapps\\common\\Enshrouded",
+  "entries": [
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "source": "payload/emf/mods/aic_first_spawn/mod.json",
+      "sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38",
+      "bytes": 346,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "source": "payload/emf/mods/aic_first_spawn/main.lua",
+      "sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29",
+      "bytes": 4176,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "source": "payload/emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb",
+      "bytes": 5213,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "source": "payload/emf/mods/aic_first_spawn/README.md",
+      "sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52",
+      "bytes": 2988,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/binding.lua",
+      "source": "payload/emf/mods/aic_first_spawn/binding.lua",
+      "sha256": "82cb5a42f3b1aa6c22e6fb5a695502bf5f205d4a24a6186a041cf698c5b80c9e",
+      "bytes": 106,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/attempt.lock",
+      "source": "payload/emf/mods/aic_first_spawn/attempt.lock",
+      "sha256": "441c11a1aa076b174ca1e1f5743f7942d0ff3e4e9aab6e561207e1c17b20638e",
+      "bytes": 39,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/config/aic_first_spawn.ini",
+      "source": "payload/emf/config/aic_first_spawn.ini",
+      "sha256": "6a096b8d41a6035db1c4d21d5e67182ecda80e0687074d116ee933a5d08a33cb",
+      "bytes": 28,
+      "before_sha256": null
+    }
+  ],
+  "baseline_inventory_sha256": "2fe87275d6c666bdf8aae2ba810cc606e2a52e1daeb4d95ccbf19d86f60a4987",
+  "baseline_source": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_3\\load_only\\20261118T141227374049Z\\post-close-20261118T142336157270Z\\inventory-after.json",
+  "prior_receipt_sha256": "8fa2fa02ef0ad12b5c3c00864c0e81f21803fc2851872a708dea4e4d8efd2053",
+  "backup_plan_sha256": "20c2a063bb92261ceb0d55d7092b892f0d30508b4d1d49d226b3447acc960e56",
+  "backup_destination": "C:\\Enshrouded-ai-companion\\runtime\\backups\\stage10_11-local-before-first-spawn",
+  "client_binding_sha256": "bb64159bc7939b04f4efe1dae1152187077c176c29966db78e6a294fcdc8ac8c",
+  "installation_authorized": false,
+  "spawn_authorized": false,
+  "expected_post_install_files": 23,
+  "unchanged_existing_installed_files": 16,
+  "runtime_mutable_file": {
+    "path": "emf/mods/aic_first_spawn/attempt.lock",
+    "before": "UNUSED:<private-key>",
+    "after": "SPENT!:<same-private-key>",
+    "rule": "Only this exact one-way transition; persist and never reset automatically"
+  },
+  "removal_plan": "Separate permission, closed game, receipt-attributed seven files only, expected mutable latch preserved as evidence",
+  "readiness": {
+    "status": "READY_FOR_EXPERIMENTAL_SPAWN_APPROVAL",
+    "experimental_spawn_executed": false,
+    "production_spawn_ready": false,
+    "spawn_ready": false,
+    "RUNTIME_RENDER_CONFIRMED": "UNKNOWN"
+  }
+}

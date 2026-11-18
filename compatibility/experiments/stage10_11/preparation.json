@@ -1,0 +1,18 @@
+{
+  "package_status": "OFFLINE_PACKAGE_PREPARED",
+  "current_baseline_verified": true,
+  "game_files": 235,
+  "LOCAL_files": 23,
+  "installed_existing_verified": 16,
+  "new_files": 7,
+  "backup_files": 23,
+  "backup_bytes": 637447,
+  "backup_created": false,
+  "installed": false,
+  "manifest_sha256": "6ecc792b6c320dc19f0fa201259c573efd142c4c37a579eab07376dc40b9e1e3",
+  "status": "READY_FOR_EXPERIMENTAL_SPAWN_APPROVAL",
+  "experimental_spawn_executed": false,
+  "production_spawn_ready": false,
+  "spawn_ready": false,
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN"
+}
