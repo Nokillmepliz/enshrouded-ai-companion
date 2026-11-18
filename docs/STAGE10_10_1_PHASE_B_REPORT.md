@@ -29,6 +29,8 @@ Preflight: game/server отсутствовали; version1287369, Steam build26
 - Backup manifest SHA256: `67a542553c82328bcdd589a1f4067c034bf0315fa8e375dd5a89b341c177333b`.
 - Backup plan SHA совпадает с reviewed manifest. Исторический receipt в проекте остался неизменным; его приватное содержимое не публикуется.
 
+Исторический install receipt теперь описывает прежнюю, уже снятую установку и **не подтверждает текущую install integrity**. Его нельзя применять для старого rollback или повторного удаления. Текущее состояние фиксируют новый operation.json, карантинный журнал и post-inventory; вручную переписывать старый receipt не потребовалось.
+
 ## Карантин и post-inventory
 
 Использован тот же штатный CLI, `quarantine --execute --authorization PHASE_B_QUARANTINE`, с explicit reviewed plan SHA и verified backup. Перед unlink каждого файла проверялись game/server, build/Steam/receipt, исходный hash, backup copy и quarantine copy. Директории целиком не удалялись. API/ручное исправление старого receipt или старый rollback не применялись.

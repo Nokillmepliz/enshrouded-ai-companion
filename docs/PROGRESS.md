@@ -774,3 +774,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Добавлены read-only post-audit helper,11 тестов, подробный Phase B report и residual review; README/TEST_RESULTS обновлены. Полный Python:597 testsRun,596 PASS,1 прежний skip,0 failures; compileall/diff checks PASS. Lua/Rust/C++ не менялись и повторно не запускались.
 - Verdict LIMITED_PHASE_B_COMPLETED. cleanup_executed=true только для81; clean_baseline_confirmed=false, installation_ready=false, phase_c_executed=false, runtime NOT_EXECUTED, render UNKNOWN, spawn_ready=false. Integrated content принят пользователем условно на дальнейший этап; новых модов нет.
 - Следующий шаг — публикация отчёта/metadata/helper/tests и остановка. Phase C требует отдельного согласования; Steam Verify/игра/server/install/старый rollback/restore не выполнялись. Backup/quarantine остаются в ignored runtime и не публикуются.
+
+## 2026-11-18 — публикация limited Phase B
+
+- Результаты Phase B, read-only helper/11 тестов, отчёт и пофайловый разбор51 остатков опубликованы в origin/master: `f61441b5a4a359b92aedbce4fa4c2838faf78e51` (`Complete limited Phase B backup quarantine and residual audit`). Push подтверждён, HEAD и origin/master совпали.
+- Проверены10 staged files: diff/links/scope flags и отсутствие private run token/Steam LastOwner, бинарников и game/save payload. Backup209 payload files и карантин81 остаются только локально; игровые файлы больше не изменялись после завершения разрешённого карантина.
+- Старый install receipt сохранён как исторический документ: после снятия файлов он не является доказательством текущей установки и не разрешает старый rollback. Текущее состояние описано новым operation.json и журналом карантина.
+- Остановлено перед Phase C. Итог LIMITED_PHASE_B_COMPLETED; чистый baseline, новая установка, shadow integrity и runtime пока не подтверждены; spawn_ready=false. Никаких следующих действий без отдельного согласования Phase C не выполняется.
