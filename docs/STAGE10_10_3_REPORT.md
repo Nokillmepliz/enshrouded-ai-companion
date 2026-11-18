@@ -1,6 +1,73 @@
 # Stage10.10.3 — Bridge Access & Runtime Validation
 
-## Текущий результат: runtime PASS, ожидается ручное закрытие
+## Итог после закрытия: LOAD_ONLY_SUCCESS
+
+2026-11-18, post-close audit завершён в **14:25:40 UTC (17:25:40 MSK)**.
+Пользователь закрыл игру. Перед аудитом и в конце проверено отсутствие игры/сервера,
+неизменность Steam build/depot и отсутствие незавершённого обновления.
+Существующие валидаторы выполнены через
+[`audit_stage10_10_3_closed.py`](../scripts/audit_stage10_10_3_closed.py).
+
+| Проверка | Фактический результат |
+| --- | --- |
+| Установка и verified backup | 16/16 effective hashes; backup 38/38 PASS |
+| Оригинальные ресурсы | 67/67 без изменений SHA-256, размера, identity, mtime и links |
+| Shadow Resources | 77/77 полностью равны baseline и ранее исследованному readback; audit_shadow PASS, 56 разрешённых hardlinks |
+| Build и content fingerprint | build 1287369, patch 0.5.1; fingerprint совпал |
+| Post-close v2 | ATTRIBUTION_PASS, необъяснённых изменений нет |
+| Bridge / LOCAL / observer | hello/state, compare/status и неизменность session context PASS, PID 202212 |
+| Evidence / redirection | evidence v8 40/40; свежие успешные read-open для 66/66 KFC/resources/DAT |
+| Критерии | A/H/R/B/C PASS; V REFERENCES_ONLY |
+
+Игра добавила архив `backup/enshrouded_2026-11-18T17-15-49.log`: он точно совпадает
+с предыдущим логом, включая identity и SHA-256, то есть это подтверждённая ротация.
+Изменились четыре текущих лога; у пустого `emf/chain_status.txt` изменился только mtime
+в пределах сессии. Состав game inventory вырос с 234 до 235 файлов за счёт архива.
+В накопительном loader log сохранена старая ошибка `graph_changed` от предыдущих
+испытаний; текущий сегмент сообщает cache current. Это не новая ошибка patch 0.5.1.
+В сохранённых текущих game/core логах совпадений fatal/panic/exception/failed/error нет;
+такой поиск сам по себе не доказывает отсутствие всех возможных ошибок.
+
+Все 23 LOCAL-файла существуют и читаются стабильно после закрытия, пустых файлов нет.
+Содержимое **6 файлов изменилось во время игровой сессии**: character0/world0 и
+backup-0/backup-1 каждого. У `local_settings.json` изменились только метаданные;
+содержимое остальных 17 файлов совпало. Имена Body Test / AI Body Test сохранились.
+Сохранены точные хеши до/после; семантическая целостность формата сохранений
+не устанавливалась. Агент сохранения не записывал и не восстанавливал.
+
+Сборка shadow от 13:46:15 UTC переиспользована штатно. Freshness подтверждён как
+**применимость неизменного проверенного cache к новой сессии**, а не повторный запуск
+writer. Исходные HashKey32 (9), CharacterSetup, animation graph, retargetData=null,
+82 компонента, RenderEquipment, skeleton 102 joints, 63 dependency lookup и 18 visual
+references подтверждены предыдущим независимым readback. Его результаты применимы
+к текущим файлам благодаря точному совпадению всех 77 shadow records; Inspector
+повторно не запускался. Observer подтверждает сессию и binding, не новую EML runtime
+инспекцию: content DLL остаётся выгруженной.
+
+Полный набор тестов выполнен заново: **758 testsRun / 757 PASS / 1 skip / 0 failures**,
+16.089 s. Пропущен тест создания directory symlink: Windows error 1314, нет необходимой
+привилегии; права не менялись. Py_compile нового скрипта и git diff check PASS.
+
+Артефакты:
+
+- [Post-close result](../compatibility/updates/1287369/0.5.1/stage10_10_3/load-only/post-close.json).
+- [Результаты тестов](../compatibility/updates/1287369/0.5.1/stage10_10_3/load-only/tests-post-close.json).
+- [Runtime checkpoint](../compatibility/updates/1287369/0.5.1/stage10_10_3/load-only/runtime-checkpoint.json).
+- Private evidence: `runtime/stage10_10_3/load_only/20261118T141227374049Z/post-close-20261118T142336157270Z`.
+- SHA-256 inventory до: `9bb5ef6895915469d1e35a302b2071f2037348049f4f07e0178c39a3237ae904`.
+- SHA-256 inventory после: `2fe87275d6c666bdf8aae2ba810cc606e2a52e1daeb4d95ccbf19d86f60a4987`.
+
+Оставшиеся ограничения: визуальное отображение, анимация и поведение живого NPC
+не проверены; успешные открытия файлов не являются трассировкой ReadFile bytes.
+Сохраняется принятое пользователем ограничение доверия CLEAN_BASELINE_PARTIAL
+к локальному Steam depot manifest. Историческую причину error5 нельзя измерить задним
+числом, но в новой сессии доступ вне sandbox с тем же пользователем подтверждён.
+**RUNTIME_RENDER_CONFIRMED=UNKNOWN, spawn_ready=false.**
+Установленные файлы, ACL, shadow/cache агентом не менялись; spawn/мутации/rollback
+не выполнялись. Stage10.10.3 завершён в load-only объёме. Следующий игровой этап
+требует отдельного разрешения и проверки подготовленного safety/lifecycle плана.
+
+## Промежуточный checkpoint: runtime PASS, ожидалось ручное закрытие
 
 2026-11-18, запуск пользователем в 17:15:49 MSK, PID 202212.
 Адресная диагностика вне sandbox через штатное согласование прошла успешно:

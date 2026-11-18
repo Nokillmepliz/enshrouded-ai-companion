@@ -1,0 +1,533 @@
+{
+  "stage": "10.10.3",
+  "checked_utc": "2026-11-18T14:25:40.476098+00:00",
+  "status": "POST_CLOSE_INTEGRITY_PASS",
+  "game_server_closed": true,
+  "private_evidence": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_3\\load_only\\20261118T141227374049Z\\post-close-20261118T142336157270Z",
+  "before_inventory_sha256": "9bb5ef6895915469d1e35a302b2071f2037348049f4f07e0178c39a3237ae904",
+  "after_inventory_sha256": "2fe87275d6c666bdf8aae2ba810cc606e2a52e1daeb4d95ccbf19d86f60a4987",
+  "installed_verified": 16,
+  "backup_verified": 38,
+  "original_files_unchanged": 67,
+  "original_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [],
+    "metadata_changed": []
+  },
+  "game_files": 235,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-18T17-15-49.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ]
+  },
+  "post_close_validator": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-18T17-15-49.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "unattributed_game_changes": [],
+  "shadow_files_unchanged": 77,
+  "shadow_filesystem": "PASS",
+  "base_hardlinks": 56,
+  "prior_semantic_readback_reused": true,
+  "independent_decoder_rerun": false,
+  "cached_writer": {
+    "code": 0,
+    "unloaded": true,
+    "built_at": "2026-11-18T13:46:15Z",
+    "fresh_rebuild": false
+  },
+  "content_fingerprint": "sha256:17d1f36bb57e8dd9fc064eee5402ed4f10365d9970bda8fa975e7156638f1138",
+  "resource_redirection": {
+    "status": "PASS",
+    "successful_read_opens": [
+      "enshrouded.kfc",
+      "enshrouded.kfc_resources",
+      "enshrouded_000.dat",
+      "enshrouded_001.dat",
+      "enshrouded_002.dat",
+      "enshrouded_003.dat",
+      "enshrouded_004.dat",
+      "enshrouded_005.dat",
+      "enshrouded_006.dat",
+      "enshrouded_007.dat",
+      "enshrouded_008.dat",
+      "enshrouded_009.dat",
+      "enshrouded_010.dat",
+      "enshrouded_011.dat",
+      "enshrouded_012.dat",
+      "enshrouded_013.dat",
+      "enshrouded_014.dat",
+      "enshrouded_015.dat",
+      "enshrouded_016.dat",
+      "enshrouded_017.dat",
+      "enshrouded_018.dat",
+      "enshrouded_019.dat",
+      "enshrouded_020.dat",
+      "enshrouded_021.dat",
+      "enshrouded_022.dat",
+      "enshrouded_023.dat",
+      "enshrouded_024.dat",
+      "enshrouded_025.dat",
+      "enshrouded_026.dat",
+      "enshrouded_027.dat",
+      "enshrouded_028.dat",
+      "enshrouded_029.dat",
+      "enshrouded_030.dat",
+      "enshrouded_031.dat",
+      "enshrouded_032.dat",
+      "enshrouded_033.dat",
+      "enshrouded_034.dat",
+      "enshrouded_035.dat",
+      "enshrouded_036.dat",
+      "enshrouded_037.dat",
+      "enshrouded_038.dat",
+      "enshrouded_039.dat",
+      "enshrouded_040.dat",
+      "enshrouded_041.dat",
+      "enshrouded_042.dat",
+      "enshrouded_043.dat",
+      "enshrouded_044.dat",
+      "enshrouded_045.dat",
+      "enshrouded_046.dat",
+      "enshrouded_047.dat",
+      "enshrouded_048.dat",
+      "enshrouded_049.dat",
+      "enshrouded_050.dat",
+      "enshrouded_051.dat",
+      "enshrouded_052.dat",
+      "enshrouded_053.dat",
+      "enshrouded_054.dat",
+      "enshrouded_055.dat",
+      "enshrouded_056.dat",
+      "enshrouded_057.dat",
+      "enshrouded_058.dat",
+      "enshrouded_059.dat",
+      "enshrouded_060.dat",
+      "enshrouded_061.dat",
+      "enshrouded_062.dat",
+      "enshrouded_063.dat"
+    ],
+    "missing": [],
+    "log_lines": [
+      23,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217
+    ],
+    "scope": "GAME_EXE_CREATEFILE_READ_OPEN_SUCCESS; READFILE_BYTES_NOT_TRACED",
+    "spawn_ready": false
+  },
+  "captured_log_hashes": {
+    "enshrouded.log": "d07ac069fcee001045e1128a49068d0c18643355336cc71c31899526c7aecc17",
+    "emf/emf_loader.log": "5101c235a05fc3a70d090dfe8fbe748946179cdbc2b1ef8af0e3c4ca93b22f44",
+    "emf/emf_core.log": "e5fb2144d721d4d1182bf6191a85976e049ad48a32615b29cddfd3cf301b8408",
+    "emf/file_opens.log": "306b64118b06c359bbe73c25fd8c438dcab5777d17c834bee463719416f2ae7f",
+    "emf/content.log": "bb9e5183c308f76bb97f1f7d71cf512831decb72452c156e67e7b960c5ec3d82",
+    "emf/content/client/emf_content_state.json": "4cb71820db8de4a57a4f2cf6fc6e50f0ed7c34443187897f374960e14870f8b8"
+  },
+  "local_files": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_change_records": {
+    "default/backup/character0.ksd.backup-0": {
+      "before": {
+        "sha256": "6b96bb67cc36c980ab7149cd884bd9fc66b39868d5b6858b19e36b97629fa604",
+        "size": 1974,
+        "volume": 1491991708024336714,
+        "file_id": 12103423999147649,
+        "links": 1,
+        "mtime_ns": 1795009745627342200
+      },
+      "after": {
+        "sha256": "c851bdc67379565a7c54d564188f849b48413435db216526f0acf3c93aecab93",
+        "size": 1990,
+        "volume": 1491991708024336714,
+        "file_id": 12103423999147649,
+        "links": 1,
+        "mtime_ns": 1795011698381133100
+      }
+    },
+    "default/backup/character0.ksd.backup-1": {
+      "before": {
+        "sha256": "7898f3fcc9deb621ab1ea81d3e0b62bfb0b6ba259b376f815ff3c20cb9631888",
+        "size": 1910,
+        "volume": 1491991708024336714,
+        "file_id": 5066549581196753,
+        "links": 1,
+        "mtime_ns": 1795005659843847000
+      },
+      "after": {
+        "sha256": "f8fba7f0b1adf64efdc5ada31d9535108d2b038a1ebac633a22df4fe3adaf6e1",
+        "size": 1990,
+        "volume": 1491991708024336714,
+        "file_id": 5066549581196753,
+        "links": 1,
+        "mtime_ns": 1795011703252347300
+      }
+    },
+    "default/backup/world0.ksd.backup-0": {
+      "before": {
+        "sha256": "6973be7d75cdb50fd3366f7168dfefeb84889fb10a505533697c3f3fbfdb22be",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 95420017105410896,
+        "links": 1,
+        "mtime_ns": 1795009745593577900
+      },
+      "after": {
+        "sha256": "c9568ff41873256ce2cc3724359268a0afdcd16a69501e49353a20a17f00ff73",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 95420017105410896,
+        "links": 1,
+        "mtime_ns": 1795011703207921900
+      }
+    },
+    "default/backup/world0.ksd.backup-1": {
+      "before": {
+        "sha256": "debfdcd412866fb33aa7f0d6fb06094efdeba886237ac4f5bf576fc2d17f2bf5",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 34902897112615632,
+        "links": 1,
+        "mtime_ns": 1795009672939312500
+      },
+      "after": {
+        "sha256": "ce34ec5ed73c94cb5e237d78a5ec45e29731fc5e3caf1095515ccd88a2029e03",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 34902897112615632,
+        "links": 1,
+        "mtime_ns": 1795011703407408900
+      }
+    },
+    "default/character0.ksd": {
+      "before": {
+        "sha256": "6b96bb67cc36c980ab7149cd884bd9fc66b39868d5b6858b19e36b97629fa604",
+        "size": 1974,
+        "volume": 1491991708024336714,
+        "file_id": 98797716825938452,
+        "links": 1,
+        "mtime_ns": 1795009745626842200
+      },
+      "after": {
+        "sha256": "f8fba7f0b1adf64efdc5ada31d9535108d2b038a1ebac633a22df4fe3adaf6e1",
+        "size": 1990,
+        "volume": 1491991708024336714,
+        "file_id": 98797716825938452,
+        "links": 1,
+        "mtime_ns": 1795011703251846700
+      }
+    },
+    "default/world0.ksd": {
+      "before": {
+        "sha256": "74d50c0735152f65d6c90704d7539ed5d408d0d27bbe8133e47c9a497daa9ec8",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 35184372089329016,
+        "links": 1,
+        "mtime_ns": 1795009745793259700
+      },
+      "after": {
+        "sha256": "ce34ec5ed73c94cb5e237d78a5ec45e29731fc5e3caf1095515ccd88a2029e03",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 35184372089329016,
+        "links": 1,
+        "mtime_ns": 1795011703407408900
+      }
+    },
+    "local_settings.json": {
+      "before": {
+        "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+        "size": 1419,
+        "volume": 1491991708024336714,
+        "file_id": 135670938774781154,
+        "links": 1,
+        "mtime_ns": 1795009609534488700
+      },
+      "after": {
+        "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+        "size": 1419,
+        "volume": 1491991708024336714,
+        "file_id": 135670938774781154,
+        "links": 1,
+        "mtime_ns": 1795011385836644900
+      }
+    }
+  },
+  "local_selection_names": "PASS",
+  "local_read_stable_during_audit": true,
+  "save_semantic_integrity": "NOT_ESTABLISHED; game writes during session recorded; NO_RESTORE",
+  "runtime_context": {
+    "pid": 202212,
+    "character": {
+      "storage": "local",
+      "slot": 1,
+      "name": "Body Test"
+    },
+    "world": {
+      "status": "running",
+      "kind": "server",
+      "slot": 1,
+      "name": "AI Body Test"
+    },
+    "mods": [
+      {
+        "id": "aic_integrated_observer",
+        "name": "AI Companion integrated read-only observer",
+        "version": "0.3.0",
+        "status": "script",
+        "reason": "",
+        "source": "aic_integrated_observer\\",
+        "authors": "Enshrouded AI Companion",
+        "enabled_default": false
+      },
+      {
+        "id": "lua",
+        "name": "Lua Scripts",
+        "version": "1.39.0",
+        "status": "loaded",
+        "reason": "",
+        "source": "lua\\",
+        "authors": "EMF",
+        "enabled_default": true
+      }
+    ]
+  },
+  "runtime_checks": "BRIDGE_HELLO_STATE_AND_OBSERVER_COMPARE_STATUS_PASS",
+  "gate_evidence": {
+    "original_integrity": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "single_content_owner": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "shadow_integrity": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "writer_finalized": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "content_unloaded": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "fresh_state": {
+      "status": "PASS",
+      "source": "Verified cache reuse: unchanged 77 shadow records / state / fingerprint; current PID202212 observer and fresh redirection. No claim of new writer execution."
+    },
+    "shadow_readback": {
+      "status": "PASS",
+      "source": "stage10_10_3/result.json SHA24c962649a56e891d6b9b4bc93ea3e3b89552fc9ae2805095ed9db10c5a71cb9; 77 resource records unchanged; independent decoder not repeated."
+    },
+    "resource_redirection": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "observer_session": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    },
+    "no_legacy_artifacts": {
+      "status": "PASS",
+      "source": "post-close.json: exact inventories, audit_shadow, runtime-checkpoint.json and pinned prior readback"
+    }
+  },
+  "verdict": {
+    "verdict": "LOAD_ONLY_SUCCESS",
+    "gates": {
+      "original_integrity": "PASS",
+      "single_content_owner": "PASS",
+      "shadow_integrity": "PASS",
+      "writer_finalized": "PASS",
+      "content_unloaded": "PASS",
+      "fresh_state": "PASS",
+      "shadow_readback": "PASS",
+      "resource_redirection": "PASS",
+      "observer_session": "PASS",
+      "no_legacy_artifacts": "PASS"
+    },
+    "A": "PASS",
+    "H": "PASS",
+    "R": "PASS",
+    "V": "REFERENCES_ONLY",
+    "B": "PASS",
+    "C": "PASS",
+    "runtime_render": "UNKNOWN",
+    "spawn_ready": false
+  },
+  "rollback_executed": false,
+  "game_writes": false,
+  "spawn_ready": false,
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN"
+}

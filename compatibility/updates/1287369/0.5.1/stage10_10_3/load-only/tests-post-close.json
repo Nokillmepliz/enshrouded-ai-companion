@@ -1,0 +1,19 @@
+{
+  "tests_run": 758,
+  "passed": 757,
+  "skipped": 1,
+  "failures": 0,
+  "errors": 0,
+  "unittest_seconds": 16.089,
+  "exit_code": 0,
+  "log_sha256": "6676bd1cd4502e3200a9c0d44ac2fae795c6d507a0f27e7cd9fa2341bed754c1",
+  "skip_details": [
+    {
+      "test": "test_directory_symlink_into_game_is_rejected_when_supported",
+      "windows_error": 1314,
+      "reason": "Directory symlink creation privilege unavailable; privileges not changed."
+    }
+  ],
+  "py_compile": "PASS",
+  "git_diff_check": "PASS"
+}
