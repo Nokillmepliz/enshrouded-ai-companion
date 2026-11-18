@@ -1,0 +1,143 @@
+{
+  "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
+  "source_resource_type": "keen::ecs::TemplateResource",
+  "component_count": 82,
+  "component_fingerprint_fnv32": "5253f478",
+  "canonical_resource_sha256": "58b9d7cb53d61b4d05b4e7eaf63a0b50109e086f322dbc4b8b3205d48a7a024d",
+  "character_setup": {
+    "beard": {
+      "value": 0
+    },
+    "beardColorId": {
+      "value": 2593349132
+    },
+    "eyeBrowColor": {
+      "value": 1294605571
+    },
+    "eyeColor": {
+      "value": 1843389514
+    },
+    "gender": "Male",
+    "hair": {
+      "value": 100818570
+    },
+    "hairColorId": {
+      "value": 2593349132
+    },
+    "presetId": {
+      "value": 1602195472
+    },
+    "skinColor": {
+      "value": 510686028
+    },
+    "useNewProportions": false,
+    "voicePackId": {
+      "value": 3178345104
+    }
+  },
+  "animation": {
+    "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+    "hasFootstepSyncLogic": false,
+    "hasServerLogic": true,
+    "maxSnapshotPoses": -1,
+    "retargetData": null
+  },
+  "hierarchy_guid": "87b29df6-6518-43ef-9298-e3f85a6204b9",
+  "joints": 102,
+  "decoded_preset_references": [
+    {
+      "slot": "armourArms",
+      "guid": "f218d9b0-ef38-49fd-b0a4-3e59d00a19c3",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "armourFeet",
+      "guid": "3fd4b70c-296c-409d-bb38-5f6795c8d753",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "armourHead",
+      "guid": "84ff3867-116c-48ec-aef9-c8a6ba33a199",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "armourLowerBody",
+      "guid": "cad0997d-e66d-417c-98f6-e03f6745611d",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "armourUpperBody",
+      "guid": "94404c05-250a-4b14-8c16-283c85391d16",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "chest",
+      "guid": "5bb45d4b-0310-42a7-a0db-41e977608ce1",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "collar",
+      "guid": "54f89d91-d59c-4fd8-b39c-ee30632bf57f",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "crotch",
+      "guid": "3b5653a0-13a6-417c-b0f3-a393ad27d697",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "feet",
+      "guid": "f9b354fe-a4da-40cb-a194-680b65447c84",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "hair",
+      "guid": "533c1226-dddd-4ddc-a338-22a006452b88",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "hands",
+      "guid": "3e41c49a-56e9-4a96-8be8-a60c2f3167c7",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "head",
+      "guid": "cba24116-4074-41d6-a452-d1ba8db91eec",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "lowerArms",
+      "guid": "a173466b-7991-4612-badb-935cdcd5b4c8",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "lowerLegs",
+      "guid": "49ac99c6-4dd2-4716-af56-93dfff83e10b",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "neck",
+      "guid": "ef17e0da-f771-4ac7-b97c-fd6028b8cb6d",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "upperArms",
+      "guid": "93c3c73e-cb3a-443f-8e10-b81c972a8bf7",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "upperLegs",
+      "guid": "6e23e774-8e7c-48a5-8129-55cf09b7c48b",
+      "type": "keen::ItemInfo"
+    },
+    {
+      "slot": "waist",
+      "guid": "8ee3d2d2-0027-4ebc-b2e1-ea0d02bc216c",
+      "type": "keen::ItemInfo"
+    }
+  ],
+  "full_resource_dump_published": false,
+  "provenance": "POST_STEAM_READ_ONLY_INSPECTOR",
+  "clean_baseline_accepted": false,
+  "spawn_ready": false
+}

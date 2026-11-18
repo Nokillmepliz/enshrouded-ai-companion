@@ -17,9 +17,10 @@
 | Роль | Проверка |
 |---|---|
 | Original EXE/KFC/resources/DAT | SHA/size/mtime, volume ID и file ID не изменились; точный resource set |
-| BASE_LINK: EXE/base DAT | Тот же volume+file ID, link count2, SHA baseline |
+| BASE_LINK: EXE/base DAT из проверенного KFC | Тот же volume+file ID, link count2, SHA baseline |
+| Unreferenced root DAT | Hash/size/identity/mtime неизменны, link count1; не считаются base links |
 | PRIVATE_INDEX: KFC/resources/внутренний .bak | Отдельный file ID, link count1; ожидаемый SHA |
-| GENERATED_DAT | Новое имя вне base DAT, private single-link, ожидаемый SHA |
+| GENERATED_DAT | Имя вне base DAT из KFC, private single-link, ожидаемый SHA; при совпадении имени с unreferenced root DAT file identity обязана отличаться |
 | MOD_COPY/CACHE | Явные пути внутри mods/ или .cache/, private single-link и ожидаемые SHA |
 | METADATA | Только shadow.txt/emf_content_state.json в exact allowlist |
 | TEMPORARY/неожиданные файлы | Блокируют finalized-shadow acceptance |
@@ -28,6 +29,14 @@ Junction/symlink/reparse проверяются у файлов, каталог�
 Traversal, ADS, абсолютные пути, Windows reserved names и case aliases отклоняются.
 Originals читаются ещё раз после shadow audit, чтобы заметить изменение во время проверки.
 Наличие root KFC.bak блокирует использование текущего input как доверенного clean base.
+
+Post-Steam correction: `base_dat_count=55` получен из Inspector, хотя в корне64 DAT.
+Нельзя выводить число base links из количества файлов каталога. Параметр валидатора
+обязан быть привязан к проверенному KFC/run; отсутствие явного параметра сохраняет
+прежний строгий режим «все DAT — base» для старых fixtures. Реальная установка должна
+передавать проверенное число55. Девять пустых root DAT055–063 остаются нетронутыми;
+они не запрещают одноимённые приватные outputs в отдельном shadow. Два новых теста
+проверяют это различие и отказ при недопустимом container count.
 
 Положительный fixture проверяет приватную запись KFC и unlink-before-write нового DAT.
 Отрицательный fixture действительно записывает через hardlink **в искусственный файл**:

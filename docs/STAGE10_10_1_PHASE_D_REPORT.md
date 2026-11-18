@@ -2,8 +2,12 @@
 
 2026-11-18. Вердикт **MIGRATION_PACKAGE_PARTIAL**. Дополнительный карантин31 файла
 разрешён и выполнен; [контрольный аудит](STAGE10_10_1_PHASE_C_CLEANUP.md) завершён.
-Phase C ожидает ручного Steam Verify. Независимая офлайн-работа
-выполнена; финальная сборка patch/resource contract зависит от clean database.
+Ручной Steam Verify завершён; новый [post-Steam аудит](STAGE10_10_1_POST_STEAM_AUDIT.md)
+подтвердил61/61 depot file, отсутствие clone GUID/npcId,82 source components,
+18 visual references и102 joints. Формальный baseline PARTIAL: локальный depot cache
+не содержит проверенной подписи; ограниченное acceptance предложено пользователю.
+Независимая офлайн-работа выполнена; финальная сборка patch/resource contract
+зависит от принятия нового baseline.
 
 ## Что подготовлено
 
@@ -71,7 +75,11 @@ runtime совместимость и отсутствие вредоносно�
 
 После Phase C продолжить эти пункты по тому же ТЗ. Нет основания запрашивать Phase E:
 конкретный полный install/rollback plan ещё не может быть проверен на чистой базе.
-Следующее действие пользователя — [ручной Steam Verify](STAGE10_10_1_STEAM_VERIFY_PLAN.md).
+После Steam добавлены read-only depot parser, полный NPC collision scan в Inspector
+и исправление shadow validator для55 base DAT при64 files в корне. Исходный контракт
+теперь опубликован отдельно; historical patch0.4 и blocked profile не переписаны.
+Следующее действие — решение об ограниченном baseline acceptance; далее verified
+backup27 файлов260563026 bytes и завершение candidate. Это план, не выполненная установка.
 
 ## Ответы на21 итоговый вопрос ТЗ
 

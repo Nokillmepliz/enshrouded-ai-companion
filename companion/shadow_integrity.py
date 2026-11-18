@@ -91,11 +91,13 @@ def tree(root):
     return result
 
 
-def audit_shadow(game, shadow, baseline, expected):
+def audit_shadow(game, shadow, baseline, expected, *, base_dat_count=None):
     """Exact file allowlist plus immutable original hashes/identities.
 
     baseline is captured before installation, with one link per original file.
     expected: relative -> {role, sha256}; BASE_LINK digest is the baseline's.
+    base_dat_count must come from the reviewed KFC, not directory enumeration.
+    Unreferenced root DAT remain protected but are not expected shadow hardlinks.
     Additional links or a server shadow require a separately reviewed contract.
     """
     no_reparse(game)
@@ -105,7 +107,14 @@ def audit_shadow(game, shadow, baseline, expected):
     originals = capture_originals(game)
     if set(originals) != set(baseline):
         raise ShadowError('ORIGINAL_SET_CHANGED')
-    linked = {n for n in baseline if n == 'enshrouded.exe' or DAT.fullmatch(n)}
+    dat_names = {n for n in baseline if DAT.fullmatch(n)}
+    count = len(dat_names) if base_dat_count is None else base_dat_count
+    if type(count) is not int or not 0 < count <= len(dat_names):
+        raise ShadowError('INVALID_BASE_CONTAINER_COUNT')
+    base_dats = {f'enshrouded_{i:03d}.dat' for i in range(count)}
+    if not base_dats <= dat_names:
+        raise ShadowError('BASE_CONTAINER_MISSING')
+    linked = base_dats | {'enshrouded.exe'}
     for name, prior in baseline.items():
         now = originals[name]
         if any(now[k] != prior[k] for k in ('sha256', 'size', 'volume', 'file_id', 'mtime_ns')):
@@ -126,7 +135,7 @@ def audit_shadow(game, shadow, baseline, expected):
             raise ShadowError('UNKNOWN_SHADOW_ROLE')
         elif role == 'PRIVATE_INDEX' and name not in INDEXES | {'enshrouded.kfc.bak'}:
             raise ShadowError('INVALID_INDEX_PATH')
-        elif role == 'GENERATED_DAT' and (not DAT.fullmatch(name) or name in baseline):
+        elif role == 'GENERATED_DAT' and (not DAT.fullmatch(name) or name in base_dats):
             raise ShadowError('INVALID_GENERATED_DAT')
         elif role == 'MOD_COPY' and not name.startswith('mods/'):
             raise ShadowError('INVALID_MOD_PATH')

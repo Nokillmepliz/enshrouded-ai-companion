@@ -65,16 +65,82 @@ fn write_new(output: &Path, encoded: &[u8]) -> Result<()> {
     Ok(())
 }
 
+fn npc_id(value: &serde_json::Value) -> Result<Option<u32>> {
+    let components = value.get("components").and_then(|v| v.as_array())
+        .context("template components are unavailable")?;
+    let mut found = None;
+    for component in components {
+        if component.get("$type").and_then(|v| v.as_str()) == Some("keen::ecs::ActiveNpcState") {
+            if found.is_some() { bail!("duplicate ActiveNpcState"); }
+            let id = component.pointer("/$value/npcId/value").and_then(|v| v.as_u64())
+                .context("invalid typed npcId")?;
+            found = Some(u32::try_from(id).context("npcId exceeds UInt32")?);
+        }
+    }
+    Ok(found)
+}
+
+fn audit(reader: &KFCReader, registry: &TypeRegistry, game: &Path, wanted: u32) -> Result<serde_json::Value> {
+    let file = reader.file();
+    let mut containers = Vec::new();
+    for (index, info) in file.containers().iter().enumerate() {
+        let name = format!("enshrouded_{index:03}.dat");
+        let size = fs::metadata(game.join(&name))?.len();
+        if size != info.size { bail!("container size mismatch: {name}"); }
+        containers.push(json!({"path":name,"bytes":size,"entries":info.count}));
+    }
+    for entry in file.contents().values() {
+        let container = file.containers().get(entry.container_index)
+            .context("content references absent container")?;
+        if entry.offset >= container.size { bail!("content offset outside container"); }
+    }
+    let resources_size = fs::metadata(game.join("enshrouded.kfc_resources"))?.len();
+    for chunk in file.resource_chunks() {
+        if chunk.offset.checked_add(chunk.compressed_size).context("chunk overflow")? > resources_size {
+            bail!("resource chunk outside resources file");
+        }
+    }
+    let mut unique_ids = std::collections::HashSet::new();
+    for id in file.resources().keys() {
+        if !unique_ids.insert((id.guid().to_string(), id.type_hash(), id.part_index())) {
+            bail!("duplicate resource identity");
+        }
+    }
+    let metadata = registry.get_by_name(LookupKey::Qualified("keen::ecs::TemplateResource"))
+        .context("TemplateResource schema missing")?;
+    let mut cursor = reader.new_cursor()?;
+    let mut count = 0;
+    let mut npc_templates = 0;
+    let mut collisions = Vec::new();
+    for id in file.resources_by_type(metadata.qualified_hash) {
+        let bytes = cursor.read_resource(id)?.context("indexed template missing")?;
+        let value = Value::from_bytes_with_options(registry, metadata, &bytes, ConversionOptions::HUMAN_READABLE)?;
+        let serialized = serde_json::to_value(value)?;
+        if let Some(npc) = npc_id(&serialized)? {
+            npc_templates += 1;
+            if npc == wanted { collisions.push(id.guid().to_string()); }
+        }
+        count += 1;
+    }
+    Ok(json!({"mode":"READ_ONLY_DATABASE_AUDIT", "pinned_kfc_parser":PINNED_REV,
+        "version":file.game_version(), "container_count":containers.len(), "containers":containers,
+        "content_references_checked":file.contents().len(), "resource_index_count":file.resources().len(),
+        "resource_chunks_checked":file.resource_chunks().len(), "duplicate_resource_ids":0,
+        "templates_decoded":count, "npc_templates":npc_templates, "requested_npc_id":wanted,
+        "npc_collisions":collisions, "runtime_status":"NOT_EXECUTED", "spawn_ready":false}))
+}
+
 fn run() -> Result<()> {
     let args: Vec<_> = env::args_os().collect();
     if args.len() < 4 || args.len() > 5 {
         bail!(
-            "usage: kfc-readonly-inspect [--list-type|--lookup-guid] <game-dir> <guid|qualified-type> [qualified-type|output.json] [output.json]"
+            "usage: kfc-readonly-inspect [--list-type|--lookup-guid|--audit] <game-dir> <guid|qualified-type|npc-id> [qualified-type|output.json] [output.json]"
         );
     }
     let list_type = args[1] == "--list-type";
     let lookup_guid = args[1] == "--lookup-guid";
-    let game_arg = if list_type || lookup_guid {
+    let database_audit = args[1] == "--audit";
+    let game_arg = if list_type || lookup_guid || database_audit {
         &args[2]
     } else {
         &args[1]
@@ -94,6 +160,17 @@ fn run() -> Result<()> {
     let registry = TypeRegistry::load_from_executable(&executable)
         .context("cannot load reflection from executable")?;
     let reader = KFCReader::new(&game_dir, "enshrouded").context("cannot open KFC inputs")?;
+    if database_audit {
+        let wanted: u32 = args[3].to_string_lossy().parse().context("npc-id must be UInt32")?;
+        let report = audit(&reader, &registry, &game_dir, wanted)?;
+        let encoded = serde_json::to_vec_pretty(&report)?;
+        if let Some(output) = args.get(4) {
+            write_new(&output_path(&PathBuf::from(output), &game_dir)?, &encoded)?;
+        } else {
+            println!("{}", String::from_utf8(encoded)?);
+        }
+        return Ok(());
+    }
     if lookup_guid {
         let guid_text = args[3].to_string_lossy();
         let resources: Vec<_> = reader
@@ -226,5 +303,17 @@ mod tests {
         assert_eq!(fs::read(&report).unwrap(), b"first");
         fs::remove_file(report).unwrap();
         fs::remove_dir(root).unwrap();
+    }
+
+    #[test]
+    fn collision_scan_requires_typed_unsigned_npc_id() {
+        assert_eq!(npc_id(&json!({"components":[]})).unwrap(), None);
+        let component = json!({"$type":"keen::ecs::ActiveNpcState","$value":{"npcId":{"value":2939921867u32}}});
+        assert_eq!(npc_id(&json!({"components":[component.clone()]})).unwrap(), Some(2939921867));
+        assert!(npc_id(&json!({"components":[component.clone(),component]})).is_err());
+        for bad in [json!(-1), json!(4294967296u64), json!("123"), json!(true), json!(null)] {
+            assert!(npc_id(&json!({"components":[{"$type":"keen::ecs::ActiveNpcState","$value":{"npcId":{"value":bad}}}]})).is_err());
+        }
+        assert!(npc_id(&json!({})).is_err());
     }
 }

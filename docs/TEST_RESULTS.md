@@ -1,5 +1,28 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — post-Steam audit и проверка остаточных DAT
+
+- Полный Python suite: **645 testsRun /644 PASS /1 прежний skip /0 failures**,
+  12.323s, exit0. Новые12 depot parser tests проверяют CRC/identity/framing,
+  дубликаты, повреждённые поля, traversal/ADS/link/flags, несовпадение реального
+  файла и запрет выдавать отсутствие подписи за аутентификацию.
+- Shadow:16 fixtures PASS, включая два новых: base container count из KFC,
+  неизменный unreferenced original DAT и отдельный private shadow с тем же именем;
+  hardlink вместо private output отклоняется. Это fixture, не игровой writer.
+- Rust Inspector:3/3 native tests PASS; locked/offline release build PASS.
+  Cargo.toml/Cargo.lock неизменны; source audit не обнаружил writer/mutation APIs.
+  Новый тест collision scan отклоняет duplicate ActiveNpcState и невалидный UInt32.
+- Реальные read-only проверки:61/61 depot files;55 KFC containers;101492 content
+  references;91909 composite resource IDs без duplicates;58 chunks;12269 decoded
+  templates; npcId collision0, clone GUID lookup0.64 прежних ресурсов неизменны,
+  дополнительный graph успешно декодирован. Это не тест render/EMF loading.
+- Fresh inventory после чтения:137 game/23 LOCAL неизменны относительно первого
+  post-Steam inventory. Backup209/209, карантины81/81 и31/31 сохранены.
+  [Доказательства и ограничения](STAGE10_10_1_POST_STEAM_AUDIT.md).
+- Compileall и syntax15/15 Lua PASS; git diff check PASS. C++ не менялся,
+  прежние native C++ проверки не выдаются за повторный запуск. Никакого игрового
+  теста, подключения Bridge, установки, создания NPC или нового backup не было.
+
 ## 2026-11-18 — Phase C: разрешённый карантин31 и контрольный аудит
 
 - Полный suite: **631 testsRun /630 PASS /1 прежний skip /0 failures**.

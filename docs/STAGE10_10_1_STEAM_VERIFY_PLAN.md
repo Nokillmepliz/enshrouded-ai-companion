@@ -1,6 +1,9 @@
 # Steam Verify — ручная процедура после согласованной очистки
 
-Актуальная контрольная точка: **READY_FOR_MANUAL_STEAM_VERIFY**.
+Актуально: ручной Steam Verify завершён пользователем 2026-11-18;
+[post-Steam audit](STAGE10_10_1_POST_STEAM_AUDIT.md) — **CLEAN_BASELINE_PARTIAL**.
+Повторный Verify сейчас не запрашивается. Ниже сохранена выполненная инструкция
+предыдущей контрольной точки **READY_FOR_MANUAL_STEAM_VERIFY**.
 Дополнительный [список30 файлов и KFC.bak](STAGE10_10_1_RESIDUAL_CLEANUP_APPROVAL.md)
 разрешён пользователем и выполнен: новый карантин31/31, оставшиеся137 game/20 KEEP/
 64 DAT/23 LOCAL без изменений; backup209/209 и старый карантин81/81 сохранены.

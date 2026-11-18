@@ -138,6 +138,26 @@ class ShadowTests(unittest.TestCase):
         with self.assertRaisesRegex(ShadowError, 'DAT_SET_REVIEW'):
             self.audit()
 
+    def test_unreferenced_root_dat_stays_private_and_unchanged(self):
+        # Steam leaves a zero-byte old DAT behind; clean KFC references only 000.
+        name = 'enshrouded_001.dat'
+        (self.game / name).write_bytes(b'')
+        current = capture_originals(self.game)
+        self.baseline[name] = current[name]
+        result = audit_shadow(self.game, self.shadow, self.baseline, self.expected, base_dat_count=1)
+        self.assertEqual(result['filesystem_integrity'], 'PASS')
+        self.assertEqual(result['original_files'][name]['links'], 1)
+        self.assertEqual((self.game / name).read_bytes(), b'')
+        (self.shadow / name).unlink()
+        os.link(self.game / name, self.shadow / name)
+        with self.assertRaisesRegex(ShadowError, 'LINK_COUNT'):
+            audit_shadow(self.game, self.shadow, self.baseline, self.expected, base_dat_count=1)
+
+    def test_base_container_count_is_not_guessed_from_untrusted_values(self):
+        for count in (True, 0, -1, 2, '1'):
+            with self.subTest(count=count), self.assertRaisesRegex(ShadowError, 'COUNT'):
+                audit_shadow(self.game, self.shadow, self.baseline, self.expected, base_dat_count=count)
+
     @unittest.skipUnless(os.name == 'nt', 'Windows junction check')
     def test_junction_in_shadow_is_rejected(self):
         outside = self.game.parent / 'outside'

@@ -1,0 +1,2120 @@
+{
+  "format": "aic_post_steam_audit_v1",
+  "created_utc": "2026-11-18T11:38:51.126537+00:00",
+  "game_build": 1287369,
+  "steam_build": "26430625",
+  "depot_id": 1203621,
+  "depot_manifest": "7226436020230696061",
+  "inventory": {
+    "created_utc": "2026-11-18T11:32:00.661904+00:00",
+    "game": {
+      "enshrouded.exe": {
+        "sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "bytes": 35476040,
+        "mtime_ns": 1793816558306618400
+      },
+      "enshrouded.kfc": {
+        "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+        "bytes": 9396224,
+        "mtime_ns": 1795001295033937900
+      },
+      "enshrouded.kfc_resources": {
+        "sha256": "2f54eb9e4677f129c4d527aa9b163d89d0aecee70f2b5b728d7bacaa239d91a7",
+        "bytes": 215052288,
+        "mtime_ns": 1795001229749604200
+      },
+      "enshrouded.log": {
+        "sha256": "0324d1c9ddf1b3c2c3e8418c72b82a28252b504e7338d0b677af788162bef945",
+        "bytes": 542778,
+        "mtime_ns": 1793998661968661800
+      },
+      "enshrouded_000.dat": {
+        "sha256": "280d139febe69593cbfe35325a9a508ee5f2c5ea5d02ddeb44e13c8f19429e02",
+        "bytes": 1060708352,
+        "mtime_ns": 1792762622172134900
+      },
+      "enshrouded_001.dat": {
+        "sha256": "c56833355fdea6a1963477378c0ab073419bf89c3ea0ae29939d4bed5dc15c76",
+        "bytes": 1011748864,
+        "mtime_ns": 1793632411782826200
+      },
+      "enshrouded_002.dat": {
+        "sha256": "9be90242d92ce6c00e271fc36f816333c6698ecba700bfc9a6fe941d6c87618d",
+        "bytes": 1009995776,
+        "mtime_ns": 1792762622173828300
+      },
+      "enshrouded_003.dat": {
+        "sha256": "57e2720f5dfb03d705402d870ba6cb1e6a49bf75ec8ded630e3f66fa3c74eefc",
+        "bytes": 1004273664,
+        "mtime_ns": 1792762622173828300
+      },
+      "enshrouded_004.dat": {
+        "sha256": "393ac56a51fee87cd296458df252d7ac2fd2ddde6f315c282ce4eea300554a29",
+        "bytes": 1002700800,
+        "mtime_ns": 1793632411782826200
+      },
+      "enshrouded_005.dat": {
+        "sha256": "086610bca06f3f3d0872a15fa3b9586de2451c88b183da82fda3955552641c1b",
+        "bytes": 1011863552,
+        "mtime_ns": 1792762622176340900
+      },
+      "enshrouded_006.dat": {
+        "sha256": "613ea267a24b408bc3d61533228c99a097097b28c1c5d0e941849e8c977228e3",
+        "bytes": 1010012160,
+        "mtime_ns": 1792762622176340900
+      },
+      "enshrouded_007.dat": {
+        "sha256": "aa9562383ae63981f92636bf8387dde971d135d5a7738db2a600ac54c048ffa3",
+        "bytes": 1005117440,
+        "mtime_ns": 1792762622177340600
+      },
+      "enshrouded_008.dat": {
+        "sha256": "bc9dc743d5c00eb023b830120288caa704b6b6e7b21a1b145413df95eb2ea777",
+        "bytes": 1037316096,
+        "mtime_ns": 1792762622177340600
+      },
+      "enshrouded_009.dat": {
+        "sha256": "fad65d82d8d0d5d787a71d29fbd5a0a294968433c83cdc44a95b5659e95bb845",
+        "bytes": 1000910848,
+        "mtime_ns": 1793632411782826200
+      },
+      "enshrouded_010.dat": {
+        "sha256": "aa55d4a0fa9a86b1433cb591d4e995ac98418a5d16c18154915bf432c9ebec46",
+        "bytes": 1000935424,
+        "mtime_ns": 1792762622177340600
+      },
+      "enshrouded_011.dat": {
+        "sha256": "ebf6f822fb8dfb6dd8d27390babca2e1a00a5d993053b994812f7a3e874b635e",
+        "bytes": 1012752384,
+        "mtime_ns": 1792762622179341900
+      },
+      "enshrouded_012.dat": {
+        "sha256": "196d4309e6589172841e6e70415db196d1fb7a588d0ac3be6f81f9653bbfe056",
+        "bytes": 1054711808,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_013.dat": {
+        "sha256": "3c83ccd428b1e008581a4416dbfbcfa6087e8aa08ed51a2db1f7ef44543e1773",
+        "bytes": 1000976384,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_014.dat": {
+        "sha256": "e6ea81182d11c6633260a69b3889fb96d239bbbfa6c7602540201d11d5aaa60a",
+        "bytes": 1009950720,
+        "mtime_ns": 1792762622181341300
+      },
+      "enshrouded_015.dat": {
+        "sha256": "a7e1b6d7e2f8438857bb51fc43a789673f8d967da955aace8a09cbbb664c2303",
+        "bytes": 1010335744,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_016.dat": {
+        "sha256": "99e2a18517297277acd0c8aa142bc40d930683cd79f734c500a2279d428680ab",
+        "bytes": 1004216320,
+        "mtime_ns": 1792762622183844800
+      },
+      "enshrouded_017.dat": {
+        "sha256": "01554b4737acaa32de258a69305b8dc39534900314b94e5e3290403fad2416ae",
+        "bytes": 1033170944,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_018.dat": {
+        "sha256": "0b4e4d2a44e06a9cd496620fbd1abc0199daded6ff11552505c0009f170e9545",
+        "bytes": 1013051392,
+        "mtime_ns": 1792762622184848600
+      },
+      "enshrouded_019.dat": {
+        "sha256": "63e18a160cf1b313b9026681473eaead34f3ba0a0577491048d99fb93102ec40",
+        "bytes": 1008046080,
+        "mtime_ns": 1792762622184848600
+      },
+      "enshrouded_020.dat": {
+        "sha256": "1381e07d0b4ef46d05d09063d20895dc0a92c69bbfee5f2dab4275cc40899f90",
+        "bytes": 1009111040,
+        "mtime_ns": 1792762622185848500
+      },
+      "enshrouded_021.dat": {
+        "sha256": "a379da6f79086218b29bcc3a023ee8b2acd292441ebaded3337b12e741833e00",
+        "bytes": 1006993408,
+        "mtime_ns": 1792762622186848400
+      },
+      "enshrouded_022.dat": {
+        "sha256": "3731a7679605711e6617f850a8411f184bec804a64b2094f459a9d936cb56b1b",
+        "bytes": 1013837824,
+        "mtime_ns": 1792762622186848400
+      },
+      "enshrouded_023.dat": {
+        "sha256": "58d449ae8f4c7fc9a8193608cb4120a28d68c56d832aeb787cefb55f28af9152",
+        "bytes": 1007153152,
+        "mtime_ns": 1792762622186848400
+      },
+      "enshrouded_024.dat": {
+        "sha256": "820bd2f2abbc69bf076f804c78e874d984e0a35645f9cff4953266220f587b72",
+        "bytes": 1014304768,
+        "mtime_ns": 1792762622186848400
+      },
+      "enshrouded_025.dat": {
+        "sha256": "adf6a0384a2fa55749e55b5747da6b7bba83c8faab2159f3365563ede405f7c9",
+        "bytes": 1014571008,
+        "mtime_ns": 1792762622187849400
+      },
+      "enshrouded_026.dat": {
+        "sha256": "8f644a51cb791e89e4242b6e7c813436bb17b6d7a6f3c5e79baaeb5141e74645",
+        "bytes": 886738944,
+        "mtime_ns": 1792762622188849000
+      },
+      "enshrouded_027.dat": {
+        "sha256": "500f93226a59084888b6bbfe25287f5741f682acbe329f52068763e5224c6cab",
+        "bytes": 1005875200,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_028.dat": {
+        "sha256": "3c856c42c792b72075555706298338022f580ab8b9b07e9db9d4083c2d0c6cef",
+        "bytes": 1005129728,
+        "mtime_ns": 1793632411783812000
+      },
+      "enshrouded_029.dat": {
+        "sha256": "9b22153ce2e08c4588a55320159e997abbd9ac7186eafe7da38bd9250b0e6bde",
+        "bytes": 1004642304,
+        "mtime_ns": 1793632411785316200
+      },
+      "enshrouded_030.dat": {
+        "sha256": "6ec19a6f2118bdb2894dfc0e3677aea79ebd15c3aef7ca1f6900b0de020007cf",
+        "bytes": 1005215744,
+        "mtime_ns": 1793632411785316200
+      },
+      "enshrouded_031.dat": {
+        "sha256": "43af0a606ddaa88dacc4e5c0953d8c52d8adbd86421d03a91b37faf3f7b9ded3",
+        "bytes": 1011769344,
+        "mtime_ns": 1793632411785621200
+      },
+      "enshrouded_032.dat": {
+        "sha256": "2051ca075d01d9b57b288affec776f758392b808b93392c73cebd0a4852cc1fe",
+        "bytes": 615276544,
+        "mtime_ns": 1793632411786125300
+      },
+      "enshrouded_033.dat": {
+        "sha256": "65587c436c110d48beea7480b63823509f1941954abdfa2838ddd1641742984f",
+        "bytes": 1005031424,
+        "mtime_ns": 1792762622193848700
+      },
+      "enshrouded_034.dat": {
+        "sha256": "26be2bd96be985e9b045fe9e43df2caa64e5e32a59e7c4b053dffdc75957af61",
+        "bytes": 1013829632,
+        "mtime_ns": 1792762622193848700
+      },
+      "enshrouded_035.dat": {
+        "sha256": "028609d86134f233b5af329650d4e5540c0eb59806e1a17a634df7880e654521",
+        "bytes": 1010716672,
+        "mtime_ns": 1792762622194870600
+      },
+      "enshrouded_036.dat": {
+        "sha256": "d8270dd95d9fc88ea15bddb2334070a844f18c7082843326954bd427cca4ba65",
+        "bytes": 1003167744,
+        "mtime_ns": 1792762622194870600
+      },
+      "enshrouded_037.dat": {
+        "sha256": "85e5f5503738da887b039fbb18a6feba5f66c43a310027599ff546e9208c0948",
+        "bytes": 768745472,
+        "mtime_ns": 1792762622194870600
+      },
+      "enshrouded_038.dat": {
+        "sha256": "dbce35b097fb3a78223aefc606c439d12ff6f60d323b6b7f5255583516aa51c8",
+        "bytes": 1007353856,
+        "mtime_ns": 1793632411786692700
+      },
+      "enshrouded_039.dat": {
+        "sha256": "e4c6ab37a6de9cfcf69c8e185a24192a3615b673a57b502625b2abdf1c339e52",
+        "bytes": 1007853568,
+        "mtime_ns": 1793632411786692700
+      },
+      "enshrouded_040.dat": {
+        "sha256": "e32fae5dfdb6ace5574112469bd00265e664adc3d80b6afb0699577816db2fd0",
+        "bytes": 1007644672,
+        "mtime_ns": 1793632411787697800
+      },
+      "enshrouded_041.dat": {
+        "sha256": "7a42163c0924804a2f50027575df7176fee96251a8b2a7cb29de3047fbc97eb7",
+        "bytes": 580628480,
+        "mtime_ns": 1793632411787697800
+      },
+      "enshrouded_042.dat": {
+        "sha256": "d394fa6b33a16b8988487fc7b8e81b510fbf2e2c4ca365c35ab98eccc6c63033",
+        "bytes": 1096032256,
+        "mtime_ns": 1792762622198871100
+      },
+      "enshrouded_043.dat": {
+        "sha256": "70953ced1e0cabfbfb88839574bab20047cc687505f9f792bb1d146e2f1527b1",
+        "bytes": 1036374016,
+        "mtime_ns": 1792762622198871100
+      },
+      "enshrouded_044.dat": {
+        "sha256": "5bbf5adca1e8adad9da5b575691423f096185c1d3669887aac2a698ade4241c2",
+        "bytes": 678014976,
+        "mtime_ns": 1792762622199870700
+      },
+      "enshrouded_045.dat": {
+        "sha256": "4b1d2fe9dc7a31b65092b672b09c032f3406113b9338a05ce239994fc269d848",
+        "bytes": 1022074880,
+        "mtime_ns": 1793632411787697800
+      },
+      "enshrouded_046.dat": {
+        "sha256": "b165cc9b446e5b6e1ed9ec5efdd8e9ee2d2248e6dc02278b17be32a63e9f1d18",
+        "bytes": 1022107648,
+        "mtime_ns": 1793632411787697800
+      },
+      "enshrouded_047.dat": {
+        "sha256": "553ef983437b9dc5ab20b053b12c843f32538b5ce0b7362ddefef005255fc4f6",
+        "bytes": 127414272,
+        "mtime_ns": 1793632411788209100
+      },
+      "enshrouded_048.dat": {
+        "sha256": "3d509d920715453eab08af7c86d86c8b8a3f326cecc31de9304775c0a0f9f0ee",
+        "bytes": 1004896256,
+        "mtime_ns": 1792762622202871100
+      },
+      "enshrouded_049.dat": {
+        "sha256": "f692e51364a2360567db001dd471d3947af903e9b44adb4486d69ebcdd212716",
+        "bytes": 909414400,
+        "mtime_ns": 1792762622203871000
+      },
+      "enshrouded_050.dat": {
+        "sha256": "a2dcb2ba69ec4036249983bb60fadd99948d325db87f01ba4b39af3b18a99eb8",
+        "bytes": 1008664576,
+        "mtime_ns": 1793632411788209100
+      },
+      "enshrouded_051.dat": {
+        "sha256": "321846d94e4d2f084d319f122a0988983352f8f8dd01a47e60f10a198723c803",
+        "bytes": 314626048,
+        "mtime_ns": 1793632411788209100
+      },
+      "enshrouded_052.dat": {
+        "sha256": "74cc88c88af07238381b480ba1e51cfb5a3a48a7ee42cb7c88035ce609dc0a1f",
+        "bytes": 907784192,
+        "mtime_ns": 1793632411789214600
+      },
+      "enshrouded_053.dat": {
+        "sha256": "67bb49ee52b02eec32b5565dd72e79f598702ef64190383762086e3084d44c09",
+        "bytes": 1039114240,
+        "mtime_ns": 1793718370094161700
+      },
+      "enshrouded_054.dat": {
+        "sha256": "89271a82247d2cae2c7b67cce48b8ebb7e282689a997246465a17bcf8bde820e",
+        "bytes": 29167616,
+        "mtime_ns": 1793632411789214600
+      },
+      "enshrouded_055.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_056.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_057.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_058.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_059.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_060.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_061.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_062.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_063.dat": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793546698412272700
+      },
+      "enshrouded_local.json": {
+        "sha256": "018204a71b4af05b9302eee529590d74a0a220c1037230adc4c1c6b20206e21d",
+        "bytes": 1233,
+        "mtime_ns": 1784212430447291000
+      },
+      "GFSDK_Aftermath_Lib.x64.dll": {
+        "sha256": "4177e09de4bbcc168deeb4f2d88f8961fe98009fae8046d08b418e725414de42",
+        "bytes": 5788312,
+        "mtime_ns": 1769161441170132500
+      },
+      "nvngx_dlss.dll": {
+        "sha256": "3975567b8943c53acce397f2b72380092f84f162d00b0d2c7d08a1025c563983",
+        "bytes": 58956912,
+        "mtime_ns": 1792762622204973200
+      },
+      "steam_api64.dll": {
+        "sha256": "e6d9bafb9a41e42fba7b21553db49f8719027af3f0deb23ff86cfc44d60e776d",
+        "bytes": 319128,
+        "mtime_ns": 1792762622204973200
+      },
+      "backup/enshrouded_2024-08-27T22-06-35.log": {
+        "sha256": "c384a2ca4694554e386afe65f0afcace356f616346a0233fe9099a09a69155bc",
+        "bytes": 325667,
+        "mtime_ns": 1724746731405271900
+      },
+      "backup/enshrouded_2024-08-28T10-42-54.log": {
+        "sha256": "a0ec69d3e73390b4e7e78b12b7f9f64a4c0ff45d1e1892b56b60323737708d8c",
+        "bytes": 226289,
+        "mtime_ns": 1724790458814323200
+      },
+      "backup/enshrouded_2024-08-29T17-48-38.log": {
+        "sha256": "740bde48d4f171c162ce6589d41ef42156a2a6b1e480751b17adaa33864d83bd",
+        "bytes": 782293,
+        "mtime_ns": 1724852994278713000
+      },
+      "backup/enshrouded_2024-08-29T20-26-37.log": {
+        "sha256": "b82d615cd38859e311b4f2fdfd55b5d3deb34ca2d391d164198e63cc9c8196c3",
+        "bytes": 186605,
+        "mtime_ns": 1724946254377437500
+      },
+      "backup/enshrouded_2024-08-29T21-53-59.log": {
+        "sha256": "6ab4f3aa0163f06b9e6e421eb9ddfc9b7fb96c372c6380e8f3d5d48a8d3ec58f",
+        "bytes": 186545,
+        "mtime_ns": 1724956321373336500
+      },
+      "backup/enshrouded_2024-08-29T22-46-17.log": {
+        "sha256": "529308b949246186956dba9c09a2d0235cde29a52fe11841bcefc668826a1c11",
+        "bytes": 151640,
+        "mtime_ns": 1724960013344712100
+      },
+      "backup/enshrouded_2024-08-30T16-31-20.log": {
+        "sha256": "8707abf55b0c6915f9385bf90967065d7a9fef33947b2690aa6a9a3c497d4719",
+        "bytes": 273275,
+        "mtime_ns": 1724969240071548500
+      },
+      "backup/enshrouded_2024-08-30T19-22-57.log": {
+        "sha256": "c6cfd92b86b707b3641475229cb49a1d3c1a4aa19c4f48e7c1b32bcff4a7dd39",
+        "bytes": 176388,
+        "mtime_ns": 1725028271918157000
+      },
+      "backup/enshrouded_2024-08-30T23-38-23.log": {
+        "sha256": "07ef01a6985a52c048d44274a439a9bdad120367213442da2c141c92df515e6c",
+        "bytes": 148590,
+        "mtime_ns": 1725037177203652300
+      },
+      "backup/enshrouded_2024-08-31T09-31-55.log": {
+        "sha256": "995c3a276400e10b1f77cd7eee1e131759542327f123f40faec00564d8f80573",
+        "bytes": 134342,
+        "mtime_ns": 1725051855480901400
+      },
+      "backup/enshrouded_2024-08-31T10-59-46.log": {
+        "sha256": "1a93b00ed45f0e4435f60a071c849c882289b8cd855afd9ec6d41e8a7d4f8daa",
+        "bytes": 278770,
+        "mtime_ns": 1725091154267173200
+      },
+      "backup/enshrouded_2024-08-31T16-39-22.log": {
+        "sha256": "20c1f9f6cb2a93e5701e814cf1fc354876ef5fe946d997a0eb9d17c18d3e3821",
+        "bytes": 401513,
+        "mtime_ns": 1725101004029066900
+      },
+      "backup/enshrouded_2024-09-01T01-21-17.log": {
+        "sha256": "5305217a19d2aee4386822e14a9c8ea806223079000f7ff5133136804aa7db6a",
+        "bytes": 329283,
+        "mtime_ns": 1725118488768800200
+      },
+      "backup/enshrouded_2024-09-01T11-34-43.log": {
+        "sha256": "0a6ce184a62a470abab634222413cdf4ccedcd10da0b7b31742fd2e2f423bf07",
+        "bytes": 306023,
+        "mtime_ns": 1725152073846529000
+      },
+      "backup/enshrouded_2024-09-01T13-37-57.log": {
+        "sha256": "faec2ced5edb141640bd2c3bd4f79f3a7d6c9c36e69d1b1cc76850687ba7c0c3",
+        "bytes": 133953,
+        "mtime_ns": 1725181089242233000
+      },
+      "backup/enshrouded_2024-09-01T15-51-52.log": {
+        "sha256": "ffeff415255c9b553df820a516c124169201f682640e7840ed1f4ee212c9f5a7",
+        "bytes": 126063,
+        "mtime_ns": 1725188158110923900
+      },
+      "backup/enshrouded_2024-09-01T18-46-14.log": {
+        "sha256": "a6966c720cc184a7c769edfff0c9cf111d8898e5dba19552059a0b94d7ce5064",
+        "bytes": 107895,
+        "mtime_ns": 1725195309259194000
+      },
+      "backup/enshrouded_2024-09-01T18-52-58.log": {
+        "sha256": "6ff4bfc246c1f9f7d700cbe320697dd3664d61f967390110854657de86aeef1c",
+        "bytes": 105931,
+        "mtime_ns": 1725205664597883700
+      },
+      "backup/enshrouded_2024-09-04T00-02-38.log": {
+        "sha256": "434d31fdba21aa27fc0647874abdfad66c1fd3cb94c28092d6266b70ca7e7d60",
+        "bytes": 271410,
+        "mtime_ns": 1725213052914223500
+      },
+      "backup/enshrouded_2024-09-04T00-30-21.log": {
+        "sha256": "dd1b9289300feca2d0bf2d45dffb57dd69d432077bad2107f3e7091c6cbf74dd",
+        "bytes": 104526,
+        "mtime_ns": 1725397397225293400
+      },
+      "backup/enshrouded_2024-09-04T15-49-26.log": {
+        "sha256": "e262dcc225a7104a0ee2e818cb46f3596f2889760e0ad6183a6c844b0a04db15",
+        "bytes": 225882,
+        "mtime_ns": 1725404713953198100
+      },
+      "backup/enshrouded_2024-09-04T15-50-24.log": {
+        "sha256": "f93822535b3fc44f024cb4115f5d656d3201677aee9f98e6b019e25b7ebe92f9",
+        "bytes": 61053,
+        "mtime_ns": 1725454167967733500
+      },
+      "backup/enshrouded_2024-09-04T15-51-58.log": {
+        "sha256": "dcfca12d78c1da84bc41ef32ff8c9fb5eadb80b45dcd274559711e2c2a7d604a",
+        "bytes": 61054,
+        "mtime_ns": 1725454226149493900
+      },
+      "backup/enshrouded_2024-09-07T12-07-03.log": {
+        "sha256": "4e969315d598e67de97bebc6166991f5d59878a5949730094d4d10063e286d12",
+        "bytes": 595011,
+        "mtime_ns": 1725467160531037100
+      },
+      "backup/enshrouded_2024-09-09T12-10-10.log": {
+        "sha256": "3618f489caaf703206749fa4c7427bbd7209e299dbbad9a1edc9162e4f20887a",
+        "bytes": 239292,
+        "mtime_ns": 1725704445914926500
+      },
+      "backup/enshrouded_2024-09-10T09-18-40.log": {
+        "sha256": "2f8cb8b22104a4be10aa543f592c718624ce5043b6b17919cacb3787ff6aadea",
+        "bytes": 152807,
+        "mtime_ns": 1725875322124232700
+      },
+      "backup/enshrouded_2024-09-10T12-38-34.log": {
+        "sha256": "209c0b7d0096d26fbabbdbc17149ff41c41d2a19fc087b3b0a2c104a81458035",
+        "bytes": 182576,
+        "mtime_ns": 1725952378634504500
+      },
+      "backup/enshrouded_2024-09-10T12-40-40.log": {
+        "sha256": "480c3db5cbf5e46c16eacd88d2df403688b54df712c4fab68f99e3343e37184e",
+        "bytes": 107625,
+        "mtime_ns": 1725961234866515100
+      },
+      "backup/enshrouded_2024-09-10T22-37-40.log": {
+        "sha256": "f91e61a88ceeec4f8c89458c3da5cc14f151dff87f7155e012ae7f3399de717e",
+        "bytes": 191113,
+        "mtime_ns": 1725964524169331900
+      },
+      "backup/enshrouded_2024-09-10T22-40-42.log": {
+        "sha256": "62ea1b6234c82b3d8ae63bd3df6722145774c244488ff808ba652e48422dac03",
+        "bytes": 61054,
+        "mtime_ns": 1725997062598144800
+      },
+      "backup/enshrouded_2024-09-13T12-21-29.log": {
+        "sha256": "974245125f42e327d7db5b61e47cc68bf3852f9c8dd5ddbc7a0fcf9120d20c20",
+        "bytes": 737356,
+        "mtime_ns": 1726002337584292900
+      },
+      "backup/enshrouded_2024-09-16T01-33-57.log": {
+        "sha256": "a8f63ff44f672711eb48d937caf1e4c9feca723ac2677e6495175f1a367a7d97",
+        "bytes": 755262,
+        "mtime_ns": 1726232594279377500
+      },
+      "backup/enshrouded_2024-09-16T18-57-51.log": {
+        "sha256": "d2bfc9705f0cc8c82443aef089a5f3c723713262a92e1acac2a8b07768d364a8",
+        "bytes": 113855,
+        "mtime_ns": 1726440029778132600
+      },
+      "backup/enshrouded_2024-09-17T12-18-05.log": {
+        "sha256": "422f5fa1d8e0b99530efc50f56acc98edb25d2359ad3c5c16e78661005c946d9",
+        "bytes": 107555,
+        "mtime_ns": 1726502322131444800
+      },
+      "backup/enshrouded_2026-10-23T17-41-48.log": {
+        "sha256": "f791ef90818aacc53347dc895eca3fd56b5edeb36916121163ca70ac1f211e90",
+        "bytes": 351199,
+        "mtime_ns": 1726571079082383400
+      },
+      "backup/enshrouded_2026-10-23T17-48-06.log": {
+        "sha256": "9e856d82102e6d12af64a7130308c3af5b7e23e6adad28b13a280e3c8ba3419d",
+        "bytes": 200756,
+        "mtime_ns": 1792766606843511300
+      },
+      "backup/enshrouded_2026-10-23T17-56-38.log": {
+        "sha256": "d6b26ff32e5e836ad992db46389edb2767be7ed395bfad2620ba0d10db518f8e",
+        "bytes": 197930,
+        "mtime_ns": 1792767385212858700
+      },
+      "backup/enshrouded_2026-10-23T19-47-27.log": {
+        "sha256": "d138c5d51e62f03abb655805b511d8b2c1face416c8c87b84b84e7e9f5030ab0",
+        "bytes": 333747,
+        "mtime_ns": 1792768070877808900
+      },
+      "backup/enshrouded_2026-10-24T21-50-44.log": {
+        "sha256": "882d5e144504a5e44eaaffb1678ab5e32d105257534a831107f9dd7befbe6a75",
+        "bytes": 9643816,
+        "mtime_ns": 1792792799910333200
+      },
+      "backup/enshrouded_2026-10-25T16-07-59.log": {
+        "sha256": "175b1ad8a3b891ed51c0e093abb42e5eab43ba513e90f07f497476ca23ee79ba",
+        "bytes": 3778694,
+        "mtime_ns": 1792881061519682600
+      },
+      "backup/enshrouded_2026-10-25T23-42-15.log": {
+        "sha256": "5e5327859193dbf1bf1556702813b77b751f7725d04c7663e593dca6e1fd27e0",
+        "bytes": 905505,
+        "mtime_ns": 1792938729842693400
+      },
+      "backup/enshrouded_2026-10-27T11-11-45.log": {
+        "sha256": "e68de9f9d854f16c9adcb6c56ff83ba5ef8c8f34ea9a667edba6ccdcee1fcfaa",
+        "bytes": 1571798,
+        "mtime_ns": 1792967815703442800
+      },
+      "backup/enshrouded_2026-10-27T12-15-53.log": {
+        "sha256": "5cf0f6f1c12573ea823c887f94fd3de74b7ac8fca3c38eae509b2c5bc613caca",
+        "bytes": 498321,
+        "mtime_ns": 1793089697802471800
+      },
+      "backup/enshrouded_2026-10-27T18-59-43.log": {
+        "sha256": "fa37c8378519a1767bfd57e19f488797230935b849396bf42f60e3a1d7f48c35",
+        "bytes": 3463663,
+        "mtime_ns": 1793112956732599400
+      },
+      "backup/enshrouded_2026-10-29T21-20-26.log": {
+        "sha256": "69f817dc8c4f60d8cf09c0c4916339458273cc48c9ef92012dba305d5024ec83",
+        "bytes": 3152512,
+        "mtime_ns": 1793128349618987200
+      },
+      "backup/enshrouded_2026-10-30T00-09-44.log": {
+        "sha256": "530e579f019e7a1e54b0ee619f0790913c647d8802d99faf7647c0587ac6f75d",
+        "bytes": 190205,
+        "mtime_ns": 1793299474523025300
+      },
+      "backup/enshrouded_2026-10-30T17-42-17.log": {
+        "sha256": "2bc230946ce65a93af8773b5e6775a6e3fa55be9fefa7f60b0f019ea5e98c979",
+        "bytes": 924978,
+        "mtime_ns": 1793313120510888200
+      },
+      "backup/enshrouded_2026-10-30T22-24-41.log": {
+        "sha256": "b4c81fbc7f44478103d2d6eb833d5beea81cd1753a73498e4123f8e304861b15",
+        "bytes": 189698,
+        "mtime_ns": 1793378651536143000
+      },
+      "backup/enshrouded_2026-10-30T22-31-27.log": {
+        "sha256": "01ad8ac0f6f89a56d2b1ec2695a8e43a5ff46004c548350b7935ab3fe94ad3e4",
+        "bytes": 317700,
+        "mtime_ns": 1793388625033157500
+      },
+      "backup/enshrouded_2026-10-30T22-52-56.log": {
+        "sha256": "e2187296b34d0033d4610fbf6752bf5535d890c4254f3d94b175caec5025322a",
+        "bytes": 736462,
+        "mtime_ns": 1793389449735753900
+      },
+      "backup/enshrouded_2026-10-31T01-05-00.log": {
+        "sha256": "c9ff5037836760d65b9c6eb7be0856cec660d6373691ed7c8d7438b5155473a8",
+        "bytes": 321401,
+        "mtime_ns": 1793390303022703700
+      },
+      "backup/enshrouded_2026-10-31T12-02-23.log": {
+        "sha256": "f4a8c7665efe748fb5b89131a7fd0798321c1abba1c5d7feb5916cc443278632",
+        "bytes": 317731,
+        "mtime_ns": 1793398083473975300
+      },
+      "backup/enshrouded_2026-11-01T12-12-47.log": {
+        "sha256": "25f410761f826bbdbda33c522c2f99b7acee33d83d31e01cec4d0221fa27faf8",
+        "bytes": 188480,
+        "mtime_ns": 1793438309930593800
+      },
+      "backup/enshrouded_2026-11-01T18-24-58.log": {
+        "sha256": "f0d2d064e0afc19d93ec058cf2fb64e0a34ff0119172524562c091783279d424",
+        "bytes": 316837,
+        "mtime_ns": 1793524517774647500
+      },
+      "backup/enshrouded_2026-11-03T14-32-31.log": {
+        "sha256": "b426c7bde733137db215b18ffbb49b39822dfb6f29d0d0b3a61a75d70f95b0e0",
+        "bytes": 317039,
+        "mtime_ns": 1793546832006172600
+      },
+      "backup/enshrouded_2026-11-03T18-06-28.log": {
+        "sha256": "435e6f1777ee40f79240212e794dc17eddc0c6aea88003b979f4db56d2648dd5",
+        "bytes": 3707405,
+        "mtime_ns": 1793714510018934500
+      },
+      "backup/enshrouded_2026-11-05T23-38-04.log": {
+        "sha256": "7975dc5d32511f318ed388c5b833dc7cfe491f4063ac93851de625a9455c77e4",
+        "bytes": 1417845,
+        "mtime_ns": 1793720770585054500
+      },
+      "backup/enshrouded_2026-11-06T21-10-06.log": {
+        "sha256": "4bd1ce957d1ef634222f476a71ce8d3a3896b1fa4392e1d5942ac2adaac0da40",
+        "bytes": 823849,
+        "mtime_ns": 1793916774832502300
+      },
+      "emf/chain_status.txt": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_ns": 1793988606474179100
+      },
+      "emf/emf_core.log": {
+        "sha256": "2f785c5aad6b1a9a7f77e33a8e3d581f7f396c615df64faf7c51089a8e19e56e",
+        "bytes": 1414,
+        "mtime_ns": 1793988607333872200
+      },
+      "emf/emf_loader.log": {
+        "sha256": "217d8b6b957b593a97e5aa7a285ae2ee9a80c770d0b6ccc247e71c4e6690eab2",
+        "bytes": 420,
+        "mtime_ns": 1793988606536696900
+      },
+      "logs/2026-11-01.eml.log": {
+        "sha256": "0aa057d98ed63ed91da392db444076301e0a1d34781ee35d4e34ab735e07d06f",
+        "bytes": 3130,
+        "mtime_ns": 1793546698508565100
+      },
+      "logs/2026-11-03.eml.log": {
+        "sha256": "53d76e1c7f3850ddf993e9f68ad1232b4dcfa81a9043b2b5f9bf1ca3a8139555",
+        "bytes": 7198,
+        "mtime_ns": 1793718388645273500
+      },
+      "logs/2026-11-05.eml.log": {
+        "sha256": "d1522dd526adab7ba52886eeaebf65ca1221f838081196e140d9491b6b2970e0",
+        "bytes": 5002,
+        "mtime_ns": 1793911083925469200
+      },
+      "logs/2026-11-06.eml.log": {
+        "sha256": "bad3a5bb7cdf7fc269209df91bf7252a146437300ea51e4cf49b21bbd01b7830",
+        "bytes": 1403,
+        "mtime_ns": 1793988606473668600
+      }
+    },
+    "saves": {
+      "local_settings.json": {
+        "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+        "bytes": 1419,
+        "mtime_ns": 1793988643407836500
+      },
+      "default/character0.ksd": {
+        "sha256": "01b2fecaa4a6fbae26ba3d07e58c818c30ec76fdf5f09f3c49cd4f5b70cfb001",
+        "bytes": 1926,
+        "mtime_ns": 1793546828440553200
+      },
+      "default/world0.ksd": {
+        "sha256": "235fb43631a654be7871090e6adb40998fc17a31442caff9115f2f1d5e6e2529",
+        "bytes": 87937,
+        "mtime_ns": 1793546828597132500
+      },
+      "default/backup/character0.ksd.backup-0": {
+        "sha256": "01b2fecaa4a6fbae26ba3d07e58c818c30ec76fdf5f09f3c49cd4f5b70cfb001",
+        "bytes": 1926,
+        "mtime_ns": 1793546828441051700
+      },
+      "default/backup/character0.ksd.backup-1": {
+        "sha256": "53a3de65991c0815b93afe760b8f5438a57aed96076447f5da133989ada5afbf",
+        "bytes": 1894,
+        "mtime_ns": 1793524432621369900
+      },
+      "default/backup/character0.ksd.backup-2": {
+        "sha256": "ac2c1ebbb378d9dab2cfd479b7c9712c87a5707b1c8ea735a1e5c21273a9547c",
+        "bytes": 1926,
+        "mtime_ns": 1793546763766862200
+      },
+      "default/backup/character0.ksd.backup-3": {
+        "sha256": "8b61f8c6a90a6f1ae160b392bba8c19a92e5b258e4ff27bb9a4f67fcfa414439",
+        "bytes": 1926,
+        "mtime_ns": 1793397965925487800
+      },
+      "default/backup/character0.ksd.backup-4": {
+        "sha256": "0ef98058b8f9080d3560558f45fd8183c3f6087e5269f6bb2144e73ba0cc657f",
+        "bytes": 1878,
+        "mtime_ns": 1793389446402260700
+      },
+      "default/backup/character0.ksd.backup-5": {
+        "sha256": "3250c903778bb56d46b3ef891b517bcaaf26599eaeaa4c6ab46e8c02611f7d21",
+        "bytes": 1878,
+        "mtime_ns": 1793389420959796800
+      },
+      "default/backup/character0.ksd.backup-6": {
+        "sha256": "9dd73cd2ff19e64b931406a6bf4fb24c8a1b1b53f00e0bbdc0176db4428d6321",
+        "bytes": 1798,
+        "mtime_ns": 1793389390958294400
+      },
+      "default/backup/character0.ksd.backup-7": {
+        "sha256": "d07ab7781cc0903c05f3d5543726949fe5361f0dfc45dd258183a5fbe5975380",
+        "bytes": 1590,
+        "mtime_ns": 1793389360951182400
+      },
+      "default/backup/character0.ksd.backup-8": {
+        "sha256": "9cabe2cf7eade79293acd8f6ae2261948cd8489001438b3560b6b58ea9b133bf",
+        "bytes": 1590,
+        "mtime_ns": 1793389301279218900
+      },
+      "default/backup/character0.ksd.backup-9": {
+        "sha256": "68aebb311e2e45748f9610210ae62239526edfc958e18eee7dd6491e6c577945",
+        "bytes": 294,
+        "mtime_ns": 1793389256475064500
+      },
+      "default/backup/world0.ksd.backup-0": {
+        "sha256": "056eb23f996315b08eb414d5fba4bf5038c5c8776cb9969e3a005060d4ec5dcd",
+        "bytes": 88003,
+        "mtime_ns": 1793546828397256100
+      },
+      "default/backup/world0.ksd.backup-1": {
+        "sha256": "7f89af249b550d18022d50e65d1e2a4a66603d9bc9389c2cdb323ec2903fd2fc",
+        "bytes": 88003,
+        "mtime_ns": 1793546763713522400
+      },
+      "default/backup/world0.ksd.backup-2": {
+        "sha256": "235fb43631a654be7871090e6adb40998fc17a31442caff9115f2f1d5e6e2529",
+        "bytes": 87937,
+        "mtime_ns": 1793546828597631800
+      },
+      "default/backup/world0.ksd.backup-3": {
+        "sha256": "cd3e994172e17e13d84b8cbdfd12e29e22f3a6accfad34d6558e712fd8374a31",
+        "bytes": 88003,
+        "mtime_ns": 1793389190942767000
+      },
+      "default/backup/world0.ksd.backup-4": {
+        "sha256": "1d6751eb8815202e4e76a3261b7aedab8ac3414baa4037c6d14792c6300dda43",
+        "bytes": 88003,
+        "mtime_ns": 1793389160942077400
+      },
+      "default/backup/world0.ksd.backup-5": {
+        "sha256": "1241a1df90cd2de7f43d675cff4cd7fedfa6e824daf8b5259d672030325bc3d5",
+        "bytes": 88003,
+        "mtime_ns": 1793389130940300200
+      },
+      "default/backup/world0.ksd.backup-6": {
+        "sha256": "b72cfeadd89c6ef265104f53b0a8242dde403832239f0e5897a270672dc8d40a",
+        "bytes": 371,
+        "mtime_ns": 1793389083026527100
+      },
+      "default/backup/world0.ksd.backup-7": {
+        "sha256": "bb11637d60cfaf6adb0d9b2a7eefc1cac1e989113f87beb1c127300e73e3a23e",
+        "bytes": 371,
+        "mtime_ns": 1793389036088372600
+      },
+      "default/backup/world0.ksd.backup-8": {
+        "sha256": "808eba4a2e00ae617d9625cb0b5b859091d56d514fcc6e0b70a8f79ede27ccc7",
+        "bytes": 371,
+        "mtime_ns": 1793389009912539900
+      },
+      "default/backup/world0.ksd.backup-9": {
+        "sha256": "a7212b444c6b11d9b0953e141af59fa49d3e50c58d6a7f54d492135c9ddbbbff",
+        "bytes": 194,
+        "mtime_ns": 1793388961406245100
+      }
+    }
+  },
+  "pre_steam_inventory_sha256": "266bd714756adb793133839df6a5c6417209a964fc3a22f093f6299ed56a0495",
+  "after_inspection_inventory_sha256": "813e299af117474a636337775b8e682152f77aeeef788f5947290a5e531083fd",
+  "delta": {
+    "game": {
+      "ADDED": [],
+      "REMOVED": [],
+      "CHANGED": [
+        "enshrouded.kfc",
+        "enshrouded.kfc_resources"
+      ],
+      "UNCHANGED": [
+        "GFSDK_Aftermath_Lib.x64.dll",
+        "backup/enshrouded_2024-08-27T22-06-35.log",
+        "backup/enshrouded_2024-08-28T10-42-54.log",
+        "backup/enshrouded_2024-08-29T17-48-38.log",
+        "backup/enshrouded_2024-08-29T20-26-37.log",
+        "backup/enshrouded_2024-08-29T21-53-59.log",
+        "backup/enshrouded_2024-08-29T22-46-17.log",
+        "backup/enshrouded_2024-08-30T16-31-20.log",
+        "backup/enshrouded_2024-08-30T19-22-57.log",
+        "backup/enshrouded_2024-08-30T23-38-23.log",
+        "backup/enshrouded_2024-08-31T09-31-55.log",
+        "backup/enshrouded_2024-08-31T10-59-46.log",
+        "backup/enshrouded_2024-08-31T16-39-22.log",
+        "backup/enshrouded_2024-09-01T01-21-17.log",
+        "backup/enshrouded_2024-09-01T11-34-43.log",
+        "backup/enshrouded_2024-09-01T13-37-57.log",
+        "backup/enshrouded_2024-09-01T15-51-52.log",
+        "backup/enshrouded_2024-09-01T18-46-14.log",
+        "backup/enshrouded_2024-09-01T18-52-58.log",
+        "backup/enshrouded_2024-09-04T00-02-38.log",
+        "backup/enshrouded_2024-09-04T00-30-21.log",
+        "backup/enshrouded_2024-09-04T15-49-26.log",
+        "backup/enshrouded_2024-09-04T15-50-24.log",
+        "backup/enshrouded_2024-09-04T15-51-58.log",
+        "backup/enshrouded_2024-09-07T12-07-03.log",
+        "backup/enshrouded_2024-09-09T12-10-10.log",
+        "backup/enshrouded_2024-09-10T09-18-40.log",
+        "backup/enshrouded_2024-09-10T12-38-34.log",
+        "backup/enshrouded_2024-09-10T12-40-40.log",
+        "backup/enshrouded_2024-09-10T22-37-40.log",
+        "backup/enshrouded_2024-09-10T22-40-42.log",
+        "backup/enshrouded_2024-09-13T12-21-29.log",
+        "backup/enshrouded_2024-09-16T01-33-57.log",
+        "backup/enshrouded_2024-09-16T18-57-51.log",
+        "backup/enshrouded_2024-09-17T12-18-05.log",
+        "backup/enshrouded_2026-10-23T17-41-48.log",
+        "backup/enshrouded_2026-10-23T17-48-06.log",
+        "backup/enshrouded_2026-10-23T17-56-38.log",
+        "backup/enshrouded_2026-10-23T19-47-27.log",
+        "backup/enshrouded_2026-10-24T21-50-44.log",
+        "backup/enshrouded_2026-10-25T16-07-59.log",
+        "backup/enshrouded_2026-10-25T23-42-15.log",
+        "backup/enshrouded_2026-10-27T11-11-45.log",
+        "backup/enshrouded_2026-10-27T12-15-53.log",
+        "backup/enshrouded_2026-10-27T18-59-43.log",
+        "backup/enshrouded_2026-10-29T21-20-26.log",
+        "backup/enshrouded_2026-10-30T00-09-44.log",
+        "backup/enshrouded_2026-10-30T17-42-17.log",
+        "backup/enshrouded_2026-10-30T22-24-41.log",
+        "backup/enshrouded_2026-10-30T22-31-27.log",
+        "backup/enshrouded_2026-10-30T22-52-56.log",
+        "backup/enshrouded_2026-10-31T01-05-00.log",
+        "backup/enshrouded_2026-10-31T12-02-23.log",
+        "backup/enshrouded_2026-11-01T12-12-47.log",
+        "backup/enshrouded_2026-11-01T18-24-58.log",
+        "backup/enshrouded_2026-11-03T14-32-31.log",
+        "backup/enshrouded_2026-11-03T18-06-28.log",
+        "backup/enshrouded_2026-11-05T23-38-04.log",
+        "backup/enshrouded_2026-11-06T21-10-06.log",
+        "emf/chain_status.txt",
+        "emf/emf_core.log",
+        "emf/emf_loader.log",
+        "enshrouded.exe",
+        "enshrouded.log",
+        "enshrouded_000.dat",
+        "enshrouded_001.dat",
+        "enshrouded_002.dat",
+        "enshrouded_003.dat",
+        "enshrouded_004.dat",
+        "enshrouded_005.dat",
+        "enshrouded_006.dat",
+        "enshrouded_007.dat",
+        "enshrouded_008.dat",
+        "enshrouded_009.dat",
+        "enshrouded_010.dat",
+        "enshrouded_011.dat",
+        "enshrouded_012.dat",
+        "enshrouded_013.dat",
+        "enshrouded_014.dat",
+        "enshrouded_015.dat",
+        "enshrouded_016.dat",
+        "enshrouded_017.dat",
+        "enshrouded_018.dat",
+        "enshrouded_019.dat",
+        "enshrouded_020.dat",
+        "enshrouded_021.dat",
+        "enshrouded_022.dat",
+        "enshrouded_023.dat",
+        "enshrouded_024.dat",
+        "enshrouded_025.dat",
+        "enshrouded_026.dat",
+        "enshrouded_027.dat",
+        "enshrouded_028.dat",
+        "enshrouded_029.dat",
+        "enshrouded_030.dat",
+        "enshrouded_031.dat",
+        "enshrouded_032.dat",
+        "enshrouded_033.dat",
+        "enshrouded_034.dat",
+        "enshrouded_035.dat",
+        "enshrouded_036.dat",
+        "enshrouded_037.dat",
+        "enshrouded_038.dat",
+        "enshrouded_039.dat",
+        "enshrouded_040.dat",
+        "enshrouded_041.dat",
+        "enshrouded_042.dat",
+        "enshrouded_043.dat",
+        "enshrouded_044.dat",
+        "enshrouded_045.dat",
+        "enshrouded_046.dat",
+        "enshrouded_047.dat",
+        "enshrouded_048.dat",
+        "enshrouded_049.dat",
+        "enshrouded_050.dat",
+        "enshrouded_051.dat",
+        "enshrouded_052.dat",
+        "enshrouded_053.dat",
+        "enshrouded_054.dat",
+        "enshrouded_055.dat",
+        "enshrouded_056.dat",
+        "enshrouded_057.dat",
+        "enshrouded_058.dat",
+        "enshrouded_059.dat",
+        "enshrouded_060.dat",
+        "enshrouded_061.dat",
+        "enshrouded_062.dat",
+        "enshrouded_063.dat",
+        "enshrouded_local.json",
+        "logs/2026-11-01.eml.log",
+        "logs/2026-11-03.eml.log",
+        "logs/2026-11-05.eml.log",
+        "logs/2026-11-06.eml.log",
+        "nvngx_dlss.dll",
+        "steam_api64.dll"
+      ]
+    },
+    "saves": {
+      "ADDED": [],
+      "REMOVED": [],
+      "CHANGED": [],
+      "UNCHANGED": [
+        "default/backup/character0.ksd.backup-0",
+        "default/backup/character0.ksd.backup-1",
+        "default/backup/character0.ksd.backup-2",
+        "default/backup/character0.ksd.backup-3",
+        "default/backup/character0.ksd.backup-4",
+        "default/backup/character0.ksd.backup-5",
+        "default/backup/character0.ksd.backup-6",
+        "default/backup/character0.ksd.backup-7",
+        "default/backup/character0.ksd.backup-8",
+        "default/backup/character0.ksd.backup-9",
+        "default/backup/world0.ksd.backup-0",
+        "default/backup/world0.ksd.backup-1",
+        "default/backup/world0.ksd.backup-2",
+        "default/backup/world0.ksd.backup-3",
+        "default/backup/world0.ksd.backup-4",
+        "default/backup/world0.ksd.backup-5",
+        "default/backup/world0.ksd.backup-6",
+        "default/backup/world0.ksd.backup-7",
+        "default/backup/world0.ksd.backup-8",
+        "default/backup/world0.ksd.backup-9",
+        "default/character0.ksd",
+        "default/world0.ksd",
+        "local_settings.json"
+      ]
+    }
+  },
+  "steam_repair": {
+    "completed_msk": "2026-11-18 14:28:16",
+    "result": "No Error",
+    "download_bytes": 4566592,
+    "staged_bytes": 9396224,
+    "kfc_replaced_chunks": 9,
+    "resources_truncated_bytes": 4096,
+    "executed_by": "USER_STEAM_CLIENT"
+  },
+  "database": {
+    "container_count": 55,
+    "containers": [
+      {
+        "bytes": 1060708352,
+        "entries": 414,
+        "path": "enshrouded_000.dat"
+      },
+      {
+        "bytes": 1011748864,
+        "entries": 409,
+        "path": "enshrouded_001.dat"
+      },
+      {
+        "bytes": 1009995776,
+        "entries": 407,
+        "path": "enshrouded_002.dat"
+      },
+      {
+        "bytes": 1004273664,
+        "entries": 398,
+        "path": "enshrouded_003.dat"
+      },
+      {
+        "bytes": 1002700800,
+        "entries": 382,
+        "path": "enshrouded_004.dat"
+      },
+      {
+        "bytes": 1011863552,
+        "entries": 377,
+        "path": "enshrouded_005.dat"
+      },
+      {
+        "bytes": 1010012160,
+        "entries": 286,
+        "path": "enshrouded_006.dat"
+      },
+      {
+        "bytes": 1005117440,
+        "entries": 367,
+        "path": "enshrouded_007.dat"
+      },
+      {
+        "bytes": 1037316096,
+        "entries": 412,
+        "path": "enshrouded_008.dat"
+      },
+      {
+        "bytes": 1000910848,
+        "entries": 365,
+        "path": "enshrouded_009.dat"
+      },
+      {
+        "bytes": 1000935424,
+        "entries": 336,
+        "path": "enshrouded_010.dat"
+      },
+      {
+        "bytes": 1012752384,
+        "entries": 367,
+        "path": "enshrouded_011.dat"
+      },
+      {
+        "bytes": 1054711808,
+        "entries": 392,
+        "path": "enshrouded_012.dat"
+      },
+      {
+        "bytes": 1000976384,
+        "entries": 350,
+        "path": "enshrouded_013.dat"
+      },
+      {
+        "bytes": 1009950720,
+        "entries": 376,
+        "path": "enshrouded_014.dat"
+      },
+      {
+        "bytes": 1010335744,
+        "entries": 375,
+        "path": "enshrouded_015.dat"
+      },
+      {
+        "bytes": 1004216320,
+        "entries": 431,
+        "path": "enshrouded_016.dat"
+      },
+      {
+        "bytes": 1033170944,
+        "entries": 298,
+        "path": "enshrouded_017.dat"
+      },
+      {
+        "bytes": 1013051392,
+        "entries": 408,
+        "path": "enshrouded_018.dat"
+      },
+      {
+        "bytes": 1008046080,
+        "entries": 458,
+        "path": "enshrouded_019.dat"
+      },
+      {
+        "bytes": 1009111040,
+        "entries": 459,
+        "path": "enshrouded_020.dat"
+      },
+      {
+        "bytes": 1006993408,
+        "entries": 390,
+        "path": "enshrouded_021.dat"
+      },
+      {
+        "bytes": 1013837824,
+        "entries": 399,
+        "path": "enshrouded_022.dat"
+      },
+      {
+        "bytes": 1007153152,
+        "entries": 345,
+        "path": "enshrouded_023.dat"
+      },
+      {
+        "bytes": 1014304768,
+        "entries": 451,
+        "path": "enshrouded_024.dat"
+      },
+      {
+        "bytes": 1014571008,
+        "entries": 377,
+        "path": "enshrouded_025.dat"
+      },
+      {
+        "bytes": 886738944,
+        "entries": 374,
+        "path": "enshrouded_026.dat"
+      },
+      {
+        "bytes": 1005875200,
+        "entries": 2268,
+        "path": "enshrouded_027.dat"
+      },
+      {
+        "bytes": 1005129728,
+        "entries": 2231,
+        "path": "enshrouded_028.dat"
+      },
+      {
+        "bytes": 1004642304,
+        "entries": 2221,
+        "path": "enshrouded_029.dat"
+      },
+      {
+        "bytes": 1005215744,
+        "entries": 2198,
+        "path": "enshrouded_030.dat"
+      },
+      {
+        "bytes": 1011769344,
+        "entries": 5660,
+        "path": "enshrouded_031.dat"
+      },
+      {
+        "bytes": 615276544,
+        "entries": 5339,
+        "path": "enshrouded_032.dat"
+      },
+      {
+        "bytes": 1005031424,
+        "entries": 216,
+        "path": "enshrouded_033.dat"
+      },
+      {
+        "bytes": 1013829632,
+        "entries": 271,
+        "path": "enshrouded_034.dat"
+      },
+      {
+        "bytes": 1010716672,
+        "entries": 196,
+        "path": "enshrouded_035.dat"
+      },
+      {
+        "bytes": 1003167744,
+        "entries": 204,
+        "path": "enshrouded_036.dat"
+      },
+      {
+        "bytes": 768745472,
+        "entries": 168,
+        "path": "enshrouded_037.dat"
+      },
+      {
+        "bytes": 1007353856,
+        "entries": 3595,
+        "path": "enshrouded_038.dat"
+      },
+      {
+        "bytes": 1007853568,
+        "entries": 3583,
+        "path": "enshrouded_039.dat"
+      },
+      {
+        "bytes": 1007644672,
+        "entries": 3559,
+        "path": "enshrouded_040.dat"
+      },
+      {
+        "bytes": 580628480,
+        "entries": 2197,
+        "path": "enshrouded_041.dat"
+      },
+      {
+        "bytes": 1096032256,
+        "entries": 420,
+        "path": "enshrouded_042.dat"
+      },
+      {
+        "bytes": 1036374016,
+        "entries": 380,
+        "path": "enshrouded_043.dat"
+      },
+      {
+        "bytes": 678014976,
+        "entries": 218,
+        "path": "enshrouded_044.dat"
+      },
+      {
+        "bytes": 1022074880,
+        "entries": 8937,
+        "path": "enshrouded_045.dat"
+      },
+      {
+        "bytes": 1022107648,
+        "entries": 8919,
+        "path": "enshrouded_046.dat"
+      },
+      {
+        "bytes": 127414272,
+        "entries": 1103,
+        "path": "enshrouded_047.dat"
+      },
+      {
+        "bytes": 1004896256,
+        "entries": 1214,
+        "path": "enshrouded_048.dat"
+      },
+      {
+        "bytes": 909414400,
+        "entries": 623,
+        "path": "enshrouded_049.dat"
+      },
+      {
+        "bytes": 1008664576,
+        "entries": 4064,
+        "path": "enshrouded_050.dat"
+      },
+      {
+        "bytes": 314626048,
+        "entries": 1429,
+        "path": "enshrouded_051.dat"
+      },
+      {
+        "bytes": 907784192,
+        "entries": 9283,
+        "path": "enshrouded_052.dat"
+      },
+      {
+        "bytes": 1039114240,
+        "entries": 19384,
+        "path": "enshrouded_053.dat"
+      },
+      {
+        "bytes": 29167616,
+        "entries": 1209,
+        "path": "enshrouded_054.dat"
+      }
+    ],
+    "content_references_checked": 101492,
+    "duplicate_resource_ids": 0,
+    "mode": "READ_ONLY_DATABASE_AUDIT",
+    "npc_collisions": [],
+    "npc_templates": 58,
+    "pinned_kfc_parser": "16708594d686b030d909f2d835b199d879ea9ad8",
+    "requested_npc_id": 2939921867,
+    "resource_chunks_checked": 58,
+    "resource_index_count": 91909,
+    "runtime_status": "NOT_EXECUTED",
+    "spawn_ready": false,
+    "templates_decoded": 12269,
+    "version": "1287369|^/game38/branches/release_1.0|2026-11-04T11:17:54.051725Z"
+  },
+  "depot": {
+    "depot_id": 1203621,
+    "manifest_id": "7226436020230696061",
+    "manifest_sha256": "40de66a6bbdf3ad68020c1da6a1c2250349d343f73e10c8c0cc356d70f4a75e9",
+    "payload_crc": "PASS",
+    "signature_bytes": 0,
+    "signature_verified": false,
+    "provenance": "LOCAL_STEAM_DEPOT_CACHE",
+    "independent_authenticated_upstream_hashes": false,
+    "files": [
+      {
+        "path": "enshrouded.exe",
+        "bytes": 35476040,
+        "sha1": "60319574544b6029cc2de96dd377e667cfa42707",
+        "actual_sha1": "60319574544b6029cc2de96dd377e667cfa42707",
+        "sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "match": true
+      },
+      {
+        "path": "enshrouded.kfc",
+        "bytes": 9396224,
+        "sha1": "8de6d4a75f8e8c8dc5c7311efa0d4736379036fe",
+        "actual_sha1": "8de6d4a75f8e8c8dc5c7311efa0d4736379036fe",
+        "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+        "match": true
+      },
+      {
+        "path": "enshrouded.kfc_resources",
+        "bytes": 215052288,
+        "sha1": "b6986235dc9d493fab989b52fed0b36583335f09",
+        "actual_sha1": "b6986235dc9d493fab989b52fed0b36583335f09",
+        "sha256": "2f54eb9e4677f129c4d527aa9b163d89d0aecee70f2b5b728d7bacaa239d91a7",
+        "match": true
+      },
+      {
+        "path": "enshrouded_000.dat",
+        "bytes": 1060708352,
+        "sha1": "202c214faf47d46d6a688bafb8dfc08b324829b6",
+        "actual_sha1": "202c214faf47d46d6a688bafb8dfc08b324829b6",
+        "sha256": "280d139febe69593cbfe35325a9a508ee5f2c5ea5d02ddeb44e13c8f19429e02",
+        "match": true
+      },
+      {
+        "path": "enshrouded_001.dat",
+        "bytes": 1011748864,
+        "sha1": "9ab39ab910fc7b04a71b707a0538807d6f0ebfc4",
+        "actual_sha1": "9ab39ab910fc7b04a71b707a0538807d6f0ebfc4",
+        "sha256": "c56833355fdea6a1963477378c0ab073419bf89c3ea0ae29939d4bed5dc15c76",
+        "match": true
+      },
+      {
+        "path": "enshrouded_002.dat",
+        "bytes": 1009995776,
+        "sha1": "0c1bee67ba446861234b9ff4f83717793bf335c9",
+        "actual_sha1": "0c1bee67ba446861234b9ff4f83717793bf335c9",
+        "sha256": "9be90242d92ce6c00e271fc36f816333c6698ecba700bfc9a6fe941d6c87618d",
+        "match": true
+      },
+      {
+        "path": "enshrouded_003.dat",
+        "bytes": 1004273664,
+        "sha1": "db353fb751f0053d89d0289ad513809329f58734",
+        "actual_sha1": "db353fb751f0053d89d0289ad513809329f58734",
+        "sha256": "57e2720f5dfb03d705402d870ba6cb1e6a49bf75ec8ded630e3f66fa3c74eefc",
+        "match": true
+      },
+      {
+        "path": "enshrouded_004.dat",
+        "bytes": 1002700800,
+        "sha1": "621c729ceab7e6ccc42c888f1548099a0e929ef3",
+        "actual_sha1": "621c729ceab7e6ccc42c888f1548099a0e929ef3",
+        "sha256": "393ac56a51fee87cd296458df252d7ac2fd2ddde6f315c282ce4eea300554a29",
+        "match": true
+      },
+      {
+        "path": "enshrouded_005.dat",
+        "bytes": 1011863552,
+        "sha1": "67058c3b718a7742bf9a8f004e64716ee29ca6e0",
+        "actual_sha1": "67058c3b718a7742bf9a8f004e64716ee29ca6e0",
+        "sha256": "086610bca06f3f3d0872a15fa3b9586de2451c88b183da82fda3955552641c1b",
+        "match": true
+      },
+      {
+        "path": "enshrouded_006.dat",
+        "bytes": 1010012160,
+        "sha1": "b36bd4d3cbbef8d14d8ba134dab9c73bde12f6d4",
+        "actual_sha1": "b36bd4d3cbbef8d14d8ba134dab9c73bde12f6d4",
+        "sha256": "613ea267a24b408bc3d61533228c99a097097b28c1c5d0e941849e8c977228e3",
+        "match": true
+      },
+      {
+        "path": "enshrouded_007.dat",
+        "bytes": 1005117440,
+        "sha1": "73c3f12bab57093f226d3d0bed10b9d5e0fd8326",
+        "actual_sha1": "73c3f12bab57093f226d3d0bed10b9d5e0fd8326",
+        "sha256": "aa9562383ae63981f92636bf8387dde971d135d5a7738db2a600ac54c048ffa3",
+        "match": true
+      },
+      {
+        "path": "enshrouded_008.dat",
+        "bytes": 1037316096,
+        "sha1": "edf20a62287ff99b52b3415e2c7042a80c389dad",
+        "actual_sha1": "edf20a62287ff99b52b3415e2c7042a80c389dad",
+        "sha256": "bc9dc743d5c00eb023b830120288caa704b6b6e7b21a1b145413df95eb2ea777",
+        "match": true
+      },
+      {
+        "path": "enshrouded_009.dat",
+        "bytes": 1000910848,
+        "sha1": "5d7d710ed04ab1869ab7714d7bea20a01922eb44",
+        "actual_sha1": "5d7d710ed04ab1869ab7714d7bea20a01922eb44",
+        "sha256": "fad65d82d8d0d5d787a71d29fbd5a0a294968433c83cdc44a95b5659e95bb845",
+        "match": true
+      },
+      {
+        "path": "enshrouded_010.dat",
+        "bytes": 1000935424,
+        "sha1": "0775d1699b21b1eb2149e09d687f9ecfe452d40e",
+        "actual_sha1": "0775d1699b21b1eb2149e09d687f9ecfe452d40e",
+        "sha256": "aa55d4a0fa9a86b1433cb591d4e995ac98418a5d16c18154915bf432c9ebec46",
+        "match": true
+      },
+      {
+        "path": "enshrouded_011.dat",
+        "bytes": 1012752384,
+        "sha1": "6b1702c95c49a4c265e15e6235b791f9e1162a8e",
+        "actual_sha1": "6b1702c95c49a4c265e15e6235b791f9e1162a8e",
+        "sha256": "ebf6f822fb8dfb6dd8d27390babca2e1a00a5d993053b994812f7a3e874b635e",
+        "match": true
+      },
+      {
+        "path": "enshrouded_012.dat",
+        "bytes": 1054711808,
+        "sha1": "b68cdc17f5d6bc844c625a83953e92466930e29b",
+        "actual_sha1": "b68cdc17f5d6bc844c625a83953e92466930e29b",
+        "sha256": "196d4309e6589172841e6e70415db196d1fb7a588d0ac3be6f81f9653bbfe056",
+        "match": true
+      },
+      {
+        "path": "enshrouded_013.dat",
+        "bytes": 1000976384,
+        "sha1": "21c6f7f590644136adbe86e391bbc4e656bcba0f",
+        "actual_sha1": "21c6f7f590644136adbe86e391bbc4e656bcba0f",
+        "sha256": "3c83ccd428b1e008581a4416dbfbcfa6087e8aa08ed51a2db1f7ef44543e1773",
+        "match": true
+      },
+      {
+        "path": "enshrouded_014.dat",
+        "bytes": 1009950720,
+        "sha1": "862ca2f0ca638ef5e9d12501f6c26eb34654efeb",
+        "actual_sha1": "862ca2f0ca638ef5e9d12501f6c26eb34654efeb",
+        "sha256": "e6ea81182d11c6633260a69b3889fb96d239bbbfa6c7602540201d11d5aaa60a",
+        "match": true
+      },
+      {
+        "path": "enshrouded_015.dat",
+        "bytes": 1010335744,
+        "sha1": "392f48351cb1a5ef46f2b5c746d7defb9c43745f",
+        "actual_sha1": "392f48351cb1a5ef46f2b5c746d7defb9c43745f",
+        "sha256": "a7e1b6d7e2f8438857bb51fc43a789673f8d967da955aace8a09cbbb664c2303",
+        "match": true
+      },
+      {
+        "path": "enshrouded_016.dat",
+        "bytes": 1004216320,
+        "sha1": "fc679fca1131bd39c4f6d6a9af218098d4197c57",
+        "actual_sha1": "fc679fca1131bd39c4f6d6a9af218098d4197c57",
+        "sha256": "99e2a18517297277acd0c8aa142bc40d930683cd79f734c500a2279d428680ab",
+        "match": true
+      },
+      {
+        "path": "enshrouded_017.dat",
+        "bytes": 1033170944,
+        "sha1": "a78466dac4f5803d98b3e68b6bb126ed61c282ad",
+        "actual_sha1": "a78466dac4f5803d98b3e68b6bb126ed61c282ad",
+        "sha256": "01554b4737acaa32de258a69305b8dc39534900314b94e5e3290403fad2416ae",
+        "match": true
+      },
+      {
+        "path": "enshrouded_018.dat",
+        "bytes": 1013051392,
+        "sha1": "4a9364534cd0e2d479ff8a1ca55a9f9c579d8da1",
+        "actual_sha1": "4a9364534cd0e2d479ff8a1ca55a9f9c579d8da1",
+        "sha256": "0b4e4d2a44e06a9cd496620fbd1abc0199daded6ff11552505c0009f170e9545",
+        "match": true
+      },
+      {
+        "path": "enshrouded_019.dat",
+        "bytes": 1008046080,
+        "sha1": "c277fcadc79f9363d57ef3d755d7519594f40226",
+        "actual_sha1": "c277fcadc79f9363d57ef3d755d7519594f40226",
+        "sha256": "63e18a160cf1b313b9026681473eaead34f3ba0a0577491048d99fb93102ec40",
+        "match": true
+      },
+      {
+        "path": "enshrouded_020.dat",
+        "bytes": 1009111040,
+        "sha1": "8558b570579550e3f9bf4b33011e25ddcb91b3cb",
+        "actual_sha1": "8558b570579550e3f9bf4b33011e25ddcb91b3cb",
+        "sha256": "1381e07d0b4ef46d05d09063d20895dc0a92c69bbfee5f2dab4275cc40899f90",
+        "match": true
+      },
+      {
+        "path": "enshrouded_021.dat",
+        "bytes": 1006993408,
+        "sha1": "bee7d653064d50b79c381b0abcead66548b44e1c",
+        "actual_sha1": "bee7d653064d50b79c381b0abcead66548b44e1c",
+        "sha256": "a379da6f79086218b29bcc3a023ee8b2acd292441ebaded3337b12e741833e00",
+        "match": true
+      },
+      {
+        "path": "enshrouded_022.dat",
+        "bytes": 1013837824,
+        "sha1": "717e86a42c3f886b26a4b3703cb8aa358b89cc84",
+        "actual_sha1": "717e86a42c3f886b26a4b3703cb8aa358b89cc84",
+        "sha256": "3731a7679605711e6617f850a8411f184bec804a64b2094f459a9d936cb56b1b",
+        "match": true
+      },
+      {
+        "path": "enshrouded_023.dat",
+        "bytes": 1007153152,
+        "sha1": "0e70dfdfc3bb5943862da10e807b8ed2edbb69f7",
+        "actual_sha1": "0e70dfdfc3bb5943862da10e807b8ed2edbb69f7",
+        "sha256": "58d449ae8f4c7fc9a8193608cb4120a28d68c56d832aeb787cefb55f28af9152",
+        "match": true
+      },
+      {
+        "path": "enshrouded_024.dat",
+        "bytes": 1014304768,
+        "sha1": "19637bc7e3481cb86e05cd423dceb660d0f6570f",
+        "actual_sha1": "19637bc7e3481cb86e05cd423dceb660d0f6570f",
+        "sha256": "820bd2f2abbc69bf076f804c78e874d984e0a35645f9cff4953266220f587b72",
+        "match": true
+      },
+      {
+        "path": "enshrouded_025.dat",
+        "bytes": 1014571008,
+        "sha1": "8399d8501f341dfb2bd57442e11b863814038d93",
+        "actual_sha1": "8399d8501f341dfb2bd57442e11b863814038d93",
+        "sha256": "adf6a0384a2fa55749e55b5747da6b7bba83c8faab2159f3365563ede405f7c9",
+        "match": true
+      },
+      {
+        "path": "enshrouded_026.dat",
+        "bytes": 886738944,
+        "sha1": "9c9c1385e42eb56041332e495ea7abd06b25ca02",
+        "actual_sha1": "9c9c1385e42eb56041332e495ea7abd06b25ca02",
+        "sha256": "8f644a51cb791e89e4242b6e7c813436bb17b6d7a6f3c5e79baaeb5141e74645",
+        "match": true
+      },
+      {
+        "path": "enshrouded_027.dat",
+        "bytes": 1005875200,
+        "sha1": "e3e6ca95addac193b9583ec9a59f8025187a41b8",
+        "actual_sha1": "e3e6ca95addac193b9583ec9a59f8025187a41b8",
+        "sha256": "500f93226a59084888b6bbfe25287f5741f682acbe329f52068763e5224c6cab",
+        "match": true
+      },
+      {
+        "path": "enshrouded_028.dat",
+        "bytes": 1005129728,
+        "sha1": "d2aca1f35cb27d6e9cdd574fdc4300dcdcbfce00",
+        "actual_sha1": "d2aca1f35cb27d6e9cdd574fdc4300dcdcbfce00",
+        "sha256": "3c856c42c792b72075555706298338022f580ab8b9b07e9db9d4083c2d0c6cef",
+        "match": true
+      },
+      {
+        "path": "enshrouded_029.dat",
+        "bytes": 1004642304,
+        "sha1": "6af70b9033759a6548a2ef2b7f811df323016388",
+        "actual_sha1": "6af70b9033759a6548a2ef2b7f811df323016388",
+        "sha256": "9b22153ce2e08c4588a55320159e997abbd9ac7186eafe7da38bd9250b0e6bde",
+        "match": true
+      },
+      {
+        "path": "enshrouded_030.dat",
+        "bytes": 1005215744,
+        "sha1": "ef327f43215b9ffd29f1d081a33b3df85c527ece",
+        "actual_sha1": "ef327f43215b9ffd29f1d081a33b3df85c527ece",
+        "sha256": "6ec19a6f2118bdb2894dfc0e3677aea79ebd15c3aef7ca1f6900b0de020007cf",
+        "match": true
+      },
+      {
+        "path": "enshrouded_031.dat",
+        "bytes": 1011769344,
+        "sha1": "00986b73595d638261b230239bab4573fb6bf61c",
+        "actual_sha1": "00986b73595d638261b230239bab4573fb6bf61c",
+        "sha256": "43af0a606ddaa88dacc4e5c0953d8c52d8adbd86421d03a91b37faf3f7b9ded3",
+        "match": true
+      },
+      {
+        "path": "enshrouded_032.dat",
+        "bytes": 615276544,
+        "sha1": "aec3505d3121e13d0457d8f603cae968a8648d55",
+        "actual_sha1": "aec3505d3121e13d0457d8f603cae968a8648d55",
+        "sha256": "2051ca075d01d9b57b288affec776f758392b808b93392c73cebd0a4852cc1fe",
+        "match": true
+      },
+      {
+        "path": "enshrouded_033.dat",
+        "bytes": 1005031424,
+        "sha1": "3e6a95bb5b1892319eab8c00ea546e7f3390b608",
+        "actual_sha1": "3e6a95bb5b1892319eab8c00ea546e7f3390b608",
+        "sha256": "65587c436c110d48beea7480b63823509f1941954abdfa2838ddd1641742984f",
+        "match": true
+      },
+      {
+        "path": "enshrouded_034.dat",
+        "bytes": 1013829632,
+        "sha1": "7be07b2cd53928d76c985991303fc8cf10df464d",
+        "actual_sha1": "7be07b2cd53928d76c985991303fc8cf10df464d",
+        "sha256": "26be2bd96be985e9b045fe9e43df2caa64e5e32a59e7c4b053dffdc75957af61",
+        "match": true
+      },
+      {
+        "path": "enshrouded_035.dat",
+        "bytes": 1010716672,
+        "sha1": "1161017915b9579fa112304aca67fbf3fa733508",
+        "actual_sha1": "1161017915b9579fa112304aca67fbf3fa733508",
+        "sha256": "028609d86134f233b5af329650d4e5540c0eb59806e1a17a634df7880e654521",
+        "match": true
+      },
+      {
+        "path": "enshrouded_036.dat",
+        "bytes": 1003167744,
+        "sha1": "e388641e8bb42d8cfbebc6857e057843deb4f137",
+        "actual_sha1": "e388641e8bb42d8cfbebc6857e057843deb4f137",
+        "sha256": "d8270dd95d9fc88ea15bddb2334070a844f18c7082843326954bd427cca4ba65",
+        "match": true
+      },
+      {
+        "path": "enshrouded_037.dat",
+        "bytes": 768745472,
+        "sha1": "5d42fc30fd75ddb31ceb75edd9e0a6d4e34d0843",
+        "actual_sha1": "5d42fc30fd75ddb31ceb75edd9e0a6d4e34d0843",
+        "sha256": "85e5f5503738da887b039fbb18a6feba5f66c43a310027599ff546e9208c0948",
+        "match": true
+      },
+      {
+        "path": "enshrouded_038.dat",
+        "bytes": 1007353856,
+        "sha1": "888576e1102b2491259f3e0176d3219c0f8327c2",
+        "actual_sha1": "888576e1102b2491259f3e0176d3219c0f8327c2",
+        "sha256": "dbce35b097fb3a78223aefc606c439d12ff6f60d323b6b7f5255583516aa51c8",
+        "match": true
+      },
+      {
+        "path": "enshrouded_039.dat",
+        "bytes": 1007853568,
+        "sha1": "1f4eeb40be91405bfde49e1c1191d73bdc47ae45",
+        "actual_sha1": "1f4eeb40be91405bfde49e1c1191d73bdc47ae45",
+        "sha256": "e4c6ab37a6de9cfcf69c8e185a24192a3615b673a57b502625b2abdf1c339e52",
+        "match": true
+      },
+      {
+        "path": "enshrouded_040.dat",
+        "bytes": 1007644672,
+        "sha1": "c734b0d7abef50c3125337d99f08b2db4caad9fe",
+        "actual_sha1": "c734b0d7abef50c3125337d99f08b2db4caad9fe",
+        "sha256": "e32fae5dfdb6ace5574112469bd00265e664adc3d80b6afb0699577816db2fd0",
+        "match": true
+      },
+      {
+        "path": "enshrouded_041.dat",
+        "bytes": 580628480,
+        "sha1": "6df1d48ae24bd6a44d55518473904551dc8c57f0",
+        "actual_sha1": "6df1d48ae24bd6a44d55518473904551dc8c57f0",
+        "sha256": "7a42163c0924804a2f50027575df7176fee96251a8b2a7cb29de3047fbc97eb7",
+        "match": true
+      },
+      {
+        "path": "enshrouded_042.dat",
+        "bytes": 1096032256,
+        "sha1": "b3eeabfc3a58314edd1cc98a3fd1b56b42055953",
+        "actual_sha1": "b3eeabfc3a58314edd1cc98a3fd1b56b42055953",
+        "sha256": "d394fa6b33a16b8988487fc7b8e81b510fbf2e2c4ca365c35ab98eccc6c63033",
+        "match": true
+      },
+      {
+        "path": "enshrouded_043.dat",
+        "bytes": 1036374016,
+        "sha1": "a6b963143537d83cc144bee91985443e49674608",
+        "actual_sha1": "a6b963143537d83cc144bee91985443e49674608",
+        "sha256": "70953ced1e0cabfbfb88839574bab20047cc687505f9f792bb1d146e2f1527b1",
+        "match": true
+      },
+      {
+        "path": "enshrouded_044.dat",
+        "bytes": 678014976,
+        "sha1": "04557d0cd9e1b75c314b114c5236504ab9d144f7",
+        "actual_sha1": "04557d0cd9e1b75c314b114c5236504ab9d144f7",
+        "sha256": "5bbf5adca1e8adad9da5b575691423f096185c1d3669887aac2a698ade4241c2",
+        "match": true
+      },
+      {
+        "path": "enshrouded_045.dat",
+        "bytes": 1022074880,
+        "sha1": "2f3caa48b35e1752dd5a2df83b63817470d55c3a",
+        "actual_sha1": "2f3caa48b35e1752dd5a2df83b63817470d55c3a",
+        "sha256": "4b1d2fe9dc7a31b65092b672b09c032f3406113b9338a05ce239994fc269d848",
+        "match": true
+      },
+      {
+        "path": "enshrouded_046.dat",
+        "bytes": 1022107648,
+        "sha1": "df8410fd8264866d7b6e100e457a2903f2387117",
+        "actual_sha1": "df8410fd8264866d7b6e100e457a2903f2387117",
+        "sha256": "b165cc9b446e5b6e1ed9ec5efdd8e9ee2d2248e6dc02278b17be32a63e9f1d18",
+        "match": true
+      },
+      {
+        "path": "enshrouded_047.dat",
+        "bytes": 127414272,
+        "sha1": "e0c54d796a343844862ea2afef10509dfc53f37f",
+        "actual_sha1": "e0c54d796a343844862ea2afef10509dfc53f37f",
+        "sha256": "553ef983437b9dc5ab20b053b12c843f32538b5ce0b7362ddefef005255fc4f6",
+        "match": true
+      },
+      {
+        "path": "enshrouded_048.dat",
+        "bytes": 1004896256,
+        "sha1": "513eaa77e31469466a90911ba840a50a02ed28fd",
+        "actual_sha1": "513eaa77e31469466a90911ba840a50a02ed28fd",
+        "sha256": "3d509d920715453eab08af7c86d86c8b8a3f326cecc31de9304775c0a0f9f0ee",
+        "match": true
+      },
+      {
+        "path": "enshrouded_049.dat",
+        "bytes": 909414400,
+        "sha1": "2747206c8b70076c4884ca29954d08f4617c4502",
+        "actual_sha1": "2747206c8b70076c4884ca29954d08f4617c4502",
+        "sha256": "f692e51364a2360567db001dd471d3947af903e9b44adb4486d69ebcdd212716",
+        "match": true
+      },
+      {
+        "path": "enshrouded_050.dat",
+        "bytes": 1008664576,
+        "sha1": "92aa5209a477716ff43e031f606139728c0507cc",
+        "actual_sha1": "92aa5209a477716ff43e031f606139728c0507cc",
+        "sha256": "a2dcb2ba69ec4036249983bb60fadd99948d325db87f01ba4b39af3b18a99eb8",
+        "match": true
+      },
+      {
+        "path": "enshrouded_051.dat",
+        "bytes": 314626048,
+        "sha1": "34a821a88fbdeb96d4ea3ec76605463e99e6c7fd",
+        "actual_sha1": "34a821a88fbdeb96d4ea3ec76605463e99e6c7fd",
+        "sha256": "321846d94e4d2f084d319f122a0988983352f8f8dd01a47e60f10a198723c803",
+        "match": true
+      },
+      {
+        "path": "enshrouded_052.dat",
+        "bytes": 907784192,
+        "sha1": "c1213367be3f0fc4fd951b55c6848c886c610b18",
+        "actual_sha1": "c1213367be3f0fc4fd951b55c6848c886c610b18",
+        "sha256": "74cc88c88af07238381b480ba1e51cfb5a3a48a7ee42cb7c88035ce609dc0a1f",
+        "match": true
+      },
+      {
+        "path": "enshrouded_053.dat",
+        "bytes": 1039114240,
+        "sha1": "8d98cfce97c8d432f701989c1bb0e20ed20402ce",
+        "actual_sha1": "8d98cfce97c8d432f701989c1bb0e20ed20402ce",
+        "sha256": "67bb49ee52b02eec32b5565dd72e79f598702ef64190383762086e3084d44c09",
+        "match": true
+      },
+      {
+        "path": "enshrouded_054.dat",
+        "bytes": 29167616,
+        "sha1": "77c369c201856a17427762df2064e5f1f2a4bf9a",
+        "actual_sha1": "77c369c201856a17427762df2064e5f1f2a4bf9a",
+        "sha256": "89271a82247d2cae2c7b67cce48b8ebb7e282689a997246465a17bcf8bde820e",
+        "match": true
+      },
+      {
+        "path": "GFSDK_Aftermath_Lib.x64.dll",
+        "bytes": 5788312,
+        "sha1": "6ed7ad112094cbf2e15d67aea89f78944489e9f2",
+        "actual_sha1": "6ed7ad112094cbf2e15d67aea89f78944489e9f2",
+        "sha256": "4177e09de4bbcc168deeb4f2d88f8961fe98009fae8046d08b418e725414de42",
+        "match": true
+      },
+      {
+        "path": "nvngx_dlss.dll",
+        "bytes": 58956912,
+        "sha1": "61349e36573b0dbb95287781bf229524624169ad",
+        "actual_sha1": "61349e36573b0dbb95287781bf229524624169ad",
+        "sha256": "3975567b8943c53acce397f2b72380092f84f162d00b0d2c7d08a1025c563983",
+        "match": true
+      },
+      {
+        "path": "steam_api64.dll",
+        "bytes": 319128,
+        "sha1": "2e086c0f5c32f098b54db8c45dfe34e65e192243",
+        "actual_sha1": "2e086c0f5c32f098b54db8c45dfe34e65e192243",
+        "sha256": "e6d9bafb9a41e42fba7b21553db49f8719027af3f0deb23ff86cfc44d60e776d",
+        "match": true
+      }
+    ],
+    "all_files_match": true
+  },
+  "source": {
+    "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
+    "source_resource_type": "keen::ecs::TemplateResource",
+    "component_count": 82,
+    "component_fingerprint_fnv32": "5253f478",
+    "canonical_resource_sha256": "58b9d7cb53d61b4d05b4e7eaf63a0b50109e086f322dbc4b8b3205d48a7a024d",
+    "character_setup": {
+      "beard": {
+        "value": 0
+      },
+      "beardColorId": {
+        "value": 2593349132
+      },
+      "eyeBrowColor": {
+        "value": 1294605571
+      },
+      "eyeColor": {
+        "value": 1843389514
+      },
+      "gender": "Male",
+      "hair": {
+        "value": 100818570
+      },
+      "hairColorId": {
+        "value": 2593349132
+      },
+      "presetId": {
+        "value": 1602195472
+      },
+      "skinColor": {
+        "value": 510686028
+      },
+      "useNewProportions": false,
+      "voicePackId": {
+        "value": 3178345104
+      }
+    },
+    "animation": {
+      "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+      "hasFootstepSyncLogic": false,
+      "hasServerLogic": true,
+      "maxSnapshotPoses": -1,
+      "retargetData": null
+    },
+    "hierarchy_guid": "87b29df6-6518-43ef-9298-e3f85a6204b9",
+    "joints": 102,
+    "decoded_preset_references": [
+      {
+        "slot": "armourArms",
+        "guid": "f218d9b0-ef38-49fd-b0a4-3e59d00a19c3",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "armourFeet",
+        "guid": "3fd4b70c-296c-409d-bb38-5f6795c8d753",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "armourHead",
+        "guid": "84ff3867-116c-48ec-aef9-c8a6ba33a199",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "armourLowerBody",
+        "guid": "cad0997d-e66d-417c-98f6-e03f6745611d",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "armourUpperBody",
+        "guid": "94404c05-250a-4b14-8c16-283c85391d16",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "chest",
+        "guid": "5bb45d4b-0310-42a7-a0db-41e977608ce1",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "collar",
+        "guid": "54f89d91-d59c-4fd8-b39c-ee30632bf57f",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "crotch",
+        "guid": "3b5653a0-13a6-417c-b0f3-a393ad27d697",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "feet",
+        "guid": "f9b354fe-a4da-40cb-a194-680b65447c84",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "hair",
+        "guid": "533c1226-dddd-4ddc-a338-22a006452b88",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "hands",
+        "guid": "3e41c49a-56e9-4a96-8be8-a60c2f3167c7",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "head",
+        "guid": "cba24116-4074-41d6-a452-d1ba8db91eec",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "lowerArms",
+        "guid": "a173466b-7991-4612-badb-935cdcd5b4c8",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "lowerLegs",
+        "guid": "49ac99c6-4dd2-4716-af56-93dfff83e10b",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "neck",
+        "guid": "ef17e0da-f771-4ac7-b97c-fd6028b8cb6d",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "upperArms",
+        "guid": "93c3c73e-cb3a-443f-8e10-b81c972a8bf7",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "upperLegs",
+        "guid": "6e23e774-8e7c-48a5-8129-55cf09b7c48b",
+        "type": "keen::ItemInfo"
+      },
+      {
+        "slot": "waist",
+        "guid": "8ee3d2d2-0027-4ebc-b2e1-ea0d02bc216c",
+        "type": "keen::ItemInfo"
+      }
+    ],
+    "full_resource_dump_published": false,
+    "provenance": "POST_STEAM_READ_ONLY_INSPECTOR",
+    "clean_baseline_accepted": false,
+    "spawn_ready": false
+  },
+  "residuals": {
+    "active_mod_artifacts": [],
+    "unknown_ownership_dat_preserved": [
+      "enshrouded_055.dat",
+      "enshrouded_056.dat",
+      "enshrouded_057.dat",
+      "enshrouded_058.dat",
+      "enshrouded_059.dat",
+      "enshrouded_060.dat",
+      "enshrouded_061.dat",
+      "enshrouded_062.dat",
+      "enshrouded_063.dat"
+    ],
+    "non_depot_files_kept": [
+      "backup/enshrouded_2024-08-27T22-06-35.log",
+      "backup/enshrouded_2024-08-28T10-42-54.log",
+      "backup/enshrouded_2024-08-29T17-48-38.log",
+      "backup/enshrouded_2024-08-29T20-26-37.log",
+      "backup/enshrouded_2024-08-29T21-53-59.log",
+      "backup/enshrouded_2024-08-29T22-46-17.log",
+      "backup/enshrouded_2024-08-30T16-31-20.log",
+      "backup/enshrouded_2024-08-30T19-22-57.log",
+      "backup/enshrouded_2024-08-30T23-38-23.log",
+      "backup/enshrouded_2024-08-31T09-31-55.log",
+      "backup/enshrouded_2024-08-31T10-59-46.log",
+      "backup/enshrouded_2024-08-31T16-39-22.log",
+      "backup/enshrouded_2024-09-01T01-21-17.log",
+      "backup/enshrouded_2024-09-01T11-34-43.log",
+      "backup/enshrouded_2024-09-01T13-37-57.log",
+      "backup/enshrouded_2024-09-01T15-51-52.log",
+      "backup/enshrouded_2024-09-01T18-46-14.log",
+      "backup/enshrouded_2024-09-01T18-52-58.log",
+      "backup/enshrouded_2024-09-04T00-02-38.log",
+      "backup/enshrouded_2024-09-04T00-30-21.log",
+      "backup/enshrouded_2024-09-04T15-49-26.log",
+      "backup/enshrouded_2024-09-04T15-50-24.log",
+      "backup/enshrouded_2024-09-04T15-51-58.log",
+      "backup/enshrouded_2024-09-07T12-07-03.log",
+      "backup/enshrouded_2024-09-09T12-10-10.log",
+      "backup/enshrouded_2024-09-10T09-18-40.log",
+      "backup/enshrouded_2024-09-10T12-38-34.log",
+      "backup/enshrouded_2024-09-10T12-40-40.log",
+      "backup/enshrouded_2024-09-10T22-37-40.log",
+      "backup/enshrouded_2024-09-10T22-40-42.log",
+      "backup/enshrouded_2024-09-13T12-21-29.log",
+      "backup/enshrouded_2024-09-16T01-33-57.log",
+      "backup/enshrouded_2024-09-16T18-57-51.log",
+      "backup/enshrouded_2024-09-17T12-18-05.log",
+      "backup/enshrouded_2026-10-23T17-41-48.log",
+      "backup/enshrouded_2026-10-23T17-48-06.log",
+      "backup/enshrouded_2026-10-23T17-56-38.log",
+      "backup/enshrouded_2026-10-23T19-47-27.log",
+      "backup/enshrouded_2026-10-24T21-50-44.log",
+      "backup/enshrouded_2026-10-25T16-07-59.log",
+      "backup/enshrouded_2026-10-25T23-42-15.log",
+      "backup/enshrouded_2026-10-27T11-11-45.log",
+      "backup/enshrouded_2026-10-27T12-15-53.log",
+      "backup/enshrouded_2026-10-27T18-59-43.log",
+      "backup/enshrouded_2026-10-29T21-20-26.log",
+      "backup/enshrouded_2026-10-30T00-09-44.log",
+      "backup/enshrouded_2026-10-30T17-42-17.log",
+      "backup/enshrouded_2026-10-30T22-24-41.log",
+      "backup/enshrouded_2026-10-30T22-31-27.log",
+      "backup/enshrouded_2026-10-30T22-52-56.log",
+      "backup/enshrouded_2026-10-31T01-05-00.log",
+      "backup/enshrouded_2026-10-31T12-02-23.log",
+      "backup/enshrouded_2026-11-01T12-12-47.log",
+      "backup/enshrouded_2026-11-01T18-24-58.log",
+      "backup/enshrouded_2026-11-03T14-32-31.log",
+      "backup/enshrouded_2026-11-03T18-06-28.log",
+      "backup/enshrouded_2026-11-05T23-38-04.log",
+      "backup/enshrouded_2026-11-06T21-10-06.log",
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "enshrouded.log",
+      "enshrouded_055.dat",
+      "enshrouded_056.dat",
+      "enshrouded_057.dat",
+      "enshrouded_058.dat",
+      "enshrouded_059.dat",
+      "enshrouded_060.dat",
+      "enshrouded_061.dat",
+      "enshrouded_062.dat",
+      "enshrouded_063.dat",
+      "enshrouded_local.json",
+      "logs/2026-11-01.eml.log",
+      "logs/2026-11-03.eml.log",
+      "logs/2026-11-05.eml.log",
+      "logs/2026-11-06.eml.log"
+    ],
+    "keep20_unchanged": true
+  },
+  "preservation": {
+    "backup_payload": 209,
+    "phase_b_quarantine_payload": 81,
+    "phase_c_quarantine_payload": 31,
+    "all_hashes_match": true,
+    "post_inspection_game_unchanged": 137,
+    "post_inspection_local_unchanged": 23
+  },
+  "checks": {
+    "build": {
+      "status": "PASS",
+      "source": "pinned EXE SHA256 + Steam manifest identity + decoded KFC version"
+    },
+    "recovery_source": {
+      "status": "PASS",
+      "source": "Steam content_log 2026-11-18 14:28:16 MSK finished update No Error; user Verify report"
+    },
+    "fresh_inventory": {
+      "status": "PASS",
+      "source": "new full137 game/23 LOCAL SHA256 inventory; independent second inventory identical"
+    },
+    "official_resources": {
+      "status": "PASS",
+      "source": "61/61 files match plaintext Steam depot cache SHA1+size; CRC checked; signature absent, independent authenticity UNKNOWN"
+    },
+    "no_old_loaders": {
+      "status": "PASS",
+      "source": "all observed DLL files are the three depot-matched vendor DLLs; dinput8/dbghelp/EMF core/content absent"
+    },
+    "no_old_patch_observer": {
+      "status": "PASS",
+      "source": "no remaining Lua/EML code, mod manifests or enabled mod configs in full inventory"
+    },
+    "no_custom_clone": {
+      "status": "PASS",
+      "source": "READ_ONLY_GUID_LOOKUP count0, pinned inspector"
+    },
+    "no_unknown_changes": {
+      "status": "PASS",
+      "source": "delta exactly KFC/resources; both changes explained by Steam validation log; 20 KEEP unchanged"
+    },
+    "no_guid_npc_collision": {
+      "status": "PASS",
+      "source": "91909 unique resource IDs;12269 TemplateResource decoded;requested npc2939921867 matches0"
+    },
+    "local_saves_intact": {
+      "status": "PASS",
+      "source": "23/23 LOCAL path/SHA/size/mtime unchanged before Verify and after Inspector"
+    },
+    "independent_depot_hashes": false
+  },
+  "verdict": {
+    "status": "CLEAN_BASELINE_PARTIAL",
+    "failed": [],
+    "unknown": [],
+    "independent_depot_hashes": false,
+    "cleanup_executed": false,
+    "clean_baseline_confirmed": false,
+    "installation_ready": false,
+    "runtime_status": "NOT_EXECUTED",
+    "RUNTIME_RENDER_CONFIRMED": "UNKNOWN",
+    "spawn_ready": false
+  },
+  "limited_acceptance": {
+    "status": "PROPOSED_NOT_GRANTED",
+    "scope": "new limited backup and offline Phase D candidate; installation separate",
+    "remaining_limitation": "Steam local cache contains no verified signature; no independent authenticated upstream hashes"
+  },
+  "planned_backup": {
+    "files": 27,
+    "payload_bytes": 260563026,
+    "game_paths": [
+      "enshrouded.exe",
+      "enshrouded.kfc",
+      "enshrouded.kfc_resources",
+      "enshrouded_local.json"
+    ],
+    "local_files": 23,
+    "dat_payloads": false,
+    "created": false
+  },
+  "clean_backup_created": false,
+  "installation_authorized": false,
+  "installation_executed": false,
+  "runtime_status": "NOT_EXECUTED",
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN",
+  "spawn_ready": false
+}

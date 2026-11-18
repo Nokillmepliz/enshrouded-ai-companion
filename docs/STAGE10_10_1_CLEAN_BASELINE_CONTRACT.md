@@ -9,7 +9,9 @@ Evaluator: `companion.recovery.clean_baseline`. Вход — отдельные 
 | CLEAN_BASELINE_PARTIAL | Часть PASS; либо всё локально проверено, но независимые depot hashes отсутствуют |
 | CLEAN_BASELINE_CONFIRMED | Все десять PASS с источниками и independent_depot_hashes=true |
 
-Fresh inventory и официальный depot manifest ID не равны официальным per-file hashes. Сейчас source database смешанная, независимого полного depot hash manifest нет. CONFIRMED **не получен**. Статический evaluator не поднимает readiness flags, даже на положительных fixtures.
+Fresh inventory и официальный depot manifest ID не равны аутентифицированным upstream per-file hashes. После ручного Steam Verify получен новый [post-Steam audit](STAGE10_10_1_POST_STEAM_AUDIT.md): KFC55 containers, старый clone отсутствует,61/61 depot entries совпали с plaintext cache manifest. Его signature section пустой, независимая аутентификация отсутствует. CONFIRMED **не получен**, фактический verdict PARTIAL. Прежняя смешанная database сохранена только в historical evidence/backup/quarantine. Статический evaluator не поднимает readiness flags, даже на положительных fixtures.
+
+Ограниченное принятие PARTIAL может быть отдельно согласовано пользователем по разделу12 ТЗ Phase C/D. Оно не меняет исторический verdict на CONFIRMED, не подделывает `independent_depot_hashes` и не разрешает установку. Scope и остаточный риск должны быть записаны отдельно; на post-Steam checkpoint такой acceptance только предложен.
 
 При появлении нового build старый профиль не используется как fallback. Baseline identity должна включать полный список игровых ресурсов с SHA, EXE/build, Steam/depot, дату и источник проверки. Последующее изменение любого файла создаёт новый baseline; исторический receipt не переписывается.
 

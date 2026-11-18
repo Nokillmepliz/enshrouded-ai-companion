@@ -1,13 +1,14 @@
 # enshrouded-ai-companion
 
-**Stage10.10.1 Phase C: `READY_FOR_MANUAL_STEAM_VERIFY`.**
-Разрешённые30 mod artifacts и отдельно KFC.bak перенесены в новый verified quarantine31/31.
-Game168→137; оставшиеся137, все20 KEEP,64 DAT и23 LOCAL неизменны. Backup209/209 и
-предыдущий карантин81/81 сохранены. [Отчёт очистки](docs/STAGE10_10_1_PHASE_C_CLEANUP.md).
-Теперь требуется [ручной Steam Verify](docs/STAGE10_10_1_STEAM_VERIFY_PLAN.md), без запуска игры;
-после подтверждения продолжится Phase C/D. Чистая база пока не подтверждена.
-Migration package остаётся PARTIAL: patch0.5/observer/Bridge/exact install plan ещё не завершены.
-Python630 PASS/1skip, Lua syntax15/15. Установка не разрешена; runtime NOT_EXECUTED, spawn_ready=false.
+**Stage10.10.1 post-Steam Phase C: `CLEAN_BASELINE_PARTIAL`.**
+Steam Verify завершён: KFC восстановлен, из resources удалён лишний хвост4096 bytes.
+61/61 штатный файл совпал с локальным depot manifest; его подпись не подтверждена.
+KFC55 containers; старый clone GUID/npcId отсутствует,12269 templates проверены.
+64 DAT/23 LOCAL/20 KEEP неизменны; backup209/209 и карантины81/81+31/31 сохранены.
+[Отчёт и предложение ограниченного acceptance](docs/STAGE10_10_1_POST_STEAM_AUDIT.md).
+Новый backup27 файлов260563026 bytes пока только рассчитан. Migration package остаётся
+PARTIAL: patch0.5/observer/Bridge/exact install plan ещё не завершены.
+Python644 PASS/1skip; Rust3 PASS. Установка не разрешена; runtime NOT_EXECUTED, spawn_ready=false.
 [Исторический pre-cleanup audit](docs/STAGE10_10_1_PHASE_C_REPORT.md),
 [подготовка Phase D](docs/STAGE10_10_1_PHASE_D_REPORT.md).
 
