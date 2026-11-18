@@ -1,5 +1,10 @@
 # enshrouded-ai-companion
 
+**Stage10.10.1 Phase F разрешена: `READY_FOR_MANUAL_START`.** Fresh preflight:
+installed16/16, backup27/27, originals137/137 и LOCAL23/23 PASS. Ожидается ручной
+запуск LOCAL Body Test / AI Body Test пользователем; runtime verdict ещё нет.
+[Текущий checkpoint Phase F](docs/STAGE10_10_1_PHASE_F_REPORT.md). `spawn_ready=false`.
+
 **Stage10.10.1 Phase E завершена: `READY_FOR_PHASE_F_APPROVAL`.**
 Установлены только16 согласованных файлов;16/16 hashes, новый receipt и rollback
 dry-run PASS.137 оригинальных файлов и23 LOCAL неизменны, backup/quarantine сохранены.

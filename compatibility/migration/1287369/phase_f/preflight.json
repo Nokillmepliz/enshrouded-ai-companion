@@ -1,0 +1,40 @@
+{
+  "format": "aic_phase_f_preflight_v1",
+  "status": "READY_FOR_MANUAL_START",
+  "checked_utc": "2026-11-18T12:29:31.689254+00:00",
+  "run_path": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_1_phase_f\\20261118T122931689254Z",
+  "build": 1287369,
+  "steam_build": "26430625",
+  "receipt_sha256": "c3cd5da70e01fd073553b6dcc2598e8ede867693087b67c285d65253c59d70fc",
+  "installed_files_verified": 16,
+  "clean_backup_verified": 27,
+  "original_game_files_unchanged": 137,
+  "local_files_unchanged": 23,
+  "resource_identity_snapshot": 67,
+  "rollback_dry_run": "PASS_NOT_EXECUTED",
+  "content_input_fingerprint": "sha256:87af1e89d337ae475edc51dc7cdde6887ce20fc69c9befe94d7fc85addb7419e",
+  "local_selection": [
+    {
+      "relative_path": "default/character0.ksd",
+      "name": "Body Test",
+      "slot": 1,
+      "storage": "LOCAL",
+      "sha256": "01b2fecaa4a6fbae26ba3d07e58c818c30ec76fdf5f09f3c49cd4f5b70cfb001",
+      "basis": "EXACT_BASELINE_SAVE_HASH_AND_UTF8_NAME; prior Stage10.7 runtime association",
+      "current_runtime_identity": "REQUIRES_BRIDGE_STATE_AFTER_MANUAL_LOAD"
+    },
+    {
+      "relative_path": "default/world0.ksd",
+      "name": "AI Body Test",
+      "slot": 1,
+      "storage": "LOCAL",
+      "sha256": "235fb43631a654be7871090e6adb40998fc17a31442caff9115f2f1d5e6e2529",
+      "basis": "EXACT_BASELINE_SAVE_HASH_AND_UTF8_NAME; prior Stage10.7 runtime association",
+      "current_runtime_identity": "REQUIRES_BRIDGE_STATE_AFTER_MANUAL_LOAD"
+    }
+  ],
+  "phase_f_authorized": true,
+  "game_start_by": "USER_ONLY",
+  "runtime_validation": "WAITING_FOR_MANUAL_START",
+  "spawn_ready": false
+}
