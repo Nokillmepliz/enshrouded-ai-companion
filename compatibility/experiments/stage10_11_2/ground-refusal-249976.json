@@ -1,0 +1,150 @@
+{
+  "status": "STOPPED_GROUND_UNCONFIRMED_BEFORE_SPAWN",
+  "pid": 249976,
+  "errors": {
+    "interactive-error.json": {
+      "error": "CONTROLLER_REFUSED:ground_unconfirmed",
+      "time": 1795018880.9040554,
+      "retry": false,
+      "outcome": "CHECK_INTENT_AND_REQUESTS_DO_NOT_RETRY"
+    },
+    "wait-stopped.json": {
+      "error": "CONTROLLER_REFUSED:ground_unconfirmed",
+      "time": 1795018880.8995473,
+      "retry": false
+    }
+  },
+  "controller_responses": [
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "NEW",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "NEW",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "STOPPED",
+      "reason": "ground_unconfirmed",
+      "ok": false,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    },
+    {
+      "state": "GROUND",
+      "reason": "",
+      "ok": true,
+      "attempted": false,
+      "experimental_spawn_executed": false
+    }
+  ],
+  "probe_requests": 1,
+  "spawn_requests": 0,
+  "spawn_intent_exists": false,
+  "local_confirmation_exists": false,
+  "ready_window_exists": false,
+  "latch_unused": true,
+  "preserved_history_files": 45,
+  "spawn_ready": false,
+  "evidence_hashes": {
+    "095433fbbb4845fabc57686417318d5d-request.json": "33025d4e01d4a648fe65fb8c51cba4a80cccddc6cd6d754c223fe030552c52a2",
+    "095433fbbb4845fabc57686417318d5d-response.json": "b27a82c564c90ce220e79fc700193241c82afc1a405a07ec94e29544b5214967",
+    "2011ce423e9645b89923e14b933e278f-request.json": "575dacbae6c6de473b4377243dcc58fee01440599373df3e789971470390877c",
+    "2011ce423e9645b89923e14b933e278f-response.json": "d1a51ab518fad5c2d0f7e3b7b9bae91fb9e60edbf5e35a64b18feb24357e1ba4",
+    "4464309e3ec940bb8eb38f66d33cf7f3-request.json": "edea2e816168000a1d8dcee501591d563bd79612792be745cc3f7e048f3f11d4",
+    "4464309e3ec940bb8eb38f66d33cf7f3-response.json": "b49319fba77970d57801dfe2b19fe1cc9592151daadd7bd880ff99442fd8473f",
+    "56d2f07465c54bcd806d814da13a65f7-request.json": "83adbdca32742b1b8c093bbdaeeb9f9f971c6b443222bd523e204e2d54b4ed4f",
+    "56d2f07465c54bcd806d814da13a65f7-response.json": "b582ca9d699b08b70ec7c748075b35ea36d394aa0ed0e8d2887346376d73ab17",
+    "5e954e11314544b1873190dd27fbfd59-request.json": "dbae736a8dce932c91d155faaead76ca823fa94c4d15684b7c7286f3ee53eea5",
+    "5e954e11314544b1873190dd27fbfd59-response.json": "8316cb009da46cffcc4beafcac9e5150fa909018f6ebb27b08e7b353fc5aca53",
+    "5f266747c55e45778743c3466082f6e1-request.json": "72b909efc81f84ecdcd92d9230726164c15c8b1a2ea3e172e5ddb72bf37a7e9a",
+    "5f266747c55e45778743c3466082f6e1-response.json": "a63bab56c653d409a1703e9f1254f88009b68c8e13c9e22c0e5ec3eb6b5ae619",
+    "6e8963b616ad4a4da25c7e6eec42262c-request.json": "d99c6227c8e53356b7ab19192818a393308606411f5f6c92595ffa26c77f6710",
+    "6e8963b616ad4a4da25c7e6eec42262c-response.json": "a79d25ada061e7838789bcd0d4e94a15950aa1290e905a26a1c962b7fba77fd5",
+    "7035009f28f049a28c6144c0af736ddc-request.json": "39f2a8e541fb514c7aad1f6aa4c8e6939bae17fa10217d5434e41a25e95ca0bb",
+    "7035009f28f049a28c6144c0af736ddc-response.json": "5908d44f1feb80fb5b7bafa7a43b2ef9fe1d643daa6368bf75bbdddf513cca62",
+    "90d7207c0bf7483ba1baddb7c5fb6eb3-request.json": "0254c4bcc537ab91aa12bba7beca311b394e511eb19bb49f26c4e80a4ed95c63",
+    "90d7207c0bf7483ba1baddb7c5fb6eb3-response.json": "5bfe00b0ad0715335210d57bf3f8068ea6cf1d48e5f6e8ba2b141ceb28942815",
+    "964900d15a264de3bba7b3f9e1938918-request.json": "bd360b5a880174daedf000161231cedb9724d5146142986e1ad2cdd91910321c",
+    "964900d15a264de3bba7b3f9e1938918-response.json": "e75cb84528bde7fb9fa632d73ccee25e9e1fb177c7351c5cc652722cd5544489",
+    "a308ec3f30eb49d4937755cd69262b70-request.json": "c2af5c36e0f0bd01926171cdfc13656fc6885d7c0cfc368b7e09ae996498fbb2",
+    "a308ec3f30eb49d4937755cd69262b70-response.json": "79968e924284c82af752467e1a3f47c0f77f2e91ac8fbe593989229b3cb624c5",
+    "d1d38e07df784b5497897f6db2863ab1-request.json": "1fb1badd3e7e0c5e2a63eb7f742c424f1a5a110203154bf21008a0a5272ad389",
+    "d1d38e07df784b5497897f6db2863ab1-response.json": "8e6e24b34c76ce62e3d80f821e2e1b3a32e3f360ad25519e6436b9fb5f21627d",
+    "e98c03803b474a6d87bc42edda2db6b3-request.json": "20e6b67c7b3809fbe16526feb4fa678fd075b9577858789c55d1e871020f7262",
+    "e98c03803b474a6d87bc42edda2db6b3-response.json": "bfe02867b0388fea8b4e8dfe670766c4856236a376c25346152afb782302422c",
+    "interactive-error.json": "8cc058bd435abce6efd3f143b237b958c35194aa6b896e6ed587808a2cab53f8",
+    "interactive-started.json": "a5fe9a13a2d566868528788494e443186ba077796e77fc6bd66ca53b97edcdd5",
+    "probe.json": "e857e62ee7b7b79ff301034479f89e832167cf1bfb5f5da29bc63456b338069a",
+    "wait-stopped.json": "0e0799e983a6acfeb736ca75570cd6c962979c1f0f4874866dcfb19a11024f25"
+  }
+}

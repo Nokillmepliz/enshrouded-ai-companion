@@ -1,0 +1,34 @@
+{
+  "status": "LOCAL_CONTEXT_PASS_READY_FOR_USER_CLI",
+  "context": {
+    "pid": 249976,
+    "character": {
+      "storage": "local",
+      "slot": 1,
+      "name": "Body Test"
+    },
+    "world": {
+      "status": "running",
+      "kind": "server",
+      "slot": 1,
+      "name": "AI Body Test"
+    },
+    "player": 1
+  },
+  "new_session": true,
+  "controller": "NEW",
+  "latch": "UNUSED",
+  "prepare_executed": false,
+  "interactive_cli_executed": false,
+  "spawn_executed": false,
+  "spawn_ready": false,
+  "health": {
+    "value": 100,
+    "max": 100,
+    "source": "attributes"
+  },
+  "evidence_hashes": {
+    "bridge-diagnostic.json": "946aa0883305911f4b829b98666ba3b5b16e87212e96314a05eae7cb54d3231f",
+    "status.txt": "73959921ad9cd821ce716c63fdfed196619d28ab181036d30c79424d2a9bed06"
+  }
+}
