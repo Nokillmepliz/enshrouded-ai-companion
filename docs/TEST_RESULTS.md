@@ -1,5 +1,37 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — завершение offline Phase D
+
+- Полный Python suite: **685 testsRun / 684 PASS / 1 прежний skip / 0 failures**,
+  12.448s, exit0. Лог локально: `runtime/stage10_10_1_phase_d/full-tests.log`.
+  При чтении общей обёрткой обнаружена смешанная кодировка вывода одного дочернего
+  процесса Windows; suite завершился успешно, его итог прочитан отдельно. Это
+  ошибка чтения лога, не скрытый failed test. Compileall затем выполнен отдельно.
+- Новые40 tests: backup4 + integrated36. Проверяются partial copy/no resume,
+  acceptance/source/backup integrity, patch GUID/npc collisions, source alias
+  mutation, typed UInt32 в userdata, integer precision, changed schema/graph/
+  skeleton/visual refs, API отказ, повторный запуск, duplicate/truncated/stale frames,
+  provenance/profile binding, wrong LOCAL/world/nonce/session, forbidden commands,
+  installed/receipt mismatch, unknown shadow cleanup refusal и writer state freshness.
+- Lua syntax **19/19 PASS**, включая generated patch и binding; compileall PASS.
+  Bootstrap fixture проверил реальные три регистрации observer. Полный emitter
+  прошёл roundtrip строгого parser; mocked requests не подключались к игре.
+- Дополнительно локальный decoded-source fixture с настоящими ранее полученными
+  JSON-значениями hunter_assistant: **82 components, 63 dependencies, 18 preset refs,
+  102 joints**, patch run PASS,42 frames. Resource API и clone здесь были Lua fixtures;
+  это не выполнение EML DLL/serializer и не доказательство runtime совместимости.
+- Реальный read-only preflight:137/137 game,23/23 LOCAL без изменений;16 install
+  destinations свободны. Новый backup27/27 и старый209/209, карантины81/81+31/31 PASS.
+  Реальный package16/16 hashes PASS; rollback dry-run16 операций PASS на project
+  fixture, без удаления. Настоящего install receipt ещё нет.
+- Upstream content fingerprint mirror проверен независимой fixture-строкой;
+  проверено ограничение same-size/mtime. SHA256 originals/installed обязателен
+  отдельно. Shadow fixtures прежнего suite повторно прошли; реального shadow нет.
+- Native Rust/C++ исходники не менялись: native build/tests заново не запускались.
+  Результаты прежнего Rust3/3 ниже остаются историческими. Игра/сервер/DLL не запускались.
+- Runtime writer/readback/redirection, actual Lua loading, render и spawn safety
+  остаются UNKNOWN/NOT_EXECUTED. `spawn_ready=false`.
+
 ## 2026-11-18 — post-Steam audit и проверка остаточных DAT
 
 - Полный Python suite: **645 testsRun /644 PASS /1 прежний skip /0 failures**,

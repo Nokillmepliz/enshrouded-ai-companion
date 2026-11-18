@@ -1,0 +1,12 @@
+{
+  "id": "aic_integrated_observer",
+  "name": "AI Companion integrated read-only observer",
+  "version": "0.3.0",
+  "description": "Session observations only. Build evidence is validated by the Python client.",
+  "authors": ["Enshrouded AI Companion"],
+  "emf": 46,
+  "main": "main.lua",
+  "depends": {"lua": ">=1.39"},
+  "side": "server",
+  "enabled": false
+}

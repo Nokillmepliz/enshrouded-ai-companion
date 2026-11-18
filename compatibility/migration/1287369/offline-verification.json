@@ -1,0 +1,110 @@
+{
+  "format": "aic_phase_d_verification_v1",
+  "preflight": {
+    "status": "PREINSTALL_PASS",
+    "targets_absent": 16,
+    "spawn_ready": false
+  },
+  "real_game_files_unchanged": 137,
+  "local_saves_unchanged": 23,
+  "clean_backup_payload_verified": 27,
+  "prior_backup_and_quarantines": "PASS",
+  "prior_backup_payload_verified": 209,
+  "package_files_verified": 16,
+  "plan_sha256": "82db6fe28bfff96a6580d7a01cd497ad595baf68fe3098312b95181d27ba9463",
+  "rollback_scope": "PROJECT_FIXTURE_16_FILES_NO_RUNTIME_SHADOW",
+  "rollback": {
+    "status": "ROLLBACK_DRY_RUN_PASS",
+    "executed": false,
+    "operations": [
+      {
+        "path": "emf/config/aic_integrated_observer.ini",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "5a777c0a88c57bc06c92179427d2c97f2cf8fe63c8069c04a6f3cced36c1a622"
+      },
+      {
+        "path": "emf/mods/aic_integrated_observer/README.md",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "75b2ca3e2006078d8ff112002c00f53476aae6a5014bf12c8d26f80809978861"
+      },
+      {
+        "path": "emf/mods/aic_integrated_observer/binding.lua",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "2f16462263cb513a9343127c5c72a35e75f621b1e988743f0498ce2a3e9d0c24"
+      },
+      {
+        "path": "emf/mods/aic_integrated_observer/main.lua",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "f9a5c2872ebf56db141dfa7005c7808d2fe14837c6fbbf2f84b33991603f64ef"
+      },
+      {
+        "path": "emf/mods/aic_integrated_observer/mod.json",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "575edac78c072b386da85fdad9bcb2b7b0058909d1164c5e7edb54aca99a5016"
+      },
+      {
+        "path": "mods/aic_eml_humanoid/README.md",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "ecacce884bf94ae1453002cd6f29f216b657180017803422385bc0c5ce3579af"
+      },
+      {
+        "path": "mods/aic_eml_humanoid/src/mod.lua",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "4024338430fba85fee654e94462458eabf97141f3bc5b4e36babfa17dc868919"
+      },
+      {
+        "path": "mods/aic_eml_humanoid/mod.json",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "5a46748017a7751521e9633b2b3ced2a567326b1e5dcc022194dda16f9d96415"
+      },
+      {
+        "path": "emf/config/lua.ini",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "4c5ab48c0d1f3e1fc0465c0bc7b8d5745c9ed5fe684b7a0bbfa247be71a4b7ff"
+      },
+      {
+        "path": "emf/emf_core.ini",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "4544b18641dcc4ffa65312088439cf4181eef09f2ebd30b1b21d213ba3794c9f"
+      },
+      {
+        "path": "emf/known_tools.txt",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "480cd3d7fca96e115e82496f6e33089ccc70ca34105cc16ab64d90949cf660d0"
+      },
+      {
+        "path": "emf/mods/lua/mod.json",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27"
+      },
+      {
+        "path": "emf/mods/lua/lua.dll",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4"
+      },
+      {
+        "path": "emf/emf_content.dll",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691"
+      },
+      {
+        "path": "emf/emf_core.dll",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763"
+      },
+      {
+        "path": "dinput8.dll",
+        "action": "REMOVE_ONLY_IF_INSTALLED_HASH_MATCHES",
+        "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5"
+      }
+    ],
+    "resource_restore": false,
+    "save_restore": false,
+    "unknown_files_removed": false,
+    "spawn_ready": false
+  },
+  "real_install_receipt": "NOT_CREATED_INSTALLATION_NOT_EXECUTED",
+  "runtime_status": "NOT_EXECUTED",
+  "installation_executed": false,
+  "spawn_ready": false
+}

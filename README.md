@@ -1,6 +1,16 @@
 # enshrouded-ai-companion
 
-**Stage10.10.1 post-Steam Phase C: `CLEAN_BASELINE_PARTIAL`.**
+**Stage10.10.1 offline Phase D: `READY_FOR_PHASE_E_APPROVAL`.**
+Пользователь принял `CLEAN_BASELINE_PARTIAL`. Новый verified backup27/27 создан:
+260600882 bytes с metadata. Patch0.5.0, evidencev8, observer0.3.0, read-only Bridge,
+профиль1287369 и точный пакет16 файлов готовы. Финальный preflight137 game/23 LOCAL
+PASS; rollback dry-run на project fixture PASS. Python684 PASS/1skip; Lua19/19.
+Установка пока не разрешена и не выполнена; runtime NOT_EXECUTED, spawn_ready=false.
+[Отчёт и план Phase E](docs/STAGE10_10_1_PHASE_D_REPORT.md),
+[exact manifest](compatibility/migration/1287369/exact-install-manifest.json),
+[будущая Phase F](docs/STAGE10_10_1_LOAD_ONLY_PLAN.md).
+
+**История: Stage10.10.1 post-Steam Phase C: `CLEAN_BASELINE_PARTIAL`.**
 Steam Verify завершён: KFC восстановлен, из resources удалён лишний хвост4096 bytes.
 61/61 штатный файл совпал с локальным depot manifest; его подпись не подтверждена.
 KFC55 containers; старый clone GUID/npcId отсутствует,12269 templates проверены.

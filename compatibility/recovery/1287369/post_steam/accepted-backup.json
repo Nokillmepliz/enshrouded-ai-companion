@@ -1,0 +1,24 @@
+{
+  "format": "aic_clean_backup_result_v1",
+  "backup_path": "C:\\Enshrouded-ai-companion\\runtime\\backups\\stage10-10-1-clean-20261118",
+  "manifest_sha256": "d671fd038634433b3400682e0b0f7e513a854111b3ca96e123e76b1d1e59250a",
+  "files": 27,
+  "payload_bytes": 260563026,
+  "total_bytes": 260600882,
+  "acceptance": {
+    "accepted": true,
+    "accepted_utc": "2026-11-18T11:52:00.885498+00:00",
+    "baseline_sha256": "aeb28660e7a2d69cbbd42248fe25f900201274c5dcdabb37456926554d62e58d",
+    "audit_sha256": "8295655cbaa17a109b3cd4c3b0620db1f80d29167378e6237d96875873a8de30",
+    "formal_verdict": "CLEAN_BASELINE_PARTIAL",
+    "independent_depot_hashes": false,
+    "scope": "USER_APPROVED_LIMITED_BASELINE_BACKUP_AND_OFFLINE_PHASE_D",
+    "installation_authorized": false,
+    "spawn_ready": false
+  },
+  "history_unchanged": true,
+  "game_unchanged": 137,
+  "local_unchanged": 23,
+  "installation_executed": false,
+  "spawn_ready": false
+}

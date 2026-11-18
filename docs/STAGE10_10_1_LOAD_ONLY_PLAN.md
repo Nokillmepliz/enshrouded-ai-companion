@@ -1,14 +1,16 @@
 # Будущая Phase F — load-only, без NPC
 
 Этот сценарий подготовлен офлайн. Phase E/F не разрешены и не выполнялись.
-Конкретные observer/Bridge команды будут зафиксированы после завершения Phase D;
-несуществующий runtime API или готовый observer здесь не предполагаются.
+Офлайн-Phase D завершена: [пакет и hashes](STAGE10_10_1_PHASE_D_REPORT.md).
+Следующие команды предназначены только для отдельно разрешённой Phase F после
+успешной Phase E и ручного запуска пользователем; сейчас их не выполнять.
 
 1. Принятый clean baseline, verified clean backup, exact install manifest и новый
    rollback dry-run обязательны до отдельного согласования установки. Проверить
    Steam/internal build, absence legacy loaders/mods/configs и один content owner.
 2. После разрешённой установки проверить receipt и каждый destination SHA, создать
-   новый run identity. Legacy receipt1273043/patch0.4 не использовать.
+   deployment run identity из проверенного пакета. Для каждого запуска фиксируется
+   также новый process/session token и окно времени; receipt1273043/patch0.4 не использовать.
 3. До запуска снять original EXE/KFC/resources/DAT identities/SHA/link count и LOCAL
    inventory. Проверить, что оригиналы ещё не имеют неизвестных hardlinks и `.bak`
    не может подменить выбранный clean source. Включить только patch/readonly observer.
@@ -39,3 +41,42 @@
 
 Не выполнять spawn/despawn, faction/inventory/entity mutations. Даже при успешном
 load-only: `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+
+## Подготовленные команды
+
+Из `C:\Enshrouded-ai-companion`, только после разрешения Phase F:
+
+```powershell
+.\.tools\python\python.exe scripts/integrated_observe.py status --package dist/stage10_10_1_phase_d_20261118 --game 'D:\SteamLibrary\steamapps\common\Enshrouded' --receipt '<новый Phase E receipt.json>' --receipt-sha256 '<SHA из отчёта Phase E>' --live-read-only
+```
+
+Для build evidence заменить `status` на `inspect`, затем `compare`. Placeholder
+receipt обязателен: настоящий файл появится только после Phase E. Клиент проверяет
+package, pinned plan/binding, receipt и installed hashes до подключения. Доступны
+только три перечисленные команды; произвольный console/spawn не поддерживается.
+Не перенаправлять вывод в game или saves. Private session/run в журнале не публиковать.
+
+`ok=true` здесь означает принятую read-only команду и проверенные session/build
+observations. Итоговый evaluator по умолчанию возвращает LOAD_ONLY_UNCONFIRMED:
+writer/shadow/readback/redirect нужно независимо приложить как `{status,source}`.
+Нельзя заполнять эти gates значением PASS только по ответу observer.
+
+До ручного запуска сохранить original snapshot через
+`companion.shadow_integrity.capture_originals`, current LOCAL inventory и
+`companion.integrated_writer.content_fingerprint(game)` после installed hash checks.
+Зафиксировать время до запуска, затем actual process start и session token.
+После загрузки `validate_state` проверяет content state в этом свежем временном окне.
+Cached evidence прежнего запуска не подтверждает свежую writer execution.
+
+Фактический finalized shadow исследовать тем же pinned read-only KFC Inspector:
+clone/source lookup и component fields, resource containers/contents, dependency
+GUID/type, collision/registration и неизменность source. Ожидаемые shadow hashes
+утвердить на основе этого readback, не автоматически брать из неизвестной папки.
+`audit_shadow(..., base_dat_count=55)` проверяет EXE/55 DAT links, private outputs,
+девять сохранённых root DAT и оригиналы. Свежий `file_opens.log` должен отдельно
+подтвердить реальные открытия redirected KFC/resources/DAT текущим процессом.
+
+После закрытия игры повторить installed/original/LOCAL inventory. Новые save writes
+самой игры документируются; резервная копия автоматически не восстанавливается.
+Rollback после runtime shadow требует нового attributed artifact manifest и
+отдельного разрешения. Никакое состояние load-only не разрешает spawn.
