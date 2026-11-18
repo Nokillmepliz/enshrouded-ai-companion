@@ -1,5 +1,39 @@
 # Stage10.10.3 — Bridge Access & Runtime Validation
 
+## Текущий результат: runtime PASS, ожидается ручное закрытие
+
+2026-11-18, запуск пользователем в 17:15:49 MSK, PID 202212.
+Адресная диагностика вне sandbox через штатное согласование прошла успешно:
+SID клиента и игры совпадают, integrity достаточен, security descriptor pipe прочитан.
+Права и настройки безопасности не менялись. Bridge hello/state PASS:
+EMF 0.6.18 / API 46 / protocol 1 / build 1287369.
+
+LOCAL Body Test slot 1 / AI Body Test slot 1 подтверждены Bridge до и после
+observer compare. Compare и завершающий status прошли nonce, binding/profile,
+session identity и read-only проверки; evidence v8 содержит все 40 проверенных полей.
+Активны только Lua 1.39.0 и observer 0.3.0. Новых команд мутации не выполнялось.
+
+Loader сообщает повторное использование успешного cache 0.5.1 от 13:46:15 UTC.
+State побайтно совпадает с preflight: прежний fingerprint, code 0, unloaded=true,
+нет warnings/errors. Это повторное использование сборки, а не свежий writer run.
+Ранее выполненный независимый readback не повторялся; его применимость окончательно
+проверим полным post-close контролем shadow. Свежий file-open log этой сессии
+подтверждает 66 успешных перенаправленных открытий KFC/resources/DAT для чтения;
+фактические ReadFile bytes и отображение модели этим не доказаны.
+
+В разовом офлайн-сводном вызове допущена опечатка имени `enshrouded.kfc.resources`.
+Она вызвала INCOMPLETE; после сверки с существующим контрактом использовано правильное
+`enshrouded.kfc_resources` на том же сохранённом логе: PASS 66/66. Валидатор не ослаблялся,
+дополнительных обращений к Bridge или игровых действий для исправления не выполнялось.
+
+[Публичный checkpoint](../compatibility/updates/1287369/0.5.1/stage10_10_3/load-only/runtime-checkpoint.json)
+содержит хеши private evidence без SID, run token и сырых логов.
+Итог пока `LOAD_ONLY_UNCONFIRMED_UNTIL_POST_CLOSE_AUDIT`:
+необходимо ручное закрытие и post-close audit v2 оригиналов, 16 installed files,
+77 shadow files и LOCAL saves относительно текущего preflight.
+`spawn_ready=false`, `runtime_render=UNKNOWN`. Игра запущена пользователем;
+установка, ACL, cache, shadow и сохранения агентом не изменялись, rollback не выполнялся.
+
 ## Продолжение: fresh preflight 2026-11-18,14:12:27 UTC
 
 Пользователь отдельно разрешил завершение load-only и адресную read-only диагностику
