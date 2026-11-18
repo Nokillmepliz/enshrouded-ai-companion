@@ -458,3 +458,11 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 - Фактическая read-only подготовка: закрытая игра, installed16 PASS, current235 game/23 LOCAL точно совпали с baseline Stage10.10.3. Backup plan23/637447bytes проверен без копирования. Пакет не установлен, живой Spawn API не вызывался.
 - Mocks не подтверждают engine ABI, реальное появление, рендер, faction/поведение или cleanup. Все spawn readiness flags остаются false; RUNTIME_RENDER_CONFIRMED=UNKNOWN.
 - [Отчёт](STAGE10_11_REPORT.md), [machine results](../compatibility/experiments/stage10_11/tests.json). Private log: runtime/stage10_11/full-tests.log.
+
+## 2026-11-18 — Stage 10.11: установка экспериментального модуля
+
+- Новый полный suite: **833 testsRun / 832 PASS / 1 skip / 0 failures**,15.986s,exit0. Девять новых additive-install tests проверяют authorization, exact paths/collisions, changed source, live guard, partial-copy failure без rollback и removal dry-run refusal при изменении файла.
+- Прежний skip directory-symlink WinError1314; права не менялись. Py_compile новых installer/preflight файлов и git diff check PASS.
+- Фактическая разрешённая установка: verified backup23/23 (637447bytes), new7/existing16 PASS, originals67/shadow77/LOCAL23 без изменений. Полный game baseline235 сохранился, добавлены ровно7 файлов. Receipt и removal dry-run7 PASS; удаления не выполнялись.
+- Отдельный preflight14:52:38UTC READY_FOR_MANUAL_START: installed23/backup23 и полный post-install baseline242 game/23 LOCAL совпали. Latch UNUSED. Игровой runtime нового модуля и spawn не выполнялись.
+- [Отчёт](STAGE10_11_INSTALLATION.md), [тесты](../compatibility/experiments/stage10_11/install-tests.json). Private log runtime/stage10_11/install-tests.log.

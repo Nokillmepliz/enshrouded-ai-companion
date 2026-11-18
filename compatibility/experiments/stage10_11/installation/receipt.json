@@ -1,0 +1,144 @@
+{
+  "format": "aic_experiment_receipt_v1",
+  "status": "INSTALLED",
+  "manifest_sha256": "6ecc792b6c320dc19f0fa201259c573efd142c4c37a579eab07376dc40b9e1e3",
+  "entries": [
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "source": "payload/emf/mods/aic_first_spawn/mod.json",
+      "sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38",
+      "bytes": 346,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "source": "payload/emf/mods/aic_first_spawn/main.lua",
+      "sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29",
+      "bytes": 4176,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "source": "payload/emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb",
+      "bytes": 5213,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "source": "payload/emf/mods/aic_first_spawn/README.md",
+      "sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52",
+      "bytes": 2988,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/binding.lua",
+      "source": "payload/emf/mods/aic_first_spawn/binding.lua",
+      "sha256": "82cb5a42f3b1aa6c22e6fb5a695502bf5f205d4a24a6186a041cf698c5b80c9e",
+      "bytes": 106,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/attempt.lock",
+      "source": "payload/emf/mods/aic_first_spawn/attempt.lock",
+      "sha256": "441c11a1aa076b174ca1e1f5743f7942d0ff3e4e9aab6e561207e1c17b20638e",
+      "bytes": 39,
+      "before_sha256": null
+    },
+    {
+      "path": "emf/config/aic_first_spawn.ini",
+      "source": "payload/emf/config/aic_first_spawn.ini",
+      "sha256": "6a096b8d41a6035db1c4d21d5e67182ecda80e0687074d116ee933a5d08a33cb",
+      "bytes": 28,
+      "before_sha256": null
+    }
+  ],
+  "installed_records": [
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "record": {
+        "sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38",
+        "size": 346,
+        "volume": 7969823110406842093,
+        "file_id": 4503599627374950,
+        "links": 1,
+        "mtime_ns": 1795013473508670800
+      }
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "record": {
+        "sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29",
+        "size": 4176,
+        "volume": 7969823110406842093,
+        "file_id": 5348024557506923,
+        "links": 1,
+        "mtime_ns": 1795013473655940600
+      }
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "record": {
+        "sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb",
+        "size": 5213,
+        "volume": 7969823110406842093,
+        "file_id": 16325548649222541,
+        "links": 1,
+        "mtime_ns": 1795013473802452300
+      }
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "record": {
+        "sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52",
+        "size": 2988,
+        "volume": 7969823110406842093,
+        "file_id": 5348024557507329,
+        "links": 1,
+        "mtime_ns": 1795013473948813700
+      }
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/binding.lua",
+      "record": {
+        "sha256": "82cb5a42f3b1aa6c22e6fb5a695502bf5f205d4a24a6186a041cf698c5b80c9e",
+        "size": 106,
+        "volume": 7969823110406842093,
+        "file_id": 7318349394482525,
+        "links": 1,
+        "mtime_ns": 1795013474087431500
+      }
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/attempt.lock",
+      "record": {
+        "sha256": "441c11a1aa076b174ca1e1f5743f7942d0ff3e4e9aab6e561207e1c17b20638e",
+        "size": 39,
+        "volume": 7969823110406842093,
+        "file_id": 5910974510929441,
+        "links": 1,
+        "mtime_ns": 1795013474229031900
+      }
+    },
+    {
+      "path": "emf/config/aic_first_spawn.ini",
+      "record": {
+        "sha256": "6a096b8d41a6035db1c4d21d5e67182ecda80e0687074d116ee933a5d08a33cb",
+        "size": 28,
+        "volume": 7969823110406842093,
+        "file_id": 2251799813692392,
+        "links": 1,
+        "mtime_ns": 1795013474380448900
+      }
+    }
+  ],
+  "backup_path": "C:\\Enshrouded-ai-companion\\runtime\\backups\\stage10_11-local-before-first-spawn",
+  "backup_manifest_sha256": "c88339083683e9f6ce36aa2ab2fceb4bebcf9bdfe90926630e52422463011041",
+  "created_utc": "2026-11-18T14:51:46.111439+00:00",
+  "private_evidence": "C:\\Enshrouded-ai-companion\\runtime\\stage10_11\\install\\20261118T145106436795Z",
+  "baseline_inventory_sha256": "2fe87275d6c666bdf8aae2ba810cc606e2a52e1daeb4d95ccbf19d86f60a4987",
+  "post_install_inventory_sha256": "5f200502df076c1d2c81d126b4f6db5d10e9010f8f32cd682eb09b8117c1175a",
+  "installation_authorized": true,
+  "spawn_authorized": false,
+  "experimental_spawn_executed": false
+}

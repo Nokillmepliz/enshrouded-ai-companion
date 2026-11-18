@@ -1,5 +1,10 @@
 # Stage 10.11 — First Humanoid Spawn: офлайн-подготовка
 
+**Обновление после отдельного разрешения:** aic_first_spawn 0.1.0 установлен,
+verified backup23 и installed7+existing16 проверены; preflight READY_FOR_MANUAL_START.
+См. [отчёт об установке](STAGE10_11_INSTALLATION.md). Spawn по-прежнему не разрешён.
+Ниже сохранены исходный офлайн-план и его результаты.
+
 2026-11-18. Исходный commit `3337a650f59cd1921e9ca95a3b8ebd5100480ce2`.
 **READY_FOR_EXPERIMENTAL_SPAWN_APPROVAL** — готов пакет и план ограниченного
 эксперимента. Это не разрешение на установку или spawn и не production readiness.

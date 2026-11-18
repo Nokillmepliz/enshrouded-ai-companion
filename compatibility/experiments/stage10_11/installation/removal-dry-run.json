@@ -1,0 +1,25 @@
+{
+  "status": "REMOVAL_DRY_RUN_PASS",
+  "files": [
+    "emf/config/aic_first_spawn.ini",
+    "emf/mods/aic_first_spawn/README.md",
+    "emf/mods/aic_first_spawn/attempt.lock",
+    "emf/mods/aic_first_spawn/binding.lua",
+    "emf/mods/aic_first_spawn/controller.lua",
+    "emf/mods/aic_first_spawn/main.lua",
+    "emf/mods/aic_first_spawn/mod.json"
+  ],
+  "count": 7,
+  "checked_utc": "2026-11-18T14:51:46.236326+00:00",
+  "executed": false,
+  "scope": "UNUSED_LATCH_INSTALL_STATE_ONLY; re-review after runtime changes",
+  "excludes": [
+    "originals",
+    "existing16",
+    "shadow",
+    "cache",
+    "LOCAL",
+    "unknown files"
+  ],
+  "deletion_requires_separate_authorization": true
+}

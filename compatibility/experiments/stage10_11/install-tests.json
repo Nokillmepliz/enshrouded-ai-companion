@@ -1,0 +1,15 @@
+{
+  "tests_run": 833,
+  "passed": 832,
+  "skipped": 1,
+  "errors": 0,
+  "failures": 0,
+  "seconds": 15.986,
+  "new_transaction_tests": 9,
+  "log_sha256": "9daca017b7c044acdbae703110d7e363dced05cecd5eca236cea023f718c0650",
+  "skip_reason": "Unchanged directory symlink privilege unavailable WinError1314",
+  "py_compile": "PASS",
+  "diff_check": "PASS",
+  "game_runtime_test": false,
+  "spawn_executed": false
+}
