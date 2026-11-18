@@ -1,5 +1,7 @@
 # Единственный content owner
 
+**Решение пользователя в Phase B (2026-11-18): EMF integrated content принят как дальнейшая архитектура при условии подтверждения integrity оригинальных и shadow resources.** Это не разрешение установки или runtime. [Результат ограниченной Phase B](STAGE10_10_1_PHASE_B_REPORT.md).
+
 Официальный latest release повторно проверен GitHub API18 ноября: [EMF v0.6.18](https://github.com/matenm/emf-enshrouded/releases/tag/v0.6.18), опубликован17 ноября22:47:55Z. Исследуется commit`fa6efdac2d93dd1d8ac6fe0e2a658140aec35241`. EML latest — [v0.2.0](https://github.com/Brabb3l/kfc-parser/releases/tag/v0.2.0), commit`16708594d686b030d909f2d835b199d879ea9ad8`. DLL в этой фазе не запускались.
 
 | Критерий | Standalone EML0.2.0 | EMF integrated content |

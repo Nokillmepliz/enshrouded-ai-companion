@@ -750,3 +750,27 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Перед публикацией проверены26 staged files: diff whitespace, локальные ссылки, manifest counts/flags, отсутствие приватного run token и Steam LastOwner; бинарники/archives/game/save contents не вошли в коммит. Окончательный suite после всех backup changes:585 PASS/1skip.
 - Recovery backup теперь содержит отдельный plan.json со всеми DAT hashes, приватный receipt и manifest с точными backup paths; это реализация для будущей Phase B, реальные backups не создавались. Обновление PROGRESS фиксирует состоявшуюся публикацию, не разрешение очистки.
 - Работа остановлена перед Phase B. Full cleanup остаётся BLOCKED_BY_UNKNOWN_ARTIFACTS; установка/игровой тест/spawn не готовы. Следующее согласование — ограниченный backup419971833 bytes и карантин только81 атрибутированного файла, с сохранением всех51 MANUAL_REVIEW на месте; либо дальнейшая атрибуция до этих действий.
+
+## 2026-11-18 — Stage10.10.1 limited Phase B: verified backup
+
+- Получено отдельное разрешение пользователя: backup около420MB, карантин только81 reviewed файла, остальные51 без изменений; без Steam Verify/игры/server/новых модов/старого rollback. Неполный DAT backup принят; integrated content принят как будущая архитектура с integrity gates. Phase C не разрешена.
+- Исходный HEAD21d7860, working tree был чистым. Reviewed manifest совпал побайтно с commit; SHA256 `2d699685c12cb39edc69e924c6a887b4f22dacb218f10ab271713610e3097e4d`. Fresh inventory249 game/23 LOCAL полностью совпал с Phase A по SHA/size/mtime. Game/server=0; Steam manifest StateFlags4, download/stage byte counters завершены.
+- Штатным backup CLI создан `C:\Enshrouded-ai-companion\runtime\backups\stage10-10-1-phase-b-20261118T1035Z`. Проверены208 payload files + приватный receipt:209/209 SHA/size; отдельный verify-backup тоже BACKUP_VERIFIED. Вместе с plan.json/manifest.json:211 файлов,420406619 bytes; payload419971833 bytes. Все64 DAT представлены hashes в plan, их тела не копировались. Полный mixed-state restore не обещается.
+- Targeted recovery/migration tests заново:61 PASS. Ресурсы игры и LOCAL только читались, не изменялись. Следующий разрешённый шаг — штатный карантин81 после повторного preflight, затем fresh post-inventory.
+
+## 2026-11-18 — Stage10.10.1 limited Phase B: карантин выполнен
+
+- Штатный quarantine CLI завершился успешно: `quarantined=81`. Destination: `C:\Enshrouded-ai-companion\runtime\quarantine\stage10-10-1-phase-b-20261118T1035Z`; journal содержит81 завершённую запись QUARANTINED после81 COPIED_VERIFIED_SOURCE_PRESENT.
+- Перемещались только строки QUARANTINE reviewed manifest, через проверенную копию и per-file unlink. Директории целиком, неизвестные файлы, DAT/KFC/resources и LOCAL не удалялись. Содержимое карантина сохраняется. Старый rollback не применялся; новых модов нет.
+- Следующий шаг — полный post-inventory, независимая проверка всех81 копий/журнала и сохранности остальных файлов. Полная чистота baseline пока не заявляется.
+
+## 2026-11-18 — Stage10.10.1 limited Phase B: post-audit и остаточные файлы
+
+- Fresh post-inventory:249→168 game files; исчезли ровно81 reviewed пути, added=0, changed=0. Все168 оставшихся файлов совпали по SHA/size/mtime. Все51 MANUAL_REVIEW,64 DAT,23 LOCAL без изменений; EXE/KFC/resources/.bak сохранены. Game/server после операции=0.
+- Post-audit повторно проверил209 backup payload files и81 карантинную копию по SHA/size. Журнал162 записи полностью совпал с планом; лишних payload files нет. Backup manifest SHA `67a542553c82328bcdd589a1f4067c034bf0315fa8e375dd5a89b341c177333b`, quarantine journal SHA `27a3a7b79a590e692c14584d1106a3a4f20112e2f26cad005a32abb1e52237d9`. Карантин не очищался, historical receipt неизменен.
+- По всем51 остаточным файлам создан sanitized review. KFC64 containers/.bak55 при одном build: integrated choose_base выбрал бы .bak; чистота обоих не доказана. Пустые DAT055–063 остаются provenance blocker. Их содержимое/индексы не изменялись; повторное декодирование64 resources не выполнялось, прежний clone finding относится к hash-неизменившейся базе.
+- body.lua byte-for-byte совпал с историческим026cd8a; он всё равно оставлен согласно разрешённому scope.23 configs включают aic_body/Lua enabled1 и debug bridge1/verbose1;4 cache-файла, legacy catalog69 строк и exportv4 нельзя слепо наследовать. Без loaders/main/mod.json старый adapter не запускается.
+- У NVIDIA Aftermath, DLSS и Valve steam_api64 Authenticode Valid; это vendor evidence, не доказательство Steam depot hashes. Settings JSON и7 исторических diagnostic files не дают основания для дополнительного удаления. Все51 сохранили original action и содержимое.
+- Добавлены read-only post-audit helper,11 тестов, подробный Phase B report и residual review; README/TEST_RESULTS обновлены. Полный Python:597 testsRun,596 PASS,1 прежний skip,0 failures; compileall/diff checks PASS. Lua/Rust/C++ не менялись и повторно не запускались.
+- Verdict LIMITED_PHASE_B_COMPLETED. cleanup_executed=true только для81; clean_baseline_confirmed=false, installation_ready=false, phase_c_executed=false, runtime NOT_EXECUTED, render UNKNOWN, spawn_ready=false. Integrated content принят пользователем условно на дальнейший этап; новых модов нет.
+- Следующий шаг — публикация отчёта/metadata/helper/tests и остановка. Phase C требует отдельного согласования; Steam Verify/игра/server/install/старый rollback/restore не выполнялись. Backup/quarantine остаются в ignored runtime и не публикуются.

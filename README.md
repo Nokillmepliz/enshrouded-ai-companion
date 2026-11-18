@@ -1,5 +1,14 @@
 # enshrouded-ai-companion
 
+**Stage10.10.1 limited Phase B: `LIMITED_PHASE_B_COMPLETED`.** Создан и проверен
+backup420406619 bytes; в карантин перенесён только81 разрешённый файл.
+Оставшиеся168 игровых файлов, все51 MANUAL_REVIEW,64 DAT и23 LOCAL-файла неизменны.
+Старые известные loaders убраны; чистый baseline пока не подтверждён.
+Integrated EMF content принят как будущая архитектура с integrity gates.
+Phase C/Steam Verify/установка/runtime не выполнялись; `spawn_ready=false`.
+Тесты:596 PASS/1skip. [Отчёт Phase B](docs/STAGE10_10_1_PHASE_B_REPORT.md),
+[разбор оставшихся51 файлов](docs/STAGE10_10_1_RESIDUAL_FILES_REVIEW.md).
+
 **Stage10.10.1 Phase A: `BLOCKED_BY_UNKNOWN_ARTIFACTS`, `PARTIAL_UPSTREAM_REUSE`.**
 Подготовлены точный recovery manifest272 файлов, безопасные backup/quarantine
 инструменты и offline observer/evidence libraries. Карантин81 подтверждённого файла

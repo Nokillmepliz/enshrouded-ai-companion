@@ -1,5 +1,15 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Stage10.10.1 limited Phase B
+
+- Полный suite: **597 testsRun /596 PASS /1 skipped /0 failures**. Новые post-audit11 PASS; отдельно recovery/migration61 PASS. Skip — прежняя Windows directory-symlink privilege проверка, junction проходит.
+- Новые проверки post-audit: запрещены удаление другого файла при том же count, дополнительные файлы, изменение DAT/SHA/mtime/LOCAL, mismatch reviewed plan и неполный карантин; KFC header parser проверяет bounds и фактический container count.
+- Реальный backup:209/209 payload SHA/size PASS, затем повторный verify-backup и post-audit PASS. С plan/manifest211 файлов,420406619 bytes. Тела DAT не сохранялись.
+- Реальный карантин:81/81 копия совпала с manifest;162 journal records в точной последовательности, без лишних payload files. Исходные пути этих81 отсутствуют.
+- Fresh post-inventory:249→168 game files, ровно81 разрешённое удаление,0 added/changed;51/51 MANUAL_REVIEW,64/64 DAT,23/23 LOCAL unchanged по paths/SHA/size/mtime. KFC/resources/.bak/EXE и старый receipt неизменны.
+- Из трёх оставшихся root DLL все3 Authenticode Valid (NVIDIA/Valve); это не официальная depot hash verification.
+- Python compileall и diff check PASS. Lua/Rust/C++ не менялись и повторно не запускались. Runtime/Steam Verify/install/spawn не выполнялись. [Полный отчёт](STAGE10_10_1_PHASE_B_REPORT.md).
+
 ## 2026-11-18 — Stage10.10.1 Phase A
 
 - Полный suite: **586 testsRun /585 PASS /1 skipped /0 failures**. Новые61 PASS; regression524 PASS/1skip.
