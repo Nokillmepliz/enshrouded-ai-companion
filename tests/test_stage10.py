@@ -314,6 +314,10 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.game, self.saves = self.root / "game", self.root / "saves"
         self.game.mkdir(); self.saves.mkdir()
+        (self.game / "enshrouded.exe").write_bytes(b"fixture-old-exe")
+        pin = patch("companion.stage10.EXPECTED_GAME_SHA256", sha256(self.game / "enshrouded.exe"))
+        pin.start()
+        self.addCleanup(pin.stop)
         (self.game / "enshrouded.kfc").write_bytes(b"kfc")
         (self.game / "enshrouded.kfc_resources").write_bytes(b"resources")
         (self.saves / "character0.ksd").write_bytes(b"character")
@@ -408,7 +412,7 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
             self.verified_install(self.game, self.eml, PATCH, OBSERVER, self.manifest,
                                   self.receipt, apply=True, fail_after=1, game_running=False)
         (self.game / "dbghelp.dll").write_bytes(b"foreign replacement")
-        with self.assertRaisesRegex(Stage10Error, "rollback_state_unknown"):
+        with self.assertRaisesRegex(Stage10Error, "ROLLBACK_BLOCKED_FILE_MISMATCH"):
             rollback_added_files(self.game, self.receipt, apply=True, game_running=False)
 
     def test_mutation_helpers_reject_running_game(self):
@@ -428,11 +432,19 @@ class Stage10BackupInstallRollbackTests(unittest.TestCase):
         (self.game / "enshrouded_055.dat").write_bytes(b"new")
         with self.assertRaisesRegex(Stage10Error, "unknown_runtime_outputs"):
             restore_game_data(self.game, self.manifest)
-        plan = restore_game_data(self.game, self.manifest, approved_new_dat=("enshrouded_055.dat",))
+        baseline = json.loads(self.manifest.read_text(encoding="utf-8"))
+        reviewed = {"game_identity": baseline["game_identity"],
+                    "baseline_identity": baseline["baseline_identity"],
+                    "manifest_sha256": sha256(self.manifest),
+                    "targets": {name: sha256(self.game / name) for name in
+                                ("enshrouded.kfc", "enshrouded.kfc_resources",
+                                 "enshrouded.kfc.bak", "enshrouded_055.dat")}}
+        plan = restore_game_data(self.game, self.manifest, approved_new_dat=("enshrouded_055.dat",),
+                                 reviewed_state=reviewed)
         self.assertEqual(plan["mode"], "dry_run")
         result = restore_game_data(
             self.game, self.manifest, approved_new_dat=("enshrouded_055.dat",), apply=True,
-            game_running=False)
+            game_running=False, reviewed_state=reviewed)
         self.assertEqual((self.game / "enshrouded.kfc").read_bytes(), b"kfc")
         self.assertEqual((self.game / "enshrouded.kfc_resources").read_bytes(), b"resources")
         self.assertFalse((self.game / "enshrouded_055.dat").exists())

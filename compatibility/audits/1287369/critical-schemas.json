@@ -1,0 +1,3388 @@
+[
+  {
+    "qualified_name": "keen::HashKey32",
+    "hash": 3462721580,
+    "internal_hash": 979410249,
+    "kind": "struct",
+    "size": 4,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "value",
+        "offset": 0,
+        "type": "keen::uint32"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::DoNotSave",
+    "hash": 1105623274,
+    "internal_hash": 1815500590,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::ForceSave",
+    "hash": 1525443775,
+    "internal_hash": 1815500590,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::EntityId",
+    "hash": 2979268477,
+    "internal_hash": 4041799859,
+    "kind": "struct",
+    "size": 4,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "id",
+        "offset": 0,
+        "type": "keen::uint32"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::AnimationGraphResourceComponent2",
+    "hash": 3770689054,
+    "internal_hash": 4263740108,
+    "kind": "struct",
+    "size": 40,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "animationGraph",
+        "offset": 0,
+        "type": "keen::ObjectReference<keen::anim_graph::tool_graph::AnimationGraph2_0>"
+      },
+      {
+        "name": "retargetData",
+        "offset": 16,
+        "type": "keen::ObjectReference<keen::anim_graph::RetargetData>"
+      },
+      {
+        "name": "maxSnapshotPoses",
+        "offset": 32,
+        "type": "keen::sint32"
+      },
+      {
+        "name": "hasServerLogic",
+        "offset": 36,
+        "type": "keen::bool"
+      },
+      {
+        "name": "hasFootstepSyncLogic",
+        "offset": 37,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::MovementColliderConfig",
+    "hash": 2183487080,
+    "internal_hash": 3818421474,
+    "kind": "struct",
+    "size": 32,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "width",
+        "offset": 0,
+        "type": "keen::float32"
+      },
+      {
+        "name": "height",
+        "offset": 4,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxStepHeightVoxels",
+        "offset": 8,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxStepHeightProps",
+        "offset": 12,
+        "type": "keen::float32"
+      },
+      {
+        "name": "onlyCheckPathCollidersWithBundleCheck",
+        "offset": 16,
+        "type": "keen::bool"
+      },
+      {
+        "name": "enableCollideAndSlide",
+        "offset": 17,
+        "type": "keen::bool"
+      },
+      {
+        "name": "collideAndSlideMask",
+        "offset": 20,
+        "type": "keen::ecs::ColliderMask"
+      },
+      {
+        "name": "collideAndSlideStrength",
+        "offset": 24,
+        "type": "keen::float32"
+      },
+      {
+        "name": "forceLineBundleForGround",
+        "offset": 28,
+        "type": "keen::bool"
+      },
+      {
+        "name": "stairHandling",
+        "offset": 29,
+        "type": "keen::ecs::StairHandlingMode"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::CurrentTransform",
+    "hash": 41600356,
+    "internal_hash": 1855930734,
+    "kind": "struct",
+    "size": 56,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "transform",
+        "offset": 0,
+        "type": "keen::WorldTransform"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::TemplateResource",
+    "hash": 964069237,
+    "internal_hash": 99266744,
+    "kind": "struct",
+    "size": 24,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "name",
+        "offset": 0,
+        "type": "keen::string"
+      },
+      {
+        "name": "family",
+        "offset": 8,
+        "type": "keen::ecs::TemplateFamily"
+      },
+      {
+        "name": "predictEntity",
+        "offset": 9,
+        "type": "keen::bool"
+      },
+      {
+        "name": "farCulling",
+        "offset": 10,
+        "type": "keen::bool"
+      },
+      {
+        "name": "omitTransformReplication",
+        "offset": 11,
+        "type": "keen::bool"
+      },
+      {
+        "name": "proxyModelId",
+        "offset": 12,
+        "type": "keen::ecs::EntityProxyModelId"
+      },
+      {
+        "name": "components",
+        "offset": 16,
+        "type": "keen::BlobArray<keen::BlobVariant<keen::ecs::Component>>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::enemy01::CombatSetup",
+    "hash": 463501802,
+    "internal_hash": 1764642732,
+    "kind": "struct",
+    "size": 392,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "preferedDistance",
+        "offset": 0,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceVariation",
+        "offset": 4,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceEngaged",
+        "offset": 8,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceEngagedVariation",
+        "offset": 12,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceInWater",
+        "offset": 16,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceInWaterVariation",
+        "offset": 20,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferredDistanceThreshold",
+        "offset": 24,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxVerticalDistance",
+        "offset": 28,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxPlayerTargetDistance",
+        "offset": 32,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxNonPlayerTargetDistance",
+        "offset": 36,
+        "type": "keen::float32"
+      },
+      {
+        "name": "ignoreTamedAnimals",
+        "offset": 40,
+        "type": "keen::bool"
+      },
+      {
+        "name": "updateTargetNotReachableState",
+        "offset": 41,
+        "type": "keen::bool"
+      },
+      {
+        "name": "retaliateCount",
+        "offset": 42,
+        "type": "keen::uint8"
+      },
+      {
+        "name": "cooldownGroups",
+        "offset": 48,
+        "type": "keen::StaticArray<keen::enemy01::AttackCooldownGroup,8>"
+      },
+      {
+        "name": "counterAttackAfterHitReactions",
+        "offset": 240,
+        "type": "keen::ecs::HitReactionTypeMask"
+      },
+      {
+        "name": "counterAttackDuration",
+        "offset": 248,
+        "type": "keen::Time"
+      },
+      {
+        "name": "walkStartDistance",
+        "offset": 256,
+        "type": "keen::float32"
+      },
+      {
+        "name": "runStartDistance",
+        "offset": 260,
+        "type": "keen::float32"
+      },
+      {
+        "name": "runEndDistance",
+        "offset": 264,
+        "type": "keen::float32"
+      },
+      {
+        "name": "combatRotationSpeedFactor",
+        "offset": 268,
+        "type": "keen::float32"
+      },
+      {
+        "name": "combatIdleAnimation",
+        "offset": 272,
+        "type": "keen::animationgraph::StateIdReference"
+      },
+      {
+        "name": "blockRotationSettings",
+        "offset": 288,
+        "type": "keen::enemy01::BlockRotationSettings"
+      },
+      {
+        "name": "minAttackDuration",
+        "offset": 312,
+        "type": "keen::Time"
+      },
+      {
+        "name": "maxAttackDuration",
+        "offset": 320,
+        "type": "keen::Time"
+      },
+      {
+        "name": "turnConditions",
+        "offset": 328,
+        "type": "keen::enemy01::CombatTurnConditions"
+      },
+      {
+        "name": "leaningSettings",
+        "offset": 344,
+        "type": "keen::enemy01::LeaningSettings"
+      },
+      {
+        "name": "jumpMoveSettings",
+        "offset": 352,
+        "type": "keen::enemy01::CombatJumpMoveSettings"
+      },
+      {
+        "name": "attackMoveSettings",
+        "offset": 384,
+        "type": "keen::enemy01::AttackMoveSettings"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::Enemy01BehaviorState",
+    "hash": 1380481793,
+    "internal_hash": 3555560682,
+    "kind": "struct",
+    "size": 2520,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "combatSetup",
+        "offset": 0,
+        "type": "keen::enemy01::CombatSetup"
+      },
+      {
+        "name": "homeZoneSetup",
+        "offset": 392,
+        "type": "keen::enemy01::HomeZoneSetup"
+      },
+      {
+        "name": "aggroSetup",
+        "offset": 396,
+        "type": "keen::enemy01::AggroSetup"
+      },
+      {
+        "name": "combatCommitmentSetup",
+        "offset": 488,
+        "type": "keen::enemy01::CombatCommitmentSetup"
+      },
+      {
+        "name": "targetSelectionSetup",
+        "offset": 576,
+        "type": "keen::enemy01::TargetSelectionSetup"
+      },
+      {
+        "name": "callForHelpSetup",
+        "offset": 808,
+        "type": "keen::enemy01::CallForHelpSetup"
+      },
+      {
+        "name": "roamingSetup",
+        "offset": 824,
+        "type": "keen::enemy01::RoamingSetup"
+      },
+      {
+        "name": "fleeSetup",
+        "offset": 912,
+        "type": "keen::enemy01::FleeSetup"
+      },
+      {
+        "name": "blockingSetup",
+        "offset": 944,
+        "type": "keen::enemy01::BlockingSetup"
+      },
+      {
+        "name": "stunBreakSetup",
+        "offset": 1048,
+        "type": "keen::enemy01::StunBreakSetup"
+      },
+      {
+        "name": "noiseListenerSetup",
+        "offset": 1052,
+        "type": "keen::enemy01::NoiseListenerSetup"
+      },
+      {
+        "name": "steeringSetup",
+        "offset": 1084,
+        "type": "keen::enemy01::SteeringSetup"
+      },
+      {
+        "name": "prowlSetup",
+        "offset": 1104,
+        "type": "keen::enemy01::ProwlSetup"
+      },
+      {
+        "name": "flankingSetup",
+        "offset": 1168,
+        "type": "keen::enemy01::FlankingSetup"
+      },
+      {
+        "name": "dodgingSetup",
+        "offset": 1232,
+        "type": "keen::enemy01::DodgingSetup"
+      },
+      {
+        "name": "parrySetup",
+        "offset": 1352,
+        "type": "keen::enemy01::ParrySetup"
+      },
+      {
+        "name": "movementSetup",
+        "offset": 1404,
+        "type": "keen::enemy01::MovementSetup"
+      },
+      {
+        "name": "guardSetup",
+        "offset": 1432,
+        "type": "keen::enemy01::GuardSetup"
+      },
+      {
+        "name": "interactionSetup",
+        "offset": 1456,
+        "type": "keen::enemy01::InteractionSetup"
+      },
+      {
+        "name": "patrolSetup",
+        "offset": 1472,
+        "type": "keen::enemy01::PatrolSetup"
+      },
+      {
+        "name": "tauntSetup",
+        "offset": 1544,
+        "type": "keen::enemy01::TauntSetup"
+      },
+      {
+        "name": "turnSetup",
+        "offset": 1576,
+        "type": "keen::enemy01::TurnSetup"
+      },
+      {
+        "name": "searchForCoverSetup",
+        "offset": 1680,
+        "type": "keen::enemy01::SearchForCoverSetup"
+      },
+      {
+        "name": "sleepSetup",
+        "offset": 1720,
+        "type": "keen::enemy01::SleepSetup"
+      },
+      {
+        "name": "runAroundSetup",
+        "offset": 1824,
+        "type": "keen::enemy01::RunAroundSetup"
+      },
+      {
+        "name": "pathNodeSetup",
+        "offset": 1848,
+        "type": "keen::enemy01::PathNodeSetup"
+      },
+      {
+        "name": "circlingSetup",
+        "offset": 2056,
+        "type": "keen::enemy01::CirclingSetup"
+      },
+      {
+        "name": "openDoorSetup",
+        "offset": 2088,
+        "type": "keen::enemy01::OpenDoorSetup"
+      },
+      {
+        "name": "waterSetup",
+        "offset": 2089,
+        "type": "keen::enemy01::WaterSetup"
+      },
+      {
+        "name": "avoidWaterSetup",
+        "offset": 2096,
+        "type": "keen::enemy01::AvoidWaterSetup"
+      },
+      {
+        "name": "behaviorSetup",
+        "offset": 2128,
+        "type": "keen::enemy01::BehaviorSetup"
+      },
+      {
+        "name": "deathSetup",
+        "offset": 2132,
+        "type": "keen::enemy01::DeathSetup"
+      },
+      {
+        "name": "animationGraphSetup",
+        "offset": 2152,
+        "type": "keen::enemy01::AnimationGraphSetup"
+      },
+      {
+        "name": "awarenessSetup",
+        "offset": 2184,
+        "type": "keen::enemy01::AwarenessSetup"
+      },
+      {
+        "name": "investigateSetup",
+        "offset": 2248,
+        "type": "keen::enemy01::InvestigateSetup"
+      },
+      {
+        "name": "notifierSetup",
+        "offset": 2288,
+        "type": "keen::enemy01::NotifierSetup"
+      },
+      {
+        "name": "stunnedSetup",
+        "offset": 2360,
+        "type": "keen::enemy01::StunnedSetup"
+      },
+      {
+        "name": "recoverHealthSetup",
+        "offset": 2376,
+        "type": "keen::enemy01::RecoverHealthSetup"
+      },
+      {
+        "name": "autoTurnSetup",
+        "offset": 2392,
+        "type": "keen::enemy01::AutoTurnSetup"
+      },
+      {
+        "name": "callForHelpSequence",
+        "offset": 2424,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "spawnSequence",
+        "offset": 2440,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "enemyClass",
+        "offset": 2456,
+        "type": "keen::enemy01::EnemyClass"
+      },
+      {
+        "name": "enabledFeatures",
+        "offset": 2460,
+        "type": "keen::ecs::EnemyFeatureMask"
+      },
+      {
+        "name": "threatFactor",
+        "offset": 2464,
+        "type": "keen::float32"
+      },
+      {
+        "name": "deathSignal",
+        "offset": 2468,
+        "type": "keen::SignalReference"
+      },
+      {
+        "name": "pushBackScale",
+        "offset": 2484,
+        "type": "keen::float32"
+      },
+      {
+        "name": "disabledHitReactions",
+        "offset": 2488,
+        "type": "keen::ecs::HitReactionTypeMask"
+      },
+      {
+        "name": "maxHeightDiff",
+        "offset": 2492,
+        "type": "keen::float32"
+      },
+      {
+        "name": "defaultLocalBoundingBoxMin",
+        "offset": 2496,
+        "type": "keen::float3"
+      },
+      {
+        "name": "defaultLocalBoundingBoxMax",
+        "offset": 2508,
+        "type": "keen::float3"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::CharacterPresetCollection",
+    "hash": 2590808546,
+    "internal_hash": 3513517191,
+    "kind": "struct",
+    "size": 24,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "presets",
+        "offset": 0,
+        "type": "keen::BlobArray<keen::CharacterPresetResource>"
+      },
+      {
+        "name": "colors",
+        "offset": 8,
+        "type": "keen::BlobArray<keen::CustomizationColorResource>"
+      },
+      {
+        "name": "knowledgeUnlocks",
+        "offset": 16,
+        "type": "keen::BlobArray<keen::CustomizationKnowledge>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::RenderEquipment",
+    "hash": 1103444725,
+    "internal_hash": 3631492588,
+    "kind": "struct",
+    "size": 788,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "modelHandles",
+        "offset": 0,
+        "type": "keen::StaticArray<keen::uint32,24>"
+      },
+      {
+        "name": "lastModels",
+        "offset": 96,
+        "type": "keen::StaticArray<keen::ObjectReference<keen::Model>,24>"
+      },
+      {
+        "name": "colors",
+        "offset": 480,
+        "type": "keen::StaticArray<keen::ecs::ItemRenderColors,24>"
+      },
+      {
+        "name": "hideMask",
+        "offset": 768,
+        "type": "keen::VisualEquipmentMask"
+      },
+      {
+        "name": "uiHideMask",
+        "offset": 772,
+        "type": "keen::VisualEquipmentMask"
+      },
+      {
+        "name": "foleyMaterialId",
+        "offset": 776,
+        "type": "keen::MaterialFeedbackId"
+      },
+      {
+        "name": "blendShapeMask",
+        "offset": 780,
+        "type": "keen::BlendShapeMask"
+      },
+      {
+        "name": "renderPoseHandle",
+        "offset": 784,
+        "type": "keen::ecs::RenderPoseHandleValue"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::Movement",
+    "hash": 2222555902,
+    "internal_hash": 616931692,
+    "kind": "struct",
+    "size": 80,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "dataStorage",
+        "offset": 8,
+        "type": "keen::StaticArray<keen::float32,18>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::PlayerState",
+    "hash": 1878615995,
+    "internal_hash": 468687522,
+    "kind": "struct",
+    "size": 96,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "previousActorState",
+        "offset": 0,
+        "type": "keen::actor::StateMask"
+      },
+      {
+        "name": "lastSprintEndTime",
+        "offset": 8,
+        "type": "keen::Time"
+      },
+      {
+        "name": "lastBlockEndTime",
+        "offset": 16,
+        "type": "keen::Time"
+      },
+      {
+        "name": "noMovementInputDuration",
+        "offset": 24,
+        "type": "keen::Time"
+      },
+      {
+        "name": "outsideSafeZoneCountdown",
+        "offset": 32,
+        "type": "keen::Time"
+      },
+      {
+        "name": "gliderActivationTime",
+        "offset": 40,
+        "type": "keen::Time"
+      },
+      {
+        "name": "sprintTurnSpeedFactor",
+        "offset": 48,
+        "type": "keen::float32"
+      },
+      {
+        "name": "playerStateMask",
+        "offset": 52,
+        "type": "keen::ecs::PlayerStateMask"
+      },
+      {
+        "name": "dungeonZoneMapMarkerId",
+        "offset": 56,
+        "type": "keen::LocaTagId"
+      },
+      {
+        "name": "rangedWeaponArmedViaInput",
+        "offset": 60,
+        "type": "keen::ecs::PlayerInputType"
+      },
+      {
+        "name": "parryProjectile",
+        "offset": 64,
+        "type": "keen::ecs::ParryProjectile"
+      },
+      {
+        "name": "beamEntityId",
+        "offset": 76,
+        "type": "keen::ecs::EntityId"
+      },
+      {
+        "name": "buildingSparkEntityId",
+        "offset": 80,
+        "type": "keen::ecs::EntityId"
+      },
+      {
+        "name": "currentAimYawAngleOffset",
+        "offset": 84,
+        "type": "keen::Angle"
+      },
+      {
+        "name": "currentAimPitchAngleOffset",
+        "offset": 88,
+        "type": "keen::Angle"
+      },
+      {
+        "name": "airborneMeleeAttacksCount",
+        "offset": 92,
+        "type": "keen::uint8"
+      },
+      {
+        "name": "deepSubmergeMaterialJumpCount",
+        "offset": 93,
+        "type": "keen::uint8"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::Faction",
+    "hash": 2717060897,
+    "internal_hash": 2281179451,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [
+      {
+        "name": "faction",
+        "offset": 0,
+        "type": "keen::FactionType"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::CharacterSetup",
+    "hash": 4243465579,
+    "internal_hash": 181289070,
+    "kind": "struct",
+    "size": 44,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "gender",
+        "offset": 0,
+        "type": "keen::Gender"
+      },
+      {
+        "name": "voicePackId",
+        "offset": 4,
+        "type": "keen::VoicePackId"
+      },
+      {
+        "name": "presetId",
+        "offset": 8,
+        "type": "keen::CharacterPresetId"
+      },
+      {
+        "name": "hair",
+        "offset": 12,
+        "type": "keen::ItemId"
+      },
+      {
+        "name": "beard",
+        "offset": 16,
+        "type": "keen::ItemId"
+      },
+      {
+        "name": "hairColorId",
+        "offset": 20,
+        "type": "keen::ColorPresetId"
+      },
+      {
+        "name": "beardColorId",
+        "offset": 24,
+        "type": "keen::ColorPresetId"
+      },
+      {
+        "name": "skinColor",
+        "offset": 28,
+        "type": "keen::ColorPresetId"
+      },
+      {
+        "name": "eyeBrowColor",
+        "offset": 32,
+        "type": "keen::ColorPresetId"
+      },
+      {
+        "name": "eyeColor",
+        "offset": 36,
+        "type": "keen::ColorPresetId"
+      },
+      {
+        "name": "useNewProportions",
+        "offset": 40,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::Inventory",
+    "hash": 2979342505,
+    "internal_hash": 2126148498,
+    "kind": "struct",
+    "size": 96,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "slots",
+        "offset": 0,
+        "type": "keen::StaticArray<keen::ItemStack,8>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ItemInfo",
+    "hash": 3050211173,
+    "internal_hash": 117480759,
+    "kind": "struct",
+    "size": 2088,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "itemId",
+        "offset": 0,
+        "type": "keen::ItemId"
+      },
+      {
+        "name": "objectId",
+        "offset": 4,
+        "type": "keen::Guid"
+      },
+      {
+        "name": "maxStackSize",
+        "offset": 20,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "generateRarity",
+        "offset": 22,
+        "type": "keen::bool"
+      },
+      {
+        "name": "rarity",
+        "offset": 23,
+        "type": "keen::ItemRarity"
+      },
+      {
+        "name": "disableRarityGeneration",
+        "offset": 24,
+        "type": "keen::ItemRarityMask"
+      },
+      {
+        "name": "randomLootStackRange",
+        "offset": 26,
+        "type": "keen::StackSizeRange"
+      },
+      {
+        "name": "overridePickupModels",
+        "offset": 32,
+        "type": "keen::BlobArray<keen::PickupModelOverride>"
+      },
+      {
+        "name": "overridePickupEntity",
+        "offset": 40,
+        "type": "keen::ecs::TemplateReference"
+      },
+      {
+        "name": "pickupFx",
+        "offset": 56,
+        "type": "keen::NotifierReference"
+      },
+      {
+        "name": "name",
+        "offset": 72,
+        "type": "keen::NameLocaTag"
+      },
+      {
+        "name": "caption",
+        "offset": 88,
+        "type": "keen::CaptionLocaTag"
+      },
+      {
+        "name": "description",
+        "offset": 104,
+        "type": "keen::DescriptionLocaTag"
+      },
+      {
+        "name": "lore",
+        "offset": 120,
+        "type": "keen::LoreLocaTag"
+      },
+      {
+        "name": "acquisitionHint",
+        "offset": 136,
+        "type": "keen::LocaTagReference"
+      },
+      {
+        "name": "uiActionHints",
+        "offset": 152,
+        "type": "keen::UiActionHints"
+      },
+      {
+        "name": "category",
+        "offset": 204,
+        "type": "keen::ItemCategory"
+      },
+      {
+        "name": "ammunitionType",
+        "offset": 205,
+        "type": "keen::AmmunitionType"
+      },
+      {
+        "name": "weaponCategoryReference",
+        "offset": 208,
+        "type": "keen::WeaponCategoryReference"
+      },
+      {
+        "name": "itemClassAlignment",
+        "offset": 224,
+        "type": "keen::ItemClassAlignmentType"
+      },
+      {
+        "name": "midiInstrumentType",
+        "offset": 225,
+        "type": "keen::MidiInstrumentType"
+      },
+      {
+        "name": "equipSfx",
+        "offset": 228,
+        "type": "keen::SoundContainerReference"
+      },
+      {
+        "name": "unequipSfx",
+        "offset": 244,
+        "type": "keen::SoundContainerReference"
+      },
+      {
+        "name": "equipment",
+        "offset": 260,
+        "type": "keen::EquipmentSetup"
+      },
+      {
+        "name": "sequences",
+        "offset": 1348,
+        "type": "keen::BlobArray<keen::ItemSequence>"
+      },
+      {
+        "name": "pidEntity",
+        "offset": 1356,
+        "type": "keen::ecs::TemplateReference"
+      },
+      {
+        "name": "exchangeOnBroken",
+        "offset": 1372,
+        "type": "keen::ObjectReference<keen::ItemInfo>"
+      },
+      {
+        "name": "iconImage",
+        "offset": 1388,
+        "type": "keen::UiImageReference"
+      },
+      {
+        "name": "iconModel",
+        "offset": 1404,
+        "type": "keen::ObjectReference<keen::Model>"
+      },
+      {
+        "name": "iconScene",
+        "offset": 1420,
+        "type": "keen::ObjectReference<keen::ItemIconScene>"
+      },
+      {
+        "name": "iconRenderOffset",
+        "offset": 1436,
+        "type": "keen::ecs::Offset"
+      },
+      {
+        "name": "iconRenderCookingScale",
+        "offset": 1476,
+        "type": "keen::float32"
+      },
+      {
+        "name": "iconRenderGlobalScale",
+        "offset": 1480,
+        "type": "keen::float32"
+      },
+      {
+        "name": "overrideSceneExposure",
+        "offset": 1484,
+        "type": "keen::ItemInfoExposure"
+      },
+      {
+        "name": "fitToItemModelBoundingBox",
+        "offset": 1492,
+        "type": "keen::bool"
+      },
+      {
+        "name": "flags",
+        "offset": 1496,
+        "type": "keen::ItemFlags"
+      },
+      {
+        "name": "overrideKnowledgeGeneration",
+        "offset": 1500,
+        "type": "keen::bool"
+      },
+      {
+        "name": "generateKnowledge",
+        "offset": 1502,
+        "type": "keen::Bitmask16<keen::ItemKnowledgeTrigger>"
+      },
+      {
+        "name": "tags",
+        "offset": 1504,
+        "type": "keen::BlobArray<keen::ItemTagWeight>"
+      },
+      {
+        "name": "uiValues",
+        "offset": 1512,
+        "type": "keen::BlobArray<keen::ImpactUiValue>"
+      },
+      {
+        "name": "uiBuffValues",
+        "offset": 1520,
+        "type": "keen::BlobArray<keen::ImpactUiValue>"
+      },
+      {
+        "name": "impactValues",
+        "offset": 1528,
+        "type": "keen::impact::Configurations"
+      },
+      {
+        "name": "perkReferences",
+        "offset": 1544,
+        "type": "keen::StaticArray<keen::PerkReference,5>"
+      },
+      {
+        "name": "perkIds",
+        "offset": 1624,
+        "type": "keen::StaticArray<keen::PerkId,5>"
+      },
+      {
+        "name": "itemTargetingSetup",
+        "offset": 1644,
+        "type": "keen::ItemTargetingSetup"
+      },
+      {
+        "name": "itemLevelRange",
+        "offset": 1652,
+        "type": "keen::ItemLevelRange"
+      },
+      {
+        "name": "damageSetup",
+        "offset": 1660,
+        "type": "keen::ItemDamageSetup"
+      },
+      {
+        "name": "armorSetup",
+        "offset": 1724,
+        "type": "keen::ItemArmorSetup"
+      },
+      {
+        "name": "fuelSetup",
+        "offset": 1768,
+        "type": "keen::ItemFuelData"
+      },
+      {
+        "name": "blockSetup",
+        "offset": 1784,
+        "type": "keen::ItemBlockSetup"
+      },
+      {
+        "name": "scaledCostSetup",
+        "offset": 1792,
+        "type": "keen::ItemScaledCostSetup"
+      },
+      {
+        "name": "commerceLink",
+        "offset": 1800,
+        "type": "keen::ItemCommerceLink"
+      },
+      {
+        "name": "commerceRedeemLink",
+        "offset": 1824,
+        "type": "keen::CommerceRedeemLink"
+      },
+      {
+        "name": "permissionSetup",
+        "offset": 1848,
+        "type": "keen::ItemPermissionSetup"
+      },
+      {
+        "name": "itemColorCombinationSetup",
+        "offset": 1852,
+        "type": "keen::ItemColorCombination"
+      },
+      {
+        "name": "collectionInfo",
+        "offset": 1868,
+        "type": "keen::ItemCollectionInfo"
+      },
+      {
+        "name": "comfortSetup",
+        "offset": 1936,
+        "type": "keen::ItemComfortSetup"
+      },
+      {
+        "name": "gemSlotOverride",
+        "offset": 1944,
+        "type": "keen::GemSlotOverride"
+      },
+      {
+        "name": "materialInteraction",
+        "offset": 1948,
+        "type": "keen::ItemMaterialInteraction"
+      },
+      {
+        "name": "growthInfo",
+        "offset": 2008,
+        "type": "keen::ItemGrowthInfo"
+      },
+      {
+        "name": "fishableItemSetup",
+        "offset": 2020,
+        "type": "keen::fishing::FishableItemSetup"
+      },
+      {
+        "name": "baitItemSetup",
+        "offset": 2040,
+        "type": "keen::fishing::BaitItemSetup"
+      },
+      {
+        "name": "fishingRodItemSetup",
+        "offset": 2068,
+        "type": "keen::fishing::FishingRodItemSetup"
+      },
+      {
+        "name": "debugName",
+        "offset": 2080,
+        "type": "keen::BlobString"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::ActiveNpcState",
+    "hash": 445339913,
+    "internal_hash": 1647098887,
+    "kind": "struct",
+    "size": 456,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "npcId",
+        "offset": 0,
+        "type": "keen::NpcId"
+      },
+      {
+        "name": "sitSequence",
+        "offset": 4,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "sleepSequence",
+        "offset": 20,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "inspectSequence",
+        "offset": 36,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "npcType",
+        "offset": 52,
+        "type": "keen::active_npc::NpcType"
+      },
+      {
+        "name": "decisionSetup",
+        "offset": 56,
+        "type": "keen::active_npc::DecisionSetup"
+      },
+      {
+        "name": "idleSetup",
+        "offset": 72,
+        "type": "keen::active_npc::IdleSetup"
+      },
+      {
+        "name": "roamingSetup",
+        "offset": 88,
+        "type": "keen::active_npc::RoamingSetup"
+      },
+      {
+        "name": "waitCloseToPlayerSetup",
+        "offset": 104,
+        "type": "keen::active_npc::WaitCloseToPlayerSetup"
+      },
+      {
+        "name": "avoidWaterSetup",
+        "offset": 136,
+        "type": "keen::active_npc::AvoidWaterSetup"
+      },
+      {
+        "name": "movementSetup",
+        "offset": 160,
+        "type": "keen::active_npc::MovementSetup"
+      },
+      {
+        "name": "sleepSetup",
+        "offset": 168,
+        "type": "keen::active_npc::SleepSetup"
+      },
+      {
+        "name": "searchTargetSetup",
+        "offset": 184,
+        "type": "keen::active_npc::SearchTargetSetup"
+      },
+      {
+        "name": "pathNodeSetup",
+        "offset": 192,
+        "type": "keen::active_npc::PathNodeSetup"
+      },
+      {
+        "name": "socializingSetup",
+        "offset": 400,
+        "type": "keen::active_npc::SocializingSetup"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::ActiveNpcStateSaved",
+    "hash": 513739400,
+    "internal_hash": 3297619399,
+    "kind": "struct",
+    "size": 48,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "spawnPosition",
+        "offset": 0,
+        "type": "keen::float3"
+      },
+      {
+        "name": "overrideRoamingRange",
+        "offset": 12,
+        "type": "keen::bool"
+      },
+      {
+        "name": "wasSleeping",
+        "offset": 13,
+        "type": "keen::bool"
+      },
+      {
+        "name": "happiness",
+        "offset": 14,
+        "type": "keen::npc::HapinessMask"
+      },
+      {
+        "name": "roamingRange",
+        "offset": 16,
+        "type": "keen::float"
+      },
+      {
+        "name": "teleportPositionAfterFinishing",
+        "offset": 24,
+        "type": "keen::WorldPosition"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ecs::PathWalker",
+    "hash": 4171420746,
+    "internal_hash": 172152568,
+    "kind": "struct",
+    "size": 92,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "jumpSequence",
+        "offset": 0,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "openDoorSequence",
+        "offset": 16,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "usePathFinding",
+        "offset": 32,
+        "type": "keen::bool"
+      },
+      {
+        "name": "teleportSequence",
+        "offset": 36,
+        "type": "keen::actor::ActorSequenceReference"
+      },
+      {
+        "name": "jumpMoveSpeed",
+        "offset": 52,
+        "type": "keen::float32"
+      },
+      {
+        "name": "horizontalRadius",
+        "offset": 56,
+        "type": "keen::float32"
+      },
+      {
+        "name": "height",
+        "offset": 60,
+        "type": "keen::float32"
+      },
+      {
+        "name": "horizontalDistanceTolerance",
+        "offset": 64,
+        "type": "keen::float32"
+      },
+      {
+        "name": "verticalDistanceTolerance",
+        "offset": 68,
+        "type": "keen::float32"
+      },
+      {
+        "name": "pathNodeRequirements",
+        "offset": 72,
+        "type": "keen::ecs::PathNodeRequirements"
+      },
+      {
+        "name": "turnSettings",
+        "offset": 80,
+        "type": "keen::ecs::PathWalkerTurnSettings"
+      },
+      {
+        "name": "pushTowardsValidPosition",
+        "offset": 88,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ModelHierarchyResource",
+    "hash": 897872094,
+    "internal_hash": 1236218749,
+    "kind": "struct",
+    "size": 72,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "hierarchyId",
+        "offset": 0,
+        "type": "keen::Guid"
+      },
+      {
+        "name": "jointNames",
+        "offset": 16,
+        "type": "keen::BlobArray<keen::uint32>"
+      },
+      {
+        "name": "jointParentIndices",
+        "offset": 24,
+        "type": "keen::BlobArray<keen::uint16>"
+      },
+      {
+        "name": "unbendableJoints",
+        "offset": 32,
+        "type": "keen::BlobArray<keen::uint16>"
+      },
+      {
+        "name": "skinToJointMatrices",
+        "offset": 40,
+        "type": "keen::BlobArray<keen::Matrix43>"
+      },
+      {
+        "name": "jointCount",
+        "offset": 48,
+        "type": "keen::uint32"
+      },
+      {
+        "name": "defaultPose",
+        "offset": 52,
+        "type": "keen::ModelPose"
+      },
+      {
+        "name": "defaultPoseJoints",
+        "offset": 64,
+        "type": "keen::BlobArray<keen::AnimationJoint>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::RenderModel",
+    "hash": 393450695,
+    "internal_hash": 172864544,
+    "kind": "struct",
+    "size": 352,
+    "alignment": 16,
+    "element_alignment": 16,
+    "fields": [
+      {
+        "name": "debugName",
+        "offset": 0,
+        "type": "keen::string"
+      },
+      {
+        "name": "boundingBox",
+        "offset": 16,
+        "type": "keen::AxisAlignedBox"
+      },
+      {
+        "name": "boundingSphere",
+        "offset": 48,
+        "type": "keen::Sphere"
+      },
+      {
+        "name": "positionScale",
+        "offset": 64,
+        "type": "keen::float3"
+      },
+      {
+        "name": "positionOffset",
+        "offset": 76,
+        "type": "keen::float3"
+      },
+      {
+        "name": "wholeModelRadius",
+        "offset": 88,
+        "type": "keen::float"
+      },
+      {
+        "name": "materials",
+        "offset": 92,
+        "type": "keen::BlobArray<keen::RenderModelMaterial>"
+      },
+      {
+        "name": "meshlets",
+        "offset": 100,
+        "type": "keen::BlobArray<keen::RenderModelMeshlet>"
+      },
+      {
+        "name": "meshes",
+        "offset": 108,
+        "type": "keen::BlobArray<keen::RenderModelMesh>"
+      },
+      {
+        "name": "lods",
+        "offset": 116,
+        "type": "keen::BlobArray<keen::RenderModelLod>"
+      },
+      {
+        "name": "foliageAnimationShaderData",
+        "offset": 124,
+        "type": "keen::BlobOptional<keen::FoliageAnimationShaderParameters>"
+      },
+      {
+        "name": "hierarchy",
+        "offset": 128,
+        "type": "keen::ObjectReference<keen::ModelHierarchyResource>"
+      },
+      {
+        "name": "blendShapes",
+        "offset": 144,
+        "type": "keen::BlobArray<keen::RenderBlendResourceData>"
+      },
+      {
+        "name": "blendShapeMask",
+        "offset": 152,
+        "type": "keen::uint32"
+      },
+      {
+        "name": "globalScale",
+        "offset": 156,
+        "type": "keen::float"
+      },
+      {
+        "name": "hasCardClusterLod",
+        "offset": 160,
+        "type": "keen::bool"
+      },
+      {
+        "name": "sdf",
+        "offset": 164,
+        "type": "keen::RenderModelSdfData"
+      },
+      {
+        "name": "skinnedTree",
+        "offset": 172,
+        "type": "keen::SkinnedTreeModelData"
+      },
+      {
+        "name": "skinningMap",
+        "offset": 212,
+        "type": "keen::BlobArray<keen::uint16>"
+      },
+      {
+        "name": "cloth",
+        "offset": 220,
+        "type": "keen::BlobOptional<keen::RenderModelClothData>"
+      },
+      {
+        "name": "chain",
+        "offset": 224,
+        "type": "keen::BlobOptional<keen::RenderModelChainData>"
+      },
+      {
+        "name": "collider",
+        "offset": 228,
+        "type": "keen::RenderModelClothColliderData"
+      },
+      {
+        "name": "sleeves",
+        "offset": 256,
+        "type": "keen::BlobArray<keen::RenderModelClothSleeve>"
+      },
+      {
+        "name": "jointCount",
+        "offset": 264,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "hierarchyJointCount",
+        "offset": 266,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "renderData",
+        "offset": 272,
+        "type": "keen::ResourceContentReference"
+      },
+      {
+        "name": "indexData",
+        "offset": 304,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "meshletData",
+        "offset": 312,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "vertexData",
+        "offset": 320,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "skinningData",
+        "offset": 328,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "blendShapeData",
+        "offset": 336,
+        "type": "keen::Range32"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::EntityId",
+    "hash": 824634830,
+    "internal_hash": 4041799859,
+    "kind": "struct",
+    "size": 4,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "id",
+        "offset": 0,
+        "type": "keen::uint32"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::CharacterPresetCollection",
+    "hash": 2354715569,
+    "internal_hash": 3513517191,
+    "kind": "struct",
+    "size": 120,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "presets",
+        "offset": 0,
+        "type": "keen::DsArray<keen::ds::CharacterPresetResource>"
+      },
+      {
+        "name": "colors",
+        "offset": 40,
+        "type": "keen::DsArray<keen::ds::CustomizationColorResource>"
+      },
+      {
+        "name": "knowledgeUnlocks",
+        "offset": 80,
+        "type": "keen::DsArray<keen::ds::CustomizationKnowledge>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::RenderEquipment",
+    "hash": 2824077232,
+    "internal_hash": 3631492588,
+    "kind": "struct",
+    "size": 788,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "modelHandles",
+        "offset": 0,
+        "type": "keen::StaticArray<keen::uint32,24>"
+      },
+      {
+        "name": "lastModels",
+        "offset": 96,
+        "type": "keen::StaticArray<keen::ObjectReference<keen::ds::Model>,24>"
+      },
+      {
+        "name": "colors",
+        "offset": 480,
+        "type": "keen::StaticArray<keen::ds::ecs::ItemRenderColors,24>"
+      },
+      {
+        "name": "hideMask",
+        "offset": 768,
+        "type": "keen::ds::VisualEquipmentMask"
+      },
+      {
+        "name": "uiHideMask",
+        "offset": 772,
+        "type": "keen::ds::VisualEquipmentMask"
+      },
+      {
+        "name": "foleyMaterialId",
+        "offset": 776,
+        "type": "keen::ds::MaterialFeedbackId"
+      },
+      {
+        "name": "blendShapeMask",
+        "offset": 780,
+        "type": "keen::ds::BlendShapeMask"
+      },
+      {
+        "name": "renderPoseHandle",
+        "offset": 784,
+        "type": "keen::ds::ecs::RenderPoseHandleValue"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::Movement",
+    "hash": 3232363213,
+    "internal_hash": 616931692,
+    "kind": "struct",
+    "size": 80,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "dataStorage",
+        "offset": 8,
+        "type": "keen::StaticArray<keen::float32,18>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::PlayerState",
+    "hash": 2794450510,
+    "internal_hash": 468687522,
+    "kind": "struct",
+    "size": 96,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "previousActorState",
+        "offset": 0,
+        "type": "keen::ds::actor::StateMask"
+      },
+      {
+        "name": "lastSprintEndTime",
+        "offset": 8,
+        "type": "keen::Time"
+      },
+      {
+        "name": "lastBlockEndTime",
+        "offset": 16,
+        "type": "keen::Time"
+      },
+      {
+        "name": "noMovementInputDuration",
+        "offset": 24,
+        "type": "keen::Time"
+      },
+      {
+        "name": "outsideSafeZoneCountdown",
+        "offset": 32,
+        "type": "keen::Time"
+      },
+      {
+        "name": "gliderActivationTime",
+        "offset": 40,
+        "type": "keen::Time"
+      },
+      {
+        "name": "sprintTurnSpeedFactor",
+        "offset": 48,
+        "type": "keen::float32"
+      },
+      {
+        "name": "playerStateMask",
+        "offset": 52,
+        "type": "keen::ds::ecs::PlayerStateMask"
+      },
+      {
+        "name": "dungeonZoneMapMarkerId",
+        "offset": 56,
+        "type": "keen::ds::LocaTagId"
+      },
+      {
+        "name": "rangedWeaponArmedViaInput",
+        "offset": 60,
+        "type": "keen::ds::ecs::PlayerInputType"
+      },
+      {
+        "name": "parryProjectile",
+        "offset": 64,
+        "type": "keen::ds::ecs::ParryProjectile"
+      },
+      {
+        "name": "beamEntityId",
+        "offset": 76,
+        "type": "keen::ds::ecs::EntityId"
+      },
+      {
+        "name": "buildingSparkEntityId",
+        "offset": 80,
+        "type": "keen::ds::ecs::EntityId"
+      },
+      {
+        "name": "currentAimYawAngleOffset",
+        "offset": 84,
+        "type": "keen::Angle"
+      },
+      {
+        "name": "currentAimPitchAngleOffset",
+        "offset": 88,
+        "type": "keen::Angle"
+      },
+      {
+        "name": "airborneMeleeAttacksCount",
+        "offset": 92,
+        "type": "keen::uint8"
+      },
+      {
+        "name": "deepSubmergeMaterialJumpCount",
+        "offset": 93,
+        "type": "keen::uint8"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::Faction",
+    "hash": 618523384,
+    "internal_hash": 2281179451,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [
+      {
+        "name": "faction",
+        "offset": 0,
+        "type": "keen::ds::FactionType"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::CharacterSetup",
+    "hash": 867954984,
+    "internal_hash": 181289070,
+    "kind": "struct",
+    "size": 44,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "gender",
+        "offset": 0,
+        "type": "keen::ds::Gender"
+      },
+      {
+        "name": "voicePackId",
+        "offset": 4,
+        "type": "keen::ds::VoicePackId"
+      },
+      {
+        "name": "presetId",
+        "offset": 8,
+        "type": "keen::ds::CharacterPresetId"
+      },
+      {
+        "name": "hair",
+        "offset": 12,
+        "type": "keen::ds::ItemId"
+      },
+      {
+        "name": "beard",
+        "offset": 16,
+        "type": "keen::ds::ItemId"
+      },
+      {
+        "name": "hairColorId",
+        "offset": 20,
+        "type": "keen::ds::ColorPresetId"
+      },
+      {
+        "name": "beardColorId",
+        "offset": 24,
+        "type": "keen::ds::ColorPresetId"
+      },
+      {
+        "name": "skinColor",
+        "offset": 28,
+        "type": "keen::ds::ColorPresetId"
+      },
+      {
+        "name": "eyeBrowColor",
+        "offset": 32,
+        "type": "keen::ds::ColorPresetId"
+      },
+      {
+        "name": "eyeColor",
+        "offset": 36,
+        "type": "keen::ds::ColorPresetId"
+      },
+      {
+        "name": "useNewProportions",
+        "offset": 40,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::Inventory",
+    "hash": 801769596,
+    "internal_hash": 2126148498,
+    "kind": "struct",
+    "size": 96,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "slots",
+        "offset": 0,
+        "type": "keen::StaticArray<keen::ds::ItemStack,8>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ItemInfo",
+    "hash": 1263968628,
+    "internal_hash": 117480759,
+    "kind": "struct",
+    "size": 2800,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "itemId",
+        "offset": 0,
+        "type": "keen::ds::ItemId"
+      },
+      {
+        "name": "objectId",
+        "offset": 4,
+        "type": "keen::Guid"
+      },
+      {
+        "name": "maxStackSize",
+        "offset": 20,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "generateRarity",
+        "offset": 22,
+        "type": "keen::bool"
+      },
+      {
+        "name": "rarity",
+        "offset": 23,
+        "type": "keen::ds::ItemRarity"
+      },
+      {
+        "name": "disableRarityGeneration",
+        "offset": 24,
+        "type": "keen::ds::ItemRarityMask"
+      },
+      {
+        "name": "randomLootStackRange",
+        "offset": 26,
+        "type": "keen::ds::StackSizeRange"
+      },
+      {
+        "name": "overridePickupModels",
+        "offset": 32,
+        "type": "keen::DsArray<keen::ds::PickupModelOverride>"
+      },
+      {
+        "name": "overridePickupEntity",
+        "offset": 72,
+        "type": "keen::ds::ecs::TemplateReference"
+      },
+      {
+        "name": "pickupFx",
+        "offset": 88,
+        "type": "keen::ds::NotifierReference"
+      },
+      {
+        "name": "name",
+        "offset": 104,
+        "type": "keen::ds::NameLocaTag"
+      },
+      {
+        "name": "caption",
+        "offset": 120,
+        "type": "keen::ds::CaptionLocaTag"
+      },
+      {
+        "name": "description",
+        "offset": 136,
+        "type": "keen::ds::DescriptionLocaTag"
+      },
+      {
+        "name": "lore",
+        "offset": 152,
+        "type": "keen::ds::LoreLocaTag"
+      },
+      {
+        "name": "acquisitionHint",
+        "offset": 168,
+        "type": "keen::ds::LocaTagReference"
+      },
+      {
+        "name": "uiActionHints",
+        "offset": 184,
+        "type": "keen::ds::UiActionHints"
+      },
+      {
+        "name": "category",
+        "offset": 236,
+        "type": "keen::ds::ItemCategory"
+      },
+      {
+        "name": "ammunitionType",
+        "offset": 237,
+        "type": "keen::ds::AmmunitionType"
+      },
+      {
+        "name": "weaponCategoryReference",
+        "offset": 240,
+        "type": "keen::ds::WeaponCategoryReference"
+      },
+      {
+        "name": "itemClassAlignment",
+        "offset": 256,
+        "type": "keen::ds::ItemClassAlignmentType"
+      },
+      {
+        "name": "midiInstrumentType",
+        "offset": 257,
+        "type": "keen::ds::MidiInstrumentType"
+      },
+      {
+        "name": "equipSfx",
+        "offset": 260,
+        "type": "keen::ds::SoundContainerReference"
+      },
+      {
+        "name": "unequipSfx",
+        "offset": 276,
+        "type": "keen::ds::SoundContainerReference"
+      },
+      {
+        "name": "equipment",
+        "offset": 296,
+        "type": "keen::ds::EquipmentSetup"
+      },
+      {
+        "name": "sequences",
+        "offset": 1752,
+        "type": "keen::DsArray<keen::ds::ItemSequence>"
+      },
+      {
+        "name": "pidEntity",
+        "offset": 1792,
+        "type": "keen::ds::ecs::TemplateReference"
+      },
+      {
+        "name": "exchangeOnBroken",
+        "offset": 1808,
+        "type": "keen::ObjectReference<keen::ds::ItemInfo>"
+      },
+      {
+        "name": "iconImage",
+        "offset": 1824,
+        "type": "keen::ds::UiImageReference"
+      },
+      {
+        "name": "iconModel",
+        "offset": 1840,
+        "type": "keen::ObjectReference<keen::ds::Model>"
+      },
+      {
+        "name": "iconScene",
+        "offset": 1856,
+        "type": "keen::ObjectReference<keen::ds::ItemIconScene>"
+      },
+      {
+        "name": "iconRenderOffset",
+        "offset": 1872,
+        "type": "keen::ds::ecs::Offset"
+      },
+      {
+        "name": "iconRenderCookingScale",
+        "offset": 1912,
+        "type": "keen::float32"
+      },
+      {
+        "name": "iconRenderGlobalScale",
+        "offset": 1916,
+        "type": "keen::float32"
+      },
+      {
+        "name": "overrideSceneExposure",
+        "offset": 1920,
+        "type": "keen::ds::ItemInfoExposure"
+      },
+      {
+        "name": "fitToItemModelBoundingBox",
+        "offset": 1928,
+        "type": "keen::bool"
+      },
+      {
+        "name": "flags",
+        "offset": 1932,
+        "type": "keen::ds::ItemFlags"
+      },
+      {
+        "name": "overrideKnowledgeGeneration",
+        "offset": 1936,
+        "type": "keen::bool"
+      },
+      {
+        "name": "generateKnowledge",
+        "offset": 1938,
+        "type": "keen::Bitmask16<keen::ItemKnowledgeTrigger>"
+      },
+      {
+        "name": "tags",
+        "offset": 1944,
+        "type": "keen::DsArray<keen::ds::ItemTagWeight>"
+      },
+      {
+        "name": "uiValues",
+        "offset": 1984,
+        "type": "keen::DsArray<keen::ds::ImpactUiValue>"
+      },
+      {
+        "name": "uiBuffValues",
+        "offset": 2024,
+        "type": "keen::DsArray<keen::ds::ImpactUiValue>"
+      },
+      {
+        "name": "impactValues",
+        "offset": 2064,
+        "type": "keen::ds::impact::Configurations"
+      },
+      {
+        "name": "perkReferences",
+        "offset": 2144,
+        "type": "keen::StaticArray<keen::ds::PerkReference,5>"
+      },
+      {
+        "name": "perkIds",
+        "offset": 2224,
+        "type": "keen::StaticArray<keen::ds::PerkId,5>"
+      },
+      {
+        "name": "itemTargetingSetup",
+        "offset": 2244,
+        "type": "keen::ds::ItemTargetingSetup"
+      },
+      {
+        "name": "itemLevelRange",
+        "offset": 2252,
+        "type": "keen::ds::ItemLevelRange"
+      },
+      {
+        "name": "damageSetup",
+        "offset": 2260,
+        "type": "keen::ds::ItemDamageSetup"
+      },
+      {
+        "name": "armorSetup",
+        "offset": 2324,
+        "type": "keen::ds::ItemArmorSetup"
+      },
+      {
+        "name": "fuelSetup",
+        "offset": 2368,
+        "type": "keen::ds::ItemFuelData"
+      },
+      {
+        "name": "blockSetup",
+        "offset": 2384,
+        "type": "keen::ds::ItemBlockSetup"
+      },
+      {
+        "name": "scaledCostSetup",
+        "offset": 2392,
+        "type": "keen::ds::ItemScaledCostSetup"
+      },
+      {
+        "name": "commerceLink",
+        "offset": 2400,
+        "type": "keen::ds::ItemCommerceLink"
+      },
+      {
+        "name": "commerceRedeemLink",
+        "offset": 2424,
+        "type": "keen::ds::CommerceRedeemLink"
+      },
+      {
+        "name": "permissionSetup",
+        "offset": 2448,
+        "type": "keen::ds::ItemPermissionSetup"
+      },
+      {
+        "name": "itemColorCombinationSetup",
+        "offset": 2452,
+        "type": "keen::ds::ItemColorCombination"
+      },
+      {
+        "name": "collectionInfo",
+        "offset": 2472,
+        "type": "keen::ds::ItemCollectionInfo"
+      },
+      {
+        "name": "comfortSetup",
+        "offset": 2576,
+        "type": "keen::ds::ItemComfortSetup"
+      },
+      {
+        "name": "gemSlotOverride",
+        "offset": 2584,
+        "type": "keen::ds::GemSlotOverride"
+      },
+      {
+        "name": "materialInteraction",
+        "offset": 2588,
+        "type": "keen::ds::ItemMaterialInteraction"
+      },
+      {
+        "name": "growthInfo",
+        "offset": 2648,
+        "type": "keen::ds::ItemGrowthInfo"
+      },
+      {
+        "name": "fishableItemSetup",
+        "offset": 2660,
+        "type": "keen::ds::fishing::FishableItemSetup"
+      },
+      {
+        "name": "baitItemSetup",
+        "offset": 2680,
+        "type": "keen::ds::fishing::BaitItemSetup"
+      },
+      {
+        "name": "fishingRodItemSetup",
+        "offset": 2744,
+        "type": "keen::ds::fishing::FishingRodItemSetup"
+      },
+      {
+        "name": "debugName",
+        "offset": 2760,
+        "type": "keen::DsString"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::ActiveNpcState",
+    "hash": 2110368766,
+    "internal_hash": 1647098887,
+    "kind": "struct",
+    "size": 552,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "npcId",
+        "offset": 0,
+        "type": "keen::ds::NpcId"
+      },
+      {
+        "name": "sitSequence",
+        "offset": 4,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "sleepSequence",
+        "offset": 20,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "inspectSequence",
+        "offset": 36,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "npcType",
+        "offset": 52,
+        "type": "keen::ds::active_npc::NpcType"
+      },
+      {
+        "name": "decisionSetup",
+        "offset": 56,
+        "type": "keen::ds::active_npc::DecisionSetup"
+      },
+      {
+        "name": "idleSetup",
+        "offset": 72,
+        "type": "keen::ds::active_npc::IdleSetup"
+      },
+      {
+        "name": "roamingSetup",
+        "offset": 88,
+        "type": "keen::ds::active_npc::RoamingSetup"
+      },
+      {
+        "name": "waitCloseToPlayerSetup",
+        "offset": 104,
+        "type": "keen::ds::active_npc::WaitCloseToPlayerSetup"
+      },
+      {
+        "name": "avoidWaterSetup",
+        "offset": 136,
+        "type": "keen::ds::active_npc::AvoidWaterSetup"
+      },
+      {
+        "name": "movementSetup",
+        "offset": 160,
+        "type": "keen::ds::active_npc::MovementSetup"
+      },
+      {
+        "name": "sleepSetup",
+        "offset": 168,
+        "type": "keen::ds::active_npc::SleepSetup"
+      },
+      {
+        "name": "searchTargetSetup",
+        "offset": 184,
+        "type": "keen::ds::active_npc::SearchTargetSetup"
+      },
+      {
+        "name": "pathNodeSetup",
+        "offset": 192,
+        "type": "keen::ds::active_npc::PathNodeSetup"
+      },
+      {
+        "name": "socializingSetup",
+        "offset": 400,
+        "type": "keen::ds::active_npc::SocializingSetup"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::ActiveNpcStateSaved",
+    "hash": 721640781,
+    "internal_hash": 3297619399,
+    "kind": "struct",
+    "size": 48,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "spawnPosition",
+        "offset": 0,
+        "type": "keen::float3"
+      },
+      {
+        "name": "overrideRoamingRange",
+        "offset": 12,
+        "type": "keen::bool"
+      },
+      {
+        "name": "wasSleeping",
+        "offset": 13,
+        "type": "keen::bool"
+      },
+      {
+        "name": "happiness",
+        "offset": 14,
+        "type": "keen::ds::npc::HapinessMask"
+      },
+      {
+        "name": "roamingRange",
+        "offset": 16,
+        "type": "keen::float"
+      },
+      {
+        "name": "teleportPositionAfterFinishing",
+        "offset": 24,
+        "type": "keen::WorldPosition"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::PathWalker",
+    "hash": 3814350333,
+    "internal_hash": 172152568,
+    "kind": "struct",
+    "size": 92,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "jumpSequence",
+        "offset": 0,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "openDoorSequence",
+        "offset": 16,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "usePathFinding",
+        "offset": 32,
+        "type": "keen::bool"
+      },
+      {
+        "name": "teleportSequence",
+        "offset": 36,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "jumpMoveSpeed",
+        "offset": 52,
+        "type": "keen::float32"
+      },
+      {
+        "name": "horizontalRadius",
+        "offset": 56,
+        "type": "keen::float32"
+      },
+      {
+        "name": "height",
+        "offset": 60,
+        "type": "keen::float32"
+      },
+      {
+        "name": "horizontalDistanceTolerance",
+        "offset": 64,
+        "type": "keen::float32"
+      },
+      {
+        "name": "verticalDistanceTolerance",
+        "offset": 68,
+        "type": "keen::float32"
+      },
+      {
+        "name": "pathNodeRequirements",
+        "offset": 72,
+        "type": "keen::ds::ecs::PathNodeRequirements"
+      },
+      {
+        "name": "turnSettings",
+        "offset": 80,
+        "type": "keen::ds::ecs::PathWalkerTurnSettings"
+      },
+      {
+        "name": "pushTowardsValidPosition",
+        "offset": 88,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ModelHierarchyResource",
+    "hash": 1830871243,
+    "internal_hash": 1236218749,
+    "kind": "struct",
+    "size": 272,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "hierarchyId",
+        "offset": 0,
+        "type": "keen::Guid"
+      },
+      {
+        "name": "jointNames",
+        "offset": 16,
+        "type": "keen::DsArray<keen::uint32>"
+      },
+      {
+        "name": "jointParentIndices",
+        "offset": 56,
+        "type": "keen::DsArray<keen::uint16>"
+      },
+      {
+        "name": "unbendableJoints",
+        "offset": 96,
+        "type": "keen::DsArray<keen::uint16>"
+      },
+      {
+        "name": "skinToJointMatrices",
+        "offset": 136,
+        "type": "keen::DsArray<keen::Matrix43>"
+      },
+      {
+        "name": "jointCount",
+        "offset": 176,
+        "type": "keen::uint32"
+      },
+      {
+        "name": "defaultPose",
+        "offset": 184,
+        "type": "keen::ds::ModelPose"
+      },
+      {
+        "name": "defaultPoseJoints",
+        "offset": 232,
+        "type": "keen::DsArray<keen::AnimationJoint>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::RenderModel",
+    "hash": 946561408,
+    "internal_hash": 172864544,
+    "kind": "struct",
+    "size": 944,
+    "alignment": 16,
+    "element_alignment": 16,
+    "fields": [
+      {
+        "name": "debugName",
+        "offset": 0,
+        "type": "keen::ds::string"
+      },
+      {
+        "name": "boundingBox",
+        "offset": 48,
+        "type": "keen::AxisAlignedBox"
+      },
+      {
+        "name": "boundingSphere",
+        "offset": 80,
+        "type": "keen::Sphere"
+      },
+      {
+        "name": "positionScale",
+        "offset": 96,
+        "type": "keen::float3"
+      },
+      {
+        "name": "positionOffset",
+        "offset": 108,
+        "type": "keen::float3"
+      },
+      {
+        "name": "wholeModelRadius",
+        "offset": 120,
+        "type": "keen::float"
+      },
+      {
+        "name": "materials",
+        "offset": 128,
+        "type": "keen::DsArray<keen::ds::RenderModelMaterial>"
+      },
+      {
+        "name": "meshlets",
+        "offset": 168,
+        "type": "keen::DsArray<keen::ds::RenderModelMeshlet>"
+      },
+      {
+        "name": "meshes",
+        "offset": 208,
+        "type": "keen::DsArray<keen::ds::RenderModelMesh>"
+      },
+      {
+        "name": "lods",
+        "offset": 248,
+        "type": "keen::DsArray<keen::ds::RenderModelLod>"
+      },
+      {
+        "name": "foliageAnimationShaderData",
+        "offset": 288,
+        "type": "keen::DsOptional<keen::ds::FoliageAnimationShaderParameters>"
+      },
+      {
+        "name": "hierarchy",
+        "offset": 304,
+        "type": "keen::ObjectReference<keen::ds::ModelHierarchyResource>"
+      },
+      {
+        "name": "blendShapes",
+        "offset": 320,
+        "type": "keen::DsArray<keen::ds::RenderBlendResourceData>"
+      },
+      {
+        "name": "blendShapeMask",
+        "offset": 360,
+        "type": "keen::uint32"
+      },
+      {
+        "name": "globalScale",
+        "offset": 364,
+        "type": "keen::float"
+      },
+      {
+        "name": "hasCardClusterLod",
+        "offset": 368,
+        "type": "keen::bool"
+      },
+      {
+        "name": "sdf",
+        "offset": 376,
+        "type": "keen::ds::RenderModelSdfData"
+      },
+      {
+        "name": "skinnedTree",
+        "offset": 416,
+        "type": "keen::ds::SkinnedTreeModelData"
+      },
+      {
+        "name": "skinningMap",
+        "offset": 616,
+        "type": "keen::DsArray<keen::uint16>"
+      },
+      {
+        "name": "cloth",
+        "offset": 656,
+        "type": "keen::DsOptional<keen::ds::RenderModelClothData>"
+      },
+      {
+        "name": "chain",
+        "offset": 672,
+        "type": "keen::DsOptional<keen::ds::RenderModelChainData>"
+      },
+      {
+        "name": "collider",
+        "offset": 688,
+        "type": "keen::ds::RenderModelClothColliderData"
+      },
+      {
+        "name": "sleeves",
+        "offset": 816,
+        "type": "keen::DsArray<keen::ds::RenderModelClothSleeve>"
+      },
+      {
+        "name": "jointCount",
+        "offset": 856,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "hierarchyJointCount",
+        "offset": 858,
+        "type": "keen::uint16"
+      },
+      {
+        "name": "renderData",
+        "offset": 864,
+        "type": "keen::ResourceContentReference"
+      },
+      {
+        "name": "indexData",
+        "offset": 896,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "meshletData",
+        "offset": 904,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "vertexData",
+        "offset": 912,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "skinningData",
+        "offset": 920,
+        "type": "keen::Range32"
+      },
+      {
+        "name": "blendShapeData",
+        "offset": 928,
+        "type": "keen::Range32"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::TemplateResource",
+    "hash": 4177384586,
+    "internal_hash": 99266744,
+    "kind": "struct",
+    "size": 88,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "name",
+        "offset": 0,
+        "type": "keen::ds::string"
+      },
+      {
+        "name": "family",
+        "offset": 40,
+        "type": "keen::ds::ecs::TemplateFamily"
+      },
+      {
+        "name": "predictEntity",
+        "offset": 41,
+        "type": "keen::bool"
+      },
+      {
+        "name": "farCulling",
+        "offset": 42,
+        "type": "keen::bool"
+      },
+      {
+        "name": "omitTransformReplication",
+        "offset": 43,
+        "type": "keen::bool"
+      },
+      {
+        "name": "proxyModelId",
+        "offset": 44,
+        "type": "keen::ds::ecs::EntityProxyModelId"
+      },
+      {
+        "name": "components",
+        "offset": 48,
+        "type": "keen::DsArray<keen::DsVariant<keen::ds::ecs::Component>>"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::DoNotSave",
+    "hash": 2122254179,
+    "internal_hash": 1815500590,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::ForceSave",
+    "hash": 1335862758,
+    "internal_hash": 1815500590,
+    "kind": "struct",
+    "size": 1,
+    "alignment": 1,
+    "element_alignment": 1,
+    "fields": [],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::AnimationGraphResourceComponent2",
+    "hash": 220263173,
+    "internal_hash": 4263740108,
+    "kind": "struct",
+    "size": 40,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "animationGraph",
+        "offset": 0,
+        "type": "keen::ObjectReference<keen::ds::anim_graph::tool_graph::AnimationGraph2_0>"
+      },
+      {
+        "name": "retargetData",
+        "offset": 16,
+        "type": "keen::ObjectReference<keen::ds::anim_graph::RetargetData>"
+      },
+      {
+        "name": "maxSnapshotPoses",
+        "offset": 32,
+        "type": "keen::sint32"
+      },
+      {
+        "name": "hasServerLogic",
+        "offset": 36,
+        "type": "keen::bool"
+      },
+      {
+        "name": "hasFootstepSyncLogic",
+        "offset": 37,
+        "type": "keen::bool"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::MovementColliderConfig",
+    "hash": 2448654791,
+    "internal_hash": 3818421474,
+    "kind": "struct",
+    "size": 32,
+    "alignment": 4,
+    "element_alignment": 4,
+    "fields": [
+      {
+        "name": "width",
+        "offset": 0,
+        "type": "keen::float32"
+      },
+      {
+        "name": "height",
+        "offset": 4,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxStepHeightVoxels",
+        "offset": 8,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxStepHeightProps",
+        "offset": 12,
+        "type": "keen::float32"
+      },
+      {
+        "name": "onlyCheckPathCollidersWithBundleCheck",
+        "offset": 16,
+        "type": "keen::bool"
+      },
+      {
+        "name": "enableCollideAndSlide",
+        "offset": 17,
+        "type": "keen::bool"
+      },
+      {
+        "name": "collideAndSlideMask",
+        "offset": 20,
+        "type": "keen::ds::ecs::ColliderMask"
+      },
+      {
+        "name": "collideAndSlideStrength",
+        "offset": 24,
+        "type": "keen::float32"
+      },
+      {
+        "name": "forceLineBundleForGround",
+        "offset": 28,
+        "type": "keen::bool"
+      },
+      {
+        "name": "stairHandling",
+        "offset": 29,
+        "type": "keen::ds::ecs::StairHandlingMode"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::CurrentTransform",
+    "hash": 3276400307,
+    "internal_hash": 1855930734,
+    "kind": "struct",
+    "size": 56,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "transform",
+        "offset": 0,
+        "type": "keen::WorldTransform"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::enemy01::CombatSetup",
+    "hash": 4178850167,
+    "internal_hash": 1764642732,
+    "kind": "struct",
+    "size": 392,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "preferedDistance",
+        "offset": 0,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceVariation",
+        "offset": 4,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceEngaged",
+        "offset": 8,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceEngagedVariation",
+        "offset": 12,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceInWater",
+        "offset": 16,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferedDistanceInWaterVariation",
+        "offset": 20,
+        "type": "keen::float32"
+      },
+      {
+        "name": "preferredDistanceThreshold",
+        "offset": 24,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxVerticalDistance",
+        "offset": 28,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxPlayerTargetDistance",
+        "offset": 32,
+        "type": "keen::float32"
+      },
+      {
+        "name": "maxNonPlayerTargetDistance",
+        "offset": 36,
+        "type": "keen::float32"
+      },
+      {
+        "name": "ignoreTamedAnimals",
+        "offset": 40,
+        "type": "keen::bool"
+      },
+      {
+        "name": "updateTargetNotReachableState",
+        "offset": 41,
+        "type": "keen::bool"
+      },
+      {
+        "name": "retaliateCount",
+        "offset": 42,
+        "type": "keen::uint8"
+      },
+      {
+        "name": "cooldownGroups",
+        "offset": 48,
+        "type": "keen::StaticArray<keen::ds::enemy01::AttackCooldownGroup,8>"
+      },
+      {
+        "name": "counterAttackAfterHitReactions",
+        "offset": 240,
+        "type": "keen::ds::ecs::HitReactionTypeMask"
+      },
+      {
+        "name": "counterAttackDuration",
+        "offset": 248,
+        "type": "keen::Time"
+      },
+      {
+        "name": "walkStartDistance",
+        "offset": 256,
+        "type": "keen::float32"
+      },
+      {
+        "name": "runStartDistance",
+        "offset": 260,
+        "type": "keen::float32"
+      },
+      {
+        "name": "runEndDistance",
+        "offset": 264,
+        "type": "keen::float32"
+      },
+      {
+        "name": "combatRotationSpeedFactor",
+        "offset": 268,
+        "type": "keen::float32"
+      },
+      {
+        "name": "combatIdleAnimation",
+        "offset": 272,
+        "type": "keen::ds::animationgraph::StateIdReference"
+      },
+      {
+        "name": "blockRotationSettings",
+        "offset": 288,
+        "type": "keen::ds::enemy01::BlockRotationSettings"
+      },
+      {
+        "name": "minAttackDuration",
+        "offset": 312,
+        "type": "keen::Time"
+      },
+      {
+        "name": "maxAttackDuration",
+        "offset": 320,
+        "type": "keen::Time"
+      },
+      {
+        "name": "turnConditions",
+        "offset": 328,
+        "type": "keen::ds::enemy01::CombatTurnConditions"
+      },
+      {
+        "name": "leaningSettings",
+        "offset": 344,
+        "type": "keen::ds::enemy01::LeaningSettings"
+      },
+      {
+        "name": "jumpMoveSettings",
+        "offset": 352,
+        "type": "keen::ds::enemy01::CombatJumpMoveSettings"
+      },
+      {
+        "name": "attackMoveSettings",
+        "offset": 384,
+        "type": "keen::ds::enemy01::AttackMoveSettings"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  },
+  {
+    "qualified_name": "keen::ds::ecs::Enemy01BehaviorState",
+    "hash": 3252028194,
+    "internal_hash": 3555560682,
+    "kind": "struct",
+    "size": 2520,
+    "alignment": 8,
+    "element_alignment": 8,
+    "fields": [
+      {
+        "name": "combatSetup",
+        "offset": 0,
+        "type": "keen::ds::enemy01::CombatSetup"
+      },
+      {
+        "name": "homeZoneSetup",
+        "offset": 392,
+        "type": "keen::ds::enemy01::HomeZoneSetup"
+      },
+      {
+        "name": "aggroSetup",
+        "offset": 396,
+        "type": "keen::ds::enemy01::AggroSetup"
+      },
+      {
+        "name": "combatCommitmentSetup",
+        "offset": 488,
+        "type": "keen::ds::enemy01::CombatCommitmentSetup"
+      },
+      {
+        "name": "targetSelectionSetup",
+        "offset": 576,
+        "type": "keen::ds::enemy01::TargetSelectionSetup"
+      },
+      {
+        "name": "callForHelpSetup",
+        "offset": 808,
+        "type": "keen::ds::enemy01::CallForHelpSetup"
+      },
+      {
+        "name": "roamingSetup",
+        "offset": 824,
+        "type": "keen::ds::enemy01::RoamingSetup"
+      },
+      {
+        "name": "fleeSetup",
+        "offset": 912,
+        "type": "keen::ds::enemy01::FleeSetup"
+      },
+      {
+        "name": "blockingSetup",
+        "offset": 944,
+        "type": "keen::ds::enemy01::BlockingSetup"
+      },
+      {
+        "name": "stunBreakSetup",
+        "offset": 1048,
+        "type": "keen::ds::enemy01::StunBreakSetup"
+      },
+      {
+        "name": "noiseListenerSetup",
+        "offset": 1052,
+        "type": "keen::ds::enemy01::NoiseListenerSetup"
+      },
+      {
+        "name": "steeringSetup",
+        "offset": 1084,
+        "type": "keen::ds::enemy01::SteeringSetup"
+      },
+      {
+        "name": "prowlSetup",
+        "offset": 1104,
+        "type": "keen::ds::enemy01::ProwlSetup"
+      },
+      {
+        "name": "flankingSetup",
+        "offset": 1168,
+        "type": "keen::ds::enemy01::FlankingSetup"
+      },
+      {
+        "name": "dodgingSetup",
+        "offset": 1232,
+        "type": "keen::ds::enemy01::DodgingSetup"
+      },
+      {
+        "name": "parrySetup",
+        "offset": 1352,
+        "type": "keen::ds::enemy01::ParrySetup"
+      },
+      {
+        "name": "movementSetup",
+        "offset": 1404,
+        "type": "keen::ds::enemy01::MovementSetup"
+      },
+      {
+        "name": "guardSetup",
+        "offset": 1432,
+        "type": "keen::ds::enemy01::GuardSetup"
+      },
+      {
+        "name": "interactionSetup",
+        "offset": 1456,
+        "type": "keen::ds::enemy01::InteractionSetup"
+      },
+      {
+        "name": "patrolSetup",
+        "offset": 1472,
+        "type": "keen::ds::enemy01::PatrolSetup"
+      },
+      {
+        "name": "tauntSetup",
+        "offset": 1544,
+        "type": "keen::ds::enemy01::TauntSetup"
+      },
+      {
+        "name": "turnSetup",
+        "offset": 1576,
+        "type": "keen::ds::enemy01::TurnSetup"
+      },
+      {
+        "name": "searchForCoverSetup",
+        "offset": 1680,
+        "type": "keen::ds::enemy01::SearchForCoverSetup"
+      },
+      {
+        "name": "sleepSetup",
+        "offset": 1720,
+        "type": "keen::ds::enemy01::SleepSetup"
+      },
+      {
+        "name": "runAroundSetup",
+        "offset": 1824,
+        "type": "keen::ds::enemy01::RunAroundSetup"
+      },
+      {
+        "name": "pathNodeSetup",
+        "offset": 1848,
+        "type": "keen::ds::enemy01::PathNodeSetup"
+      },
+      {
+        "name": "circlingSetup",
+        "offset": 2056,
+        "type": "keen::ds::enemy01::CirclingSetup"
+      },
+      {
+        "name": "openDoorSetup",
+        "offset": 2088,
+        "type": "keen::ds::enemy01::OpenDoorSetup"
+      },
+      {
+        "name": "waterSetup",
+        "offset": 2089,
+        "type": "keen::ds::enemy01::WaterSetup"
+      },
+      {
+        "name": "avoidWaterSetup",
+        "offset": 2096,
+        "type": "keen::ds::enemy01::AvoidWaterSetup"
+      },
+      {
+        "name": "behaviorSetup",
+        "offset": 2128,
+        "type": "keen::ds::enemy01::BehaviorSetup"
+      },
+      {
+        "name": "deathSetup",
+        "offset": 2132,
+        "type": "keen::ds::enemy01::DeathSetup"
+      },
+      {
+        "name": "animationGraphSetup",
+        "offset": 2152,
+        "type": "keen::ds::enemy01::AnimationGraphSetup"
+      },
+      {
+        "name": "awarenessSetup",
+        "offset": 2184,
+        "type": "keen::ds::enemy01::AwarenessSetup"
+      },
+      {
+        "name": "investigateSetup",
+        "offset": 2248,
+        "type": "keen::ds::enemy01::InvestigateSetup"
+      },
+      {
+        "name": "notifierSetup",
+        "offset": 2288,
+        "type": "keen::ds::enemy01::NotifierSetup"
+      },
+      {
+        "name": "stunnedSetup",
+        "offset": 2360,
+        "type": "keen::ds::enemy01::StunnedSetup"
+      },
+      {
+        "name": "recoverHealthSetup",
+        "offset": 2376,
+        "type": "keen::ds::enemy01::RecoverHealthSetup"
+      },
+      {
+        "name": "autoTurnSetup",
+        "offset": 2392,
+        "type": "keen::ds::enemy01::AutoTurnSetup"
+      },
+      {
+        "name": "callForHelpSequence",
+        "offset": 2424,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "spawnSequence",
+        "offset": 2440,
+        "type": "keen::ds::actor::ActorSequenceReference"
+      },
+      {
+        "name": "enemyClass",
+        "offset": 2456,
+        "type": "keen::ds::enemy01::EnemyClass"
+      },
+      {
+        "name": "enabledFeatures",
+        "offset": 2460,
+        "type": "keen::ds::ecs::EnemyFeatureMask"
+      },
+      {
+        "name": "threatFactor",
+        "offset": 2464,
+        "type": "keen::float32"
+      },
+      {
+        "name": "deathSignal",
+        "offset": 2468,
+        "type": "keen::ds::SignalReference"
+      },
+      {
+        "name": "pushBackScale",
+        "offset": 2484,
+        "type": "keen::float32"
+      },
+      {
+        "name": "disabledHitReactions",
+        "offset": 2488,
+        "type": "keen::ds::ecs::HitReactionTypeMask"
+      },
+      {
+        "name": "maxHeightDiff",
+        "offset": 2492,
+        "type": "keen::float32"
+      },
+      {
+        "name": "defaultLocalBoundingBoxMin",
+        "offset": 2496,
+        "type": "keen::float3"
+      },
+      {
+        "name": "defaultLocalBoundingBoxMax",
+        "offset": 2508,
+        "type": "keen::float3"
+      }
+    ],
+    "enum_values": null,
+    "old_alignment": "UNKNOWN"
+  }
+]

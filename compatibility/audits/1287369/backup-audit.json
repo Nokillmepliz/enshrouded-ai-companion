@@ -1,0 +1,57 @@
+{
+  "backups": [
+    {
+      "name": "20261030T182034Z-e435bc1c",
+      "manifest_sha256": "ad78dbc03d9b856e413fd7c1af9474cabda6360784b506cc07b8cfd7e2093af1",
+      "files": 105,
+      "verified_now": 105,
+      "embedded_game_identity": null,
+      "historical_build": 1273043,
+      "build_provenance": "dated_project_reports; not embedded in manifest",
+      "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+    },
+    {
+      "name": "20261030T194446Z-778186bd",
+      "manifest_sha256": "243ad58adaba9cdcf01b4e91629bba8fafac8b7eee2755057ea3b8d5734b3116",
+      "files": 144,
+      "verified_now": 144,
+      "embedded_game_identity": null,
+      "historical_build": 1273043,
+      "build_provenance": "dated_project_reports; not embedded in manifest",
+      "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+    },
+    {
+      "name": "stage10-6-pre-eml-20261101T083034Z",
+      "manifest_sha256": "0257c0e77bcee0bae1890808883e504e25f9ebdfe0f1865ad44e62c9b611c4cd",
+      "files": 24,
+      "verified_now": 24,
+      "embedded_game_identity": null,
+      "historical_build": 1273043,
+      "build_provenance": "dated_project_reports; not embedded in manifest",
+      "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+    },
+    {
+      "name": "stage10-7-pre-eml-20261101",
+      "manifest_sha256": "7ac4df3609d2609673345d029844dcf8d9181ba768762aa6eb6b62752cb9b651",
+      "files": 24,
+      "verified_now": 24,
+      "embedded_game_identity": null,
+      "historical_build": 1273043,
+      "build_provenance": "dated_project_reports; not embedded in manifest",
+      "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+    },
+    {
+      "name": "stage10-pre-eml-20261030T220012Z",
+      "manifest_sha256": "b18b3bb0c532e246c8154b17f1c09b3bda35cb10542212868d0d26970c6a0099",
+      "files": 20,
+      "verified_now": 20,
+      "embedded_game_identity": null,
+      "historical_build": 1273043,
+      "build_provenance": "dated_project_reports; not embedded in manifest",
+      "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+    }
+  ],
+  "receipt_sha256": "3280870774f3b0283bad0cb6e3063e03ca57f42de8de876578fdf90a269bf2e6",
+  "receipt_build": 1273043,
+  "receipt_files_verified": 9
+}

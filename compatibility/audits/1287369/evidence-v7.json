@@ -1,0 +1,462 @@
+{
+  "format": "aic_game_compatibility_evidence_v7",
+  "phase": "A",
+  "sections": {
+    "GAME_VERSION": {
+      "status": "PASS",
+      "expected": "identify installed game independently",
+      "observed": {
+        "game_version": "1.0.1.2",
+        "game_build": 1287369,
+        "steam_build_id": "26430625",
+        "depot_manifest_id": "7226436020230696061",
+        "update_detected": true
+      },
+      "source": [
+        "docs/STAGE10_10_GAME_VERSION_AUDIT.md"
+      ],
+      "provenance": "EXE_REFLECTION_SHA256_AND_STEAM_MANIFEST",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "",
+      "unknowns": [],
+      "runtime_validation_required": false
+    },
+    "GAME_FILE_INVENTORY": {
+      "status": "BLOCKED",
+      "expected": "verified clean current-build baseline",
+      "observed": {
+        "NEW": 171,
+        "PREVIOUS_MOD_ARTIFACT": 19,
+        "UPDATED_BY_GAME": 1,
+        "MODIFIED_UNKNOWN": 28,
+        "UNCHANGED": 30
+      },
+      "source": [
+        "compatibility/audits/1287369/file-inventory.json",
+        "compatibility/audits/1287369/integrity.json"
+      ],
+      "provenance": "FULL_READ_ONLY_SHA256_INVENTORY",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "BLOCKED_BY_GAME_INTEGRITY",
+      "unknowns": [
+        "clean_depot_baseline"
+      ],
+      "runtime_validation_required": false
+    },
+    "BACKUP_COMPATIBILITY": {
+      "status": "BLOCKED",
+      "expected": "same-build verified backup for restoration",
+      "observed": {
+        "backups": [
+          {
+            "name": "20261030T182034Z-e435bc1c",
+            "manifest_sha256": "ad78dbc03d9b856e413fd7c1af9474cabda6360784b506cc07b8cfd7e2093af1",
+            "files": 105,
+            "verified_now": 105,
+            "embedded_game_identity": null,
+            "historical_build": 1273043,
+            "build_provenance": "dated_project_reports; not embedded in manifest",
+            "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+          },
+          {
+            "name": "20261030T194446Z-778186bd",
+            "manifest_sha256": "243ad58adaba9cdcf01b4e91629bba8fafac8b7eee2755057ea3b8d5734b3116",
+            "files": 144,
+            "verified_now": 144,
+            "embedded_game_identity": null,
+            "historical_build": 1273043,
+            "build_provenance": "dated_project_reports; not embedded in manifest",
+            "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+          },
+          {
+            "name": "stage10-6-pre-eml-20261101T083034Z",
+            "manifest_sha256": "0257c0e77bcee0bae1890808883e504e25f9ebdfe0f1865ad44e62c9b611c4cd",
+            "files": 24,
+            "verified_now": 24,
+            "embedded_game_identity": null,
+            "historical_build": 1273043,
+            "build_provenance": "dated_project_reports; not embedded in manifest",
+            "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+          },
+          {
+            "name": "stage10-7-pre-eml-20261101",
+            "manifest_sha256": "7ac4df3609d2609673345d029844dcf8d9181ba768762aa6eb6b62752cb9b651",
+            "files": 24,
+            "verified_now": 24,
+            "embedded_game_identity": null,
+            "historical_build": 1273043,
+            "build_provenance": "dated_project_reports; not embedded in manifest",
+            "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+          },
+          {
+            "name": "stage10-pre-eml-20261030T220012Z",
+            "manifest_sha256": "b18b3bb0c532e246c8154b17f1c09b3bda35cb10542212868d0d26970c6a0099",
+            "files": 20,
+            "verified_now": 20,
+            "embedded_game_identity": null,
+            "historical_build": 1273043,
+            "build_provenance": "dated_project_reports; not embedded in manifest",
+            "restore_to_1287369": "ROLLBACK_BLOCKED_BUILD_MISMATCH"
+          }
+        ],
+        "receipt_sha256": "3280870774f3b0283bad0cb6e3063e03ca57f42de8de876578fdf90a269bf2e6",
+        "receipt_build": 1273043,
+        "receipt_files_verified": 9
+      },
+      "source": [
+        "docs/STAGE10_10_BACKUP_AND_ROLLBACK_SAFETY.md"
+      ],
+      "provenance": "REHASHED_HISTORICAL_BACKUPS_AND_RECEIPT",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "ROLLBACK_BLOCKED_BUILD_MISMATCH",
+      "unknowns": [
+        "new_clean_backup"
+      ],
+      "runtime_validation_required": false
+    },
+    "EMF_COMPATIBILITY": {
+      "status": "UNKNOWN",
+      "expected": "source and local binary runtime support",
+      "observed": {
+        "candidate": "0.6.18",
+        "native_api": 46,
+        "lua_host_version": "1.39.0",
+        "source_support": "SUPPORTED",
+        "archive_sha256_verified": true,
+        "authenticode": "NotSigned",
+        "installed_0_3_2": "UNSUPPORTED"
+      },
+      "source": [
+        "docs/STAGE10_10_EMF_COMPATIBILITY.md"
+      ],
+      "provenance": "PINNED_UPSTREAM_SOURCE_RELEASE_DIGEST_AND_PE_AUDIT",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "runtime_not_executed",
+      "unknowns": [
+        "local_binary_runtime",
+        "reproducible_build_identity"
+      ],
+      "runtime_validation_required": true
+    },
+    "EML_COMPATIBILITY": {
+      "status": "UNKNOWN",
+      "expected": "one accepted content owner and evidence channel",
+      "observed": {
+        "standalone": "0.2.0",
+        "parser": "OFFLINE_DECODE_PASSED",
+        "emf_shadow_export": false
+      },
+      "source": [
+        "docs/STAGE10_10_EML_COMPATIBILITY.md"
+      ],
+      "provenance": "PINNED_SOURCE_AND_CURRENT_RESOURCE_DECODE",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "content_owner_and_evidence_unresolved",
+      "unknowns": [
+        "writer_finalization",
+        "runtime_resource_load"
+      ],
+      "runtime_validation_required": true
+    },
+    "ECS_DIFF": {
+      "status": "UNKNOWN",
+      "expected": "complete old/new ABI comparison",
+      "observed": {
+        "IDENTICAL": 1283,
+        "LAYOUT_CHANGED": 4,
+        "ADDED": 2
+      },
+      "source": [
+        "compatibility/audits/1287369/ecs-diff.json",
+        "compatibility/audits/1287369/critical-schemas.json"
+      ],
+      "provenance": "GENERATED_HEADERS_AND_CURRENT_EXE_REFLECTION",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "partial_schema_coverage",
+      "unknowns": [
+        "old_original_alignment",
+        "full_old_resource_schema_and_enums"
+      ],
+      "runtime_validation_required": true
+    },
+    "RESOURCE_DIFF": {
+      "status": "BLOCKED",
+      "expected": "clean source and absence of collisions",
+      "observed": {
+        "component_count": 82,
+        "component_fingerprint": "5253f478",
+        "source_guid_present": true,
+        "custom_guid_present": true,
+        "resources_decoded": 64
+      },
+      "source": [
+        "compatibility/audits/1287369/resource-diff.json"
+      ],
+      "provenance": "READ_ONLY_KFC_CURRENT_MODIFIED_DATABASE",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "clean_baseline_unavailable",
+      "unknowns": [
+        "clean_guid_npc_id_collision_scan"
+      ],
+      "runtime_validation_required": true
+    },
+    "CHARACTER_SETUP": {
+      "status": "PASS",
+      "expected": "serialized typed source/clone comparison only",
+      "observed": {
+        "source": {
+          "beard": {
+            "value": 0
+          },
+          "beardColorId": {
+            "value": 2593349132
+          },
+          "eyeBrowColor": {
+            "value": 1294605571
+          },
+          "eyeColor": {
+            "value": 1843389514
+          },
+          "gender": "Male",
+          "hair": {
+            "value": 100818570
+          },
+          "hairColorId": {
+            "value": 2593349132
+          },
+          "presetId": {
+            "value": 1602195472
+          },
+          "skinColor": {
+            "value": 510686028
+          },
+          "useNewProportions": false,
+          "voicePackId": {
+            "value": 3178345104
+          }
+        },
+        "clone": {
+          "beard": {
+            "value": 0
+          },
+          "beardColorId": {
+            "value": 2593349132
+          },
+          "eyeBrowColor": {
+            "value": 1294605571
+          },
+          "eyeColor": {
+            "value": 1843389514
+          },
+          "gender": "Male",
+          "hair": {
+            "value": 100818570
+          },
+          "hairColorId": {
+            "value": 2593349132
+          },
+          "presetId": {
+            "value": 1602195472
+          },
+          "skinColor": {
+            "value": 510686028
+          },
+          "useNewProportions": false,
+          "voicePackId": {
+            "value": 3178345104
+          }
+        },
+        "runtime_lua_reflection": "NOT_EXECUTED"
+      },
+      "source": [
+        "docs/STAGE10_10_TEMPLATE_COMPATIBILITY.md"
+      ],
+      "provenance": "SERIALIZED_KFC_VALUES_AND_EXE_FIELD_TYPES",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "",
+      "unknowns": [],
+      "runtime_validation_required": true
+    },
+    "BRIDGE_COMPATIBILITY": {
+      "status": "UNKNOWN",
+      "expected": "correlated runtime status/inspect/compare",
+      "observed": {
+        "wire_protocol": 1,
+        "offline_capture_validator": "TESTED",
+        "runtime_transport_opened": false
+      },
+      "source": [
+        "docs/STAGE10_10_BRIDGE_COMPATIBILITY.md"
+      ],
+      "provenance": "PINNED_PROTOCOL_SOURCE_AND_FIXTURES",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "no_runtime_session",
+      "unknowns": [
+        "new_observer_evidence_channel",
+        "local_world_session"
+      ],
+      "runtime_validation_required": true
+    },
+    "PATCH_COMPATIBILITY": {
+      "status": "BLOCKED",
+      "expected": "installable reviewed current-build patch",
+      "observed": {
+        "historical": "0.4.0 preserved",
+        "next": "0.5.0 guard preparation only",
+        "resource_writes": false
+      },
+      "source": [
+        "experimental/eml_humanoid_next/README.md"
+      ],
+      "provenance": "OFFLINE_PREPARATION_ONLY",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "clean_baseline_and_content_owner_required",
+      "unknowns": [
+        "complete_patch",
+        "serialization",
+        "writer_finalization"
+      ],
+      "runtime_validation_required": true
+    },
+    "STAGE10_9_REVALIDATION": {
+      "status": "PASS",
+      "expected": "source-level review of prior conclusions",
+      "observed": {
+        "ground_path_absence": "SUPERSEDED_BY_NEW_API",
+        "villager_move": "AVAILABLE_API46",
+        "identity_and_atomic_destroy": "NOT_EXPOSED_IN_REVIEWED_PUBLIC_API",
+        "runtime_proof": "NOT_EXECUTED"
+      },
+      "source": [
+        "docs/STAGE10_10_STAGE10_9_REVALIDATION.md"
+      ],
+      "provenance": "PINNED_PUBLIC_API_AND_IMPLEMENTATION_REVIEW",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "",
+      "unknowns": [],
+      "runtime_validation_required": true
+    },
+    "OFFLINE_TESTS": {
+      "status": "PASS",
+      "expected": "required offline scenarios and regression checks",
+      "observed": {
+        "discovered": 525,
+        "runner_tests_run": 525,
+        "executed": 524,
+        "passed": 524,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "skip_reasons": [
+          "Windows directory symlink requires privilege (WinError 1314); historical skip"
+        ],
+        "new_tests": 116,
+        "regression_discovered": 409,
+        "rust_passed": 2,
+        "cpp_cases_passed": 30,
+        "cpp_assertions_passed": 730,
+        "lua_syntax_files": 13,
+        "scope": "offline fixtures and fake engine services"
+      },
+      "source": [
+        "docs/STAGE10_10_TEST_PLAN.md",
+        "tests/test_stage10_10.py"
+      ],
+      "provenance": "EXECUTED_OFFLINE_TEST_RUNS",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "",
+      "unknowns": [],
+      "runtime_validation_required": false
+    },
+    "INSTALL_READINESS": {
+      "status": "BLOCKED",
+      "expected": false,
+      "observed": false,
+      "source": [
+        "docs/STAGE10_10_INSTALL_PLAN.md"
+      ],
+      "provenance": "PHASE_A_ONLY",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "BLOCKED_BY_GAME_INTEGRITY",
+      "unknowns": [
+        "accepted_install_plan_and_separate_permission"
+      ],
+      "runtime_validation_required": false
+    },
+    "RUNTIME_STATUS": {
+      "status": "NOT_EXECUTED",
+      "expected": "NOT_EXECUTED",
+      "observed": "NOT_EXECUTED",
+      "source": [
+        "docs/STAGE10_10_RUNTIME_RESULTS.md"
+      ],
+      "provenance": "NO_GAME_LAUNCH_OR_BRIDGE_CONNECTION",
+      "identity": {
+        "game_build": 1287369,
+        "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+        "emf_candidate_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241"
+      },
+      "error": "",
+      "unknowns": [
+        "all_runtime_gates"
+      ],
+      "runtime_validation_required": true
+    }
+  },
+  "installation_ready": false,
+  "runtime_status": "NOT_EXECUTED",
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN",
+  "spawn_ready": false
+}

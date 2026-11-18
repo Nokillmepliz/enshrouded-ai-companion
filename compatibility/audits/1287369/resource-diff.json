@@ -1,0 +1,594 @@
+{
+  "hunter_assistant": {
+    "component_count": 82,
+    "component_fingerprint_fnv32": "5253f478",
+    "canonical_resource_sha256": "58b9d7cb53d61b4d05b4e7eaf63a0b50109e086f322dbc4b8b3205d48a7a024d",
+    "character_setup": {
+      "beard": {
+        "value": 0
+      },
+      "beardColorId": {
+        "value": 2593349132
+      },
+      "eyeBrowColor": {
+        "value": 1294605571
+      },
+      "eyeColor": {
+        "value": 1843389514
+      },
+      "gender": "Male",
+      "hair": {
+        "value": 100818570
+      },
+      "hairColorId": {
+        "value": 2593349132
+      },
+      "presetId": {
+        "value": 1602195472
+      },
+      "skinColor": {
+        "value": 510686028
+      },
+      "useNewProportions": false,
+      "voicePackId": {
+        "value": 3178345104
+      }
+    },
+    "animation": {
+      "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+      "hasFootstepSyncLogic": false,
+      "hasServerLogic": true,
+      "maxSnapshotPoses": -1,
+      "retargetData": null
+    },
+    "faction": {
+      "faction": "Player"
+    },
+    "npc_id": {
+      "value": 1633192162
+    },
+    "persistence_components": [
+      "keen::ecs::ActiveNpcState",
+      "keen::ecs::ActiveNpcStateSaved",
+      "keen::ecs::ClientActiveNpcState",
+      "keen::ecs::ForceSave"
+    ],
+    "added_components": [
+      "keen::ecs::GrassEffector"
+    ],
+    "removed_components": [],
+    "changed_fields": {
+      "keen::ecs::MovementColliderConfig": [
+        "/width"
+      ],
+      "keen::ecs::PathWalker": [
+        "/pushTowardsValidPosition"
+      ],
+      "keen::ecs::ActiveNpcState": [
+        "/socializingSetup/sequences/reactions/length",
+        "/socializingSetup/socializingCooldownMax/value",
+        "/socializingSetup/socializingCooldownMin/value",
+        "/socializingSetup/socializingDurationMax/value",
+        "/socializingSetup/socializingDurationMin/value"
+      ]
+    }
+  },
+  "blacksmith_assistant": {
+    "component_count": 82,
+    "component_fingerprint_fnv32": "5253f478",
+    "canonical_resource_sha256": "d3b330c53c0240b4db48caffc34dd2da5b823165355f8bff09e1527351d6b85c",
+    "character_setup": {
+      "beard": {
+        "value": 0
+      },
+      "beardColorId": {
+        "value": 3572285995
+      },
+      "eyeBrowColor": {
+        "value": 1294605571
+      },
+      "eyeColor": {
+        "value": 3442935409
+      },
+      "gender": "Female",
+      "hair": {
+        "value": 742677050
+      },
+      "hairColorId": {
+        "value": 2593349132
+      },
+      "presetId": {
+        "value": 4189673484
+      },
+      "skinColor": {
+        "value": 2102491712
+      },
+      "useNewProportions": false,
+      "voicePackId": {
+        "value": 1773411200
+      }
+    },
+    "animation": {
+      "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+      "hasFootstepSyncLogic": false,
+      "hasServerLogic": true,
+      "maxSnapshotPoses": -1,
+      "retargetData": null
+    },
+    "faction": {
+      "faction": "Player"
+    },
+    "npc_id": {
+      "value": 1731045065
+    },
+    "persistence_components": [
+      "keen::ecs::ActiveNpcState",
+      "keen::ecs::ActiveNpcStateSaved",
+      "keen::ecs::ClientActiveNpcState",
+      "keen::ecs::ForceSave"
+    ],
+    "added_components": [
+      "keen::ecs::GrassEffector"
+    ],
+    "removed_components": [],
+    "changed_fields": {
+      "keen::ecs::MovementColliderConfig": [
+        "/width"
+      ],
+      "keen::ecs::PathWalker": [
+        "/pushTowardsValidPosition"
+      ],
+      "keen::ecs::ActiveNpcState": [
+        "/socializingSetup/sequences/reactions/length",
+        "/socializingSetup/socializingCooldownMax/value",
+        "/socializingSetup/socializingCooldownMin/value",
+        "/socializingSetup/socializingDurationMax/value",
+        "/socializingSetup/socializingDurationMin/value"
+      ]
+    }
+  },
+  "clone": {
+    "component_count": 82,
+    "component_fingerprint_fnv32": "5253f478",
+    "canonical_resource_sha256": "0ac9c3719625fccc8fd8f33039ddefd526c9e74b8d85c89c4a5a7e117ff5474e",
+    "character_setup": {
+      "beard": {
+        "value": 0
+      },
+      "beardColorId": {
+        "value": 2593349132
+      },
+      "eyeBrowColor": {
+        "value": 1294605571
+      },
+      "eyeColor": {
+        "value": 1843389514
+      },
+      "gender": "Male",
+      "hair": {
+        "value": 100818570
+      },
+      "hairColorId": {
+        "value": 2593349132
+      },
+      "presetId": {
+        "value": 1602195472
+      },
+      "skinColor": {
+        "value": 510686028
+      },
+      "useNewProportions": false,
+      "voicePackId": {
+        "value": 3178345104
+      }
+    },
+    "animation": {
+      "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+      "hasFootstepSyncLogic": false,
+      "hasServerLogic": true,
+      "maxSnapshotPoses": -1,
+      "retargetData": null
+    },
+    "faction": {
+      "faction": "PlayerAlly"
+    },
+    "npc_id": {
+      "value": 2939921867
+    },
+    "persistence_components": [
+      "keen::ecs::ActiveNpcState",
+      "keen::ecs::ActiveNpcStateSaved",
+      "keen::ecs::ClientActiveNpcState",
+      "keen::ecs::ForceSave"
+    ]
+  },
+  "hunter_preset_unchanged": true,
+  "resource_comparison": [
+    {
+      "resource": "hunter_assistant.json",
+      "guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
+      "type": "keen::ecs::TemplateResource",
+      "equal_to_1273043": false
+    },
+    {
+      "resource": "blacksmith_assistant.json",
+      "guid": "04d42ed2-beb4-4013-8f10-5d63efae2015",
+      "type": "keen::ecs::TemplateResource",
+      "equal_to_1273043": false
+    },
+    {
+      "resource": "character_preset_collection.json",
+      "guid": "a1bea7fc-2122-4dd3-a471-2b815a65134b",
+      "type": "keen::CharacterPresetCollection",
+      "equal_to_1273043": false
+    },
+    {
+      "resource": "item_registry.json",
+      "guid": "3064d35d-7342-40ca-bdc9-aad58f83bf45",
+      "type": "keen::ItemRegistryResource",
+      "equal_to_1273043": false
+    },
+    {
+      "resource": "humanoid_hierarchy.json",
+      "guid": "87b29df6-6518-43ef-9298-e3f85a6204b9",
+      "type": "keen::ModelHierarchyResource",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "098e874d-1847-4d80-9a3e-78aa39428d91.json",
+      "guid": "098e874d-1847-4d80-9a3e-78aa39428d91",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "0ca2ba0d-95c8-49b9-8599-3d66d38fa9c5.json",
+      "guid": "0ca2ba0d-95c8-49b9-8599-3d66d38fa9c5",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "0ce0cff8-8ce9-4c56-aab2-5379cbebe422.json",
+      "guid": "0ce0cff8-8ce9-4c56-aab2-5379cbebe422",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "12eebfdd-0cd3-44dc-bf42-8c891e98ddd9.json",
+      "guid": "12eebfdd-0cd3-44dc-bf42-8c891e98ddd9",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "13f3b9ae-b04c-423d-af40-acf150a0ece3.json",
+      "guid": "13f3b9ae-b04c-423d-af40-acf150a0ece3",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "144b567d-042c-453e-8953-ce3e6b09578c.json",
+      "guid": "144b567d-042c-453e-8953-ce3e6b09578c",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "16dafa21-38c0-403a-a788-8a95c26d135c.json",
+      "guid": "16dafa21-38c0-403a-a788-8a95c26d135c",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "28a383fa-3548-4edc-aaca-a21975952bab.json",
+      "guid": "28a383fa-3548-4edc-aaca-a21975952bab",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "2c9aefde-3fef-49b7-8ead-865192b7c80c.json",
+      "guid": "2c9aefde-3fef-49b7-8ead-865192b7c80c",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "2f64ec88-3e8e-434f-b2fa-5cb0820336ad.json",
+      "guid": "2f64ec88-3e8e-434f-b2fa-5cb0820336ad",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "3027115a-711f-40ca-99b0-3bc46f1f4a1f.json",
+      "guid": "3027115a-711f-40ca-99b0-3bc46f1f4a1f",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "51628ea5-dfe2-4273-88de-2be2276c4b79.json",
+      "guid": "51628ea5-dfe2-4273-88de-2be2276c4b79",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "5480cdc1-074f-4cf8-9aba-2aa2a349c398.json",
+      "guid": "5480cdc1-074f-4cf8-9aba-2aa2a349c398",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "61f0f911-7ef9-46c2-b869-ccf55faf284e.json",
+      "guid": "61f0f911-7ef9-46c2-b869-ccf55faf284e",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "66835ac0-9d44-425a-bbe7-cea2597f4101.json",
+      "guid": "66835ac0-9d44-425a-bbe7-cea2597f4101",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "6f9b89fa-35eb-4e07-b2f0-73f5d148c356.json",
+      "guid": "6f9b89fa-35eb-4e07-b2f0-73f5d148c356",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "81765092-09c5-4413-9fd5-49bbb8d707f0.json",
+      "guid": "81765092-09c5-4413-9fd5-49bbb8d707f0",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "83064ed9-de8f-40fc-8168-260ad25093ac.json",
+      "guid": "83064ed9-de8f-40fc-8168-260ad25093ac",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "8f02c1cc-d349-4963-8a73-f63b498fdd29.json",
+      "guid": "8f02c1cc-d349-4963-8a73-f63b498fdd29",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "95c15091-1bf5-4794-baae-35e15fbc1622.json",
+      "guid": "95c15091-1bf5-4794-baae-35e15fbc1622",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "a0291c61-4892-4f09-b5a0-7e0ab108f5ec.json",
+      "guid": "a0291c61-4892-4f09-b5a0-7e0ab108f5ec",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "ac5ad9d8-5f69-43e3-9319-07ab82e191bb.json",
+      "guid": "ac5ad9d8-5f69-43e3-9319-07ab82e191bb",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "b2da1825-2a57-41c9-9540-60b5e275bb79.json",
+      "guid": "b2da1825-2a57-41c9-9540-60b5e275bb79",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "bb2170f4-b9a8-4a0d-8e7e-fa626dbcdb24.json",
+      "guid": "bb2170f4-b9a8-4a0d-8e7e-fa626dbcdb24",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "c695dbec-5732-41c7-b3bb-5d07d3c89802.json",
+      "guid": "c695dbec-5732-41c7-b3bb-5d07d3c89802",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "c97d7420-6fa4-48e7-9923-6fce34fd0b3d.json",
+      "guid": "c97d7420-6fa4-48e7-9923-6fce34fd0b3d",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "c987ffb8-5efe-4339-9956-4aa8a96e66d0.json",
+      "guid": "c987ffb8-5efe-4339-9956-4aa8a96e66d0",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "d2e419cf-cd52-401d-8930-e8e553fc4dd0.json",
+      "guid": "d2e419cf-cd52-401d-8930-e8e553fc4dd0",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "d64c65ac-b8cb-4256-9477-057967f5bc29.json",
+      "guid": "d64c65ac-b8cb-4256-9477-057967f5bc29",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "d66fab50-cc98-46e7-a523-81c725a35641.json",
+      "guid": "d66fab50-cc98-46e7-a523-81c725a35641",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "e7791ac1-75f9-449f-85b2-759af2692773.json",
+      "guid": "e7791ac1-75f9-449f-85b2-759af2692773",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "f3c14ee4-3f5e-406c-9bcd-54016e3c4af9.json",
+      "guid": "f3c14ee4-3f5e-406c-9bcd-54016e3c4af9",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "f48fb353-a975-4ffc-bf92-82863e4cc383.json",
+      "guid": "f48fb353-a975-4ffc-bf92-82863e4cc383",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "fb8d2387-2826-4c83-87aa-5735c09f22a9.json",
+      "guid": "fb8d2387-2826-4c83-87aa-5735c09f22a9",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "fe9dfadd-08e0-4356-ae74-85436af47b95.json",
+      "guid": "fe9dfadd-08e0-4356-ae74-85436af47b95",
+      "type": "keen::RenderModel",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Armor_T4_Ranger_Archer_DPS_Arms__f218d9b0-ef38-49fd-b0a4-3e59d00a19c3.json",
+      "guid": "f218d9b0-ef38-49fd-b0a4-3e59d00a19c3",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Armor_T4_Ranger_Archer_DPS_Boots__3fd4b70c-296c-409d-bb38-5f6795c8d753.json",
+      "guid": "3fd4b70c-296c-409d-bb38-5f6795c8d753",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Armor_T4_Ranger_Archer_DPS_Chest__94404c05-250a-4b14-8c16-283c85391d16.json",
+      "guid": "94404c05-250a-4b14-8c16-283c85391d16",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Armor_T4_Ranger_Archer_DPS_Helmet__84ff3867-116c-48ec-aef9-c8a6ba33a199.json",
+      "guid": "84ff3867-116c-48ec-aef9-c8a6ba33a199",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Armor_T4_Ranger_Archer_DPS_Legs__cad0997d-e66d-417c-98f6-e03f6745611d.json",
+      "guid": "cad0997d-e66d-417c-98f6-e03f6745611d",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Vanity_T2_Explorer_Gloves__c7ec1f22-7602-4086-b647-3d2e70fcb176.json",
+      "guid": "c7ec1f22-7602-4086-b647-3d2e70fcb176",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Vanity_TX_Blacksmith_Boots__b24cd97d-b057-45a5-8681-68f6d4677363.json",
+      "guid": "b24cd97d-b057-45a5-8681-68f6d4677363",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Vanity_TX_Blacksmith_Chest__1c5f6707-d952-4ae1-85ba-70039214d2f6.json",
+      "guid": "1c5f6707-d952-4ae1-85ba-70039214d2f6",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "Vanity_TX_Blacksmith_Legs__fcb90e92-ca36-4879-9c58-9d374ea16f20.json",
+      "guid": "fcb90e92-ca36-4879-9c58-9d374ea16f20",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Chest_01__5bb45d4b-0310-42a7-a0db-41e977608ce1.json",
+      "guid": "5bb45d4b-0310-42a7-a0db-41e977608ce1",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Collar_01__54f89d91-d59c-4fd8-b39c-ee30632bf57f.json",
+      "guid": "54f89d91-d59c-4fd8-b39c-ee30632bf57f",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Crotch_01__3b5653a0-13a6-417c-b0f3-a393ad27d697.json",
+      "guid": "3b5653a0-13a6-417c-b0f3-a393ad27d697",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Feet_01__f9b354fe-a4da-40cb-a194-680b65447c84.json",
+      "guid": "f9b354fe-a4da-40cb-a194-680b65447c84",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Hands_01__3e41c49a-56e9-4a96-8be8-a60c2f3167c7.json",
+      "guid": "3e41c49a-56e9-4a96-8be8-a60c2f3167c7",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Head_Female_10_young_caucasian__e79f4c59-5330-472f-b961-73550d717316.json",
+      "guid": "e79f4c59-5330-472f-b961-73550d717316",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Head_Male_02_young_african__cba24116-4074-41d6-a452-d1ba8db91eec.json",
+      "guid": "cba24116-4074-41d6-a452-d1ba8db91eec",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_LowerArms_01__a173466b-7991-4612-badb-935cdcd5b4c8.json",
+      "guid": "a173466b-7991-4612-badb-935cdcd5b4c8",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_LowerLegs_01__49ac99c6-4dd2-4716-af56-93dfff83e10b.json",
+      "guid": "49ac99c6-4dd2-4716-af56-93dfff83e10b",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Neck_01__ef17e0da-f771-4ac7-b97c-fd6028b8cb6d.json",
+      "guid": "ef17e0da-f771-4ac7-b97c-fd6028b8cb6d",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_UpperArms_01__93c3c73e-cb3a-443f-8e10-b81c972a8bf7.json",
+      "guid": "93c3c73e-cb3a-443f-8e10-b81c972a8bf7",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_UpperLegs_01__6e23e774-8e7c-48a5-8129-55cf09b7c48b.json",
+      "guid": "6e23e774-8e7c-48a5-8129-55cf09b7c48b",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Body_Waist_01__8ee3d2d2-0027-4ebc-b2e1-ea0d02bc216c.json",
+      "guid": "8ee3d2d2-0027-4ebc-b2e1-ea0d02bc216c",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": true
+    },
+    {
+      "resource": "VC_Hair_01_06_mohawk_bun__0c45d8ae-5509-4a7c-a61f-d862ad4964e5.json",
+      "guid": "0c45d8ae-5509-4a7c-a61f-d862ad4964e5",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": false
+    },
+    {
+      "resource": "VC_Hair_05_01_fauxhawk__533c1226-dddd-4ddc-a338-22a006452b88.json",
+      "guid": "533c1226-dddd-4ddc-a338-22a006452b88",
+      "type": "keen::ItemInfo",
+      "equal_to_1273043": false
+    }
+  ],
+  "clean_baseline": false,
+  "clone_collision": "PRESENT_IN_MODIFIED_DATABASE; clean database not available"
+}

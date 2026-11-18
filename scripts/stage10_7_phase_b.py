@@ -9,7 +9,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -87,6 +86,9 @@ def receipt() -> tuple[dict, dict[str, str]]:
 
 def audit() -> dict:
     require_stopped()
+    from companion.stage10 import EXPECTED_GAME_SHA256
+    if sha256(GAME / "enshrouded.exe") != EXPECTED_GAME_SHA256:
+        raise RuntimeError("ROLLBACK_BLOCKED_BUILD_MISMATCH:historical_stage10_7")
     if not verify_backup(OLD_BACKUP):
         raise RuntimeError("old_backup_verification_failed")
     backup = load(OLD_BACKUP)
@@ -133,21 +135,9 @@ def audit() -> dict:
 
 
 def clean_attributed_dirs(post: dict) -> list[str]:
-    known = set(post.get("known_runtime_outputs", ()))
-    removed = []
-    game_root = GAME.resolve()
-    for relative in ATTRIBUTED_DIRS:
-        if relative not in known:
-            raise RuntimeError(f"directory_not_attributed:{relative}")
-        path = (GAME / relative).resolve()
-        if path.parent != game_root:
-            raise RuntimeError(f"unsafe_attributed_path:{path}")
-        if path.is_dir():
-            shutil.rmtree(path)
-            removed.append(relative)
-        elif path.exists():
-            raise RuntimeError(f"attributed_path_not_directory:{relative}")
-    return removed
+    # Historical reports only attribute directory names, not every current file.
+    # Never reuse that broad deletion after a game update (or new runtime output).
+    raise RuntimeError("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:directory_hash_manifest_required")
 
 
 def verify_clean(old_backup: dict, saves_before: dict[str, str]) -> dict:

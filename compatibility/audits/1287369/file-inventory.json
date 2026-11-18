@@ -1,0 +1,2006 @@
+{
+  "format": "aic_offline_file_inventory_v1",
+  "game_build": 1287369,
+  "clean_baseline": false,
+  "counts": {
+    "NEW": 171,
+    "PREVIOUS_MOD_ARTIFACT": 19,
+    "UPDATED_BY_GAME": 1,
+    "MODIFIED_UNKNOWN": 28,
+    "UNCHANGED": 30
+  },
+  "files": [
+    {
+      "path": ".cache/files.json",
+      "bytes": 5908,
+      "sha256": "62db744032687bce73e60f6ac935debb741ce22ddfda146ceb3c6019b8579aa7",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": ".cache/lua/base.lua",
+      "bytes": 96560,
+      "sha256": "98847ab86a8d73a18ae2b78c53fb73db0c406e776d426d26e36048cb4142c1d0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": ".cache/lua/types.lua",
+      "bytes": 1423389,
+      "sha256": "a3a4aae161bc29a64dd4e7ec047cd1fcdf2b48d9b18fbc5ff56cc491c429ba47",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": ".cache/types.json",
+      "bytes": 11106802,
+      "sha256": "f3ad9e701fc647acc84aea12de9b5ac6da010423ab856c5b121be1f45eeb99ad",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "GFSDK_Aftermath_Lib.x64.dll",
+      "bytes": 5788312,
+      "sha256": "4177e09de4bbcc168deeb4f2d88f8961fe98009fae8046d08b418e725414de42",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-27T22-06-35.log",
+      "bytes": 325667,
+      "sha256": "c384a2ca4694554e386afe65f0afcace356f616346a0233fe9099a09a69155bc",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-28T10-42-54.log",
+      "bytes": 226289,
+      "sha256": "a0ec69d3e73390b4e7e78b12b7f9f64a4c0ff45d1e1892b56b60323737708d8c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-29T17-48-38.log",
+      "bytes": 782293,
+      "sha256": "740bde48d4f171c162ce6589d41ef42156a2a6b1e480751b17adaa33864d83bd",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-29T20-26-37.log",
+      "bytes": 186605,
+      "sha256": "b82d615cd38859e311b4f2fdfd55b5d3deb34ca2d391d164198e63cc9c8196c3",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-29T21-53-59.log",
+      "bytes": 186545,
+      "sha256": "6ab4f3aa0163f06b9e6e421eb9ddfc9b7fb96c372c6380e8f3d5d48a8d3ec58f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-29T22-46-17.log",
+      "bytes": 151640,
+      "sha256": "529308b949246186956dba9c09a2d0235cde29a52fe11841bcefc668826a1c11",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-30T16-31-20.log",
+      "bytes": 273275,
+      "sha256": "8707abf55b0c6915f9385bf90967065d7a9fef33947b2690aa6a9a3c497d4719",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-30T19-22-57.log",
+      "bytes": 176388,
+      "sha256": "c6cfd92b86b707b3641475229cb49a1d3c1a4aa19c4f48e7c1b32bcff4a7dd39",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-30T23-38-23.log",
+      "bytes": 148590,
+      "sha256": "07ef01a6985a52c048d44274a439a9bdad120367213442da2c141c92df515e6c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-31T09-31-55.log",
+      "bytes": 134342,
+      "sha256": "995c3a276400e10b1f77cd7eee1e131759542327f123f40faec00564d8f80573",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-31T10-59-46.log",
+      "bytes": 278770,
+      "sha256": "1a93b00ed45f0e4435f60a071c849c882289b8cd855afd9ec6d41e8a7d4f8daa",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-08-31T16-39-22.log",
+      "bytes": 401513,
+      "sha256": "20c1f9f6cb2a93e5701e814cf1fc354876ef5fe946d997a0eb9d17c18d3e3821",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T01-21-17.log",
+      "bytes": 329283,
+      "sha256": "5305217a19d2aee4386822e14a9c8ea806223079000f7ff5133136804aa7db6a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T11-34-43.log",
+      "bytes": 306023,
+      "sha256": "0a6ce184a62a470abab634222413cdf4ccedcd10da0b7b31742fd2e2f423bf07",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T13-37-57.log",
+      "bytes": 133953,
+      "sha256": "faec2ced5edb141640bd2c3bd4f79f3a7d6c9c36e69d1b1cc76850687ba7c0c3",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T15-51-52.log",
+      "bytes": 126063,
+      "sha256": "ffeff415255c9b553df820a516c124169201f682640e7840ed1f4ee212c9f5a7",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T18-46-14.log",
+      "bytes": 107895,
+      "sha256": "a6966c720cc184a7c769edfff0c9cf111d8898e5dba19552059a0b94d7ce5064",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-01T18-52-58.log",
+      "bytes": 105931,
+      "sha256": "6ff4bfc246c1f9f7d700cbe320697dd3664d61f967390110854657de86aeef1c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-04T00-02-38.log",
+      "bytes": 271410,
+      "sha256": "434d31fdba21aa27fc0647874abdfad66c1fd3cb94c28092d6266b70ca7e7d60",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-04T00-30-21.log",
+      "bytes": 104526,
+      "sha256": "dd1b9289300feca2d0bf2d45dffb57dd69d432077bad2107f3e7091c6cbf74dd",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-04T15-49-26.log",
+      "bytes": 225882,
+      "sha256": "e262dcc225a7104a0ee2e818cb46f3596f2889760e0ad6183a6c844b0a04db15",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-04T15-50-24.log",
+      "bytes": 61053,
+      "sha256": "f93822535b3fc44f024cb4115f5d656d3201677aee9f98e6b019e25b7ebe92f9",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-04T15-51-58.log",
+      "bytes": 61054,
+      "sha256": "dcfca12d78c1da84bc41ef32ff8c9fb5eadb80b45dcd274559711e2c2a7d604a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-07T12-07-03.log",
+      "bytes": 595011,
+      "sha256": "4e969315d598e67de97bebc6166991f5d59878a5949730094d4d10063e286d12",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-09T12-10-10.log",
+      "bytes": 239292,
+      "sha256": "3618f489caaf703206749fa4c7427bbd7209e299dbbad9a1edc9162e4f20887a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-10T09-18-40.log",
+      "bytes": 152807,
+      "sha256": "2f8cb8b22104a4be10aa543f592c718624ce5043b6b17919cacb3787ff6aadea",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-10T12-38-34.log",
+      "bytes": 182576,
+      "sha256": "209c0b7d0096d26fbabbdbc17149ff41c41d2a19fc087b3b0a2c104a81458035",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-10T12-40-40.log",
+      "bytes": 107625,
+      "sha256": "480c3db5cbf5e46c16eacd88d2df403688b54df712c4fab68f99e3343e37184e",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-10T22-37-40.log",
+      "bytes": 191113,
+      "sha256": "f91e61a88ceeec4f8c89458c3da5cc14f151dff87f7155e012ae7f3399de717e",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-10T22-40-42.log",
+      "bytes": 61054,
+      "sha256": "62ea1b6234c82b3d8ae63bd3df6722145774c244488ff808ba652e48422dac03",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-13T12-21-29.log",
+      "bytes": 737356,
+      "sha256": "974245125f42e327d7db5b61e47cc68bf3852f9c8dd5ddbc7a0fcf9120d20c20",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-16T01-33-57.log",
+      "bytes": 755262,
+      "sha256": "a8f63ff44f672711eb48d937caf1e4c9feca723ac2677e6495175f1a367a7d97",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-16T18-57-51.log",
+      "bytes": 113855,
+      "sha256": "d2bfc9705f0cc8c82443aef089a5f3c723713262a92e1acac2a8b07768d364a8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2024-09-17T12-18-05.log",
+      "bytes": 107555,
+      "sha256": "422f5fa1d8e0b99530efc50f56acc98edb25d2359ad3c5c16e78661005c946d9",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-23T17-41-48.log",
+      "bytes": 351199,
+      "sha256": "f791ef90818aacc53347dc895eca3fd56b5edeb36916121163ca70ac1f211e90",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-23T17-48-06.log",
+      "bytes": 200756,
+      "sha256": "9e856d82102e6d12af64a7130308c3af5b7e23e6adad28b13a280e3c8ba3419d",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-23T17-56-38.log",
+      "bytes": 197930,
+      "sha256": "d6b26ff32e5e836ad992db46389edb2767be7ed395bfad2620ba0d10db518f8e",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-23T19-47-27.log",
+      "bytes": 333747,
+      "sha256": "d138c5d51e62f03abb655805b511d8b2c1face416c8c87b84b84e7e9f5030ab0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-24T21-50-44.log",
+      "bytes": 9643816,
+      "sha256": "882d5e144504a5e44eaaffb1678ab5e32d105257534a831107f9dd7befbe6a75",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-25T16-07-59.log",
+      "bytes": 3778694,
+      "sha256": "175b1ad8a3b891ed51c0e093abb42e5eab43ba513e90f07f497476ca23ee79ba",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-25T23-42-15.log",
+      "bytes": 905505,
+      "sha256": "5e5327859193dbf1bf1556702813b77b751f7725d04c7663e593dca6e1fd27e0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-27T11-11-45.log",
+      "bytes": 1571798,
+      "sha256": "e68de9f9d854f16c9adcb6c56ff83ba5ef8c8f34ea9a667edba6ccdcee1fcfaa",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-27T12-15-53.log",
+      "bytes": 498321,
+      "sha256": "5cf0f6f1c12573ea823c887f94fd3de74b7ac8fca3c38eae509b2c5bc613caca",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-27T18-59-43.log",
+      "bytes": 3463663,
+      "sha256": "fa37c8378519a1767bfd57e19f488797230935b849396bf42f60e3a1d7f48c35",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-29T21-20-26.log",
+      "bytes": 3152512,
+      "sha256": "69f817dc8c4f60d8cf09c0c4916339458273cc48c9ef92012dba305d5024ec83",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-30T00-09-44.log",
+      "bytes": 190205,
+      "sha256": "530e579f019e7a1e54b0ee619f0790913c647d8802d99faf7647c0587ac6f75d",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-30T17-42-17.log",
+      "bytes": 924978,
+      "sha256": "2bc230946ce65a93af8773b5e6775a6e3fa55be9fefa7f60b0f019ea5e98c979",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-30T22-24-41.log",
+      "bytes": 189698,
+      "sha256": "b4c81fbc7f44478103d2d6eb833d5beea81cd1753a73498e4123f8e304861b15",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-30T22-31-27.log",
+      "bytes": 317700,
+      "sha256": "01ad8ac0f6f89a56d2b1ec2695a8e43a5ff46004c548350b7935ab3fe94ad3e4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-30T22-52-56.log",
+      "bytes": 736462,
+      "sha256": "e2187296b34d0033d4610fbf6752bf5535d890c4254f3d94b175caec5025322a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-31T01-05-00.log",
+      "bytes": 321401,
+      "sha256": "c9ff5037836760d65b9c6eb7be0856cec660d6373691ed7c8d7438b5155473a8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-10-31T12-02-23.log",
+      "bytes": 317731,
+      "sha256": "f4a8c7665efe748fb5b89131a7fd0798321c1abba1c5d7feb5916cc443278632",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-01T12-12-47.log",
+      "bytes": 188480,
+      "sha256": "25f410761f826bbdbda33c522c2f99b7acee33d83d31e01cec4d0221fa27faf8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-01T18-24-58.log",
+      "bytes": 316837,
+      "sha256": "f0d2d064e0afc19d93ec058cf2fb64e0a34ff0119172524562c091783279d424",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-03T14-32-31.log",
+      "bytes": 317039,
+      "sha256": "b426c7bde733137db215b18ffbb49b39822dfb6f29d0d0b3a61a75d70f95b0e0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-03T18-06-28.log",
+      "bytes": 3707405,
+      "sha256": "435e6f1777ee40f79240212e794dc17eddc0c6aea88003b979f4db56d2648dd5",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-05T23-38-04.log",
+      "bytes": 1417845,
+      "sha256": "7975dc5d32511f318ed388c5b833dc7cfe491f4063ac93851de625a9455c77e4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "backup/enshrouded_2026-11-06T21-10-06.log",
+      "bytes": 823849,
+      "sha256": "4bd1ce957d1ef634222f476a71ce8d3a3896b1fa4392e1d5942ac2adaac0da40",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "dbghelp.dll",
+      "bytes": 20614895,
+      "sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+      "previous_sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "dinput8.dll",
+      "bytes": 239104,
+      "sha256": "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee",
+      "previous_sha256": "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "historical_EMF_0.3.2_loader_audit_exact_hash"
+    },
+    {
+      "path": "emf/chain_status.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/aic_body.ini",
+      "bytes": 23,
+      "sha256": "01c055932897eb2657bfce6ff69e1316a533933660c8b0bad5e34d945990c4d5",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/aic_template_observer.ini",
+      "bytes": 34,
+      "sha256": "a5d6ca2ea3d1a86d4880b224b6bf31ef2b46e6c33d60ce8e3c3105fbf88bec10",
+      "previous_sha256": "a5d6ca2ea3d1a86d4880b224b6bf31ef2b46e6c33d60ce8e3c3105fbf88bec10",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/config/beastmaster.ini",
+      "bytes": 26,
+      "sha256": "198e014f99f5989dbcbdca26cb6bdfe836727d70ee96a5822a42ba88ed6fe8a2",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/big_stacks.ini",
+      "bytes": 25,
+      "sha256": "acad9af07c8160cca0d74a15ad7904ca4a4e6c9f14e5a30cc269d8d0cb3ed085",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/bounty.ini",
+      "bytes": 21,
+      "sha256": "469e3fb39deeee1277dd8041ad2f934b54900f8aee96778c181cb999fed50e68",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/bulk_craft.ini",
+      "bytes": 25,
+      "sha256": "99ba38dcec606fb39a6b6210d8a0c059619ae86865ce16bf57f8f185ae0e2adc",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/champion.ini",
+      "bytes": 23,
+      "sha256": "f08c9e9310f53b6a898ba4514d66fc455e1fa73292ca4cdcc77aec033a3f158c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/clock.ini",
+      "bytes": 20,
+      "sha256": "5f7ff8e297c3d1313d2c7cad4bb1300873176f8e460cd4450021eac22c1474e1",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/companion.ini",
+      "bytes": 24,
+      "sha256": "38a9eb54b959cf325dcad1b6acf7884a20657ddcf896fadc1339ed5e8f262ed2",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/grave.ini",
+      "bytes": 20,
+      "sha256": "5ffccc93daf5e623ef0b671177b55299780130c416253af746049239d2b1db22",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/handover.ini",
+      "bytes": 23,
+      "sha256": "ad2391a1b6449048323874460b6271fff99cbdb30430985ab9a026da4adf412f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/herald.ini",
+      "bytes": 21,
+      "sha256": "7316178fffd943bdefdcc3b366e31bff831c5eb22c72c62bbe0f6b25d751e0dd",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/kill_counter.ini",
+      "bytes": 27,
+      "sha256": "539042b4f3e44c9c3334d034c8be5d99f5238f9e1a7097a3f975ad0aa825e6cd",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/life_skills.ini",
+      "bytes": 26,
+      "sha256": "fd44a6b13e9ed9be26cd96d4f8a926d61f519a06d8bee6398586ed4b71cbb4a7",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/loot_magnet.ini",
+      "bytes": 26,
+      "sha256": "5f605f9ee343667a2b3ee2be16f91ff9ebebbd4f7fb72a70f9275e7d9f8f3305",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/loot_scale.ini",
+      "bytes": 25,
+      "sha256": "8dd0541812b50125fb4403146d60806a07789ec53bb0ab68bcb969251b98e6ed",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/lua.ini",
+      "bytes": 18,
+      "sha256": "31da693c4d88b3a9e300f892026b1d5bfa78f2ae5742ada5881ed5c985e9abc2",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/necromancer.ini",
+      "bytes": 26,
+      "sha256": "5abf505cf65e13fc76da52ea29f8afba31da20e0d33cc6876242462b31d77067",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/quick_stack.ini",
+      "bytes": 26,
+      "sha256": "1991e487c6e85fac22299c59b387a0726812e62a16d27fe343d199aebd882f76",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/raids.ini",
+      "bytes": 20,
+      "sha256": "b0825d16c187dcf8c91402f230481beccc97ffdae7d78d155b0c73d5f5bf71ca",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/sleep.ini",
+      "bytes": 20,
+      "sha256": "2c9e9c00e32d3d3b8db497aea65d66cfac3dc5355c3f922e2623337913f66e43",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/teleports.ini",
+      "bytes": 24,
+      "sha256": "e43250c16e94b682c6c32c0c403f9947382175f30ab45e38c2d1b04020c824a8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/config/villager_jobs.ini",
+      "bytes": 28,
+      "sha256": "fdef1dae8501b8a914cc3411fbb637429b0f586962fe6f0b826e395027474ed8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/emf_core.dll",
+      "bytes": 3150848,
+      "sha256": "3b2b3ddd4c3a9696dd69389ba49d33af5b5f9d1377ed44bde3cd2a73778417f3",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/emf_core.ini",
+      "bytes": 37,
+      "sha256": "c44b117a1485035def743ddc05703b7a93c25a47dee034f80f0fbc8a4bf8656f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/emf_core.log",
+      "bytes": 1414,
+      "sha256": "2f785c5aad6b1a9a7f77e33a8e3d581f7f396c615df64faf7c51089a8e19e56e",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/emf_loader.log",
+      "bytes": 420,
+      "sha256": "217d8b6b957b593a97e5aa7a285ae2ee9a80c770d0b6ccc247e71c4e6690eab2",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/installed.txt",
+      "bytes": 2016,
+      "sha256": "0e95129125418a74b4783a38dc9e6d2f089cfd1db8c4b469daad1605bc223b75",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/known_tools.txt",
+      "bytes": 1142,
+      "sha256": "9db19e1fe1236259cd3b8f9a961ac0c4197d23410a3c816a3a05392cbceea250",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/aic_body/body.lua",
+      "bytes": 15196,
+      "sha256": "24a5db4ada4a5b81e9118b4dada51f19f01b8d87c7168887e8c62ace7e84014f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/aic_body/json.lua",
+      "bytes": 949,
+      "sha256": "4ac2f295ca1b17574ca9564b3de537a04af7214d8aa77cbaa70280e099de2604",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/aic_body/main.lua",
+      "bytes": 5763,
+      "sha256": "3b4de344dca28df16086b65ecc22f46c72c805ceb9b5cf9b8b7ebfe3dc0da9be",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/aic_body/mod.json",
+      "bytes": 367,
+      "sha256": "7916ed8d35e4a6a7303ad5b825a93551e6dca80010b762dbecb346c45e1065b4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/json.lua",
+      "bytes": 859,
+      "sha256": "208334bdd1bdbabc95859c2efdaa07819b1b524c2c991a0aa254d706968f78be",
+      "previous_sha256": "208334bdd1bdbabc95859c2efdaa07819b1b524c2c991a0aa254d706968f78be",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/main.lua",
+      "bytes": 4006,
+      "sha256": "594308c75d6b2a0f8e6ec2082aee74d0a50a37ec8c54b705b10f3802b54c1535",
+      "previous_sha256": "594308c75d6b2a0f8e6ec2082aee74d0a50a37ec8c54b705b10f3802b54c1535",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/mod.json",
+      "bytes": 349,
+      "sha256": "423bcb3006f88f3aa207405451a18c3e998d4b9b2974df268e78d8c2d36ce9e8",
+      "previous_sha256": "423bcb3006f88f3aa207405451a18c3e998d4b9b2974df268e78d8c2d36ce9e8",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/beastmaster/README.md",
+      "bytes": 9544,
+      "sha256": "a1b495f0feca0dec6748c7f87efb0ce8908eb24d3306b5226a192dd3e3576072",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/aim.lua",
+      "bytes": 2184,
+      "sha256": "71c69b983422dbb5977459a6c7426aece0a4b68ce2457b961846fdb0c5d4ca8f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/health.lua",
+      "bytes": 1678,
+      "sha256": "c93486d71f31266efd2b5fb677f53488f5b5f12786c07610f2b31426efb48dbd",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/main.lua",
+      "bytes": 13399,
+      "sha256": "ce7eecaad881660ea3b75ae3f0cd68b4468f50d2b1f7d71f460f7308e8086b90",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/mod.json",
+      "bytes": 4482,
+      "sha256": "fc95762767e7065ebdeff42d7b1eb279cbfdd82c3cc303c28621f85dd6006b18",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/pack.lua",
+      "bytes": 12967,
+      "sha256": "3ee69c3f443d804ef3c379bb8dfed5eb9ac0e8c3f8f8665d95415590febcdd78",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/roster.lua",
+      "bytes": 2510,
+      "sha256": "bfa6e4f18c9576a01c41ff5d4c2b032bee1a19dd51820d203810b077d612dd8f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/species.lua",
+      "bytes": 4164,
+      "sha256": "2dc1270fbf5e63b4b46cafb9c7d64a232077edcd1634cebafdaff2783578f0a8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/tame.lua",
+      "bytes": 10709,
+      "sha256": "28c925de91094529ba53fc6e1bc1359472f623981f10b35658681d3abd7c9f13",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/beastmaster/wild.lua",
+      "bytes": 5393,
+      "sha256": "1b8a3278e683c95aea4cad0e43026480f7799a7d8ad69301bcf848da73eba512",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/big_stacks/big_stacks.dll",
+      "bytes": 162816,
+      "sha256": "1b78e4107a7529c5f940c05ed7ed920bb81a0af1610e5a174d71dfa6cc820260",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/big_stacks/mod.json",
+      "bytes": 522,
+      "sha256": "d78dfb77c086946a63fbd2935d63ea41e460b76102b83efeee8e33f4246c152a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/bounty/README.md",
+      "bytes": 6848,
+      "sha256": "f7770ea4811660aaf2a888e836ade21eae8d375aa675cbed2f796898353d1d3c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/bounty/main.lua",
+      "bytes": 34264,
+      "sha256": "f82e3a1680de7919eb6f302b0a5d135a71bd0cd249b6d3bfd8ac7645bc355930",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/bounty/mod.json",
+      "bytes": 3984,
+      "sha256": "b99a699c6c621335783dac30caff1d5bc84caf4a7d46f4477ddd8463e65c9d21",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/bulk_craft/bulk_craft.dll",
+      "bytes": 415232,
+      "sha256": "97773021fbd5709ebc652e681ed7b2620deb071344cb4c93497f2f44ee5aa40f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/bulk_craft/mod.json",
+      "bytes": 2112,
+      "sha256": "b8ca47510382e50d38f7e81c36d66fa910177718af89585d70f81c75c6d1b8c5",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/champion/README.md",
+      "bytes": 5043,
+      "sha256": "8d2a5916ee2ad187e4c580a74bbb4621a15a15800148007302b28df576c8b472",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/champion/main.lua",
+      "bytes": 22083,
+      "sha256": "4504b8cbd995b4fa9159ab3d17ba7c75c8fc6d108084001f9634dfe01ad0a3c4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/champion/mod.json",
+      "bytes": 2871,
+      "sha256": "c54fc5db06f0ac3fd120ae1f8c9856108fcbf977000f16c6cf757571a7a0b576",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/clock/clock.dll",
+      "bytes": 172032,
+      "sha256": "a8120042f381a80d200e175b14ac4defaee6ce25f78f83a53cce91aede3c5c11",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/clock/mod.json",
+      "bytes": 589,
+      "sha256": "fe758fb27f73d01afedb4a3bf539c62af57a462d3cb687e4235d2f148ccd48ca",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/companion/companion.dll",
+      "bytes": 322560,
+      "sha256": "c659d46ce650ee4bec59cd0f72f59dbc262437583b2c759779696311ce26f979",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/companion/mod.json",
+      "bytes": 2167,
+      "sha256": "65cb63bddcb28257d9e44d70c337bb76130f1737378f01e6e866976e97bbcaa1",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/grave/README.md",
+      "bytes": 6594,
+      "sha256": "c29bfcc62ae8ab82923f4a6ff88fced2a23ad524f5be34fb7ce93329a607867c",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/grave/main.lua",
+      "bytes": 37223,
+      "sha256": "4095c6642b7efcca49eba7c0656e45b1fe54ce8b6edcd2ffe89b739d80c5b3dc",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/grave/mod.json",
+      "bytes": 2913,
+      "sha256": "c3bd73cd613a78cf86198a1e667e9404da053a9ee592d8fa9d8aaad6971e8d17",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/handover/README.md",
+      "bytes": 4793,
+      "sha256": "2e2a7152f4875e7a805b2ff03bfa97e79b76f20a6a1824369a40b62204644dc8",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/handover/main.lua",
+      "bytes": 25855,
+      "sha256": "28ea78a7adf844c596d1951b131a0013015fdfdfb593b8d96109a7bef549922a",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/handover/mod.json",
+      "bytes": 1882,
+      "sha256": "8b79629d02c127c1c47f5150515702796ab386163e6308d10d86034ddc5a4373",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/herald/herald.dll",
+      "bytes": 387072,
+      "sha256": "70693d34e4637e1846ea0747c3dbdcef5eb68d89858ce65be37f459ace09b112",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/herald/mod.json",
+      "bytes": 3459,
+      "sha256": "e28bc94b8e7c986363bdbfd1effe056609698310a9aaa7d20e326ca7f4a88555",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/kill_counter/main.lua",
+      "bytes": 1720,
+      "sha256": "6deba4119fc70e6efbe184c7e513f0cf4c4b408e56f0d08e5a95d75965276669",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/kill_counter/mod.json",
+      "bytes": 552,
+      "sha256": "55d2755cafd1ada3f703fd694da5bf512b5f40e1684fa260414b971e75deaced",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/life_skills/main.lua",
+      "bytes": 9533,
+      "sha256": "453f07adf2750dd981485dcabde51d57fd3c3eee231c4fc81f14945d60680e90",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/life_skills/mod.json",
+      "bytes": 836,
+      "sha256": "7eed35acf57545f1331674180c47088fe19c1ef7378b80a2517a15231d63d514",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/loot_magnet/loot_magnet.dll",
+      "bytes": 276992,
+      "sha256": "1c63ade360d09bb0e973b52cda01aca70c4633e15971551bcedf602ac557f987",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/loot_magnet/mod.json",
+      "bytes": 2698,
+      "sha256": "f451d1209bfb73cad75c4c6ecb4116f6b3b071f81265f9c3ea51e4a5ac85b515",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/loot_scale/loot_scale.dll",
+      "bytes": 123392,
+      "sha256": "dbc81e0cbdf5c7bb4a72d2e975a01543e3140f9ee6afc783a82c4bb6d16b516d",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/loot_scale/mod.json",
+      "bytes": 537,
+      "sha256": "309b1990aa37cecde16c7a93c596a68b8f17b379e8a7c7b2b50aa8f388e23d74",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/lua/lua.dll",
+      "bytes": 1280000,
+      "sha256": "e12342a5e4b61355cf8665d4179572d3da684cc61fb4902c38de9fb4bcc28fef",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/lua/mod.json",
+      "bytes": 255,
+      "sha256": "fa0a07d71eab8139da984936b09395c1067054059b0fb8593ba1aa959993e900",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/README.md",
+      "bytes": 7337,
+      "sha256": "ff72a8139e13d9cb8a8f51488d493afec780f5081fd7f28c1c54eb27c1b18d26",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/aim.lua",
+      "bytes": 2184,
+      "sha256": "71c69b983422dbb5977459a6c7426aece0a4b68ce2457b961846fdb0c5d4ca8f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/health.lua",
+      "bytes": 1768,
+      "sha256": "718ce2a3b949cf381ed01e34cce95362c45e576cab75d2c188ea7ece4780ee45",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/main.lua",
+      "bytes": 11476,
+      "sha256": "8e43238e97c236bb637aaf082c827fb731ffe6bf6ff4e143fb3fc9cf17e18ea4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/minions.lua",
+      "bytes": 16379,
+      "sha256": "f7ece1600e25a0722eddf91f5631628a5a397926a48be0ce07cf8de65568c98e",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/mod.json",
+      "bytes": 3395,
+      "sha256": "d69f6ecda3fc92ee0f1777ae8d87af38cdc2f42742ee7343cdcd43d815ecff65",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/necromancer/spirits.lua",
+      "bytes": 4090,
+      "sha256": "c3d940dda658fe9217954612b55c73b2d86a7fc9b1cca8e2b32a8209f437073f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/quick_stack/mod.json",
+      "bytes": 4092,
+      "sha256": "edfd20f07865dd3e24ea1a709d320e0e94a7e70ca21e38ed393d9f4ff33b632f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/quick_stack/quick_stack.dll",
+      "bytes": 551424,
+      "sha256": "396c6ebcdc3548f880ce6fb1220de5aeac5ac6d3e31291a9b5fa4d5ed0bb2bed",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/raids/mod.json",
+      "bytes": 4785,
+      "sha256": "039b09078816bbf7d3d45065ab64aab14ff90e2fb18bd8178779fd2a168b6bd0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/raids/raids.dll",
+      "bytes": 313344,
+      "sha256": "15be0b003cc77407fd2b008c7e7bb9a7116265d30c6cfbf56d3fef3cad491c40",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/sleep/mod.json",
+      "bytes": 1955,
+      "sha256": "65ae713e9503a1f93e53c3b115b5b80b166f776040389fb15294c7ecda9a9088",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/sleep/sleep.dll",
+      "bytes": 193536,
+      "sha256": "aeb12714e639c4283740942e6e81700ea1a56dbf01551a9c0c6bdf84fdf1a545",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/teleports/mod.json",
+      "bytes": 3743,
+      "sha256": "a910cf8e0195ec11e63c0abe679360aa03fe23c195e803892fce716832b5cf75",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/teleports/teleports.dll",
+      "bytes": 372736,
+      "sha256": "60d81e4b7585b347355f18ae6e606b3419bb02c4b4a83f98b98d132167f1a112",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/villager_jobs/mod.json",
+      "bytes": 1035,
+      "sha256": "8d286af3e9cf749923221714c2e84a0ab63bfc2765657a2a6cbe016a64bec985",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/mods/villager_jobs/villager_jobs.dll",
+      "bytes": 397312,
+      "sha256": "517068f7f0251958b753714d5619cd5a0d4e8dba1bd6e280a5968fb1dc759ac2",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/setup/emf_common.ps1",
+      "bytes": 29831,
+      "sha256": "c30d305805a2b9ea872474a41032e0a33f4d2b8829567b89e5c6f609f34d4cc7",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/setup/install.ps1",
+      "bytes": 10599,
+      "sha256": "9e01d891e534f012fb0256f5d497587b2fe6bb7a075abefa5aa26ed248645f6f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/tools/emf_bridge.ps1",
+      "bytes": 19457,
+      "sha256": "70a9ba780de236d6c14d93f4c496460ba1ceae651abd5db4d9d0e48538cd2fb4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/tools/emf_bridge.py",
+      "bytes": 32804,
+      "sha256": "700886cddaf95eb5a2054683d20e7fe9cec2a65b1a20437f21c35435b0427696",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/tools/emf_mcp.py",
+      "bytes": 39728,
+      "sha256": "68d2194d88ace75d1fe08a079b9af1d979fbefd1a33ce0b817cc8fd2a12ccac4",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/tools/emf_scenario.py",
+      "bytes": 66448,
+      "sha256": "df56ddd1ba0e418f14d95ae21eb4c1212e1f2ea1594aaada2590ab81d17ad003",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "emf/vk/VkLayer_EMF_console.json",
+      "bytes": 441,
+      "sha256": "77a1b301a33e11205ba5f7b51062e096ce5651572fcbf8a4d1532f5bac92d4bc",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "eml.json",
+      "bytes": 89,
+      "sha256": "49d485281fa962f1e5361d9b8982e09400081c0c4c983afb66f493a8c33b5841",
+      "previous_sha256": "49d485281fa962f1e5361d9b8982e09400081c0c4c983afb66f493a8c33b5841",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded.exe",
+      "bytes": 35476040,
+      "sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+      "previous_sha256": "d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882",
+      "status": "UPDATED_BY_GAME",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded.kfc",
+      "bytes": 9396224,
+      "sha256": "bf19e811565e5f6d68bc88979f8d397c0fbd069777445acf02ab882879699c39",
+      "previous_sha256": "f5e192082ae6e866bbbe2e32afbe4fbd833ca7ef4b1cfd67356f44628379a58d",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded.kfc.bak",
+      "bytes": 9396224,
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "previous_sha256": "54a8cb76b3229c486ef55a7ababcd48828fa0ffc5bb144d206f687fd0ab00a92",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded.kfc_resources",
+      "bytes": 215056384,
+      "sha256": "8bfe6a11062d711f363389e744ee3cf43ab0c727a9480fe199b673595fdedcb4",
+      "previous_sha256": "45e2f5909cd3af100882c057ffb78c64fdad51ae7aa2913d412af739b5183568",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded.log",
+      "bytes": 542778,
+      "sha256": "0324d1c9ddf1b3c2c3e8418c72b82a28252b504e7338d0b677af788162bef945",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "enshrouded_000.dat",
+      "bytes": 1060708352,
+      "sha256": "280d139febe69593cbfe35325a9a508ee5f2c5ea5d02ddeb44e13c8f19429e02",
+      "previous_sha256": "280d139febe69593cbfe35325a9a508ee5f2c5ea5d02ddeb44e13c8f19429e02",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_001.dat",
+      "bytes": 1011748864,
+      "sha256": "c56833355fdea6a1963477378c0ab073419bf89c3ea0ae29939d4bed5dc15c76",
+      "previous_sha256": "7e6b3e73d5998cacb30f04f5d0602ac899ff94c6df50b573fb765f6e77f6199f",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_002.dat",
+      "bytes": 1009995776,
+      "sha256": "9be90242d92ce6c00e271fc36f816333c6698ecba700bfc9a6fe941d6c87618d",
+      "previous_sha256": "9be90242d92ce6c00e271fc36f816333c6698ecba700bfc9a6fe941d6c87618d",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_003.dat",
+      "bytes": 1004273664,
+      "sha256": "57e2720f5dfb03d705402d870ba6cb1e6a49bf75ec8ded630e3f66fa3c74eefc",
+      "previous_sha256": "57e2720f5dfb03d705402d870ba6cb1e6a49bf75ec8ded630e3f66fa3c74eefc",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_004.dat",
+      "bytes": 1002700800,
+      "sha256": "393ac56a51fee87cd296458df252d7ac2fd2ddde6f315c282ce4eea300554a29",
+      "previous_sha256": "64cb99f8e2fcdbed6d4526e985dcd26a6704b4fe55e23374e51874dd2549f71f",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_005.dat",
+      "bytes": 1011863552,
+      "sha256": "086610bca06f3f3d0872a15fa3b9586de2451c88b183da82fda3955552641c1b",
+      "previous_sha256": "086610bca06f3f3d0872a15fa3b9586de2451c88b183da82fda3955552641c1b",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_006.dat",
+      "bytes": 1010012160,
+      "sha256": "613ea267a24b408bc3d61533228c99a097097b28c1c5d0e941849e8c977228e3",
+      "previous_sha256": "613ea267a24b408bc3d61533228c99a097097b28c1c5d0e941849e8c977228e3",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_007.dat",
+      "bytes": 1005117440,
+      "sha256": "aa9562383ae63981f92636bf8387dde971d135d5a7738db2a600ac54c048ffa3",
+      "previous_sha256": "aa9562383ae63981f92636bf8387dde971d135d5a7738db2a600ac54c048ffa3",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_008.dat",
+      "bytes": 1037316096,
+      "sha256": "bc9dc743d5c00eb023b830120288caa704b6b6e7b21a1b145413df95eb2ea777",
+      "previous_sha256": "bc9dc743d5c00eb023b830120288caa704b6b6e7b21a1b145413df95eb2ea777",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_009.dat",
+      "bytes": 1000910848,
+      "sha256": "fad65d82d8d0d5d787a71d29fbd5a0a294968433c83cdc44a95b5659e95bb845",
+      "previous_sha256": "331dec7550e47627a57057142f66833bed728d0cd8e495fdbe1f4b9e852541ff",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_010.dat",
+      "bytes": 1000935424,
+      "sha256": "aa55d4a0fa9a86b1433cb591d4e995ac98418a5d16c18154915bf432c9ebec46",
+      "previous_sha256": "aa55d4a0fa9a86b1433cb591d4e995ac98418a5d16c18154915bf432c9ebec46",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_011.dat",
+      "bytes": 1012752384,
+      "sha256": "ebf6f822fb8dfb6dd8d27390babca2e1a00a5d993053b994812f7a3e874b635e",
+      "previous_sha256": "ebf6f822fb8dfb6dd8d27390babca2e1a00a5d993053b994812f7a3e874b635e",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_012.dat",
+      "bytes": 1054711808,
+      "sha256": "196d4309e6589172841e6e70415db196d1fb7a588d0ac3be6f81f9653bbfe056",
+      "previous_sha256": "a96306ac7888cbc0e2d6a2b18398b602809c6b2c8b9bac394bdd84db53148df2",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_013.dat",
+      "bytes": 1000976384,
+      "sha256": "3c83ccd428b1e008581a4416dbfbcfa6087e8aa08ed51a2db1f7ef44543e1773",
+      "previous_sha256": "56ab13448b3eeee43e88455b8971568daf7140092ae96e544001c4b0617a42c3",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_014.dat",
+      "bytes": 1009950720,
+      "sha256": "e6ea81182d11c6633260a69b3889fb96d239bbbfa6c7602540201d11d5aaa60a",
+      "previous_sha256": "e6ea81182d11c6633260a69b3889fb96d239bbbfa6c7602540201d11d5aaa60a",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_015.dat",
+      "bytes": 1010335744,
+      "sha256": "a7e1b6d7e2f8438857bb51fc43a789673f8d967da955aace8a09cbbb664c2303",
+      "previous_sha256": "3c55193c34ca7eb0949efb929533b5373404ec4a896994025b2ab7673ea2f86b",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_016.dat",
+      "bytes": 1004216320,
+      "sha256": "99e2a18517297277acd0c8aa142bc40d930683cd79f734c500a2279d428680ab",
+      "previous_sha256": "99e2a18517297277acd0c8aa142bc40d930683cd79f734c500a2279d428680ab",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_017.dat",
+      "bytes": 1033170944,
+      "sha256": "01554b4737acaa32de258a69305b8dc39534900314b94e5e3290403fad2416ae",
+      "previous_sha256": "0c50f6e874997927bf3336bcc83318fbdb48621d966e7cca414ccd5e9bddcb29",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_018.dat",
+      "bytes": 1013051392,
+      "sha256": "0b4e4d2a44e06a9cd496620fbd1abc0199daded6ff11552505c0009f170e9545",
+      "previous_sha256": "0b4e4d2a44e06a9cd496620fbd1abc0199daded6ff11552505c0009f170e9545",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_019.dat",
+      "bytes": 1008046080,
+      "sha256": "63e18a160cf1b313b9026681473eaead34f3ba0a0577491048d99fb93102ec40",
+      "previous_sha256": "63e18a160cf1b313b9026681473eaead34f3ba0a0577491048d99fb93102ec40",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_020.dat",
+      "bytes": 1009111040,
+      "sha256": "1381e07d0b4ef46d05d09063d20895dc0a92c69bbfee5f2dab4275cc40899f90",
+      "previous_sha256": "1381e07d0b4ef46d05d09063d20895dc0a92c69bbfee5f2dab4275cc40899f90",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_021.dat",
+      "bytes": 1006993408,
+      "sha256": "a379da6f79086218b29bcc3a023ee8b2acd292441ebaded3337b12e741833e00",
+      "previous_sha256": "a379da6f79086218b29bcc3a023ee8b2acd292441ebaded3337b12e741833e00",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_022.dat",
+      "bytes": 1013837824,
+      "sha256": "3731a7679605711e6617f850a8411f184bec804a64b2094f459a9d936cb56b1b",
+      "previous_sha256": "3731a7679605711e6617f850a8411f184bec804a64b2094f459a9d936cb56b1b",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_023.dat",
+      "bytes": 1007153152,
+      "sha256": "58d449ae8f4c7fc9a8193608cb4120a28d68c56d832aeb787cefb55f28af9152",
+      "previous_sha256": "58d449ae8f4c7fc9a8193608cb4120a28d68c56d832aeb787cefb55f28af9152",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_024.dat",
+      "bytes": 1014304768,
+      "sha256": "820bd2f2abbc69bf076f804c78e874d984e0a35645f9cff4953266220f587b72",
+      "previous_sha256": "820bd2f2abbc69bf076f804c78e874d984e0a35645f9cff4953266220f587b72",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_025.dat",
+      "bytes": 1014571008,
+      "sha256": "adf6a0384a2fa55749e55b5747da6b7bba83c8faab2159f3365563ede405f7c9",
+      "previous_sha256": "adf6a0384a2fa55749e55b5747da6b7bba83c8faab2159f3365563ede405f7c9",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_026.dat",
+      "bytes": 886738944,
+      "sha256": "8f644a51cb791e89e4242b6e7c813436bb17b6d7a6f3c5e79baaeb5141e74645",
+      "previous_sha256": "8f644a51cb791e89e4242b6e7c813436bb17b6d7a6f3c5e79baaeb5141e74645",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_027.dat",
+      "bytes": 1005875200,
+      "sha256": "500f93226a59084888b6bbfe25287f5741f682acbe329f52068763e5224c6cab",
+      "previous_sha256": "410b18c44615f9d296a6e1a241be54372e172b8e4405cd0c370e81dd13623eaf",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_028.dat",
+      "bytes": 1005129728,
+      "sha256": "3c856c42c792b72075555706298338022f580ab8b9b07e9db9d4083c2d0c6cef",
+      "previous_sha256": "83b4220bb05c25b362cdfb895cb921b79080a147d8428eb96bc258edd5279cbc",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_029.dat",
+      "bytes": 1004642304,
+      "sha256": "9b22153ce2e08c4588a55320159e997abbd9ac7186eafe7da38bd9250b0e6bde",
+      "previous_sha256": "42c90f4dcd67eef4ff9f44f76198645c6731960dcc53d5d6c650f86bba709b35",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_030.dat",
+      "bytes": 1005215744,
+      "sha256": "6ec19a6f2118bdb2894dfc0e3677aea79ebd15c3aef7ca1f6900b0de020007cf",
+      "previous_sha256": "bc6993901e8eb661aad1002ab4101b2874d677d27236f686c0df3d4e25661c93",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_031.dat",
+      "bytes": 1011769344,
+      "sha256": "43af0a606ddaa88dacc4e5c0953d8c52d8adbd86421d03a91b37faf3f7b9ded3",
+      "previous_sha256": "d694434716cab61efb29f4b8b97c34ee742ec97a23d269a0977615e65dea0bbd",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_032.dat",
+      "bytes": 615276544,
+      "sha256": "2051ca075d01d9b57b288affec776f758392b808b93392c73cebd0a4852cc1fe",
+      "previous_sha256": "3be13116630325352658a6701a9b98a68731f63ef51b24a3a6325c431395cb61",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_033.dat",
+      "bytes": 1005031424,
+      "sha256": "65587c436c110d48beea7480b63823509f1941954abdfa2838ddd1641742984f",
+      "previous_sha256": "65587c436c110d48beea7480b63823509f1941954abdfa2838ddd1641742984f",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_034.dat",
+      "bytes": 1013829632,
+      "sha256": "26be2bd96be985e9b045fe9e43df2caa64e5e32a59e7c4b053dffdc75957af61",
+      "previous_sha256": "26be2bd96be985e9b045fe9e43df2caa64e5e32a59e7c4b053dffdc75957af61",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_035.dat",
+      "bytes": 1010716672,
+      "sha256": "028609d86134f233b5af329650d4e5540c0eb59806e1a17a634df7880e654521",
+      "previous_sha256": "028609d86134f233b5af329650d4e5540c0eb59806e1a17a634df7880e654521",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_036.dat",
+      "bytes": 1003167744,
+      "sha256": "d8270dd95d9fc88ea15bddb2334070a844f18c7082843326954bd427cca4ba65",
+      "previous_sha256": "d8270dd95d9fc88ea15bddb2334070a844f18c7082843326954bd427cca4ba65",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_037.dat",
+      "bytes": 768745472,
+      "sha256": "85e5f5503738da887b039fbb18a6feba5f66c43a310027599ff546e9208c0948",
+      "previous_sha256": "85e5f5503738da887b039fbb18a6feba5f66c43a310027599ff546e9208c0948",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_038.dat",
+      "bytes": 1007353856,
+      "sha256": "dbce35b097fb3a78223aefc606c439d12ff6f60d323b6b7f5255583516aa51c8",
+      "previous_sha256": "e4aa822c5e6ae8527ab893926587086af49651ac7552277ff76e9c327e527928",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_039.dat",
+      "bytes": 1007853568,
+      "sha256": "e4c6ab37a6de9cfcf69c8e185a24192a3615b673a57b502625b2abdf1c339e52",
+      "previous_sha256": "db69b7f040c17a092e673f74de6ab2d68078f1d2a1a88b7a73999e2ff83c484c",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_040.dat",
+      "bytes": 1007644672,
+      "sha256": "e32fae5dfdb6ace5574112469bd00265e664adc3d80b6afb0699577816db2fd0",
+      "previous_sha256": "8df93b8adbb0a1e6aeda9a3ce343ce400da7af0e1190c81f92ea7be19fa9886c",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_041.dat",
+      "bytes": 580628480,
+      "sha256": "7a42163c0924804a2f50027575df7176fee96251a8b2a7cb29de3047fbc97eb7",
+      "previous_sha256": "e59798aa7ab8d30badb4d0a4fc9e19ffe146442d7d7a7a7dfe6201bbcb4d336e",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_042.dat",
+      "bytes": 1096032256,
+      "sha256": "d394fa6b33a16b8988487fc7b8e81b510fbf2e2c4ca365c35ab98eccc6c63033",
+      "previous_sha256": "d394fa6b33a16b8988487fc7b8e81b510fbf2e2c4ca365c35ab98eccc6c63033",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_043.dat",
+      "bytes": 1036374016,
+      "sha256": "70953ced1e0cabfbfb88839574bab20047cc687505f9f792bb1d146e2f1527b1",
+      "previous_sha256": "70953ced1e0cabfbfb88839574bab20047cc687505f9f792bb1d146e2f1527b1",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_044.dat",
+      "bytes": 678014976,
+      "sha256": "5bbf5adca1e8adad9da5b575691423f096185c1d3669887aac2a698ade4241c2",
+      "previous_sha256": "5bbf5adca1e8adad9da5b575691423f096185c1d3669887aac2a698ade4241c2",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_045.dat",
+      "bytes": 1022074880,
+      "sha256": "4b1d2fe9dc7a31b65092b672b09c032f3406113b9338a05ce239994fc269d848",
+      "previous_sha256": "073ac69f9a830e9715ea66bf628e0cc156ee240af2847c8b6aadfe0243c29ef7",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_046.dat",
+      "bytes": 1022107648,
+      "sha256": "b165cc9b446e5b6e1ed9ec5efdd8e9ee2d2248e6dc02278b17be32a63e9f1d18",
+      "previous_sha256": "8e3227c746e9cd66769f2c51053f5373fd59a4ed9c228b704f8a14636642895a",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_047.dat",
+      "bytes": 127414272,
+      "sha256": "553ef983437b9dc5ab20b053b12c843f32538b5ce0b7362ddefef005255fc4f6",
+      "previous_sha256": "92fc9215d78b7b51ccf5b9f0b8db348c04eb103a639ffc2602639803ef853713",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_048.dat",
+      "bytes": 1004896256,
+      "sha256": "3d509d920715453eab08af7c86d86c8b8a3f326cecc31de9304775c0a0f9f0ee",
+      "previous_sha256": "3d509d920715453eab08af7c86d86c8b8a3f326cecc31de9304775c0a0f9f0ee",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_049.dat",
+      "bytes": 909414400,
+      "sha256": "f692e51364a2360567db001dd471d3947af903e9b44adb4486d69ebcdd212716",
+      "previous_sha256": "f692e51364a2360567db001dd471d3947af903e9b44adb4486d69ebcdd212716",
+      "status": "UNCHANGED",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_050.dat",
+      "bytes": 1008664576,
+      "sha256": "a2dcb2ba69ec4036249983bb60fadd99948d325db87f01ba4b39af3b18a99eb8",
+      "previous_sha256": "7bc5964e659fce62659fad20f17bfe55c90145873497c08547be74aefb1f2435",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_051.dat",
+      "bytes": 314626048,
+      "sha256": "321846d94e4d2f084d319f122a0988983352f8f8dd01a47e60f10a198723c803",
+      "previous_sha256": "ad7e33a7ab33850d2d7432ae8f6aa004721b27eb6b63891781440ba3de574687",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_052.dat",
+      "bytes": 907784192,
+      "sha256": "74cc88c88af07238381b480ba1e51cfb5a3a48a7ee42cb7c88035ce609dc0a1f",
+      "previous_sha256": "78af258fd408649a4487a1f74359d3c5b6a80db06909505a0c655dbb9b1d2079",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_053.dat",
+      "bytes": 1039114240,
+      "sha256": "67bb49ee52b02eec32b5565dd72e79f598702ef64190383762086e3084d44c09",
+      "previous_sha256": "c7ee3887f2c69dc50f86f32ffc18cf343ec594e5176aa294b422a35df1ea337f",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_054.dat",
+      "bytes": 29167616,
+      "sha256": "89271a82247d2cae2c7b67cce48b8ebb7e282689a997246465a17bcf8bde820e",
+      "previous_sha256": "0717014e5a5f8621ede50d7d765653c076d554097073075f366a18c4278a68f4",
+      "status": "MODIFIED_UNKNOWN",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_055.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_056.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_057.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_058.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_059.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_060.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_061.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_062.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_063.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_local.json",
+      "bytes": 1233,
+      "sha256": "018204a71b4af05b9302eee529590d74a0a220c1037230adc4c1c6b20206e21d",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "export/aic_eml_humanoid/template_evidence_v4.txt",
+      "bytes": 9746,
+      "sha256": "daec54ef827e215d799ebdb4579ce845e276fe3d2b0873035fbaf333e8e9e4c3",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "logs/2026-11-01.eml.log",
+      "bytes": 3130,
+      "sha256": "0aa057d98ed63ed91da392db444076301e0a1d34781ee35d4e34ab735e07d06f",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "logs/2026-11-03.eml.log",
+      "bytes": 7198,
+      "sha256": "53d76e1c7f3850ddf993e9f68ad1232b4dcfa81a9043b2b5f9bf1ca3a8139555",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "logs/2026-11-05.eml.log",
+      "bytes": 5002,
+      "sha256": "d1522dd526adab7ba52886eeaebf65ca1221f838081196e140d9491b6b2970e0",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "logs/2026-11-06.eml.log",
+      "bytes": 1403,
+      "sha256": "bad3a5bb7cdf7fc269209df91bf7252a146437300ea51e4cf49b21bbd01b7830",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/README.md",
+      "bytes": 2162,
+      "sha256": "a9200a897c17e97ace23e89d7a11dd2008479f78549f2bdbf3f0f7bce060c0e0",
+      "previous_sha256": "a9200a897c17e97ace23e89d7a11dd2008479f78549f2bdbf3f0f7bce060c0e0",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "bytes": 285,
+      "sha256": "3a9c91f94e708505960835e43ccc01ba9b07948ee3e7f9101ba194d045a18237",
+      "previous_sha256": "3a9c91f94e708505960835e43ccc01ba9b07948ee3e7f9101ba194d045a18237",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "bytes": 7285,
+      "sha256": "25ab14dea350cce05d1e6d6c7e76e169e342fc65893330b5f1f963e20aa395d4",
+      "previous_sha256": "25ab14dea350cce05d1e6d6c7e76e169e342fc65893330b5f1f963e20aa395d4",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "nvngx_dlss.dll",
+      "bytes": 58956912,
+      "sha256": "3975567b8943c53acce397f2b72380092f84f162d00b0d2c7d08a1025c563983",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    },
+    {
+      "path": "steam_api64.dll",
+      "bytes": 319128,
+      "sha256": "e6d9bafb9a41e42fba7b21553db49f8719027af3f0deb23ff86cfc44d60e776d",
+      "previous_sha256": null,
+      "status": "NEW",
+      "provenance": "no_previous_per_file_digest"
+    }
+  ]
+}

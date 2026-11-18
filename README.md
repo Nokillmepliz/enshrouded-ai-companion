@@ -1,5 +1,17 @@
 # enshrouded-ai-companion
 
+**Stage 10.10 Phase A: `BLOCKED_BY_GAME_INTEGRITY`.** Установлена игра 1.0.1.2 /
+build1287369; старый EMF0.3.2 несовместим. Проверен официальный EMF0.6.18/API46,
+но установки не было. Текущая база содержит старый custom clone; source теперь
+имеет82 компонента. Добавлены compatibility profiles, evidencev7 и защита от
+cross-build rollback. Python:524 PASS/1skip (116 новых), Rust:2 PASS, C++:30 PASS.
+Game249/249 и LOCAL23/23 файлов неизменны. `installation_ready=false`,
+`runtime_status=NOT_EXECUTED`, `spawn_ready=false`.
+[Полный отчёт и блокеры](docs/STAGE10_10_PHASE_A_REPORT.md),
+[план перехода](docs/STAGE10_10_UPGRADE_PLAN.md).
+Следующие результаты Stage10.7–10.9 относятся к **историческому build1273043**;
+новый EMF уже предоставляет ground/path/villager APIs, что меняет прежний extension scope.
+
 **Stage 10.9 Phase A: `NATIVE_EXTENSION_REQUIRED / BLOCKED_FOR_SPAWN`.** Исходники EMF подтверждают native `spawn_ex`, но `EntityId` остаётся простым `uint32` без доступного generation/ownership marker; teleport ground search изменяет уже существующую entity и не заменяет read-only position validator; `ForceSave` сам по себе не сохраняет runtime spawn, а custom villager lifecycle остаётся неизвестным. Добавлены `OwnedEntityIdentity`, tri-state position/persistence/destroy contracts, восемь независимых gates, recovery matrix, проект минимального native extension и 54 offline-теста. Runtime не выполнялся; `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`. См. [identity research](docs/STAGE10_9_INSTANCE_IDENTITY_RESEARCH.md), [position research](docs/STAGE10_9_POSITION_VALIDATION_RESEARCH.md), [persistence research](docs/STAGE10_9_PERSISTENCE_RESEARCH.md) и [extension design](docs/STAGE10_9_NATIVE_EXTENSION_DESIGN.md).
 
 **Stage 10.8 Phase A: `BLOCKED_FOR_SPAWN`.** Подтверждены реальные `emf.spawn(world,guid,x,y,z)` и `emf.destroy(world,id)`, но public API не даёт pre-spawn ground/geometry validation, native instance identity/ownership, а persistence villager clone с `ForceSave` неизвестен. Добавлены fail-closed offline controller, выключенный Lua scaffold, evidence v5 и тесты. Игра не запускалась, мод не устанавливался, spawn/despawn/rollback не выполнялись; `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`. См. [API research](docs/STAGE10_8_SPAWN_API_RESEARCH.md) и [safety contract](docs/STAGE10_8_SAFETY_CONTRACT.md).

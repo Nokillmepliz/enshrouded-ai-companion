@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "bridge_protocol": 1,
+  "schema": "KFC4/executable-reflection",
+  "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
+  "clone_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
+  "npc_id": 2939921867,
+  "required_api": [
+    "command",
+    "reply"
+  ],
+  "required_safety_gates": [
+    "A",
+    "H",
+    "R",
+    "V",
+    "B",
+    "C",
+    "IDENTITY",
+    "OWNERSHIP",
+    "POSITION",
+    "PERSISTENCE"
+  ],
+  "eml_version": "0.2.0",
+  "eml_commit": "16708594d686b030d909f2d835b199d879ea9ad8",
+  "eml_sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+  "installation_ready": false,
+  "spawn_ready": false,
+  "runtime_render": "UNKNOWN",
+  "game_version": "1.0.0.3",
+  "game_build": 1273043,
+  "steam_build_id": null,
+  "exe_sha256": "d64966e23b1a458ee6f147bcbceac0b577fa7e39a212f371287d8cc119817882",
+  "emf_version": "0.3.2",
+  "emf_commit": "08d600155fcadc8e45cc9c6f3932a67c717345be",
+  "emf_loader_sha256": "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee",
+  "native_api": 20,
+  "lua_api": 20,
+  "lua_host_version": "historical; not revalidated",
+  "patch_version": "0.4.0",
+  "expected_resource_metadata": {
+    "component_count": 81,
+    "component_fingerprint": "412d61b0",
+    "lookup_fingerprint": "a7f38d80",
+    "visual_references": 18,
+    "hierarchy_joints": 102,
+    "animation_graph": "402df515-5965-4b01-a17b-17d482a91af4"
+  },
+  "status": "HISTORICAL_ONLY",
+  "runtime_validation": "HISTORICAL_LOAD_ONLY_SUCCESS_2026-11-01",
+  "provenance": [
+    "docs/STAGE10_7_PHASE_C_REPORT.md"
+  ]
+}

@@ -1,0 +1,1532 @@
+[
+  {
+    "path": "EMF-0.6.18-manual/emf_common.ps1",
+    "bytes": 37761,
+    "sha256": "311adf15d82c34fcc6c15cc81c7d015129303725e7ad8e5f854c6fa2f16932a2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/install.cmd",
+    "bytes": 174,
+    "sha256": "730fe7081de9f31ae0325b8834258bdab2329fe35b98ae8895b7d1ce914cca6c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/install.ps1",
+    "bytes": 16062,
+    "sha256": "2fe5ab825a504306a8a3d55667ea7fa7bab7e46d74bd06b396cebb4938be1c85"
+  },
+  {
+    "path": "EMF-0.6.18-manual/LICENSE.txt",
+    "bytes": 1094,
+    "sha256": "9fd378255729c6ba1944c103b828b3abba676914a0cecc95a0a11b9f03bafd61"
+  },
+  {
+    "path": "EMF-0.6.18-manual/README.txt",
+    "bytes": 10614,
+    "sha256": "0b4b791470084fb21a895fcc531f8de4378e5336049bd01bc7ee2da6eab88ced"
+  },
+  {
+    "path": "EMF-0.6.18-manual/README_EMF.md",
+    "bytes": 105225,
+    "sha256": "8b6d717892c6b87ec13fc83afb0d52e54df65e3c8916d43e6f5027b10755fa02"
+  },
+  {
+    "path": "EMF-0.6.18-manual/uninstall.cmd",
+    "bytes": 158,
+    "sha256": "0400882b4461cb82d529dffc5b131be11a50c31f4c1f14c1d7c526f4e46d0791"
+  },
+  {
+    "path": "EMF-0.6.18-manual/uninstall.ps1",
+    "bytes": 12751,
+    "sha256": "31cd6ff12771af33e1530315127a610fea909ff508713d3acf62203edb961c50"
+  },
+  {
+    "path": "EMF-0.6.18-manual/content/emberbrand/mod.json",
+    "bytes": 507,
+    "sha256": "8c54db18ecd06b576e49f9d3d2054f2643af814caf77ecf51763051838a64145"
+  },
+  {
+    "path": "EMF-0.6.18-manual/content/emberbrand/src/emf_content.lua",
+    "bytes": 19769,
+    "sha256": "e53101fdce2328a4f07df925758647dc0216fe41c245e1f91a57e18387a282c1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/content/emberbrand/src/mod.lua",
+    "bytes": 3752,
+    "sha256": "bc9d9ed7ab44b849993ba00fb77a653710f284127ade197fc5595ae658e9728d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/content/lib/emf_content.lua",
+    "bytes": 19769,
+    "sha256": "e53101fdce2328a4f07df925758647dc0216fe41c245e1f91a57e18387a282c1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/components.txt",
+    "bytes": 69710,
+    "sha256": "a1d0ac11015e8ae61f603c33e11224cc476ce142f599b473e25504739eee7600"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/ecs_programs.md",
+    "bytes": 199959,
+    "sha256": "72f8247ada6446812630092ba543bbed06e6960c0268f9b42f8d116d0fb4047a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/ENGINE_MAP.md",
+    "bytes": 94266,
+    "sha256": "5fc17c95edf85c1ea65032806a372a3bfc25e02a407d235e31e8ed65086e3df1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/impact_natives.txt",
+    "bytes": 3048,
+    "sha256": "6550bd9c3431af0e1abc27683e3378a704ae28de212e763f910350e8a5b7f9b9"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/saves.md",
+    "bytes": 6740,
+    "sha256": "252a8d14423379749ddb252c93c15d1f85537a69c6d10d60e8abbdcd057a64e8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/ai.md",
+    "bytes": 33376,
+    "sha256": "2dc30d3ed78d9c6631cff5b1a4cd6bab9077a8132c8e21003887bf6f080b3f0d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/combat.md",
+    "bytes": 37999,
+    "sha256": "61f0b9cdd5d4e872cd942a13d84c8fec7cf187e5927892222be6e98cce217e5c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/content_loader.md",
+    "bytes": 17769,
+    "sha256": "219dd802617d058249b128023a246ffffb81f87ac68fe68b037c9cabff44027b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/file_redirect_spike.md",
+    "bytes": 16472,
+    "sha256": "30e6433344db27f54b3d40874d513c0c922b297044f14b53d189c4b844d557bc"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/inventory_crafting.md",
+    "bytes": 37865,
+    "sha256": "01cb16f3922927196ed620b915a5e275c5920ffdb6d805d33ac84112c49df163"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/plumbing.md",
+    "bytes": 41037,
+    "sha256": "99bfdc177dcd65b63d01135456073cd1ae7905013317dc6955c9f3f8329ffcd7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_attributes_menu.md",
+    "bytes": 31186,
+    "sha256": "a401da1be252bae1bdba267314a307c029e423463c616b3981f0c4baf8bbfd4b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_chat.md",
+    "bytes": 16562,
+    "sha256": "74787d2c18f4199aed11a4c5636bdb72acbd2cd2a2cc01a156ded1b6e32de02d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_companions.md",
+    "bytes": 6992,
+    "sha256": "c5ef94a3ab3d2146b2b7fe39a257f59621e7af50628e4b9d6b222f3c29e43b98"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_companion_orders.md",
+    "bytes": 3170,
+    "sha256": "959d0de61d4ad15220b820d9838b04eee3fc1a11841839589e55124ced006467"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_content.md",
+    "bytes": 33991,
+    "sha256": "7d4e303596c27de92619f3604be3f0c5669955889415e05e5a692c7bb00f89b8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_custom_programs.md",
+    "bytes": 30409,
+    "sha256": "423ca02f7b88622dab6dcbb02d9c718a09df19b7b0ef370d0ead0ea7c4261435"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_events.md",
+    "bytes": 7364,
+    "sha256": "3f246dfc9158898b5571e3b2c999f817a635639a05d6b15e7dbc1f4b49076e43"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_inventory_api.md",
+    "bytes": 25767,
+    "sha256": "eedee75bf0836e81c7daab512603f53e17c8929457777ca3d4f10a77b3375d99"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_reflection.md",
+    "bytes": 12672,
+    "sha256": "479eaa6437fa63f08547f73c015b9938375500ef9076c776d6e4335166aa233d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_saves.md",
+    "bytes": 27151,
+    "sha256": "a6a4a5419290be2b3c1930e870f6825454452bc4815c04904ddae65e59eb50fa"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_take_items.md",
+    "bytes": 26574,
+    "sha256": "1d19a1f9fd139db8bbddbc4611269f357b50660d633c7609603bb5a0c8f622fc"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_teleport.md",
+    "bytes": 41129,
+    "sha256": "8cb8a74cfb6815744945c8c4919d95d81f78d5f8aa4ae803200090d256b1cb5c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_templates.md",
+    "bytes": 3769,
+    "sha256": "943fc101d39a5a3ca68c84ea654d16a480a49827b68f30d0300ef36035fcc07a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_time_spawn_weather.md",
+    "bytes": 22599,
+    "sha256": "36a63ed0444b6b7235359990817f3e3c4f99fe80c7536b3320490e376f5ba158"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_ui_scopes.md",
+    "bytes": 6660,
+    "sha256": "c5c18db559a9c5251a7c7108820b8f1f1e9da31b64debe2bc34773f2e23e76a5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_villager_jobs.md",
+    "bytes": 3999,
+    "sha256": "d33141529f50747f555a3cf5a44cad8ac80a2059be75c5e1b8db9b31811509e9"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/re_villages.md",
+    "bytes": 34156,
+    "sha256": "7256e2c682c5a7a1a7d8f02e344991235c01ae3411a25edcad2ca76fef302a81"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/engine_parts/world_building_daytime.md",
+    "bytes": 43874,
+    "sha256": "c45348a4696b98f8d605e0fc645090b12b566b841ff94165e4f546e8a51af9aa"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/ai_agents.md",
+    "bytes": 25857,
+    "sha256": "5ee56e7ea81ee2661399736ab46b8458ddaa7d335911d953ca58eee6c334a667"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/content.md",
+    "bytes": 11641,
+    "sha256": "79cb394df12af18ccc006f294fd156321a7ffa7230c361ab85fe78f297ca6dc1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/cookbook.md",
+    "bytes": 32826,
+    "sha256": "0814e2652a1ce6ce7eefaa486ddec5fd927f94accb83949c78cb53cd64c3dc4c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/debug_bridge.md",
+    "bytes": 27820,
+    "sha256": "88f94c58f9878b629155e2d40d400a3b2c5cf46b81657b81af6b9f3b147db80e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/dinput8-chain.md",
+    "bytes": 5003,
+    "sha256": "5bad8027bbf129fff584dd7e860e3c405d5085cad07dd748afffd9f48d848b8a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/emf_signatures.patterns",
+    "bytes": 30278,
+    "sha256": "61fc597a81e6d50a11ac0223b7f8dc962e9f44d3f70fe703c81dd8d0d511f3e4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/first_mod.md",
+    "bytes": 5948,
+    "sha256": "11dfa082ef4314bfe729566a6e505e57732b3a132e2e7738a8d3a7c1a3a26814"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/guide.md",
+    "bytes": 16365,
+    "sha256": "238fd73ad0b849be4db3e2114962403cf1be51671ecbe2de1abbf995957e694c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/hosting.md",
+    "bytes": 4995,
+    "sha256": "41c8fce92214bb4459c06c9aede6a5bf48aa9134b8a8a607ccc29ae660d2d160"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/kiln_signatures.patterns",
+    "bytes": 69563,
+    "sha256": "4d24ce78246562d70dc4a36fc0484e5f4ea85d41f51a344cb26892655c476812"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/llms.txt",
+    "bytes": 94497,
+    "sha256": "eabb1730f81802c224e405b669c99c6fb9a648526d0266ca3663190d7fe4a833"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/lua.md",
+    "bytes": 90688,
+    "sha256": "26c41892774145b54823fe6d153e158fd549ef378b42dbffb2e57a06d3207cf3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/other_mods.md",
+    "bytes": 8929,
+    "sha256": "a3295b6af0b7d2cfc2c715cb51066e34486aa8c6c43d6ca140317afe6f475e13"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/README.md",
+    "bytes": 15418,
+    "sha256": "ca32e637d0265e1d61da124bd3053d8477e34c614a654c225a27e492fe7388e0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/reference.md",
+    "bytes": 152298,
+    "sha256": "857d87a68014e482ea7db3ce599a0104d42fb9f75bd66eb95059e233a14cbbd8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/server.md",
+    "bytes": 19381,
+    "sha256": "1315f36d2540423f06004319bd289d50ac0ac0dc1c4b0e9cc28adf5686579ed5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/services.md",
+    "bytes": 9200,
+    "sha256": "3c9fb1978cb35702252fea820ea9638da78c2b7f37416a05b3260691b0dce61d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/updating.md",
+    "bytes": 19564,
+    "sha256": "2e58a18e4683ef05a00815806627877697ee87612b690c1918f2075a29319b52"
+  },
+  {
+    "path": "EMF-0.6.18-manual/docs/modding/world_settings.md",
+    "bytes": 9508,
+    "sha256": "8c542a1b126ad48de494bb000ebe6c368c1a7ffabd2f818fb53c7ada7d360d8a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/CMakeLists.txt",
+    "bytes": 2501,
+    "sha256": "e5f8ad972091790ab5ff8852c7376c539aeb5f96afcf3d7a708fd6e6188b8f73"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/CMakePresets.json",
+    "bytes": 448,
+    "sha256": "3663b601f6f0bb5a49130f4dd529b973e9b2539adef883829f7f7e1118ba5b14"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/mod.json",
+    "bytes": 720,
+    "sha256": "f098b1f8da9e9d4356413063a29103fb220273a6a482dec2bf3f4a6fd66ddb1d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/README.md",
+    "bytes": 2884,
+    "sha256": "7245120bee6b5edd6bb31655780c9f68a1b3436d5a56e9003b38936235a17371"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/src/waypoints.cpp",
+    "bytes": 9198,
+    "sha256": "47501365f593f1b80beaf87914cce681ef6352270206cdec34ddc58a28b88b53"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/cpp/waypoints/src/waypoint_book.h",
+    "bytes": 6487,
+    "sha256": "4c81d16cd7779416cd9f52b8fcf67d7994e3f973028771754cbc2f93383dc347"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/hello/hello.cpp",
+    "bytes": 1352,
+    "sha256": "da0dacb5cba9bff2d8186c38be9c7af3f97fd1dd5b04ce62677f7653bf10955c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_client/main.lua",
+    "bytes": 4424,
+    "sha256": "1ab3760fcba42697594595307a51c974fdada0cbc25903b7bc28748f928a267c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_client/mod.json",
+    "bytes": 342,
+    "sha256": "fee530cdcf0d5320291f1a651f401fe2dd3218a8b93f2b2942ac86f53bc1963a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_client/README.md",
+    "bytes": 1336,
+    "sha256": "90c7eaca2b9aaad7e3cc991159563ed49af079d47a821584cfde091025ec3050"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_service/main.lua",
+    "bytes": 4727,
+    "sha256": "42e5dbd8bb202183f38a9c52800c32e54cf8c127b8d6863e8074e3a4ad3b50c9"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_service/mod.json",
+    "bytes": 334,
+    "sha256": "a499fd2e616cc959eb9471874d050c2c3353f16368c9c7eb1e3d2433b7f51c69"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/bus_service/README.md",
+    "bytes": 1676,
+    "sha256": "5148baf56ad413322b67b8ebb721de6e3c30998e1dff663621818e660d5c6bd4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/chat_command/main.lua",
+    "bytes": 5123,
+    "sha256": "7fd57e04704776a63cab44f3b75aa27e81e1970db89f54885e90d7ff0cfdf1e4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/chat_command/mod.json",
+    "bytes": 371,
+    "sha256": "aceb3e62ba8a929b25a14e99a1510d653aafd5a4b8302882c868d01a7bcb1060"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/chat_command/README.md",
+    "bytes": 2889,
+    "sha256": "e9499e7877f3469bd28a419ce77dacc9dec77c1541c3d7430bba2491fe806d56"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/gate/main.lua",
+    "bytes": 4489,
+    "sha256": "947d357c41a013b23db349f029277b454546705b4119d345242f8bc137d39bf3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/gate/mod.json",
+    "bytes": 316,
+    "sha256": "5bf659c316286b787de1d3b7df83923080ad991b2d73296b86f9b54cabbcfda1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/gate/README.md",
+    "bytes": 2916,
+    "sha256": "82399d39b7760f03ba49acb4edfc0de57dfea6ebb6de2f62e85fd468ab3746d5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hotkey_wheel/main.lua",
+    "bytes": 2821,
+    "sha256": "858724c14b703ac14ce0077799386ea9ae8290ea114a74e32ba92811c2eb95e8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hotkey_wheel/mod.json",
+    "bytes": 548,
+    "sha256": "b16a20a3ee3f891d8fbeb11d1ba87f6d67165413cbea4ed8ff818c2a08b31c02"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hotkey_wheel/README.md",
+    "bytes": 2790,
+    "sha256": "8c6010775bb3dde68bd79c74dfa3b4e810b2aa48fc000ab76d0d83af9447aab0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hud_widget/main.lua",
+    "bytes": 2941,
+    "sha256": "e6f17823f118299df0257bec057420fdb1a7f4a0aa63a90a27960ef35db4ba3f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hud_widget/mod.json",
+    "bytes": 830,
+    "sha256": "0224c39dd868b825eeec666ec02b8859dd6579df7334b69e603c0a6a162c04c5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/hud_widget/README.md",
+    "bytes": 1898,
+    "sha256": "3366345c7212691325c478a8a77e21193862b91afc692d962ef3e8c99853421f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/loot_ticker/main.lua",
+    "bytes": 3081,
+    "sha256": "ce924bf36c69749158ed8188c9ce98a1492833bf85dc41250426e5e287ba672b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/loot_ticker/mod.json",
+    "bytes": 861,
+    "sha256": "482342f5e246fc820a2ed38735ce31f4beb794f0eff72d747a7c42ea58341c6a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/loot_ticker/README.md",
+    "bytes": 1736,
+    "sha256": "001dc79b81f51bbd4572d480d8151076c3553b13a91612bfb5851c200af5d8ce"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/net_ping/main.lua",
+    "bytes": 3582,
+    "sha256": "dfb52121e6478f797957df079105837d0a9b710a0681167b3b18c79c193f7300"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/net_ping/mod.json",
+    "bytes": 288,
+    "sha256": "86a76607364baefbdf8b2921cd99bf7cb4afc48bd6d4d2d16371c8f6bc3548a8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/net_ping/README.md",
+    "bytes": 2025,
+    "sha256": "73caa920b2541fa223fc72c7a6d8520d63ffde32c963eef9bc3d96ab5eb9b99b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/pet_follow/main.lua",
+    "bytes": 5785,
+    "sha256": "5195ddd7330c842eb5813def505f1e53803ddb44ff983d502a4b3bc469068e02"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/pet_follow/mod.json",
+    "bytes": 408,
+    "sha256": "7cef3e363e63459b80553052b96735ff87626ac003fe768c646fe94ef00fc01f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/pet_follow/README.md",
+    "bytes": 2983,
+    "sha256": "7dd6a5231d0d17d289ff72d832095c67edb2d277f4899168799d6027585e25f2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/settings_tour/main.lua",
+    "bytes": 4701,
+    "sha256": "4f2c0d1f795107f2e489d00381256bba7ae42e13bc04a90d020ffde98c159615"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/settings_tour/mod.json",
+    "bytes": 2540,
+    "sha256": "ed5f97376948b2406b6be3f71787babf9fef60cabe62d2121c3ed4552398f5f4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/examples/lua/settings_tour/README.md",
+    "bytes": 2452,
+    "sha256": "3f5bae9594dd47025cafa96c60828ba895c10595c58e2c1146cac3a51729032b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/dinput8.dll",
+    "bytes": 803840,
+    "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/emf_content.dll",
+    "bytes": 8962048,
+    "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/emf_core.dll",
+    "bytes": 5581312,
+    "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/emf_frametime.dll",
+    "bytes": 220672,
+    "sha256": "8f8dcaa54982da214c59efde95d06d2b98a360976e003c2f275cdfac7d279db7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/known_tools.txt",
+    "bytes": 2246,
+    "sha256": "480cd3d7fca96e115e82496f6e33089ccc70ca34105cc16ab64d90949cf660d0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/fonts/Alegreya-Bold.ttf",
+    "bytes": 335920,
+    "sha256": "ba5f7c026c7677a879442ffda746aaf544e7b8e1cb394f476df80147986d1684"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/fonts/Alegreya-Regular.ttf",
+    "bytes": 327784,
+    "sha256": "1065bc1fcfd1da0c1a18ddec81537dfdf06749db1ca3ae4d6dc40244058a6036"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/fonts/CascadiaMono-Regular.ttf",
+    "bytes": 575912,
+    "sha256": "06520d032ec274fa5040b22c6f4a1d829081b24ba40b2da56dae89bf10c7b481"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/aim.lua",
+    "bytes": 3201,
+    "sha256": "4356109a07fd619a82d75a894223e68a27d069842fc887bf9cbb59cfb685e74e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/aside.lua",
+    "bytes": 9571,
+    "sha256": "0a95e4f038270a569d36e86a3cc5091199a05a225b4a76ff6c7fb615d11d2f59"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/beasts_window.lua",
+    "bytes": 17001,
+    "sha256": "b3f91039e36661e8aa5dfa31235f22787b43e47d29b1bc0740209fdcf09a5c2b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/beast_line.lua",
+    "bytes": 2525,
+    "sha256": "5fe71886c6862dc993a3a6eb1044d22350a9c65ad2af58d4057b9fae702fcc98"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/client.lua",
+    "bytes": 15218,
+    "sha256": "0a55e214864cca3c5fd92c7f5f582ff151c3be9df88d8574bfbb49c4f554f23b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/fight.lua",
+    "bytes": 7826,
+    "sha256": "8e23e2041e58b6e19990c0edb39df6f7c4abe03bcdf51d3c864a4e4a4e0c1e8e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/health.lua",
+    "bytes": 1882,
+    "sha256": "f50edd20dda2f5e66f18fab461b275aaecf3a531136d37ba4957c3073840a818"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/home.lua",
+    "bytes": 26430,
+    "sha256": "af85cbb12bf51f286fa0bf61808525017b5220fe6577a5a9d0d945d81d998549"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/idle.lua",
+    "bytes": 27296,
+    "sha256": "a9eb0842036c22cec08509deddd8b70d00ced21878d40a53ec39a30a2ccd1739"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/loyalty.lua",
+    "bytes": 1548,
+    "sha256": "2ce527540690fe8fc95ae17a7ed9fb565d3bf320009acb1f019ca80b601462ea"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/main.lua",
+    "bytes": 44871,
+    "sha256": "397c0cfef45be30b47051ef61e80ea52bebf55fef3b24eaebe41b98ae228cff1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/markers.lua",
+    "bytes": 5145,
+    "sha256": "cda79da2da6f4f23801a0471584254be9a8f0478f312801a7c8aee65ad8eca2d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/mod.json",
+    "bytes": 10738,
+    "sha256": "6292fa9d577f811fcf14e27f95418951db99a00c95fe9213a350e593f5f356b8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/pack.lua",
+    "bytes": 42482,
+    "sha256": "a0daa1a35db58b401807cdea3b031ebbc848c6498eed3949321a7db2a196a66f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/rare.lua",
+    "bytes": 3472,
+    "sha256": "ef6e21090754fdc44799283ebf8105c3396902b493d83154da7262ae2d1d9ae3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/README.md",
+    "bytes": 44375,
+    "sha256": "5f4da3c240bbee55dfe8b1e408334b917879382e1779a8ea8aafaee2a6477e5a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/remote.lua",
+    "bytes": 10533,
+    "sha256": "3f17809ae9d712738b6aa97783e201e3c4ebe41b363ac502fba573a2de6ef76b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/roster.lua",
+    "bytes": 6797,
+    "sha256": "c9bb625fbf8b392aa287140d655a94d95c40dccce28a3886f7e08bf1c75d72c0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/slots.lua",
+    "bytes": 1135,
+    "sha256": "267eafba55af62dd394241f0f8ead30b9aded4cb1fc1479186042743656b9c45"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/species.lua",
+    "bytes": 10766,
+    "sha256": "9b64864b3ea6680297c146f68bfc3fde46aa153b203d9907f9aa6c6c64cf9e76"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/stable.lua",
+    "bytes": 33980,
+    "sha256": "b7493c30369bb1b95ecd87b217fe901d05836f5a4039258bfa6ccb0938036ed5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/talents.lua",
+    "bytes": 9368,
+    "sha256": "6549c33e0035ae4226ca4581023878b35d6271e01b10bddc6ae65dbdfd55b498"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/tame.lua",
+    "bytes": 13494,
+    "sha256": "19e07575718feeb0085e9a76c3d1daa812f52e34de6115095bdca3784e452d17"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/threat.lua",
+    "bytes": 17345,
+    "sha256": "bcffa48d6b44df9a06e0da7bdd278f93eb5aec6e4670e036c5d9409f864c72b4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/wild.lua",
+    "bytes": 5849,
+    "sha256": "caeccd98fd224bf77115d98c95232523c1dabf47c483f574c1cc7ec95382d338"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/beastmaster/wire.lua",
+    "bytes": 3070,
+    "sha256": "c49c42157fde901ad69fd27d79311ec6568a3a832477873b3eed8b5a33a2b5ab"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/big_stacks/big_stacks.dll",
+    "bytes": 162816,
+    "sha256": "ed2ce1ac9ba95c0fd3b4ff281c83864bcbb8748544024db192ecf2f9ff6feaad"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/big_stacks/mod.json",
+    "bytes": 522,
+    "sha256": "d78dfb77c086946a63fbd2935d63ea41e460b76102b83efeee8e33f4246c152a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/blessings/blessings.dll",
+    "bytes": 347136,
+    "sha256": "9bfb700df52ab69faa8ef49e0d72f961233f875006b7e91f4a9396dec9b490e4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/blessings/mod.json",
+    "bytes": 2500,
+    "sha256": "65372097dd047494d29853401a6b81014ef60ff9e93e331908dd1411161a4ee4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/bounty/main.lua",
+    "bytes": 81204,
+    "sha256": "02e9b6f8fbdbdeab78c80d828194ea150557c0b466de1af3964be3012eb47d4e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/bounty/mod.json",
+    "bytes": 6796,
+    "sha256": "0efa471fbb686b75addbfa7552ed0237e36708d3780ba443bcf74174f661606c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/bounty/README.md",
+    "bytes": 13916,
+    "sha256": "fe996f349d3f56363730129d9deedc08a9f095d22b9b0f89fbf4dac91afbf654"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/bulk_craft/bulk_craft.dll",
+    "bytes": 419840,
+    "sha256": "cd4d0a5a324b80cd539089e2d2b3e38598344a15961c74e7c5a9cdb889bd6c84"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/bulk_craft/mod.json",
+    "bytes": 2114,
+    "sha256": "2d34ce919362ffb2b0468663be4e9b83d110463e34ee1bc77914a2dd25f352eb"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/champion/main.lua",
+    "bytes": 23731,
+    "sha256": "95b9721ab9fdccf3439393aa39a133f93afb377a0ed32a82c639478dd6476586"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/champion/mod.json",
+    "bytes": 3151,
+    "sha256": "aa3aa81c547edff80e8c2756c7a7453ca49c3f5c57aa1d4340316ee900c9ecce"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/champion/README.md",
+    "bytes": 5726,
+    "sha256": "c661311d636bef9c3dac4d6cb1330798c6a8086f73802a3a5bb4bcfd62235984"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/clock/clock.dll",
+    "bytes": 172032,
+    "sha256": "a94c10346b897c0f7fba3be63dd135adbffa65b374337b5001b481269bbd3a07"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/clock/mod.json",
+    "bytes": 589,
+    "sha256": "fe758fb27f73d01afedb4a3bf539c62af57a462d3cb687e4235d2f148ccd48ca"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/companion/companion.dll",
+    "bytes": 335360,
+    "sha256": "798cd08714ffc8c2d8cc1ab7534ad1ba83bed7ddd8435877084ffd2f29224bae"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/companion/mod.json",
+    "bytes": 2246,
+    "sha256": "b9f26007a2d5717dec70cc237693faa42b2fbc523ead956aee943760a6c0bf95"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/grave/main.lua",
+    "bytes": 37223,
+    "sha256": "4095c6642b7efcca49eba7c0656e45b1fe54ce8b6edcd2ffe89b739d80c5b3dc"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/grave/mod.json",
+    "bytes": 2913,
+    "sha256": "c3bd73cd613a78cf86198a1e667e9404da053a9ee592d8fa9d8aaad6971e8d17"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/grave/README.md",
+    "bytes": 6594,
+    "sha256": "c29bfcc62ae8ab82923f4a6ff88fced2a23ad524f5be34fb7ce93329a607867c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/handover/main.lua",
+    "bytes": 30414,
+    "sha256": "fe68084dd8572c9e4cb5ebd0d6f913c8f2d79edcf31b67ae0bf113d05f6fd984"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/handover/mod.json",
+    "bytes": 1880,
+    "sha256": "ac518571ea8422f3cb339949eaa4a2721e8c83ca82fb9f8cfd21e71f74039a32"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/handover/README.md",
+    "bytes": 5406,
+    "sha256": "52f5b1fa709317959ae4373d199e9ec3f78d457d14ff0ed206652cd4a69d5238"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/herald/herald.dll",
+    "bytes": 394752,
+    "sha256": "ea73f31d15ac3020561cf3d1f8908c3b673ade81a6d123fda370da72f091ce3f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/herald/mod.json",
+    "bytes": 3771,
+    "sha256": "9bd0dd316e9b406e84a8241893c105f21eecc7b021eb9c5c8f6730f77026ec4e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/kill_counter/main.lua",
+    "bytes": 2770,
+    "sha256": "b185daa0c897e1506e307389d6f8bb78e678ad87cf9f28a320b6aae77912a9d6"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/kill_counter/mod.json",
+    "bytes": 571,
+    "sha256": "10f9f9f5cb7b85802946ac324b71b5ae5392d55658cc04a5d2939495f512963a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/life_skills/main.lua",
+    "bytes": 9533,
+    "sha256": "453f07adf2750dd981485dcabde51d57fd3c3eee231c4fc81f14945d60680e90"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/life_skills/mod.json",
+    "bytes": 836,
+    "sha256": "7eed35acf57545f1331674180c47088fe19c1ef7378b80a2517a15231d63d514"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/loot_magnet/loot_magnet.dll",
+    "bytes": 495104,
+    "sha256": "d70dd6bbd77ca319faca2b75e46a0a46888c90b5e06fbffdaff00277e907d9db"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/loot_magnet/mod.json",
+    "bytes": 9760,
+    "sha256": "29c8268ebf95dbce51f92b6a643f8c1cb0cf5858139b470cc98325174c82c70a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/loot_scale/loot_scale.dll",
+    "bytes": 143872,
+    "sha256": "b241728b8a3338204c31a48ee7acbeff80fc883a200f5a42b297fdf158440fe7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/loot_scale/mod.json",
+    "bytes": 1532,
+    "sha256": "70a0bf41388ad41c9790f3ffb46715c335a378069eab974e789023d762f45e55"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/lua/lua.dll",
+    "bytes": 1651200,
+    "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/lua/mod.json",
+    "bytes": 256,
+    "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/minimap/main.lua",
+    "bytes": 4062,
+    "sha256": "891f3f7d4a03ad80cf180d3753e49545e310ddfe3af82cd482e468f01c1b7695"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/minimap/mod.json",
+    "bytes": 2095,
+    "sha256": "3f05a0fbb829481d5234223e86486434a035304ea67d7a85ac63e6c1ff45d02d"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/minimap/README.md",
+    "bytes": 1395,
+    "sha256": "ef678cefdb730863dd207b1f0575ba0ddefa287a649ac57f4deff678cbc3fd7b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/aim.lua",
+    "bytes": 2184,
+    "sha256": "71c69b983422dbb5977459a6c7426aece0a4b68ce2457b961846fdb0c5d4ca8f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/aside.lua",
+    "bytes": 9571,
+    "sha256": "c1c0bebf3a5415c7579944d9e71953385bd465b378dac74f1caa7f550fe98c30"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/health.lua",
+    "bytes": 1768,
+    "sha256": "718ce2a3b949cf381ed01e34cce95362c45e576cab75d2c188ea7ece4780ee45"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/main.lua",
+    "bytes": 14863,
+    "sha256": "e0662f1af87c6d8e35d77660b9cd405d556304bbbcaefb2c4ff3b7ac2ebe5587"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/minions.lua",
+    "bytes": 21962,
+    "sha256": "f66232c48fad0e427f53eb496d0ef2d0c0121d4f96620ad6ed97f1420290b429"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/mod.json",
+    "bytes": 3953,
+    "sha256": "d3b9245de81e3a46e714ec90d30fc6cd4c7df30dd210aa4e63389f7949e7d98f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/README.md",
+    "bytes": 10754,
+    "sha256": "0e6fb437a72341af9e7fa075dfad06c5d724730f442ae638f76cd01fdc2e2969"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/necromancer/spirits.lua",
+    "bytes": 4090,
+    "sha256": "c3d940dda658fe9217954612b55c73b2d86a7fc9b1cca8e2b32a8209f437073f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/quick_stack/mod.json",
+    "bytes": 4092,
+    "sha256": "edfd20f07865dd3e24ea1a709d320e0e94a7e70ca21e38ed393d9f4ff33b632f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/quick_stack/quick_stack.dll",
+    "bytes": 556032,
+    "sha256": "7c7531e1863e953afe9ac13cf1df8708cec75a7303ee6522ae83b3d519c7f564"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/raids/mod.json",
+    "bytes": 8655,
+    "sha256": "fa0f53951a596e68edbcb6e3742990ddd24ed63ffe3c3ad21a8e3edd6fe77e33"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/raids/raids.dll",
+    "bytes": 384512,
+    "sha256": "8c6350b8030059a08c75e05d709bde5415e8232757ce15ac5a3a2b43a5faaf26"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/sleep/mod.json",
+    "bytes": 1955,
+    "sha256": "65ae713e9503a1f93e53c3b115b5b80b166f776040389fb15294c7ecda9a9088"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/sleep/sleep.dll",
+    "bytes": 193536,
+    "sha256": "f212ecade327b539f9b14ef46973074485adfc45f0f4edcd7afad083cbb6b385"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/teleports/mod.json",
+    "bytes": 4813,
+    "sha256": "8edf457301c2bd80ba61515b755aafbbbd9ff8bc542ededb791e39cd3b5ba628"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/teleports/teleports.dll",
+    "bytes": 427520,
+    "sha256": "63479bafc9d567752e421fcf45d62115e1f601281f771d3a951d03cd290a1f33"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/villager_jobs/mod.json",
+    "bytes": 1413,
+    "sha256": "41f9a858351ac3d15c7ce7ec0088609b7b37a8bb594bae31692a0e014c2ed828"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/mods/villager_jobs/villager_jobs.dll",
+    "bytes": 439808,
+    "sha256": "eced78019d2877a7ef32d8f99d4f3c190db281de3acbc9f6cdedbc3fd34b1f6c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/setup/emf_common.ps1",
+    "bytes": 37761,
+    "sha256": "311adf15d82c34fcc6c15cc81c7d015129303725e7ad8e5f854c6fa2f16932a2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/setup/install.ps1",
+    "bytes": 16062,
+    "sha256": "2fe5ab825a504306a8a3d55667ea7fa7bab7e46d74bd06b396cebb4938be1c85"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/tools/emf_bridge.ps1",
+    "bytes": 20360,
+    "sha256": "736e354f7fce9702908fe45a5ed36549c275f5dca093ebcaf38008320dc08e20"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/tools/emf_bridge.py",
+    "bytes": 32820,
+    "sha256": "2a7f2ad2a583d8e06f43a80b03ada62596e60ca56af2d11813efa784d34b238a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/tools/emf_mcp.py",
+    "bytes": 39728,
+    "sha256": "68d2194d88ace75d1fe08a079b9af1d979fbefd1a33ce0b817cc8fd2a12ccac4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/tools/emf_scenario.py",
+    "bytes": 66448,
+    "sha256": "df56ddd1ba0e418f14d95ae21eb4c1212e1f2ea1594aaada2590ab81d17ad003"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/vk/VkLayer_EMF_console.json",
+    "bytes": 441,
+    "sha256": "77a1b301a33e11205ba5f7b51062e096ce5651572fcbf8a4d1532f5bac92d4bc"
+  },
+  {
+    "path": "EMF-0.6.18-manual/game/emf/vk/VkLayer_EMF_frametime.json",
+    "bytes": 465,
+    "sha256": "163b828084b1cb54452c350e2fbf02eb0d34c427ab787abead8444db75eccece"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/Alegreya-OFL.txt",
+    "bytes": 4488,
+    "sha256": "0383de94cd3effe8202205a5bc0b541b0c6f882192507e58145dcf882d2ac298"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/Apache-2.0.txt",
+    "bytes": 11560,
+    "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/CascadiaMono-OFL.txt",
+    "bytes": 4489,
+    "sha256": "51882cd3cdba4e16f220f44ddb08a635c38c44ea6e0975db2574f4be6f958238"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/DearImGui-LICENSE.txt",
+    "bytes": 1104,
+    "sha256": "55e058cc5899e6077a819ad1005d6d1f4528f65ae100795c9692f9fa6525a8ce"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/EML-LICENSE.txt",
+    "bytes": 35821,
+    "sha256": "81cbae84a29ce7e770bf2bc7b178e50bda0ce8de6067aba661b0bc7b05b562f8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/Lua-LICENSE.txt",
+    "bytes": 1289,
+    "sha256": "e5dba95b9b25866eaecee4ce46f9467124a48fc2e2840c8abfa9fb7766f361a0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/MinHook-LICENSE.txt",
+    "bytes": 4446,
+    "sha256": "4f21f857550d7be854da6ea5f2da4e6775ca4e3fbb535e4f3d961c47d0bf3335"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/rust-crates.html",
+    "bytes": 1652513,
+    "sha256": "53506628e81fa089e0e30ebaa841b7e7a864547e0cfb01e4142dc21652687a02"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/THIRD_PARTY_NOTICES.md",
+    "bytes": 4056,
+    "sha256": "1b848fc8579cfcff1fccf0a210dc096499ffe7b260ea90a1236a4eea0ad1914f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/Vulkan-Headers-LICENSE.md",
+    "bytes": 476,
+    "sha256": "f43ba543d73f08f7401d99b697b2b741704eb22b5447a5021fd92b279b297646"
+  },
+  {
+    "path": "EMF-0.6.18-manual/licenses/WebView2-LICENSE.txt",
+    "bytes": 1513,
+    "sha256": "24deadea987f1c7682753a8cef4e70bde8a13cc65684e06cab9a965469362075"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/big_stacks/big_stacks.cpp",
+    "bytes": 4306,
+    "sha256": "11893ab514ff8fa142a3629bb3b4c1e6950eb5e3bbb2ccb218e10f7ef070093c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/big_stacks/big_stacks_logic.h",
+    "bytes": 1879,
+    "sha256": "109fce08fae7131548352b2bd536eb4c31a407cac0d3be29c74641dcb1c1947e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/big_stacks/mod.json",
+    "bytes": 522,
+    "sha256": "d78dfb77c086946a63fbd2935d63ea41e460b76102b83efeee8e33f4246c152a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/blessings/blessings.cpp",
+    "bytes": 4430,
+    "sha256": "2e96668690b8a2f55927f4244318a0355e8d5a69a99c6a52e13c8ae4c5dee757"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/blessings/blessings_glue.h",
+    "bytes": 32997,
+    "sha256": "a334493b6c6c6ab7ffd7babb4bc19fc1b0b7bf1e20e5387f07a701c6f0e56dff"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/blessings/blessings_logic.h",
+    "bytes": 15931,
+    "sha256": "2cbdd2ee55c79cc228f0f496ad5c433ff1d7864e20cc4f0759534676ffe53f2c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/blessings/mod.json",
+    "bytes": 2500,
+    "sha256": "65372097dd047494d29853401a6b81014ef60ff9e93e331908dd1411161a4ee4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/blessings/README.md",
+    "bytes": 6670,
+    "sha256": "01c4478361ee2ac92447cdabca31fe4b2079646d1c73673f72cf6f70d0890e9e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/bc_glue.h",
+    "bytes": 7101,
+    "sha256": "8e60c1b44f64027510f19b51fc7331c5981691ceed53cea2be5eb4a5342ef8d3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/bc_logic.h",
+    "bytes": 29984,
+    "sha256": "90d3871c89a4378eacfa34676f74b05f50178e5b9aa2edb435f2e216099cbb63"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/bc_recipes.h",
+    "bytes": 8328,
+    "sha256": "6926184b437f926ab3c11c66aa4bf483cde067440aef2841001d23d15b84eb63"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/bulk_craft.cpp",
+    "bytes": 25873,
+    "sha256": "26fd6c7d1adba9b02749e7a62db773ab0848a0b83233a96765efa657701439f0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/mod.json",
+    "bytes": 2114,
+    "sha256": "2d34ce919362ffb2b0468663be4e9b83d110463e34ee1bc77914a2dd25f352eb"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/bulk_craft/README.md",
+    "bytes": 7408,
+    "sha256": "e498424753d8180d6a391a0428d105f480b8ccdc60a42d720bd886c7aecab7ea"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/clock/clock.cpp",
+    "bytes": 3637,
+    "sha256": "e438bc7cdf05bbec8e3d97637c0667206fc0e0c30705b8130689e9c80326bd80"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/clock/clock_text.h",
+    "bytes": 1156,
+    "sha256": "a9121488d0016ad26c88f04fc39183972deadb93692dd66bade9cad5fdd7aa3c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/clock/mod.json",
+    "bytes": 589,
+    "sha256": "fe758fb27f73d01afedb4a3bf539c62af57a462d3cb687e4235d2f148ccd48ca"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/companion/companion.cpp",
+    "bytes": 50307,
+    "sha256": "28460380d8d989d3f4c5e68f0127dcf1af6f696b372a35b90c6915de37a14693"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/companion/companion_logic.h",
+    "bytes": 25295,
+    "sha256": "8df2a22beb52fe907eda12bb381b4d8a561fad05f9e402c6dcb592313a3bff72"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/companion/gear.h",
+    "bytes": 11881,
+    "sha256": "acf1df5aa38f50b7437cbfdf89056bc4a3ebd60616962c3b10d53077210cbe25"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/companion/mod.json",
+    "bytes": 2246,
+    "sha256": "b9f26007a2d5717dec70cc237693faa42b2fbc523ead956aee943760a6c0bf95"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/companion/orders.h",
+    "bytes": 9369,
+    "sha256": "24c3cdbc07440e6b6e6cc3e63965bba64542d3dc8718b814f6a0ec17b2480c58"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/event_log/event_log.cpp",
+    "bytes": 4920,
+    "sha256": "3dc646b1d8c769c3a2ff3d10754507d7ee69aec537d62be55a6232fe2796af66"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/event_log/mod.json",
+    "bytes": 268,
+    "sha256": "3291e70f1e407ff37f01d1e54549c33c6383937345a148269545dacccf6f67ad"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/herald/herald.cpp",
+    "bytes": 26529,
+    "sha256": "21a899fe6b5bbf89fcc77095536491c27e44793de99f030a9f92dac22164ea7e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/herald/herald_logic.h",
+    "bytes": 38969,
+    "sha256": "b0d45e5da786460920edd84d37f7121d024153597cedb5f5314d714904153160"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/herald/mod.json",
+    "bytes": 3771,
+    "sha256": "9bd0dd316e9b406e84a8241893c105f21eecc7b021eb9c5c8f6730f77026ec4e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/herald/README.md",
+    "bytes": 9278,
+    "sha256": "8f6a90c89909880d1b22b723bb4b9472be1df45e9dc0b31d48d60dfbd1b40cda"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/herald/webhook_winhttp.h",
+    "bytes": 4660,
+    "sha256": "a4686cc0ffaf480ca430e54619436c461cf9d09bea8fcda7bf22d6289b5275c0"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/loot_magnet.cpp",
+    "bytes": 30709,
+    "sha256": "f58f6a4f18b4d928872dbfdd423818eae948d9abf62946ab179f8118f8954b95"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/magnet_glue.h",
+    "bytes": 9327,
+    "sha256": "adaf9b79ee08b1dce4640ade95bcd789f6bd7caa7823103bcc7dca87a9652cd6"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/magnet_logic.h",
+    "bytes": 25994,
+    "sha256": "65b75453b5d5bf5c800d84425f7eb3eadf2eca8ab0037c777ad5134d72557488"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/mod.json",
+    "bytes": 9760,
+    "sha256": "29c8268ebf95dbce51f92b6a643f8c1cb0cf5858139b470cc98325174c82c70a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/README.md",
+    "bytes": 15586,
+    "sha256": "a60e18c4b69ee56bdcead7af9711fce9d53d3edb38c5eb10ee0edb63f5504b78"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/sweep_glue.h",
+    "bytes": 13086,
+    "sha256": "4047d85929e69b4abe56fbcd5efeba8aeb70e0a41b3b2903a3bb90e3a73296cf"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_magnet/sweep_logic.h",
+    "bytes": 34574,
+    "sha256": "9843e0d991e7546b1547cde8509701a9d878ad5121a21eb12671b497986a3105"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/loot_scale.cpp",
+    "bytes": 6694,
+    "sha256": "20d174e94d293ded85eae20290363f6b320d7f67463174a914eae93af9b677b2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/loot_scale.h",
+    "bytes": 4275,
+    "sha256": "89ce6a007977e93213d0cd34197b8249919b0cd281efeecbe752c2c5324fa90c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/loot_scale.patterns",
+    "bytes": 246,
+    "sha256": "b6f18da5c10256377b4344c775e61af0ef855700cdb503515a34a54fbd075e22"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/loot_scale_glue.h",
+    "bytes": 902,
+    "sha256": "85e1fa470f4a14008523a6d05bd35a2e715a3fc8137f111aff287dd8c7b2775a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/mod.json",
+    "bytes": 1532,
+    "sha256": "70a0bf41388ad41c9790f3ffb46715c335a378069eab974e789023d762f45e55"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/loot_scale/README.md",
+    "bytes": 3154,
+    "sha256": "dad8afcfc88a2491107cf9c3a2be0657674f60d8fc13cee0edcaf9bbc8da2841"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/lua/lua_mod.cpp",
+    "bytes": 2721,
+    "sha256": "48a97a38bca797f7c907faffb6e5e8e09200a922a90d56ceec18115725c87109"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/lua/mod.json",
+    "bytes": 256,
+    "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/mod.json",
+    "bytes": 4092,
+    "sha256": "edfd20f07865dd3e24ea1a709d320e0e94a7e70ca21e38ed393d9f4ff33b632f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/qs_glue.h",
+    "bytes": 11694,
+    "sha256": "ab853b1191371dc36e3c5b27d578f0c8258b0398fdc58418bb56a032c8f45be7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/qs_moves.h",
+    "bytes": 9336,
+    "sha256": "ee330bf42cb5bcebbab5d213ecf4ac34693073b0800330bf128d42c0c347306a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/quickstack.h",
+    "bytes": 24543,
+    "sha256": "5a735d472389e96506517fc2b10cf4eb868eddc3e74b75a866965f323d6c80f2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/quick_stack.cpp",
+    "bytes": 32258,
+    "sha256": "4b700d9688b794a0ee950fd9fe5e78aba830b6dc598507611590fbee8a12593e"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/quick_stack/README.md",
+    "bytes": 7815,
+    "sha256": "f5a02aff43d0fd85786b98b0ac6484c7525801deb04e633646ba565e94e0a229"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/raids/mod.json",
+    "bytes": 8655,
+    "sha256": "fa0f53951a596e68edbcb6e3742990ddd24ed63ffe3c3ad21a8e3edd6fe77e33"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/raids/raids.cpp",
+    "bytes": 43809,
+    "sha256": "255f9dc46df3df1689b0754960d6b02d5deeaa3a181536b8e627a1fa29124ba3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/raids/raids_glue.h",
+    "bytes": 9876,
+    "sha256": "b07ec5005627417c0974730b5d67f16fdb2e43ba1e08619bb9dba2ceff60bc3b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/raids/raid_logic.h",
+    "bytes": 52309,
+    "sha256": "b13330a9647a2f4593cb393edda88a45117304676d494d769657917250632972"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/raids/README.md",
+    "bytes": 9918,
+    "sha256": "da5afd87b3d10306fd9fbc95c8ffdc963e177702b2aea01a93db3052a97c69e9"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/item_dump.h",
+    "bytes": 1178,
+    "sha256": "797c007e0bc6b6c837bc0125ffa1afe455fc29e8f2634309b9a7b1395d56def6"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/mod.json",
+    "bytes": 2040,
+    "sha256": "c25f3f0662c4c796162a85b3e5c6675f11358e3064c3f1b0257ce828accee454"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/npc_command.h",
+    "bytes": 4348,
+    "sha256": "e93ecb9a663f07e4498fcee1fa2b4b53ac388d36834b6a4ab134bf24d3b97031"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/sample_mod.cpp",
+    "bytes": 19950,
+    "sha256": "d4277153fb3ed22ea6f4cf0ffaff684d4138325c92707ba327ea51e0f646a680"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/spawn_track.h",
+    "bytes": 822,
+    "sha256": "5b3634a76446c0ec249c1953cec4e8b610c483cfb982ed458f25faab4de716c2"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/test_keys.h",
+    "bytes": 2119,
+    "sha256": "8d36bac59f3368ab3ed036628dd527c9d7e97d7f0a7dfffe30217557e58a458b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sample_mod/time_skip.h",
+    "bytes": 2094,
+    "sha256": "5bcd28505085b808bc4be60444a6754a4c2bd80c9cb236ba037637b34c9f33ee"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sim_rate/mod.json",
+    "bytes": 527,
+    "sha256": "d3e59a0984b85f19c8191634fb5bf6642a833544f54f11cee68d13de00220806"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sim_rate/sim_rate.cpp",
+    "bytes": 2957,
+    "sha256": "0454a05cc367024fbe82c5724801b4bcb0587715d6e094edcdae73229c09590b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sim_rate/sim_rate.h",
+    "bytes": 413,
+    "sha256": "d135e5378ac411a6297e353048ad4ecb1f0d311293e0033f22262ee905a601a6"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sim_rate/sim_rate.patterns",
+    "bytes": 271,
+    "sha256": "239e01d3ce70a063b370ca3ed7a7e02df74896ad615b45c69fa0a92123375710"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sleep/mod.json",
+    "bytes": 1955,
+    "sha256": "65ae713e9503a1f93e53c3b115b5b80b166f776040389fb15294c7ecda9a9088"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sleep/README.md",
+    "bytes": 3755,
+    "sha256": "284b619e48331b6d45f3c763de3f87256bcfdda8a6e28803a780a1e8f771619a"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sleep/sleep.cpp",
+    "bytes": 7115,
+    "sha256": "0daf3fc09f0a12acc55fcc4f99e6a2bec726473d5c3c3cfeb050d2dff9e6a1b4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sleep/sleep_glue.h",
+    "bytes": 4956,
+    "sha256": "d8bfe15bce7b686bf55bf5b020dd363cc83e26a2972194c5c914e65671636a26"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/sleep/sleep_logic.h",
+    "bytes": 10691,
+    "sha256": "1500f482e249493fb8e45afe052151e16e1fc80c4f7a4584dce13de70ec6b981"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/teleports/mod.json",
+    "bytes": 4813,
+    "sha256": "8edf457301c2bd80ba61515b755aafbbbd9ff8bc542ededb791e39cd3b5ba628"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/teleports/README.md",
+    "bytes": 10182,
+    "sha256": "a23c6c1a6ddde35ec1924d22f53a998daa4ee41c7dd84d1ec34970c19c27d584"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/teleports/teleports.cpp",
+    "bytes": 9818,
+    "sha256": "c36ad06ea6fdcbc995bae818781f0aa1f402b26bca0a34aaac0c4193e3193940"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/teleports/tp_glue.h",
+    "bytes": 12721,
+    "sha256": "3e280e0004548fd847066836b7ffae1be0d56556a7de972f929605850b6debe8"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/teleports/tp_logic.h",
+    "bytes": 43600,
+    "sha256": "07e0d88cf37cc2f429f4929e30401a6adc23a9ed3279a2cb7aa219bde71d4aba"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/game_data.h",
+    "bytes": 6046,
+    "sha256": "b5f671a31f42f2258cbe66d0f08c8829db10c0c53e58e531ec23ffcc81cf5cdb"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/jobs_logic.h",
+    "bytes": 40720,
+    "sha256": "4d97ca8d8276fd78b360acbdb6ef58ffc6a8449d6e834159ac423836d4603571"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/mod.json",
+    "bytes": 1413,
+    "sha256": "41f9a858351ac3d15c7ce7ec0088609b7b37a8bb594bae31692a0e014c2ed828"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/remote_logic.h",
+    "bytes": 9160,
+    "sha256": "afdd90d2eab2b87f0ef071fe7cbd6c936aaba0c7e66829a043febddc6507e6d7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/villager_jobs.cpp",
+    "bytes": 60766,
+    "sha256": "8a30e3c5187c8200bbf186197982ac3e2ec174c7fe4a9721171dd688f05f3641"
+  },
+  {
+    "path": "EMF-0.6.18-manual/mods/villager_jobs/work.h",
+    "bytes": 7988,
+    "sha256": "550246316ed8ceaa2d91f35cb5f08a7c12b52fa7e6e1b848f67a2a9e08bda583"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/aim.hpp",
+    "bytes": 4399,
+    "sha256": "268dcd34b8c3e3564a1da1753a39cde556abad91f83b12fabc7bd82a5b53073f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/emf.hpp",
+    "bytes": 66800,
+    "sha256": "48c92f17984dade86eff53f3e95c4d76de2a34a6505d2fde96dcbf41fd3fd091"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/emf_api.h",
+    "bytes": 133694,
+    "sha256": "c17031ac292fbc9237bb3203cd0a6f08e11dd744a5410e228bb55da27549d399"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/inventory.hpp",
+    "bytes": 2656,
+    "sha256": "f6358950e72017700563ef1c249a1e1bfbff341740b5eff2cf2075843d5ca0a1"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/keys.hpp",
+    "bytes": 6253,
+    "sha256": "54d0726a3dcbe74cf43f677d20f388d3bc024a84236a9ef0f683b8ca9f5f288f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/query.hpp",
+    "bytes": 3787,
+    "sha256": "1c1d76c95d08fd1d9c5677273ddfdc2735b2dda2c51a43bb3a9bd9e76ac385fc"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/storage.hpp",
+    "bytes": 16047,
+    "sha256": "832b088e62cefd73ebedc9c82ade1e7b1ffb2845abbd4a5a168e0e2afb212999"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/teleport.hpp",
+    "bytes": 6864,
+    "sha256": "87712e3f81a8abae204f7853c855524061f60c80ffca80b02c520f68ac13ba3b"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/generated/components.hpp",
+    "bytes": 1220870,
+    "sha256": "ca889051c0fa74a0e6f47d931134ab4a232e59ffd9063d8b872a6b73040caa9c"
+  },
+  {
+    "path": "EMF-0.6.18-manual/sdk/include/emf/generated/reflection.hpp",
+    "bytes": 435205,
+    "sha256": "57cebcef9422be73f98bb257af0a356284ae9fc0a95a2bad609730e2d7b49432"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template/CMakeLists.txt",
+    "bytes": 3186,
+    "sha256": "ffb46af63f06396f47e291042e641e986221017a8a6d265bd695e899867e9402"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template/CMakePresets.json",
+    "bytes": 448,
+    "sha256": "3663b601f6f0bb5a49130f4dd529b973e9b2539adef883829f7f7e1118ba5b14"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template/mod.json",
+    "bytes": 1527,
+    "sha256": "b1858d1a09e964a2270322c4b68e7de0c47131fc36424fa9bd02a70062f3a3f4"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template/README.md",
+    "bytes": 3398,
+    "sha256": "260f271470ed5cc91b6938e662c955318d083b655bd8d26cdec3afcf5d53a6a7"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template/src/mymod.cpp",
+    "bytes": 4464,
+    "sha256": "ea2bb3bad71149569660299cf39527317c07d3f2b962fe7a8351dd29fe5b6249"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template_lua/main.lua",
+    "bytes": 2126,
+    "sha256": "03fc3b53542221adbc4eb7a2170a0a6b24d59d343aa71bd52e56c1833c6564f3"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template_lua/mod.json",
+    "bytes": 1649,
+    "sha256": "7abc47baca1ed1a2a3a1a6d75eab75c9ad7479adec77d57fe69378c55934854f"
+  },
+  {
+    "path": "EMF-0.6.18-manual/template_lua/README.md",
+    "bytes": 721,
+    "sha256": "df89feb0fe04fffb9ca06121098c71b350a4a365886e549d714d7ced57a4c4fe"
+  },
+  {
+    "path": "EMF-0.6.18-manual/tools/emf_sigcheck.exe",
+    "bytes": 340992,
+    "sha256": "fec02c6c5a9d4b9cdb112e77a16050ad0681b93c4530c95b8a7f28e10b54706b"
+  }
+]

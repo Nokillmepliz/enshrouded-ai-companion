@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "bridge_protocol": 1,
+  "schema": "KFC4/executable-reflection",
+  "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8",
+  "clone_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
+  "npc_id": 2939921867,
+  "required_api": [
+    "command",
+    "reply"
+  ],
+  "required_safety_gates": [
+    "A",
+    "H",
+    "R",
+    "V",
+    "B",
+    "C",
+    "IDENTITY",
+    "OWNERSHIP",
+    "POSITION",
+    "PERSISTENCE",
+    "GAME",
+    "TEMPLATE",
+    "FACTION",
+    "DESTROY"
+  ],
+  "eml_version": "0.2.0",
+  "eml_commit": "16708594d686b030d909f2d835b199d879ea9ad8",
+  "eml_sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+  "installation_ready": false,
+  "spawn_ready": false,
+  "runtime_render": "UNKNOWN",
+  "game_version": "1.0.1.2",
+  "game_build": 1287369,
+  "steam_build_id": "26430625",
+  "depot_manifest_id": "7226436020230696061",
+  "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+  "emf_version": "0.6.18",
+  "emf_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241",
+  "emf_loader_sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5",
+  "emf_content_sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691",
+  "emf_archive_sha256": "12bbcae2e52386bcd7f1747701bb6d1ec8a64fab061e6e33ce994b6ee29c926b",
+  "native_api": 46,
+  "lua_api": 46,
+  "lua_host_version": "1.39.0",
+  "patch_version": null,
+  "expected_resource_metadata": null,
+  "status": "CANDIDATE_BLOCKED_GAME_INTEGRITY",
+  "runtime_validation": "NOT_EXECUTED",
+  "content_owner": "UNSELECTED: standalone EML vs EMF content; never both",
+  "provenance": [
+    "docs/STAGE10_10_GAME_VERSION_AUDIT.md",
+    "docs/STAGE10_10_EMF_COMPATIBILITY.md"
+  ],
+  "unknowns": [
+    "clean_resource_baseline",
+    "binary_runtime_compatibility",
+    "writer_finalization",
+    "clone_collision_in_clean_base",
+    "new_patch_contract"
+  ],
+  "observed_resource_metadata": {
+    "component_count": 82,
+    "component_fingerprint_fnv32": "5253f478",
+    "canonical_resource_sha256": "58b9d7cb53d61b4d05b4e7eaf63a0b50109e086f322dbc4b8b3205d48a7a024d",
+    "character_setup": {
+      "beard": {
+        "value": 0
+      },
+      "beardColorId": {
+        "value": 2593349132
+      },
+      "eyeBrowColor": {
+        "value": 1294605571
+      },
+      "eyeColor": {
+        "value": 1843389514
+      },
+      "gender": "Male",
+      "hair": {
+        "value": 100818570
+      },
+      "hairColorId": {
+        "value": 2593349132
+      },
+      "presetId": {
+        "value": 1602195472
+      },
+      "skinColor": {
+        "value": 510686028
+      },
+      "useNewProportions": false,
+      "voicePackId": {
+        "value": 3178345104
+      }
+    },
+    "animation": {
+      "animationGraph": "402df515-5965-4b01-a17b-17d482a91af4",
+      "hasFootstepSyncLogic": false,
+      "hasServerLogic": true,
+      "maxSnapshotPoses": -1,
+      "retargetData": null
+    },
+    "faction": {
+      "faction": "Player"
+    },
+    "npc_id": {
+      "value": 1633192162
+    },
+    "persistence_components": [
+      "keen::ecs::ActiveNpcState",
+      "keen::ecs::ActiveNpcStateSaved",
+      "keen::ecs::ClientActiveNpcState",
+      "keen::ecs::ForceSave"
+    ],
+    "added_components": [
+      "keen::ecs::GrassEffector"
+    ],
+    "removed_components": [],
+    "changed_fields": {
+      "keen::ecs::PathWalker": [
+        "/pushTowardsValidPosition"
+      ],
+      "keen::ecs::ActiveNpcState": [
+        "/socializingSetup/sequences/reactions/length",
+        "/socializingSetup/socializingCooldownMax/value",
+        "/socializingSetup/socializingCooldownMin/value",
+        "/socializingSetup/socializingDurationMax/value",
+        "/socializingSetup/socializingDurationMin/value"
+      ],
+      "keen::ecs::MovementColliderConfig": [
+        "/width"
+      ]
+    },
+    "clean_baseline_verified": false
+  },
+  "observed_game_files": {
+    "enshrouded.kfc": "bf19e811565e5f6d68bc88979f8d397c0fbd069777445acf02ab882879699c39",
+    "enshrouded.kfc_resources": "8bfe6a11062d711f363389e744ee3cf43ab0c727a9480fe199b673595fdedcb4",
+    "enshrouded.kfc.bak": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5"
+  },
+  "lua_api_basis": "Core API exposed through Lua host; hello.api is not the Lua language or mod version"
+}

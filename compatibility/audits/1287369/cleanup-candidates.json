@@ -1,0 +1,159 @@
+{
+  "format": "aic_cleanup_review_candidates_v1",
+  "executable": false,
+  "reason": "Phase B needs separate reviewed ownership and current-build baseline; DAT names are not ownership",
+  "files": [
+    {
+      "path": "dbghelp.dll",
+      "bytes": 20614895,
+      "sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+      "previous_sha256": "038b7a1787026007a68c82a6adeb8e79c2e644f936d4cd00f8b0db206a2349fa",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "dinput8.dll",
+      "bytes": 239104,
+      "sha256": "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee",
+      "previous_sha256": "53b3f6ebebd2730234a882ddd00b09e72d32cb32c21a1fcdfb5a86a205f6dbee",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "historical_EMF_0.3.2_loader_audit_exact_hash"
+    },
+    {
+      "path": "emf/config/aic_template_observer.ini",
+      "bytes": 34,
+      "sha256": "a5d6ca2ea3d1a86d4880b224b6bf31ef2b46e6c33d60ce8e3c3105fbf88bec10",
+      "previous_sha256": "a5d6ca2ea3d1a86d4880b224b6bf31ef2b46e6c33d60ce8e3c3105fbf88bec10",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/json.lua",
+      "bytes": 859,
+      "sha256": "208334bdd1bdbabc95859c2efdaa07819b1b524c2c991a0aa254d706968f78be",
+      "previous_sha256": "208334bdd1bdbabc95859c2efdaa07819b1b524c2c991a0aa254d706968f78be",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/main.lua",
+      "bytes": 4006,
+      "sha256": "594308c75d6b2a0f8e6ec2082aee74d0a50a37ec8c54b705b10f3802b54c1535",
+      "previous_sha256": "594308c75d6b2a0f8e6ec2082aee74d0a50a37ec8c54b705b10f3802b54c1535",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "emf/mods/aic_template_observer/mod.json",
+      "bytes": 349,
+      "sha256": "423bcb3006f88f3aa207405451a18c3e998d4b9b2974df268e78d8c2d36ce9e8",
+      "previous_sha256": "423bcb3006f88f3aa207405451a18c3e998d4b9b2974df268e78d8c2d36ce9e8",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "eml.json",
+      "bytes": 89,
+      "sha256": "49d485281fa962f1e5361d9b8982e09400081c0c4c983afb66f493a8c33b5841",
+      "previous_sha256": "49d485281fa962f1e5361d9b8982e09400081c0c4c983afb66f493a8c33b5841",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_055.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_056.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_057.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_058.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_059.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_060.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_061.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_062.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "enshrouded_063.dat",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/README.md",
+      "bytes": 2162,
+      "sha256": "a9200a897c17e97ace23e89d7a11dd2008479f78549f2bdbf3f0f7bce060c0e0",
+      "previous_sha256": "a9200a897c17e97ace23e89d7a11dd2008479f78549f2bdbf3f0f7bce060c0e0",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "bytes": 285,
+      "sha256": "3a9c91f94e708505960835e43ccc01ba9b07948ee3e7f9101ba194d045a18237",
+      "previous_sha256": "3a9c91f94e708505960835e43ccc01ba9b07948ee3e7f9101ba194d045a18237",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "bytes": 7285,
+      "sha256": "25ab14dea350cce05d1e6d6c7e76e169e342fc65893330b5f1f963e20aa395d4",
+      "previous_sha256": "25ab14dea350cce05d1e6d6c7e76e169e342fc65893330b5f1f963e20aa395d4",
+      "status": "PREVIOUS_MOD_ARTIFACT",
+      "provenance": "stage10_7_exact_hash"
+    }
+  ]
+}

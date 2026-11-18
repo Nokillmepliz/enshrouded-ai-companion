@@ -336,12 +336,18 @@ def create_backup(
         raise Stage10Error("local_save_files_missing")
     for path in sources + save_files:
         _regular(path)
+    identity = _game_identity(game)
+    game_hashes = {p.name: sha256(p) for p in sources + sorted(game.glob("enshrouded_[0-9][0-9][0-9].dat"))}
+    from .compatibility import baseline_identity
     plan = {
         "mode": "apply" if apply else "dry_run",
         "verified": False,
         "destination": str(output),
         "files": len(sources) + len(save_files),
         "bytes": sum(path.stat().st_size for path in sources + save_files),
+        "game_identity": identity,
+        "game_data_hashes": game_hashes,
+        "baseline_identity": baseline_identity(identity, game_hashes),
     }
     if not apply:
         return plan
@@ -450,6 +456,12 @@ def install(
     _ensure_game_stopped(apply, game_running)
     if not verify_backup(backup_manifest):
         raise Stage10Error("verified_backup_required")
+    baseline = json.loads(Path(backup_manifest).read_text(encoding="utf-8"))
+    identity = _game_identity(game)
+    if identity["game_build"] != EXPECTED_BUILD:
+        raise Stage10Error("UNSUPPORTED_GAME_BUILD:historical_installer")
+    _guard_identity(identity, baseline, baseline)
+    _guard_targets(game, baseline["game_data_hashes"])
     eml = Path(eml_dbghelp).resolve()
     if not eml.is_file() or sha256(eml) != EXPECTED_EML_DBGHELP_SHA256:
         raise Stage10Error("eml_binary_missing_or_unverified")
@@ -459,6 +471,8 @@ def install(
     files = installation_files(
         eml_dbghelp, patch_dir, observer_dir, run_token=run_token)
     for _, relative, _ in files:
+        from .compatibility import safe_target
+        safe_target(game, relative.as_posix())
         if (game / relative).exists():
             raise Stage10Error(f"installation_collision:{relative.as_posix()}")
     plan = {
@@ -470,6 +484,10 @@ def install(
         "game_build": EXPECTED_BUILD,
         "eml_sha256": EXPECTED_EML_DBGHELP_SHA256,
         "emf_sha256": EXPECTED_EMF_LOADER_SHA256,
+        "game_identity": identity,
+        "baseline_identity": baseline["baseline_identity"],
+        "backup_manifest": str(Path(backup_manifest).resolve()),
+        "backup_manifest_sha256": sha256(backup_manifest),
     }
     if not apply:
         return plan
@@ -500,6 +518,43 @@ def install(
     return {"ok": True, "receipt": str(receipt), "files": len(files), "run_token": run_token}
 
 
+def _game_identity(game: Path) -> dict:
+    """An exact executable hash is required; stale log text is not identity."""
+    from .compatibility import CompatibilityError, detect_build, load_profile
+    exe = game / "enshrouded.exe"
+    if not exe.is_file():
+        raise Stage10Error("ROLLBACK_BLOCKED_BUILD_MISMATCH:executable_missing")
+    _regular(exe)
+    digest = sha256(exe)
+    # The historical installer remains pinned. Tests patch this pin in fixtures.
+    if digest == EXPECTED_GAME_SHA256:
+        return {"game_build": EXPECTED_BUILD, "exe_sha256": digest}
+    try:
+        directory = Path(__file__).resolve().parents[1] / "compatibility/profiles"
+        index = json.loads((directory / "index.json").read_text(encoding="utf-8"))
+        profiles = [load_profile(int(build), directory) for build in index]
+        profile = detect_build(digest, profiles)
+    except (CompatibilityError, OSError, ValueError, TypeError) as exc:
+        raise Stage10Error("ROLLBACK_BLOCKED_BUILD_MISMATCH:unknown_executable") from exc
+    return {"game_build": profile["game_build"], "exe_sha256": digest}
+
+
+def _guard_identity(identity: dict, record: dict, baseline: dict) -> None:
+    from .compatibility import CompatibilityError, validate_rollback_identity
+    try:
+        validate_rollback_identity(identity, record, baseline)
+    except CompatibilityError as exc:
+        raise Stage10Error(str(exc)) from exc
+
+
+def _guard_targets(game: Path, expected: dict) -> None:
+    from .compatibility import CompatibilityError, validate_targets
+    try:
+        validate_targets(game, expected)
+    except CompatibilityError as exc:
+        raise Stage10Error(str(exc)) from exc
+
+
 def rollback_added_files(
     game_dir: str | Path,
     receipt_path: str | Path,
@@ -513,16 +568,36 @@ def rollback_added_files(
         data = json.loads(receipt.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise Stage10Error("rollback_receipt_invalid") from exc
-    applied = data.get("applied")
-    if not isinstance(applied, list):
+    identity = _game_identity(game)
+    if not isinstance(data, dict):
         raise Stage10Error("rollback_receipt_invalid")
-    for entry in applied:
-        path = game / entry["path"]
-        if not path.is_file() or sha256(path) != entry["sha256"]:
-            raise Stage10Error(f"rollback_state_unknown:{entry['path']}")
+    if data.get("game_build") != identity["game_build"]:
+        raise Stage10Error("ROLLBACK_BLOCKED_BUILD_MISMATCH")
+    backup = data.get("backup_manifest")
+    if not isinstance(backup, str) or not Path(backup).is_file():
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:legacy_receipt")
+    if sha256(backup) != data.get("backup_manifest_sha256") or not verify_backup(backup):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:backup")
+    baseline = json.loads(Path(backup).read_text(encoding="utf-8"))
+    _guard_identity(identity, data, baseline)
+    applied = data.get("applied")
+    if (not isinstance(applied, list) or not applied or
+            any(not isinstance(x, dict) or not isinstance(x.get("path"), str) or "sha256" not in x for x in applied)):
+        raise Stage10Error("rollback_receipt_invalid")
+    targets = {x["path"]: x["sha256"] for x in applied}
+    if len(targets) != len(applied):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:duplicate_path")
+    allowed = {"dbghelp.dll", "eml.json", "mods/aic_eml_humanoid/mod.json",
+               "mods/aic_eml_humanoid/README.md", "mods/aic_eml_humanoid/src/mod.lua",
+               "emf/mods/aic_template_observer/main.lua", "emf/mods/aic_template_observer/json.lua",
+               "emf/mods/aic_template_observer/mod.json", "emf/config/aic_template_observer.ini"}
+    if not set(targets).issubset(allowed):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:unowned_path")
+    _guard_targets(game, targets)
     if not apply:
         return {"mode": "dry_run", "removable": [entry["path"] for entry in applied]}
     for entry in reversed(applied):
+        _guard_targets(game, {entry["path"]: entry["sha256"]})
         (game / entry["path"]).unlink()
     # Remove only the known directories created by this installer, deepest first.
     # The patch contains src/mod.lua, so trying its root first leaves an empty
@@ -547,6 +622,7 @@ def restore_game_data(
     apply: bool = False,
     game_running: bool | None = None,
     report_path: str | Path | None = None,
+    reviewed_state: dict | None = None,
 ) -> dict:
     """Restore only EML-touched data after a reviewed post-run diff.
 
@@ -559,7 +635,12 @@ def restore_game_data(
     if not verify_backup(manifest_path):
         raise Stage10Error("verified_backup_required")
     data = json.loads(manifest_path.read_text(encoding="utf-8"))
-    entries = {Path(item["source"]).name: item for item in data["entries"]}
+    identity = _game_identity(game)
+    if identity["game_build"] != EXPECTED_BUILD and not data.get("game_identity"):
+        raise Stage10Error("ROLLBACK_BLOCKED_BUILD_MISMATCH:legacy_backup")
+    _guard_identity(identity, data, data)
+    entries = {Path(item["source"]).name: item for item in data["entries"]
+               if Path(item["source"]).parent.resolve() == game}
     for name in ("enshrouded.kfc", "enshrouded.kfc_resources"):
         if name not in entries:
             raise Stage10Error(f"backup_entry_missing:{name}")
@@ -579,6 +660,20 @@ def restore_game_data(
         "restore": ["enshrouded.kfc", "enshrouded.kfc_resources"],
         "remove": sorted(approved | ({"enshrouded.kfc.bak"} if bak.exists() else set())),
     }
+    # A filename (even an old EML DAT number) does not establish ownership.
+    if not isinstance(reviewed_state, dict):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:review_required")
+    _guard_identity(identity, reviewed_state, data)
+    if reviewed_state.get("manifest_sha256") != sha256(manifest_path):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:manifest_changed")
+    targets = reviewed_state.get("targets")
+    if not isinstance(targets, dict) or set(targets) != set(plan["restore"] + plan["remove"]):
+        raise Stage10Error("ROLLBACK_BLOCKED_UNKNOWN_ARTIFACT:target_set")
+    _guard_targets(game, targets)
+    # Original DAT are immutable for this restoration; validate hashes, not names.
+    original_dat = {k: v for k, v in data["game_data_hashes"].items() if k.endswith(".dat")}
+    if original_dat:
+        _guard_targets(game, original_dat)
     if not apply:
         return plan
     report = Path(report_path) if report_path is not None else manifest_path.parent / "rollback-report.json"
@@ -587,6 +682,7 @@ def restore_game_data(
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps({**plan, "state": "in_progress"}, indent=2), encoding="utf-8")
     for name in ("enshrouded.kfc", "enshrouded.kfc_resources"):
+        _guard_targets(game, {name: targets[name]})
         source = Path(entries[name]["backup"])
         temporary = game / (name + ".stage10-restore")
         if temporary.exists():
@@ -596,8 +692,10 @@ def restore_game_data(
             raise Stage10Error(f"restore_hash_mismatch:{name}")
         os.replace(temporary, game / name)
     for name in approved:
+        _guard_targets(game, {name: targets[name]})
         (game / name).unlink()
     if bak.exists():
+        _guard_targets(game, {bak.name: targets[bak.name]})
         bak.unlink()
     for name in ("enshrouded.kfc", "enshrouded.kfc_resources"):
         if sha256(game / name) != entries[name]["sha256"]:

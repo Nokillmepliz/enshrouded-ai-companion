@@ -1,5 +1,17 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Stage 10.10 Phase A
+
+- Python: **525 discovered / 525 runner testsRun / 524 executed / 524 PASS / 0 failures / 1 skipped**.
+- Новые сценарии: **116 PASS**. Regression:409 discovered,408 PASS,1skip.
+- Skip: прежний directory-symlink test, Windows WinError1314 (нет соответствующей привилегии); не выдан за PASS.
+- Rust KFC Inspector: `cargo test --locked --offline`, **2 PASS**; locked dependencies не обновлялись.
+- Upstream C++ ground/search/path services: **30 cases / 730 assertions PASS**, fake game dependencies; полный EMF не собирался.
+- Lua syntax: **13 файлов PASS** через Lupa; runtime EML userdata не проверены.
+- Python compileall и `git diff --check`: PASS. Evidencev7:14 sections validated.
+- Полный before/after inventory: **249/249 game + 23/23 LOCAL unchanged**, added/removed/changed=0.
+- Runtime/installation/rollback/spawn не выполнялись. Подробности: [Stage10.10 test plan](STAGE10_10_TEST_PLAN.md).
+
 ## Этап 10.5 — части B/C
 
 - Local Rust/Cargo 1.88.0 и MSYS2 GCC 16.2.0/ld 2.47: установлены в `.tools`, системный/user PATH и Rust env не изменены.

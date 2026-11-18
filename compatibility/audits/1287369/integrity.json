@@ -1,0 +1,24 @@
+{
+  "format": "aic_phase_a_integrity_v1",
+  "game_build": 1287369,
+  "compared": "full file set, SHA-256, size and mtime_ns; atime excluded",
+  "game": {
+    "before": 249,
+    "after": 249,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "unchanged": 249
+  },
+  "local_saves": {
+    "before": 23,
+    "after": 23,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "unchanged": 23
+  },
+  "result": "PASS",
+  "runtime_status": "NOT_EXECUTED",
+  "spawn_ready": false
+}
