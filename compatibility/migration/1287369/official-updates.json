@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-11-18T10:58:55.4433804Z",
+  "emf": {
+    "version": "v0.6.18",
+    "published_at": "2026-11-17T22:47:55Z",
+    "url": "https://github.com/matenm/emf-enshrouded/releases/tag/v0.6.18",
+    "assets": [
+      {
+        "name": "EMF-0.6.18-manual.zip",
+        "size": 11516333,
+        "digest": "sha256:12bbcae2e52386bcd7f1747701bb6d1ec8a64fab061e6e33ce994b6ee29c926b",
+        "browser_download_url": "https://github.com/matenm/emf-enshrouded/releases/download/v0.6.18/EMF-0.6.18-manual.zip"
+      }
+    ]
+  },
+  "steam_announcements": [
+    {
+      "title": "Enshrouded: 1.0 Livestream",
+      "date": 1794323950,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643359899"
+    },
+    {
+      "title": "Changelog for Hotfix #5: v1.0.1.2",
+      "date": 1793802626,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848557880479376"
+    },
+    {
+      "title": "New Drops - Through Adversity, to the Stars",
+      "date": 1793715020,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302252138"
+    },
+    {
+      "title": "Changelog for Hotfix #4: v1.0.1.1",
+      "date": 1793713933,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302252062"
+    },
+    {
+      "title": "Changelog for Patch #1",
+      "date": 1793615747,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302247671"
+    },
+    {
+      "title": "Enshrouded is Steam Deck verified!",
+      "date": 1792769833,
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114036918"
+    }
+  ]
+}

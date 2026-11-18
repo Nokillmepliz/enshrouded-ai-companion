@@ -1,0 +1,734 @@
+{
+  "format": "aic_residual_proposal_v1",
+  "game_identity": {
+    "game_build": 1287369,
+    "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+    "steam_build_id": "26430625",
+    "depot_manifest": "7226436020230696061"
+  },
+  "inventory_identity": "f18e7170354496a67d3b3874c2b441b5a55e0b448fee5e3274b1bcac6d38a4ea",
+  "entries": [
+    {
+      "relative_path": ".cache/files.json",
+      "sha256": "62db744032687bce73e60f6ac935debb741ce22ddfda146ceb3c6019b8579aa7",
+      "size": 5908,
+      "category": "STALE_CACHE_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "top_keys": [
+          "build_id",
+          "files"
+        ],
+        "cache_build_id": "1792191177401",
+        "tracked_files": 72
+      },
+      "reason": "Generated reflection/cache from mixed installation; not authoritative clean data.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": ".cache/lua/base.lua",
+      "sha256": "98847ab86a8d73a18ae2b78c53fb73db0c406e776d426d26e36048cb4142c1d0",
+      "size": 96560,
+      "category": "STALE_CACHE_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "static_text": true,
+        "not_executed": true
+      },
+      "reason": "Generated reflection/cache from mixed installation; not authoritative clean data.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": ".cache/lua/types.lua",
+      "sha256": "a3a4aae161bc29a64dd4e7ec047cd1fcdf2b48d9b18fbc5ff56cc491c429ba47",
+      "size": 1423389,
+      "category": "STALE_CACHE_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "static_text": true,
+        "not_executed": true
+      },
+      "reason": "Generated reflection/cache from mixed installation; not authoritative clean data.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": ".cache/types.json",
+      "sha256": "f3ad9e701fc647acc84aea12de9b5ac6da010423ab856c5b121be1f45eeb99ad",
+      "size": 11106802,
+      "category": "STALE_CACHE_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "top_keys": [
+          "version",
+          "types"
+        ],
+        "version": "1287369|^/game38/branches/release_1.0|2026-11-04T11:17:54.051725Z",
+        "type_count": 12658
+      },
+      "reason": "Generated reflection/cache from mixed installation; not authoritative clean data.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/chain_status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/aic_body.ini",
+      "sha256": "01c055932897eb2657bfce6ff69e1316a533933660c8b0bad5e34d945990c4d5",
+      "size": 23,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "aic_body": {
+          "enabled": "1"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/beastmaster.ini",
+      "sha256": "198e014f99f5989dbcbdca26cb6bdfe836727d70ee96a5822a42ba88ed6fe8a2",
+      "size": 26,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "beastmaster": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/big_stacks.ini",
+      "sha256": "acad9af07c8160cca0d74a15ad7904ca4a4e6c9f14e5a30cc269d8d0cb3ed085",
+      "size": 25,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "big_stacks": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/bounty.ini",
+      "sha256": "469e3fb39deeee1277dd8041ad2f934b54900f8aee96778c181cb999fed50e68",
+      "size": 21,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "bounty": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/bulk_craft.ini",
+      "sha256": "99ba38dcec606fb39a6b6210d8a0c059619ae86865ce16bf57f8f185ae0e2adc",
+      "size": 25,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "bulk_craft": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/champion.ini",
+      "sha256": "f08c9e9310f53b6a898ba4514d66fc455e1fa73292ca4cdcc77aec033a3f158c",
+      "size": 23,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "champion": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/clock.ini",
+      "sha256": "5f7ff8e297c3d1313d2c7cad4bb1300873176f8e460cd4450021eac22c1474e1",
+      "size": 20,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "clock": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/companion.ini",
+      "sha256": "38a9eb54b959cf325dcad1b6acf7884a20657ddcf896fadc1339ed5e8f262ed2",
+      "size": 24,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "companion": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/grave.ini",
+      "sha256": "5ffccc93daf5e623ef0b671177b55299780130c416253af746049239d2b1db22",
+      "size": 20,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "grave": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/handover.ini",
+      "sha256": "ad2391a1b6449048323874460b6271fff99cbdb30430985ab9a026da4adf412f",
+      "size": 23,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "handover": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/herald.ini",
+      "sha256": "7316178fffd943bdefdcc3b366e31bff831c5eb22c72c62bbe0f6b25d751e0dd",
+      "size": 21,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "herald": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/kill_counter.ini",
+      "sha256": "539042b4f3e44c9c3334d034c8be5d99f5238f9e1a7097a3f975ad0aa825e6cd",
+      "size": 27,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "kill_counter": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/life_skills.ini",
+      "sha256": "fd44a6b13e9ed9be26cd96d4f8a926d61f519a06d8bee6398586ed4b71cbb4a7",
+      "size": 26,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "life_skills": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/loot_magnet.ini",
+      "sha256": "5f605f9ee343667a2b3ee2be16f91ff9ebebbd4f7fb72a70f9275e7d9f8f3305",
+      "size": 26,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "loot_magnet": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/loot_scale.ini",
+      "sha256": "8dd0541812b50125fb4403146d60806a07789ec53bb0ab68bcb969251b98e6ed",
+      "size": 25,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "loot_scale": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/lua.ini",
+      "sha256": "31da693c4d88b3a9e300f892026b1d5bfa78f2ae5742ada5881ed5c985e9abc2",
+      "size": 18,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "lua": {
+          "enabled": "1"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/necromancer.ini",
+      "sha256": "5abf505cf65e13fc76da52ea29f8afba31da20e0d33cc6876242462b31d77067",
+      "size": 26,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "necromancer": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/quick_stack.ini",
+      "sha256": "1991e487c6e85fac22299c59b387a0726812e62a16d27fe343d199aebd882f76",
+      "size": 26,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "quick_stack": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/raids.ini",
+      "sha256": "b0825d16c187dcf8c91402f230481beccc97ffdae7d78d155b0c73d5f5bf71ca",
+      "size": 20,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "raids": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/sleep.ini",
+      "sha256": "2c9e9c00e32d3d3b8db497aea65d66cfac3dc5355c3f922e2623337913f66e43",
+      "size": 20,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "sleep": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/teleports.ini",
+      "sha256": "e43250c16e94b682c6c32c0c403f9947382175f30ab45e38c2d1b04020c824a8",
+      "size": 24,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "teleports": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/config/villager_jobs.ini",
+      "sha256": "fdef1dae8501b8a914cc3411fbb637429b0f586962fe6f0b826e395027474ed8",
+      "size": 28,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "villager_jobs": {
+          "enabled": "0"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/emf_core.ini",
+      "sha256": "c44b117a1485035def743ddc05703b7a93c25a47dee034f80f0fbc8a4bf8656f",
+      "size": 37,
+      "category": "CONFIG_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "debug": {
+          "bridge": "1",
+          "bridge_verbose": "1"
+        }
+      },
+      "reason": "No loader remains to read this config; future installation must not silently inherit it.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/emf_core.log",
+      "sha256": "2f785c5aad6b1a9a7f77e33a8e3d581f7f396c615df64faf7c51089a8e19e56e",
+      "size": 1414,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/emf_loader.log",
+      "sha256": "217d8b6b957b593a97e5aa7a285ae2ee9a80c770d0b6ccc247e71c4e6690eab2",
+      "size": 420,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/installed.txt",
+      "sha256": "0e95129125418a74b4783a38dc9e6d2f089cfd1db8c4b469daad1605bc223b75",
+      "size": 2016,
+      "category": "INSTALLER_CATALOG_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "catalog_lines": 69
+      },
+      "reason": "Old installer ownership catalog survives removal; manager reads this to classify shipped files.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "emf/mods/aic_body/body.lua",
+      "sha256": "24a5db4ada4a5b81e9118b4dada51f19f01b8d87c7168887e8c62ace7e84014f",
+      "size": 15196,
+      "category": "LEGACY_CODE_REUSE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "exact_git_commit": "026cd8a25fac49ce1dbcb1703fa332369c501e9c",
+        "main_missing": true,
+        "mod_manifest_missing": true
+      },
+      "reason": "Exact historical AIC source. Dormant without loader/manifest/main, but unsafe to merge into a new install.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded.kfc.bak",
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "size": 9396224,
+      "category": "CONTENT_BASE_BLOCKER",
+      "proposed_action": "REQUEST_SEPARATE_BAK_HOLD",
+      "provenance": {
+        "version": "1287369|^/game38/branches/release_1.0|2026-11-04T11:17:54.051725Z",
+        "containers": 55,
+        "size": 9396224
+      },
+      "reason": "Same version but different container count: EMF choose_base selects .bak; clean origin not verified.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_055.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_056.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_057.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_058.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_059.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_060.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_061.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_062.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_063.dat",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "category": "RESOURCE_PROVENANCE_BLOCKER",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": true,
+        "current_kfc_containers": 64
+      },
+      "reason": "Index claims 64 containers; zero bytes and historical numbering do not establish mod ownership.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "enshrouded_local.json",
+      "sha256": "018204a71b4af05b9302eee529590d74a0a220c1037230adc4c1c6b20206e21d",
+      "size": 1233,
+      "category": "LOCAL_SETTINGS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "top_keys": [
+          "graphics",
+          "sound",
+          "version"
+        ],
+        "version": 5
+      },
+      "reason": "Graphics/sound/version JSON; not a mod loader or character/world save payload.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "export/aic_eml_humanoid/template_evidence_v4.txt",
+      "sha256": "daec54ef827e215d799ebdb4579ce845e276fe3d2b0873035fbaf333e8e9e4c3",
+      "size": 9746,
+      "category": "STALE_EVIDENCE_BLOCKER",
+      "proposed_action": "PROPOSE_MOD_QUARANTINE",
+      "provenance": {
+        "format": "aic_eml_humanoid_evidence_v4",
+        "template_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
+        "source_guid": "e3736dff-0ad2-47fc-903c-66c1775836e8"
+      },
+      "reason": "Historical evidence v4 with private run identity; no binding to new load/session or finalized shadow.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "GFSDK_Aftermath_Lib.x64.dll",
+      "sha256": "4177e09de4bbcc168deeb4f2d88f8961fe98009fae8046d08b418e725414de42",
+      "size": 5788312,
+      "category": "VENDOR_COMPONENT_KEEP_PENDING_DEPOT",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "file": "GFSDK_Aftermath_Lib.x64.dll",
+        "status": "Valid",
+        "signer": "CN=NVIDIA Corporation, OU=1005bk6, O=NVIDIA Corporation, L=Santa Clara, S=California, C=US",
+        "thumbprint": "7B7B0B6697AFB438CF6F65A155F00E86676FB186",
+        "company": "NVIDIA Corporation",
+        "product": "NVIDIA Nsight Aftermath",
+        "version": "2.26.0.0"
+      },
+      "reason": "Valid NVIDIA/Valve Authenticode signature and matching vendor metadata; not an EMF loader attribution.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "logs/2026-11-01.eml.log",
+      "sha256": "0aa057d98ed63ed91da392db444076301e0a1d34781ee35d4e34ab735e07d06f",
+      "size": 3130,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "logs/2026-11-03.eml.log",
+      "sha256": "53d76e1c7f3850ddf993e9f68ad1232b4dcfa81a9043b2b5f9bf1ca3a8139555",
+      "size": 7198,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "logs/2026-11-05.eml.log",
+      "sha256": "d1522dd526adab7ba52886eeaebf65ca1221f838081196e140d9491b6b2970e0",
+      "size": 5002,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "logs/2026-11-06.eml.log",
+      "sha256": "bad3a5bb7cdf7fc269209df91bf7252a146437300ea51e4cf49b21bbd01b7830",
+      "size": 1403,
+      "category": "HISTORICAL_DIAGNOSTICS_KEEP",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "empty": false,
+        "contents_not_published": true
+      },
+      "reason": "Historical diagnostic output, not executable startup configuration; cannot prove current runtime status.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "nvngx_dlss.dll",
+      "sha256": "3975567b8943c53acce397f2b72380092f84f162d00b0d2c7d08a1025c563983",
+      "size": 58956912,
+      "category": "VENDOR_COMPONENT_KEEP_PENDING_DEPOT",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "file": "nvngx_dlss.dll",
+        "status": "Valid",
+        "signer": "CN=NVIDIA Corporation, OU=1005bk6, O=NVIDIA Corporation, L=Santa Clara, S=California, C=US",
+        "thumbprint": "7B7B0B6697AFB438CF6F65A155F00E86676FB186",
+        "company": "NVIDIA",
+        "product": "NVIDIA Deep Learning SuperSampling",
+        "version": "310,9,1,0"
+      },
+      "reason": "Valid NVIDIA/Valve Authenticode signature and matching vendor metadata; not an EMF loader attribution.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    },
+    {
+      "relative_path": "steam_api64.dll",
+      "sha256": "e6d9bafb9a41e42fba7b21553db49f8719027af3f0deb23ff86cfc44d60e776d",
+      "size": 319128,
+      "category": "VENDOR_COMPONENT_KEEP_PENDING_DEPOT",
+      "proposed_action": "KEEP_UNCHANGED",
+      "provenance": {
+        "file": "steam_api64.dll",
+        "status": "Valid",
+        "signer": "CN=Valve Corp., O=Valve Corp., L=Bellevue, S=Washington, C=US",
+        "thumbprint": "ECFF2F423B725E9F2C3BAEAAB28A13BE6A2FBCBF",
+        "company": "Valve Corporation",
+        "product": "Steam Client API",
+        "version": "10.87.46.89"
+      },
+      "reason": "Valid NVIDIA/Valve Authenticode signature and matching vendor metadata; not an EMF loader attribution.",
+      "restore_policy": "Preserve verified copy; restore this exact path/hash only after separate review; never auto-restore resources or saves."
+    }
+  ],
+  "authorization": false,
+  "execution_supported": false,
+  "cleanup_executed": false,
+  "installation_authorized": false,
+  "installation_executed": false,
+  "spawn_ready": false
+}

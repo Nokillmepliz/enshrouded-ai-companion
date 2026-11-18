@@ -48,10 +48,11 @@
   "expected_resource_metadata": null,
   "status": "CANDIDATE_BLOCKED_GAME_INTEGRITY",
   "runtime_validation": "NOT_EXECUTED",
-  "content_owner": "UNSELECTED: standalone EML vs EMF content; never both",
+  "content_owner": "EMF integrated content",
   "provenance": [
     "docs/STAGE10_10_GAME_VERSION_AUDIT.md",
-    "docs/STAGE10_10_EMF_COMPATIBILITY.md"
+    "docs/STAGE10_10_EMF_COMPATIBILITY.md",
+    "docs/STAGE10_10_1_PHASE_D_REPORT.md"
   ],
   "unknowns": [
     "clean_resource_baseline",

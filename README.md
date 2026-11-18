@@ -1,5 +1,15 @@
 # enshrouded-ai-companion
 
+**Stage10.10.1 Phase C/D: `CLEAN_BASELINE_BLOCKED`, `MIGRATION_PACKAGE_PARTIAL`.**
+Повторно проверены backup209/209 и карантин81/81; game168/168 и LOCAL23/23 неизменны.
+Подготовлен [точный дополнительный карантин30 файлов и отдельный KFC.bak](docs/STAGE10_10_1_RESIDUAL_CLEANUP_APPROVAL.md);
+перемещения и Steam Verify ещё не выполнялись. Нужны подтверждение списка и ручная проверка Steam.
+Офлайн готовы shadow filesystem validator и минимальный EMF component subset в project/dist.
+Patch0.5/полный observer/Bridge integration и exact install plan зависят от clean baseline.
+Python618 PASS/1skip, Lua syntax15/15. Установка не разрешена; runtime NOT_EXECUTED, spawn_ready=false.
+[Отчёт Phase C](docs/STAGE10_10_1_PHASE_C_REPORT.md),
+[подготовка Phase D и21 ответ](docs/STAGE10_10_1_PHASE_D_REPORT.md).
+
 **Stage10.10.1 limited Phase B: `LIMITED_PHASE_B_COMPLETED`.** Создан и проверен
 backup420406619 bytes; в карантин перенесён только81 разрешённый файл.
 Оставшиеся168 игровых файлов, все51 MANUAL_REVIEW,64 DAT и23 LOCAL-файла неизменны.

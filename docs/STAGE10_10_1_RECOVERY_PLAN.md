@@ -1,5 +1,9 @@
 # Stage 10.10.1 — recovery plan (2026-11-18)
 
+Ниже исторический план Phase A. Актуальное состояние: limited Phase B завершена;
+идёт read-only Phase C/D, [новый отчёт](STAGE10_10_1_PHASE_C_REPORT.md).
+Старый manifest нельзя повторно выполнять после перемещения81 файлов.
+
 Выполняется только Phase A. Исходный HEAD: `7d45464b3ded5e03e8a6a636e03a96171ceb81ce`.
 Игра: `D:\SteamLibrary\steamapps\common\Enshrouded`.
 LOCAL: `C:\Users\user\Saved Games\keen games\Enshrouded`.

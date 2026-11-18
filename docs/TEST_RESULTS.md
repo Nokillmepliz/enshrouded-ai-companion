@@ -1,5 +1,28 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Phase C/D, контрольная точка до Steam Verify
+
+- Полный Python suite: **619 testsRun /618 PASS /1 прежний skipped /0 failures**.
+  Новые22 теста: residual proposal/delta6, archive staging2, shadow14. Прежние
+  Stage10.7–10.10.1 regression и Lua fixtures включены в полный запуск.
+- Shadow fixtures используют искусственные файлы: реальные hardlinks/junction,
+  private copy, запись через link, unlink-before-write, extra links, identity/hash
+  mismatch, old .bak, unknown DAT set, path traversal, incomplete tmp и unknown files.
+  Это не запуск настоящего integrated writer и не runtime acceptance.
+- Residual review блокирует changed hash/mtime/LOCAL/build, unexpected/missing files,
+  подделанный proposal и попытку объявить DAT mod artifact. Proposal никогда не выдаёт
+  authorization; executable cleanup в этом helper отсутствует.
+- Component staging проверяет pinned archive digest, точные members, duplicate paths,
+  hashes staged files. Реально подготовлен r2 subset8 game candidates+12 notices вне игры;
+  все4 DLL x64/PE32+, повторный Authenticode NotSigned. DLL не исполнялись.
+- Backup заново209/209, карантин81/81 и162 journal records PASS. Все31 proposed targets
+  покрыты verified backup. Никаких новых backup/quarantine операций не было.
+- Fresh before/after: game168/168, LOCAL23/23 неизменны; сравнение с Phase B тоже PASS.
+- Python compileall PASS, Lua syntax15/15 PASS. Rust/C++ не менялись и не перезапускались.
+  Steam Verify, clean readback, game/server/Bridge runtime/install/spawn NOT_EXECUTED.
+- [Phase C report](STAGE10_10_1_PHASE_C_REPORT.md),
+  [Phase D partial](STAGE10_10_1_PHASE_D_REPORT.md). Runtime gates остаются UNKNOWN/NOT_EXECUTED.
+
 ## 2026-11-18 — Stage10.10.1 limited Phase B
 
 - Полный suite: **597 testsRun /596 PASS /1 skipped /0 failures**. Новые post-audit11 PASS; отдельно recovery/migration61 PASS. Skip — прежняя Windows directory-symlink privilege проверка, junction проходит.

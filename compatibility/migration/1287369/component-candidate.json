@@ -1,0 +1,275 @@
+{
+  "format": "aic_integrated_components_v1",
+  "created_utc": "2026-11-18T11:03:38.038677+00:00",
+  "release": "EMF0.6.18",
+  "archive_sha256": "12bbcae2e52386bcd7f1747701bb6d1ec8a64fab061e6e33ce994b6ee29c926b",
+  "archive_url": "https://github.com/matenm/emf-enshrouded/releases/download/v0.6.18/EMF-0.6.18-manual.zip",
+  "entries": [
+    {
+      "staging_relative_path": "game/dinput8.dll",
+      "archive_source": "EMF-0.6.18-manual/game/dinput8.dll",
+      "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5",
+      "bytes": 803840,
+      "game_destination": "dinput8.dll",
+      "purpose": "EMF loader, single content owner selection",
+      "copy_to_game_authorized": false,
+      "static_pe": {
+        "machine": "0x8664",
+        "magic": "0x20b",
+        "imports": [
+          "KERNEL32.dll"
+        ],
+        "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5"
+      }
+    },
+    {
+      "staging_relative_path": "game/emf/emf_core.dll",
+      "archive_source": "EMF-0.6.18-manual/game/emf/emf_core.dll",
+      "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763",
+      "bytes": 5581312,
+      "game_destination": "emf/emf_core.dll",
+      "purpose": "EMF core API46 and protocol1 bridge",
+      "copy_to_game_authorized": false,
+      "static_pe": {
+        "machine": "0x8664",
+        "magic": "0x20b",
+        "imports": [
+          "ADVAPI32.dll",
+          "IMM32.dll",
+          "KERNEL32.dll",
+          "ole32.dll",
+          "SHELL32.dll",
+          "USER32.dll"
+        ],
+        "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763"
+      }
+    },
+    {
+      "staging_relative_path": "game/emf/emf_content.dll",
+      "archive_source": "EMF-0.6.18-manual/game/emf/emf_content.dll",
+      "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691",
+      "bytes": 8962048,
+      "game_destination": "emf/emf_content.dll",
+      "purpose": "Integrated EML build in private shadow",
+      "copy_to_game_authorized": false,
+      "static_pe": {
+        "machine": "0x8664",
+        "magic": "0x20b",
+        "imports": [
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "bcryptprimitives.dll",
+          "KERNEL32.dll",
+          "kernel32.dll",
+          "ntdll.dll"
+        ],
+        "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691"
+      }
+    },
+    {
+      "staging_relative_path": "game/emf/mods/lua/lua.dll",
+      "archive_source": "EMF-0.6.18-manual/game/emf/mods/lua/lua.dll",
+      "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4",
+      "bytes": 1651200,
+      "game_destination": "emf/mods/lua/lua.dll",
+      "purpose": "Lua host1.39.0",
+      "copy_to_game_authorized": false,
+      "static_pe": {
+        "machine": "0x8664",
+        "magic": "0x20b",
+        "imports": [
+          "KERNEL32.dll",
+          "USER32.dll"
+        ],
+        "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4"
+      }
+    },
+    {
+      "staging_relative_path": "game/emf/mods/lua/mod.json",
+      "archive_source": "EMF-0.6.18-manual/game/emf/mods/lua/mod.json",
+      "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27",
+      "bytes": 256,
+      "game_destination": "emf/mods/lua/mod.json",
+      "purpose": "Lua host discovery manifest",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "game/emf/known_tools.txt",
+      "archive_source": "EMF-0.6.18-manual/game/emf/known_tools.txt",
+      "sha256": "480cd3d7fca96e115e82496f6e33089ccc70ca34105cc16ab64d90949cf660d0",
+      "bytes": 2246,
+      "game_destination": "emf/known_tools.txt",
+      "purpose": "Known loader/tool classification metadata",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/LICENSE.txt",
+      "sha256": "9fd378255729c6ba1944c103b828b3abba676914a0cecc95a0a11b9f03bafd61",
+      "bytes": 1094,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/Alegreya-OFL.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/Alegreya-OFL.txt",
+      "sha256": "0383de94cd3effe8202205a5bc0b541b0c6f882192507e58145dcf882d2ac298",
+      "bytes": 4488,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/Apache-2.0.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/Apache-2.0.txt",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "bytes": 11560,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/CascadiaMono-OFL.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/CascadiaMono-OFL.txt",
+      "sha256": "51882cd3cdba4e16f220f44ddb08a635c38c44ea6e0975db2574f4be6f958238",
+      "bytes": 4489,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/DearImGui-LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/DearImGui-LICENSE.txt",
+      "sha256": "55e058cc5899e6077a819ad1005d6d1f4528f65ae100795c9692f9fa6525a8ce",
+      "bytes": 1104,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/EML-LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/EML-LICENSE.txt",
+      "sha256": "81cbae84a29ce7e770bf2bc7b178e50bda0ce8de6067aba661b0bc7b05b562f8",
+      "bytes": 35821,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/Lua-LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/Lua-LICENSE.txt",
+      "sha256": "e5dba95b9b25866eaecee4ce46f9467124a48fc2e2840c8abfa9fb7766f361a0",
+      "bytes": 1289,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/MinHook-LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/MinHook-LICENSE.txt",
+      "sha256": "4f21f857550d7be854da6ea5f2da4e6775ca4e3fbb535e4f3d961c47d0bf3335",
+      "bytes": 4446,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/rust-crates.html",
+      "archive_source": "EMF-0.6.18-manual/licenses/rust-crates.html",
+      "sha256": "53506628e81fa089e0e30ebaa841b7e7a864547e0cfb01e4142dc21652687a02",
+      "bytes": 1652513,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/THIRD_PARTY_NOTICES.md",
+      "archive_source": "EMF-0.6.18-manual/licenses/THIRD_PARTY_NOTICES.md",
+      "sha256": "1b848fc8579cfcff1fccf0a210dc096499ffe7b260ea90a1236a4eea0ad1914f",
+      "bytes": 4056,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/Vulkan-Headers-LICENSE.md",
+      "archive_source": "EMF-0.6.18-manual/licenses/Vulkan-Headers-LICENSE.md",
+      "sha256": "f43ba543d73f08f7401d99b697b2b741704eb22b5447a5021fd92b279b297646",
+      "bytes": 476,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "licenses/WebView2-LICENSE.txt",
+      "archive_source": "EMF-0.6.18-manual/licenses/WebView2-LICENSE.txt",
+      "sha256": "24deadea987f1c7682753a8cef4e70bde8a13cc65684e06cab9a965469362075",
+      "bytes": 1513,
+      "game_destination": null,
+      "purpose": "Package licence/notice; do not copy to game",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "game/emf/emf_core.ini",
+      "repository_source": "experimental/integrated_content/emf_core.ini",
+      "sha256": "4544b18641dcc4ffa65312088439cf4181eef09f2ebd30b1b21d213ba3794c9f",
+      "bytes": 145,
+      "game_destination": "emf/emf_core.ini",
+      "purpose": "Clean candidate configuration; no legacy settings inheritance",
+      "copy_to_game_authorized": false
+    },
+    {
+      "staging_relative_path": "game/emf/config/lua.ini",
+      "repository_source": "experimental/integrated_content/lua.ini",
+      "sha256": "4c5ab48c0d1f3e1fc0465c0bc7b8d5745c9ed5fe684b7a0bbfa247be71a4b7ff",
+      "bytes": 16,
+      "game_destination": "emf/config/lua.ini",
+      "purpose": "Clean candidate configuration; no legacy settings inheritance",
+      "copy_to_game_authorized": false
+    }
+  ],
+  "complete_migration_package": false,
+  "missing": [
+    "clean_baseline",
+    "patch0.5.0",
+    "observer_bootstrap",
+    "bridge_capture",
+    "exact_install_receipt"
+  ],
+  "installation_authorized": false,
+  "installation_executed": false,
+  "spawn_ready": false,
+  "staging_directory": "dist/stage10_10_1_integrated_components_20261118_r2",
+  "content_owner": "EMF integrated content",
+  "emf_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241",
+  "native_api": 46,
+  "lua_host_version": "1.39.0",
+  "bridge_protocol": 1,
+  "vendor_eml_version": "0.2.0",
+  "signatures": [
+    {
+      "file": "dinput8.dll",
+      "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5",
+      "status": "NotSigned",
+      "signer": null
+    },
+    {
+      "file": "emf/emf_core.dll",
+      "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763",
+      "status": "NotSigned",
+      "signer": null
+    },
+    {
+      "file": "emf/emf_content.dll",
+      "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691",
+      "status": "NotSigned",
+      "signer": null
+    },
+    {
+      "file": "emf/mods/lua/lua.dll",
+      "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4",
+      "status": "NotSigned",
+      "signer": null
+    }
+  ]
+}
