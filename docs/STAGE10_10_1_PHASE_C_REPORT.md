@@ -1,5 +1,9 @@
 # Stage10.10.1 Phase C — до дополнительного карантина и Steam Verify
 
+Историческая контрольная точка до разрешения cleanup. Затем пользователь разрешил31 файл,
+очистка выполнена и проверена: [актуальный отчёт](STAGE10_10_1_PHASE_C_CLEANUP.md).
+Сейчас READY_FOR_MANUAL_STEAM_VERIFY; Phase C ещё не завершена, clean baseline не принят.
+
 Дата: 2026-11-18. Исходный commit: `df18d6c999f810b54706ff32570631ff30eac2f4`.
 Вердикт **CLEAN_BASELINE_BLOCKED**. Выполнен повторный read-only аудит; Phase C не завершена.
 Текущая контрольная точка — согласование [точного списка](STAGE10_10_1_RESIDUAL_CLEANUP_APPROVAL.md).

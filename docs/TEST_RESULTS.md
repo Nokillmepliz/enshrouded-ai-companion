@@ -1,5 +1,26 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Phase C: разрешённый карантин31 и контрольный аудит
+
+- Полный suite: **631 testsRun /630 PASS /1 прежний skip /0 failures**.
+ 12 новых quarantine fixtures PASS. Проверены оба согласия, exact31/20KEEP, changed
+  source/backup/build/inventory/LOCAL, protected targets, duplicate/overlap/hardlink,
+  copy failure до любого unlink, partial unlink failure, журнал и запрет повторного запуска.
+- Первый targeted запуск выявил несовпадение ожидаемого класса отказа при повторном
+  вызове после partial unlink. Проверка existing destination вынесена раньше; затем
+ 12/12 targeted и полный suite631 прошли. Реальный перенос начат только после PASS.
+- Настоящий dry-run: PASS,168 game/23 LOCAL/31 selected/22056395 bytes.
+- Реальная разрешённая операция:31/31 новых копий по SHA/size;62 journal records,
+  сначала все31 verified copies, затем31 удаление исходных имён. KFC.bak удержан,
+  не восстановлен поверх основного KFC. Никаких recursive deletes/старого rollback.
+- Full post-audit:168→137 game, removed точно31, added0/changed0;137 remaining,
+  20 KEEP,64 DAT,23 LOCAL неизменны по paths/SHA/size/mtime.
+- Старые backup209/209 и quarantine81/81 повторно проверены до/после, всё содержимое
+  сохранено. Независимо сверены новый receipt, journal/copies и before/after delta.
+- Compileall, git diff check и Lua syntax15/15 PASS. Lua fixtures включены в full suite.
+  Rust/C++ не менялись и повторно не запускались. Игра/server/Steam Verify/install/spawn
+  NOT_EXECUTED. [Отчёт](STAGE10_10_1_PHASE_C_CLEANUP.md).
+
 ## 2026-11-18 — Phase C/D, контрольная точка до Steam Verify
 
 - Полный Python suite: **619 testsRun /618 PASS /1 прежний skipped /0 failures**.
