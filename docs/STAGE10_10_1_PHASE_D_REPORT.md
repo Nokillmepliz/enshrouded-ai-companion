@@ -1,5 +1,9 @@
 # Stage 10.10.1 — завершение офлайн-Phase D, 2026-11-18
 
+Последующее событие: пользователь разрешил Phase E, установка завершена.
+[Актуальный отчёт Phase E](STAGE10_10_1_PHASE_E_REPORT.md). Ниже сохранено состояние
+пакета на завершение Phase D; исходный approved manifest не переписывался.
+
 **MIGRATION_PACKAGE_READY / READY_FOR_PHASE_E_APPROVAL.** Пользователь принял
 `CLEAN_BASELINE_PARTIAL` с ограничением доверия к локальному Steam depot manifest.
 Независимая аутентификация не выполнялась повторно. Формальный baseline остаётся

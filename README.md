@@ -1,6 +1,13 @@
 # enshrouded-ai-companion
 
-**Stage10.10.1 offline Phase D: `READY_FOR_PHASE_E_APPROVAL`.**
+**Stage10.10.1 Phase E завершена: `READY_FOR_PHASE_F_APPROVAL`.**
+Установлены только16 согласованных файлов;16/16 hashes, новый receipt и rollback
+dry-run PASS.137 оригинальных файлов и23 LOCAL неизменны, backup/quarantine сохранены.
+Python690 PASS/1skip. Игра/server не запускались; Phase F ещё не разрешена,
+runtime NOT_EXECUTED, spawn_ready=false.
+[Отчёт Phase E и receipt](docs/STAGE10_10_1_PHASE_E_REPORT.md).
+
+**История: Stage10.10.1 offline Phase D: `READY_FOR_PHASE_E_APPROVAL`.**
 Пользователь принял `CLEAN_BASELINE_PARTIAL`. Новый verified backup27/27 создан:
 260600882 bytes с metadata. Patch0.5.0, evidencev8, observer0.3.0, read-only Bridge,
 профиль1287369 и точный пакет16 файлов готовы. Финальный preflight137 game/23 LOCAL

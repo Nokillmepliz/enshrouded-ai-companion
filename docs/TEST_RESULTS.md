@@ -1,5 +1,19 @@
 # Результаты подготовки этапа 2
 
+## 2026-11-18 — Phase E
+
+- Новый полный suite: **691 testsRun / 690 PASS / 1 прежний skip**,14.254s,exit0.
+  Локальный лог: `runtime/stage10_10_1_phase_e-tests.log`.
+- 6 installer tests PASS: exclusive copy/receipt/dry-run, no authorization, collision,
+  partial-copy failure/journal/no receipt, source changed, live process guard.
+  Compileall новых Python файлов PASS. Lua/package/native не менялись.
+- Реальная установка:16/16 SHA/size PASS, exact inventory153=137+16;
+  original137/137 и LOCAL23/23 SHA/size/mtime неизменны; backup27/27 и старые
+  backup/quarantine сохранены. Rollback dry-run16 PASS на реальных файлах и новом
+  receipt; удаления не выполнялись. [Отчёт](STAGE10_10_1_PHASE_E_REPORT.md).
+- Game/server и DLL не запускались, runtime/EML writer/shadow/render ещё не проверены.
+  `spawn_ready=false`; Phase F требует отдельного согласования.
+
 ## 2026-11-18 — завершение offline Phase D
 
 - Полный Python suite: **685 testsRun / 684 PASS / 1 прежний skip / 0 failures**,

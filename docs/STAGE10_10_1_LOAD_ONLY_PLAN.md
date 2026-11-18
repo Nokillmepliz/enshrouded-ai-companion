@@ -1,6 +1,7 @@
 # Будущая Phase F — load-only, без NPC
 
-Этот сценарий подготовлен офлайн. Phase E/F не разрешены и не выполнялись.
+Этот сценарий подготовлен офлайн. Phase E разрешена и выполнена:
+[отчёт установки](STAGE10_10_1_PHASE_E_REPORT.md). Phase F не разрешена и не выполнялась.
 Офлайн-Phase D завершена: [пакет и hashes](STAGE10_10_1_PHASE_D_REPORT.md).
 Следующие команды предназначены только для отдельно разрешённой Phase F после
 успешной Phase E и ручного запуска пользователем; сейчас их не выполнять.
@@ -47,11 +48,11 @@ load-only: `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
 Из `C:\Enshrouded-ai-companion`, только после разрешения Phase F:
 
 ```powershell
-.\.tools\python\python.exe scripts/integrated_observe.py status --package dist/stage10_10_1_phase_d_20261118 --game 'D:\SteamLibrary\steamapps\common\Enshrouded' --receipt '<новый Phase E receipt.json>' --receipt-sha256 '<SHA из отчёта Phase E>' --live-read-only
+.\.tools\python\python.exe scripts/integrated_observe.py status --package dist/stage10_10_1_phase_d_20261118 --game 'D:\SteamLibrary\steamapps\common\Enshrouded' --receipt compatibility/migration/1287369/phase_e/install-receipt.json --receipt-sha256 c3cd5da70e01fd073553b6dcc2598e8ede867693087b67c285d65253c59d70fc --live-read-only
 ```
 
-Для build evidence заменить `status` на `inspect`, затем `compare`. Placeholder
-receipt обязателен: настоящий файл появится только после Phase E. Клиент проверяет
+Для build evidence заменить `status` на `inspect`, затем `compare`.
+Указана опубликованная metadata-копия настоящего Phase E receipt с тем же SHA. Клиент проверяет
 package, pinned plan/binding, receipt и installed hashes до подключения. Доступны
 только три перечисленные команды; произвольный console/spawn не поддерживается.
 Не перенаправлять вывод в game или saves. Private session/run в журнале не публиковать.

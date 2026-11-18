@@ -1,0 +1,22 @@
+{
+  "format": "aic_phase_e_result_v1",
+  "status": "READY_FOR_PHASE_F_APPROVAL",
+  "run_path": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_1_phase_e\\20261118T122132276076Z",
+  "plan_sha256": "82db6fe28bfff96a6580d7a01cd497ad595baf68fe3098312b95181d27ba9463",
+  "receipt_path": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_1_phase_e\\20261118T122132276076Z\\transaction\\install-receipt.json",
+  "receipt_sha256": "c3cd5da70e01fd073553b6dcc2598e8ede867693087b67c285d65253c59d70fc",
+  "installed_files_verified": 16,
+  "original_game_files_unchanged": 137,
+  "local_files_unchanged": 23,
+  "clean_backup_verified": 27,
+  "historical_backups_and_quarantines_unchanged": true,
+  "rollback_dry_run": "PASS_16_OPERATIONS_NOT_EXECUTED",
+  "content_input_fingerprint": "sha256:87af1e89d337ae475edc51dc7cdde6887ce20fc69c9befe94d7fc85addb7419e",
+  "installation_authorized": true,
+  "installation_executed": true,
+  "game_started": false,
+  "server_started": false,
+  "runtime_status": "NOT_EXECUTED",
+  "phase_f_authorized": false,
+  "spawn_ready": false
+}
