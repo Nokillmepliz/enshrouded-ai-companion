@@ -1,0 +1,11 @@
+{
+  "status": "READY_FOR_MANUAL_START",
+  "exit_code": 0,
+  "started_utc": "2026-11-18T15:58:11.475946+00:00",
+  "finished_utc": "2026-11-18T15:58:43.597122+00:00",
+  "private_evidence": "runtime\\stage10_11_1\\live\\20261118T155811475946Z",
+  "plan_sha256": "5f31ce5a6fd718a73d52c7832b3d5f162b4969b075049affc662802e6f7aba0f",
+  "spawn_authorized": false,
+  "spawn_ready": false,
+  "prepare_executed": false
+}

@@ -1,0 +1,97 @@
+{
+  "status": "POST_CLOSE_INTEGRITY_PASS_SPAWN_NOT_EXECUTED",
+  "checked_utc": "2026-11-18T16:04:53.854321+00:00",
+  "pid": 230172,
+  "original_records_unchanged": 67,
+  "shadow_records_unchanged": 77,
+  "installed_verified": 23,
+  "backup_verified": 23,
+  "game_count": 244,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-18T18-59-13.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ]
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-18T18-59-13.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-3",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-3",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantic_integrity": "NOT_ESTABLISHED; game autosaves observed; no restore",
+  "captured_log_hashes": {
+    "enshrouded.log": "01b09be780254f8dbf048892d78e2a377b897dbef4156537d2a0c52f8ad08e23",
+    "emf/emf_core.log": "fd62bc9625803f20ce2b529390f7ac0f3e2b618e251013922c0fead8cb8b4237",
+    "emf/emf_loader.log": "7c4f44827568105e2949e9bdee20eb50a97534f3b77f612482d94307c7ffb626",
+    "emf/file_opens.log": "a67df977ee04e705573d73fdc4f2d76df3077f2dbeb6a0a7d951e037e1aead8b",
+    "emf/content.log": "bb9e5183c308f76bb97f1f7d71cf512831decb72452c156e67e7b960c5ec3d82"
+  },
+  "inventory_sha256": "6cd6ac15025cce3119236b1e52d998a5d850e86c95ec6eace16c1af70e9d23bf",
+  "ready_logged": true,
+  "probe_count": 1,
+  "spawn_request_count": 0,
+  "preserved_history_files": 17,
+  "ready_remaining_seconds": 15.15252685546875,
+  "confirmation_budget_seconds": 13.15252685546875,
+  "probe_log_timeline": [
+    {
+      "time": "19:02:21.151",
+      "event": "GROUND_REQUESTED"
+    },
+    {
+      "time": "19:02:25.661",
+      "event": "READY_VISUAL_APPROVAL_REQUIRED"
+    }
+  ],
+  "outcome": "GROUND_PATH_READY_BUT_CONFIRMATION_DISPATCH_EXPIRED",
+  "latch": "UNUSED",
+  "spawn_intent_exists": false,
+  "experimental_spawn_executed": false,
+  "spawn_ready": false,
+  "production_spawn_ready": false,
+  "render": "UNKNOWN",
+  "rollback_executed": false
+}

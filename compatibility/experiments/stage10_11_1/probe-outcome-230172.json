@@ -1,0 +1,14 @@
+{
+  "status": "STOPPED_PROBE_EXPIRED_BEFORE_SPAWN",
+  "user_confirmed_one_spawn": true,
+  "ready_remaining_seconds": 15.15252685546875,
+  "confirmation_budget_seconds": 13.15252685546875,
+  "deadline_unix": 1795017761.1252434,
+  "checked_unix": 1795017801.715274,
+  "spawn_intent_exists": false,
+  "spawn_request_count": 0,
+  "latch_unused": true,
+  "spawn_executed": false,
+  "spawn_ready": false,
+  "automatic_retry": false
+}
