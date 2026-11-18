@@ -829,3 +829,9 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - KFC.bak отсутствует только в исходном пути и сохранён в новом карантине; не объявлен vanilla и не применялся поверх KFC. DAT055–063/остальные20 не переносились. Не выполнялись старый rollback, восстановление saves, запуск игры/server, модов или spawn.
 - Создан фактический cleanup report, обновлены README/TEST_RESULTS/Steam Verify инструкция и ссылки из исторического pre-cleanup review. Следующий шаг — пользователь вручную выполняет Steam Verify и сообщает результат, игру не запускает. После сообщения разрешено продолжить post-Steam Phase C/D по прежнему ТЗ без нового согласования read-only аудита; установка по-прежнему отдельно.
 - Итог READY_FOR_MANUAL_STEAM_VERIFY; steam_verify=NOT_EXECUTED, clean_baseline_confirmed=false, installation_authorized=false, installation_executed=false, runtime_status=NOT_EXECUTED, RUNTIME_RENDER_CONFIRMED=UNKNOWN, spawn_ready=false. Ограниченный backup без DAT-тел не гарантирует полный возврат mixed state после Steam; новая полная копия не создавалась.
+
+## 2026-11-18 — публикация выполненной Phase C очистки
+
+- Commit `4b58205140497ae48e665a2da5416affe2f26a52` (`Complete approved Phase C residual quarantine and integrity audit`) опубликован в origin/master. HEAD и origin/master совпали, working tree был чистым.
+-12 staged text files прошли diff/Markdown links/UTF-8 и проверку отсутствия private run token/Steam account metadata и бинарных/game/save payload. Новый карантин35 файлов и старые backup/quarantine остались только локально.
+- Пользователю можно запускать Steam Verify вручную: Библиотека → Enshrouded → Свойства → Установленные файлы → Проверить целостность. Дождаться завершения и сообщить результат; Enshrouded/server не запускать. Ожидание этого сообщения — следующий обязательный checkpoint перед post-Steam Phase C/D. Модификации не устанавливаются и spawn_ready=false сохраняется.
