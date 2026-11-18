@@ -444,3 +444,7 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 ## 2026-11-18 — post-close load-only0.5.1
 
 Полный suite:729 testsRun /728 PASS /1 skip /0 failures,16.603s,exit0. Py_compile read-only audit PASS. Фактический post-close: originals67/67, installed16/16, backup38/38 PASS; общий audit POST_CLOSE_BLOCKED из-за двух неатрибутированных изменений вне shadow. Unit tests не подтверждают runtime. [Отчёт](STAGE10_10_2_LOAD_ONLY_REPORT.md).
+
+## 2026-11-18 — Stage10.10.3
+
+29 новых regression tests: Bridge error classification, точная post-close attribution, metadata-only/identity/content/hardlink запреты, независимые semantic clone/source/dependency проверки, resource redirection. Полный suite758 testsRun /757 PASS /1 skip /0 failures,16.179s. Compileall companion/scripts/tests и git diff check PASS. Реальные readback/attribution v2/shadow77/redirected read opens66 PASS; before/after game234 и LOCAL23 неизменны. Runtime Bridge/observer ещё не выполнен. [Отчёт](STAGE10_10_3_REPORT.md).

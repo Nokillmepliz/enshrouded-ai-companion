@@ -1,11 +1,11 @@
 # enshrouded-ai-companion
 
-**Load-only patch0.5.1: `LOAD_ONLY_UNCONFIRMED`.** Штатная сборка, graph/retarget,
-evidence v8 и writer PASS; Bridge отказал с Windows error5. После закрытия originals67,
-installed16 и backup38 PASS. Общий audit остановлен на двух неатрибутированных
-изменениях (архивный лог и metadata chain_status). Изменились7 LOCAL-файлов.
-Shadow readback/observer/render не подтверждены, `spawn_ready=false`.
-[Итоговый отчёт](docs/STAGE10_10_2_LOAD_ONLY_REPORT.md).
+**Stage10.10.3: офлайн-проверки PASS, runtime Bridge/observer ожидается.** Post-close
+validator v2 атрибутировал оба изменения; независимый KFC readback, shadow77 и
+успешные redirected read opens66 подтверждены. Originals67/installed16/backup38 PASS.
+Sandbox Python работает от отдельного пользователя; подготовлена token/ACL диагностика
+Bridge error5. LOAD_ONLY_UNCONFIRMED, render UNKNOWN, `spawn_ready=false`.
+[Отчёт Stage10.10.3 и план](docs/STAGE10_10_3_REPORT.md).
 
 **История подготовки Stage10.10.2: `READY_FOR_PATCH_UPDATE_APPROVAL`.** Кандидат0.5.1 исправляет
 проверку пустой resource reference и разделяет диагностику animationGraph/retargetData.
