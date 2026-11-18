@@ -743,3 +743,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Полный Python:586 testsRun,585 PASS,1 прежний skipped,0 failures;61 новый PASS. Новый Windows junction/root escape и hardlink tests PASS. Lua syntax15/15, compileall PASS. Rust/C++ не менялись и повторно не запускались. Runtime game/Bridge не проверялись.
 - Вердикты BLOCKED_BY_UNKNOWN_ARTIFACTS / BLOCKED_BY_GAME_BASELINE, PARTIAL_UPSTREAM_REUSE. cleanup_executed=false, clean_baseline_confirmed=false, installation_ready=false, runtime_status=NOT_EXECUTED, RUNTIME_RENDER_CONFIRMED=UNKNOWN, spawn_ready=false.
 - Игра/server/Steam Verify не запускались; game/LOCAL/receipt не изменялись; install/rollback/restore/spawn не выполнялись. Следующий шаг — публикация Phase A и остановка; отдельное разрешение нужно для Phase B backup+ограниченного карантина81, либо сначала дополнительная атрибуция51 неизвестной записи. Полная очистка/установка не готовы.
+
+## 2026-11-18 — публикация Stage10.10.1 Phase A
+
+- Исходники,61 новый тест,14 документов и sanitized recovery/integrity metadata опубликованы в origin/master: `63732f93bea181087511a9d06e0c137f0ffae61f` (`Prepare Stage 10.10.1 recovery and mod migration`). Push подтверждён; HEAD и origin/master совпали, working tree был чистым.
+- Перед публикацией проверены26 staged files: diff whitespace, локальные ссылки, manifest counts/flags, отсутствие приватного run token и Steam LastOwner; бинарники/archives/game/save contents не вошли в коммит. Окончательный suite после всех backup changes:585 PASS/1skip.
+- Recovery backup теперь содержит отдельный plan.json со всеми DAT hashes, приватный receipt и manifest с точными backup paths; это реализация для будущей Phase B, реальные backups не создавались. Обновление PROGRESS фиксирует состоявшуюся публикацию, не разрешение очистки.
+- Работа остановлена перед Phase B. Full cleanup остаётся BLOCKED_BY_UNKNOWN_ARTIFACTS; установка/игровой тест/spawn не готовы. Следующее согласование — ограниченный backup419971833 bytes и карантин только81 атрибутированного файла, с сохранением всех51 MANUAL_REVIEW на месте; либо дальнейшая атрибуция до этих действий.
