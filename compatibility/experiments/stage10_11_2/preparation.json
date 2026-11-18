@@ -1,0 +1,16 @@
+{
+  "status": "OFFLINE_CONTINUATION_PREPARED_NOT_LIVE_AUTHORIZED",
+  "baseline_sha256": "6cd6ac15025cce3119236b1e52d998a5d850e86c95ec6eace16c1af70e9d23bf",
+  "game_files": 244,
+  "local_files": 23,
+  "backup_files": 23,
+  "backup_bytes": 637641,
+  "backup_manifest_sha256": "930d18dfebd8a3c4fdb9c2460d599de33a4a2d8780c5b58a18d8da77405366c1",
+  "continuation_plan_sha256": "2d3cd9c0bbef8cd8135c2775fe1322296b8511bc5368e4a7fdc0e3e9a2448989",
+  "preserved_history_files": 45,
+  "installed_verified": 23,
+  "latch": "UNUSED",
+  "spawn_ready": false,
+  "production_spawn_ready": false,
+  "spawn_executed": false
+}

@@ -9,7 +9,7 @@ from .compatibility import file_hash
 from .recovery import no_links
 
 
-def wait_ready(client, *, interval=0.25, monotonic=time.monotonic, sleep=time.sleep):
+def wait_ready(client, *, interval=0.25, monotonic=time.monotonic, sleep=time.sleep, cancelled=lambda:False):
     if not 0.25 <= interval <= 0.5:
         raise ValueError('POLL_INTERVAL')
     if (client.journal/'wait-stopped.json').exists():
@@ -28,7 +28,9 @@ def wait_ready(client, *, interval=0.25, monotonic=time.monotonic, sleep=time.sl
         return min(20-wall,deadline-monotonic())
     try:
         while remaining()>0:
+            if cancelled():raise ValueError('CANCELLED_BY_USER')
             status=client.status()
+            if cancelled():raise ValueError('CANCELLED_BY_USER')
             left=remaining()
             if left<=0:break
             if (status.get('session')!=probe['session'] or status.get('probe')!=probe['nonce']
@@ -79,7 +81,7 @@ class ContinuationClient(ExperimentalClient):
     def status(self):
         verify_history(self.root,self.plan['history'],self.plan['attempt'])
         value=super().status()
-        if value.get('session')==self.plan['previous_session']:
+        if value.get('session') in self.plan.get('previous_sessions',[self.plan['previous_session']]):
             raise ValueError('NEW_GAME_SESSION_REQUIRED')
         return value
 
@@ -92,6 +94,10 @@ class ContinuationClient(ExperimentalClient):
         no_links(self.journal/'ready-window.json')
         window=json.loads((self.journal/'ready-window.json').read_text(encoding='utf-8'))
         probe=json.loads((self.journal/'probe.json').read_text(encoding='utf-8'))
+        if self.plan.get('confirmation_mode')=='local_key_after_ready':
+            confirmed=getattr(self,'_local_key_confirmation',None)
+            self._local_key_confirmation=None
+            if confirmed!=probe['nonce']:raise ValueError('LOCAL_KEY_CONFIRMATION_REQUIRED')
         if (not window['confirmation_window_sufficient'] or window['probe']!=probe['nonce']
                 or window['session']!=probe['session']):
             raise ValueError('INSUFFICIENT_CONFIRMATION_WINDOW')

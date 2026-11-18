@@ -470,3 +470,7 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 ## 2026-11-18 — Stage 10.11.1
 
 25 новых regression tests. Финальный полный набор:858 testsRun,857PASS,1skip,0failures,16.499s, Python exit0. Skip — прежнее ограничение directory symlink privilege; права не менялись. Py_compile/diff check PASS. Новый backup23/23 SHA verified; offline preflight и full baseline243game/23LOCAL PASS. Ни одна новая игровая команда не выполнялась. Evidence: compatibility/experiments/stage10_11_1/tests.json и preparation.json; детали docs/STAGE10_11_1.md.
+
+## 2026-11-18 — Stage 10.11.2
+
+27 новых целевых тестов local confirmation/input buffering/cancellation/deadline/replay. Полный suite885:884PASS,1skip,0failures17.852s,Python exit0. Py_compile/diff check PASS. Backup23/23 и closed preflight PASS. Windows input adapter протестирован с fake input/mock и non-console rejection; настоящая интерактивная сессия/игра/spawn не запускались. Данные: compatibility/experiments/stage10_11_2/tests.json; план/команда в docs/STAGE10_11_2.md.
