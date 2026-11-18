@@ -722,3 +722,9 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Созданы15 документов Stage10.10, публичные sanitized audit metadata, profiles/evidence; обновлены README и TEST_RESULTS. Raw game data, saves, upstream binaries, private tokens остаются ignored.
 - Verdict **BLOCKED_BY_GAME_INTEGRITY**, дополнительные EML/evidence и clean-resource blockers. `installation_ready=false`, `runtime_status=NOT_EXECUTED`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`. Игра/server не запускались; install/cleanup/rollback/restore/spawn/entity mutations не выполнялись.
 - Следующий шаг: опубликовать этот offline audit в origin/master и остановиться. Phase B требует отдельного согласования clean-baseline/cleanup/content-owner плана после закрытия блокеров; Phase C не готова.
+
+## 2026-11-18 — публикация Stage 10.10 Phase A
+
+- Код, 116 новых тестов, 15 документов, profiles/evidence v7 и sanitized metadata опубликованы в `origin/master` коммитом `cb164a8` (`Audit build 1287369 compatibility and block cross-build rollback`). Push подтверждён; HEAD и origin/master совпали, working tree после публикации был чистым.
+- Проверены именно staged Git blobs profiles: их LF-нормализация не нарушает закреплённые SHA-256 после клонирования. Staged evidence v7 прошла validator. В коммит не вошли DLL/EXE, archives, raw game dumps, saves и private token.
+- Итог сохраняется: **BLOCKED_BY_GAME_INTEGRITY**, installation/spawn ready=false, runtime NOT_EXECUTED. Дальнейшие Phase B/C/Stage11.0 не выполняются; требуется отдельный review clean baseline и content/evidence integration.
