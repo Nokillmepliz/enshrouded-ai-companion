@@ -1055,3 +1055,10 @@ e9fb551e69bed8ba2f26884436b3b9c6c7b4bf4bea48df3a67d8641778e391ff
 - Первый hello/state вызов не сохранил отчёт из-за отсутствующего каталога; каталог создан в проекте, read-only проверка повторена успешно. Игровые мутации не выполнялись. Private evidence runtime/stage10_11/live/20261118-session216444; публичный отчёт docs/STAGE10_11_LIVE_CHECK.md.
 - Диагностический журнал теперь существует (только status); не удалять и не считать автоматически признаком spawn. Позиция не проверена, spawn не разрешён/не выполнен; spawn_ready=false, production_spawn_ready=false, render UNKNOWN. Post-close audit ещё не выполнен. Unit-тесты повторно не запускались при изменении только документации.
 - Следующий шаг: отдельное непосредственное разрешение пользователя на один экспериментальный spawn на открытом участке, затем свежий контекст и ground/path проверки; отказ любого условия запрещает spawn. Публикация отчёта и остановка.
+
+## 2026-11-18 — Stage 10.11: разрешение spawn, остановка до создания NPC
+
+- Получено непосредственное разрешение на один экспериментальный spawn. Повторные штатные проверки manifest/receipt/backup23/existing16 и LOCAL-контекста PID216444 прошли.
+- Отправлен один prepare; пять read-only status с паузами0.5s оставались GROUND, ok=true, attempted=false. Исполнитель остановился с PROBE_NOT_READY_STOP до вызова spawn. Это локальный предел ожидания, не доказанный отказ API и не полный20s timeout Lua. Последнее наблюдаемое состояние GROUND; причина задержки callback неизвестна.
+- После остановки проверены SHA7/7, latch UNUSED, отсутствие spawn-intent.json и наличие probe.json. Повторов, сброса журнала, spawn/observe/destroy/rollback/save edits/изменения модов не было. Private evidence runtime/stage10_11/live/20261118-session216444; docs/STAGE10_11_LIVE_CHECK.md дополнен. Unit-тесты повторно не запускались.
+- Итог BLOCKED_BEFORE_SPAWN; experimental_spawn_executed=false, spawn_ready=false, production_spawn_ready=false, render UNKNOWN. Следующий шаг: пользователь вручную закрывает игру, затем post-close audit и разбор ground callback/окна ожидания. Журнал не удалять, автоматически probe/spawn не повторять. Отчёт публикуется в GitHub.
