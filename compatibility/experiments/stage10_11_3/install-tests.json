@@ -1,0 +1,11 @@
+{
+  "testsRun": 952,
+  "passed": 951,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    "test_directory_symlink_into_game_is_rejected_when_supported (test_kfc_inspector_audit.PathAndIntegrityTests.test_directory_symlink_into_game_is_rejected_when_supported)"
+  ],
+  "seconds": 22.084,
+  "success": true
+}

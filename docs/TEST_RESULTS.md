@@ -481,3 +481,8 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 Добавлены62 проверки нового контроллера/клиента/deployment gate. Финальный полный suite: **947 testsRun / 946 PASS / 1 skip / 0 failures / 0 errors**,18.460s, Python exit0. Skip — прежнее отсутствие привилегии Windows directory symlink (WinError1314), права не менялись. Целевые62 также PASS. Строгая проверка выбранных XYZ выявила неполный старый FakeTransport без position; новый fixture дополнен реальным форматом XYZ, валидатор сохранён, полный suite после исправления повторён.
 
 Py_compile и git diff --check PASS. Свежие начальный и итоговый read-only snapshot:245game/23LOCAL полностью совпадают с post-close283893ac…; установленный0.1.0 и его23 файла сохранены, payload4 и история75 verified. [Evidence](../compatibility/experiments/stage10_11_3/tests.json), [итоговая целостность](../compatibility/experiments/stage10_11_3/final-integrity.json), private log runtime/stage10_11_3/tests-full.log. Игровое испытание, обновление мода и новый backup не выполнялись.
+
+
+## 2026-11-18 — Stage 10.11.3 installation
+
+Пять новых тестов exact installer PASS, включая partial failure без automatic rollback. Полный suite952:951PASS/1skip/0failures/0errors,22.084s,exit0. Прежний Windows symlink skip; права не менялись. [Evidence](../compatibility/experiments/stage10_11_3/install-tests.json). Фактически выполнены backup27/27, install4/4, effective23/23 и rollback dry-run4. Остальные241game/23LOCAL неизменны. Py_compile/diff check PASS. Runtime/probe/spawn NOT RUN. [Отчёт](STAGE10_11_3_INSTALLATION.md).

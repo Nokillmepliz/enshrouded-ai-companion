@@ -1,0 +1,28 @@
+{
+  "status": "ROLLBACK_DRY_RUN_PASS",
+  "entries": [
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "current_sha256": "5142961fa22d8b0f2ae3bc84646ecc5f2ae81895faa7e48000057a2560aa3982",
+      "restore_sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "current_sha256": "85a41aa9d88c63140afa5a65939688a0a7d0abb38797f024a0157e98d6f6234a",
+      "restore_sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "current_sha256": "c9666e7eaddfb15ae29e845224e643991eb32c108aea01dd94cdc0fff70a310c",
+      "restore_sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "current_sha256": "778e7470a078659e8f2bdc6fad3476bbc27e5ed29cfb01a89d9d831a7fb0af78",
+      "restore_sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38"
+    }
+  ],
+  "executed": false,
+  "save_restore": false,
+  "latch_restore": false
+}

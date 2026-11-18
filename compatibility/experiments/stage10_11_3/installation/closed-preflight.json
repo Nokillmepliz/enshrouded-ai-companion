@@ -1,0 +1,13 @@
+{
+  "status": "CLOSED_PREFLIGHT_PASS",
+  "checked_utc": "2026-11-18T16:54:27.194948+00:00",
+  "installed_files": 23,
+  "backup_files": 27,
+  "game_files": 245,
+  "local_files": 23,
+  "history_files": 75,
+  "latch": "UNUSED",
+  "runtime": "NOT_RUN",
+  "spawn_ready": false,
+  "receipt_sha256": "d973898fbd447f274fbf2365a9146d1b193a01413677d253fbcfbfc0da338485"
+}
