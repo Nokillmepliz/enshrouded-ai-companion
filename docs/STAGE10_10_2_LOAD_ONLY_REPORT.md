@@ -1,5 +1,37 @@
 # Stage10.10.2 — повторный load-only patch0.5.1
 
+## Runtime: BLOCKED_BRIDGE_ACCESS — ожидание закрытия игры
+
+Пользователь загрузил мир. PID187928, старт16:46:13 MSK, fresh build13:46:15 UTC.
+Копии logs/state/shadow.txt сохранены в private checkpoint/runtime-capture.
+
+- Штатная пересборка выполнена: loader сообщает новый build и shadow copy;
+  state code0, unloaded=true, truncated=false, errors/warnings пусты.
+  Existing `validate_state` подтвердил fingerprint,0.5.1 и freshness.
+- AnimationGraph PASS: `402df515-5965-4b01-a17b-17d482a91af4`.
+  RetargetData PASS: Lua string ZERO_GUID нормализован в null.
+- Existing evidence v8 parser PASS: clone зарегистрирован в EML app state,
+ 82 компонента, fingerprint5253f478,9 HashKey32 source/clone,63 dependencies,
+ 102 joints,18 visual references; source_unchanged=true. Это build evidence,
+  не доказательство визуального отображения NPC или runtime lookup.
+- Writer завершён по отдельному fresh state. REQUESTED_NOT_FINALIZED внутри
+  evidence относится к моменту Lua emission до завершения writer.
+- Existing `integrated_observe.py compare` остановился на открытии pipe
+  `emf-bridge-187928`: **Windows error5 / access denied**. hello/state и команды
+  observer не выполнялись. Причина отказа не установлена; текст библиотеки
+  «8 clients connected already?» не доказывает исчерпание лимита.
+- Согласно условию остановки повторного подключения, изменения прав и обхода
+  ограничений не было. Shadow readback, фактическая resource redirection,
+  observer/session и текущий LOCAL context остаются UNKNOWN.
+
+[Промежуточный результат](../compatibility/updates/1287369/0.5.1/load-only/runtime-result.json).
+Verdict LOAD_ONLY_UNCONFIRMED: A/H PASS, V REFERENCES_ONLY, B/R/C UNKNOWN.
+После ручного закрытия игры ещё предстоит post-close integrity относительно preflight.
+Игра не закрывается агентом. Spawn/мутации/cleanup/rollback не выполнялись,
+`spawn_ready=false`, runtime render UNKNOWN. Тесты кода повторно не запускались.
+
+## История preflight
+
 2026-11-18,13:44:35 UTC: **READY_FOR_MANUAL_START**.
 Это результат preflight, не результат игрового теста.
 
