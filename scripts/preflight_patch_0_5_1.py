@@ -1,5 +1,6 @@
 """Read-only load-only checkpoint using existing update and inventory validators."""
 from datetime import datetime, timezone
+import argparse
 import json
 from pathlib import Path
 import sys
@@ -16,6 +17,9 @@ from scripts.prepare_phase_d_backup import GAME, SAVES, live
 
 
 def main():
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--stage10-10-3',action='store_true',help='Use the verified latest post-close baseline and preserve historical checkpoints')
+    args=ap.parse_args()
     live()
     public = ROOT/'compatibility/updates/1287369/0.5.1'
     approved = read_pinned(public/'update-manifest.json', 'a6ef7bd5714353b8b6a3da7354baff4581de7effb1f9409fab4b5f983ac4bdf4')
@@ -38,8 +42,16 @@ def main():
     rollback = rollback_plan(plan, GAME, backup/'payload/game')
     print('CLOSED/BUILD/PACKAGE/RECEIPT16/BACKUP38/CLEAN27/DRY_RUN4 PASS; hashing baseline', flush=True)
     prior = Path(receipt['per_file_before_after_journal']).parent/'after.json'
+    baseline=None
+    if args.stage10_10_3:
+        reviewed=read_pinned(public/'stage10_10_3/result.json','24c962649a56e891d6b9b4bc93ea3e3b89552fc9ae2805095ed9db10c5a71cb9')
+        if reviewed['shadow_readback']['status']!='PASS' or reviewed['shadow_filesystem']!='PASS':
+            raise ValueError('REVIEWED_SHADOW_NOT_VALIDATED')
+        prior=ROOT/'runtime/stage10_10_3/after.json'
+        baseline=read_pinned(prior,'9bb5ef6895915469d1e35a302b2071f2037348049f4f07e0178c39a3237ae904')
     before = dict(game=snapshot(GAME), saves=snapshot(SAVES))
-    if before != json.loads(prior.read_text()): raise ValueError('POST_INSTALL_BASELINE_CHANGED')
+    if before != (baseline if baseline is not None else json.loads(prior.read_text())):
+        raise ValueError('REVIEWED_BASELINE_CHANGED')
     fp = input_fingerprint(before['game'], '0.5.1')
     if fp != plan['projected_fingerprint'] or fp != receipt['actual_content_fingerprint']:
         raise ValueError('FINGERPRINT_CHANGED')
@@ -51,19 +63,21 @@ def main():
             sha256=before['saves'][relative]['sha256'], runtime_identity='REQUIRES_BRIDGE_AFTER_LOAD'))
     live()
     now = datetime.now(timezone.utc)
-    run = ROOT/'runtime/stage10_10_2/load_only'/now.strftime('%Y%m%dT%H%M%S%fZ')
+    run = ROOT/('runtime/stage10_10_3/load_only' if args.stage10_10_3 else 'runtime/stage10_10_2/load_only')/now.strftime('%Y%m%dT%H%M%S%fZ')
     run.mkdir(parents=True, exist_ok=False)
     write_json_new(run/'inventory-before.json', before)
     write_json_new(run/'rollback-before.json', rollback)
     result = dict(status='READY_FOR_MANUAL_START', checked_utc=now.isoformat(), run_path=str(run),
         installed_files_verified=16, backup_verified=38, clean_backup_verified=27,
-        game_inventory=222, original_resources=67, shadow_inventory=66, LOCAL_files=23,
+        game_inventory=len(before['game']), original_resources=67,
+        shadow_inventory=sum(n.startswith('emf/content/client/') for n in before['game']), LOCAL_files=len(before['saves']),
         inventory_before_sha256=file_hash(run/'inventory-before.json'), receipt_sha256=receipt_sha,
         content_fingerprint=fp, local_selection=selection, rollback_dry_run='PASS4_NOT_EXECUTED',
-        shadow_state='PRESERVED_FAILED_0.5.0; NATIVE_REBUILD_PENDING',
+        shadow_state=('VERIFIED_0.5.1_SUCCESS_CACHE_PRESERVED' if args.stage10_10_3 else 'PRESERVED_FAILED_0.5.0; NATIVE_REBUILD_PENDING'),
+        reviewed_baseline_sha256=file_hash(prior),
         runtime_validation='WAITING_FOR_MANUAL_START', game_start_by='USER_ONLY', spawn_ready=False)
     write_json_new(run/'preflight.json', result)
-    out = public/'load-only';out.mkdir(exist_ok=False)
+    out = public/('stage10_10_3/load-only' if args.stage10_10_3 else 'load-only');out.mkdir(exist_ok=False)
     write_json_new(out/'preflight.json', result)
     print(json.dumps(result, indent=2), flush=True)
 

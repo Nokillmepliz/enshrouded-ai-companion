@@ -1,5 +1,37 @@
 # Stage10.10.3 — Bridge Access & Runtime Validation
 
+## Продолжение: fresh preflight 2026-11-18,14:12:27 UTC
+
+Пользователь отдельно разрешил завершение load-only и адресную read-only диагностику
+вне ограниченного sandbox через штатное согласование. **READY_FOR_MANUAL_START**.
+Игра и сервер закрыты. Build, pinned package/profile/binding/receipt, installed16/16,
+verified backup38/38 и clean backup27/27 проверены заново. File-only rollback dry-run4
+PASS; откат не выполнялся и не разрешён.
+
+Полный snapshot234 game/23 LOCAL точно равен актуальному reviewed post-close baseline,
+включая67 originals и77 shadow; SHA/size/identity/mtime/links совпали. Fingerprint0.5.1
+прежний. При неизменных ресурсах независимый Inspector readback повторно не запускался.
+LOCAL character0/world0 подтверждены актуальными SHA и именами Body Test / AI Body Test;
+runtime name/storage/slot будут проверены через Bridge после загрузки.
+
+Private checkpoint: `runtime/stage10_10_3/load_only/20261118T141227374049Z`.
+[Новый preflight](../compatibility/updates/1287369/0.5.1/stage10_10_3/load-only/preflight.json).
+SHA baseline/inventory: `9bb5ef6895915469d1e35a302b2071f2037348049f4f07e0178c39a3237ae904`.
+Существующий preflight получил явный режим `--stage10-10-3` с pinned актуальным
+baseline; старые checkpoint не перезаписываются. Py_compile/diff check PASS,
+реальное выполнение exit0; полный unit suite здесь повторно не запускался.
+
+Следующий шаг: пользователь вручную запускает LOCAL Body Test / AI Body Test (slot1)
+и сообщает «загрузился». Codex определяет новый PID и адресно выполняет подготовленный
+diagnostic, затем observer compare через штатный approved invocation. При невозможности
+такого выполнения предоставляется готовая команда для обычного PowerShell пользователя.
+Права/моды не меняются. Успешный cache0.5.1 сохранён: повторная сборка не обязательна,
+нужно связать его проверенные хеши с текущей сессией и новыми redirect/Bridge наблюдениями.
+После ручного закрытия — post-close audit v2 и итоговая публикация.
+`runtime_validation=WAITING_FOR_MANUAL_START`, `spawn_ready=false`, render UNKNOWN.
+
+## История офлайн-этапа
+
 2026-11-18. Офлайн-разработка и read-only диагностика после load-only0.5.1.
 Исходный commit `06186275a5247bc5f5e4fd2508315615897a8eab`;
 исторические BLOCKED-результаты Stage10.10.2 сохранены без изменений.
