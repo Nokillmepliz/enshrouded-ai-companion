@@ -246,3 +246,7 @@ Negative tests обязаны покрывать отсутствие writer fin
 - Проверить install/rollback regressions, конфликтующие файлы и исторический evaluator v2.
 
 Фактический runtime выполняется только после отдельных разрешений на части B и C. Spawn не входит в Stage 10.6.
+
+## Stage 10.11.1 — deadline ожидания
+
+См. [план продолжения](STAGE10_11_1.md). Regression tests: callbacks5/10/15s, GROUND/PATH/READY/STOPPED/unknown,20s timeout, поздний READY, Bridge timeout без retry, смена сессии, скачок часов, остаток окна после повторного запуска ожидания, недостаточное/просроченное подтверждение, задержки RPC/journal, неизменность старого probe, общая блокировка intent и потеря ответа. Новый игровой тест отдельно согласуется; тесты с FakeTransport не подтверждают runtime-render или spawn.

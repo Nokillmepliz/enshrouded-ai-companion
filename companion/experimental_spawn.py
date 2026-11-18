@@ -62,9 +62,10 @@ class ExperimentalClient:
         self.journal = Path(journal_dir)
         no_links(self.journal)
         self.journal.mkdir(parents=True, exist_ok=True)
+        self.intent_file = self.journal/'spawn-intent.json'
 
     def record(self, name, value):
-        path = self.journal/name
+        path = self.intent_file if name == 'spawn-intent.json' else self.journal/name
         no_links(path)
         with path.open('x', encoding='utf-8', newline='\n') as f:
             f.write(json.dumps(value, ensure_ascii=False, indent=2)+'\n')
@@ -88,6 +89,8 @@ class ExperimentalClient:
         # Exclusive intent is fsynced before sending, including read-only operations.
         self.record(nonce+'-request.json', dict(command=command, args=list(map(str,args)),
             nonce=nonce, time=self.clock(), automatic_retry=False))
+        if command == 'spawn' and not self._spawn_not_before <= self.clock() <= self._spawn_deadline-2:
+            raise ValueError('SPAWN_DEADLINE_AFTER_JOURNAL_NO_RETRY')
         reply = self.transport.console('aic_first_spawn.'+command+' '+' '.join(values),
                                        timeout_ms=5000, settle_ms=100)
         self.record(nonce+'-response.json', reply)
@@ -111,7 +114,7 @@ class ExperimentalClient:
         return result
 
     def prepare(self):
-        if (self.journal/'spawn-intent.json').exists():
+        if self.intent_file.exists():
             raise ValueError('ATTEMPT_ALREADY_CONSUMED')
         before = self.context()
         status = self.status()
@@ -126,7 +129,7 @@ class ExperimentalClient:
         if authorization != AUTHORIZATION or clear_area is not True or disposable_risk is not True:
             raise ValueError('EXPLICIT_AUTHORIZATION_AND_RISK_ACCEPTANCE_REQUIRED')
         # No override/retry: independent of the Lua file and kept across reconnect/reload.
-        if (self.journal/'spawn-intent.json').exists():
+        if self.intent_file.exists():
             raise ValueError('ATTEMPT_ALREADY_CONSUMED')
         no_links(self.journal/'probe.json')
         probe = json.loads((self.journal/'probe.json').read_text(encoding='utf-8'))
@@ -138,10 +141,15 @@ class ExperimentalClient:
         status = self.status()
         if status['state'] != 'READY' or status['session'] != probe['session'] or status['probe'] != probe['nonce']:
             raise ValueError('POSITION_OR_SESSION_UNCONFIRMED')
+        # Context/status requests consume time too. Never send at the deadline.
+        if not 0 <= self.clock()-probe['prepared_at'] <= 18:
+            raise ValueError('PROBE_EXPIRED_OR_SEND_MARGIN')
         self.record('spawn-intent.json', dict(context=ctx, session=probe['session'],
             probe=probe['nonce'], authorization=authorization, manual_area_clear=True,
             disposable_risk_accepted=True, time=self.clock(), outcome='UNKNOWN_UNTIL_OBSERVED'))
         self._spawn_permit = True
+        self._spawn_not_before = probe['prepared_at']
+        self._spawn_deadline = probe['prepared_at']+20
         result = self.request('spawn', probe['session'], ctx['player'], probe['nonce'], authorization)
         if result.get('session') != probe['session'] or result.get('player') != ctx['player']:
             raise ValueError('SPAWN_RESPONSE_CONTEXT_CHANGED_DO_NOT_RETRY')

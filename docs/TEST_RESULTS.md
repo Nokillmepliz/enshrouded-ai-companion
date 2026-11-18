@@ -466,3 +466,7 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 - Фактическая разрешённая установка: verified backup23/23 (637447bytes), new7/existing16 PASS, originals67/shadow77/LOCAL23 без изменений. Полный game baseline235 сохранился, добавлены ровно7 файлов. Receipt и removal dry-run7 PASS; удаления не выполнялись.
 - Отдельный preflight14:52:38UTC READY_FOR_MANUAL_START: installed23/backup23 и полный post-install baseline242 game/23 LOCAL совпали. Latch UNUSED. Игровой runtime нового модуля и spawn не выполнялись.
 - [Отчёт](STAGE10_11_INSTALLATION.md), [тесты](../compatibility/experiments/stage10_11/install-tests.json). Private log runtime/stage10_11/install-tests.log.
+
+## 2026-11-18 — Stage 10.11.1
+
+25 новых regression tests. Финальный полный набор:858 testsRun,857PASS,1skip,0failures,16.499s, Python exit0. Skip — прежнее ограничение directory symlink privilege; права не менялись. Py_compile/diff check PASS. Новый backup23/23 SHA verified; offline preflight и full baseline243game/23LOCAL PASS. Ни одна новая игровая команда не выполнялась. Evidence: compatibility/experiments/stage10_11_1/tests.json и preparation.json; детали docs/STAGE10_11_1.md.
