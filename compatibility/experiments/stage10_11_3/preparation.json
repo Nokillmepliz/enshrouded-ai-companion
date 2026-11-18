@@ -1,0 +1,23 @@
+{
+  "status": "OFFLINE_SMART_POSITION_PREPARED_INSTALL_APPROVAL_REQUIRED",
+  "installed_version": "0.1.0",
+  "prepared_version": "0.1.1",
+  "changed_files": 4,
+  "effective_files": 23,
+  "baseline_sha256": "283893ac38d72220b10af73e9a131d269000031de0259b263d9bef84674daf19",
+  "game_files": 245,
+  "local_files": 23,
+  "manifest_sha256": "52a54fb2fa446df5d83527407ed3faf795739f0dae5f3dd2f66698c67a3310c9",
+  "plan_sha256": "d137680beff2ccc68fedefd87617202075a1d367407ddd34096ae43537d6647c",
+  "backup_plan_sha256": "78bf464b9898f2fa81de0c1712f443efba1c6479301af613aed68ffca734735e",
+  "backup_planned_files": 27,
+  "backup_planned_bytes": 650492,
+  "new_backup_created": false,
+  "preserved_history_files": 75,
+  "preserved_probes": 3,
+  "latch": "UNUSED",
+  "ground_queries_executed": 0,
+  "spawn_executed": false,
+  "spawn_ready": false,
+  "production_spawn_ready": false
+}

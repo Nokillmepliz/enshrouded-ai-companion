@@ -159,3 +159,14 @@ aic_body.request <request-id> <epoch> <companion-id> <spawn|follow|stay|dismiss>
 CLI требует `--allow-game-mutations`, явный game folder/PID, конкретный локальный world slot и имя/slot локального персонажа. Перед изменением проверяет EMF 0.3.2, API 20, protocol 1, build 1273043 и хостовый мир. Epoch берётся **до** world check: смена мира во время preflight не даёт выбрать новую сессию автоматически.
 
 Это защита от ошибочного запуска, а не система безопасности вместо EMF. Человек с доступом к консоли может вручную вызвать команды адаптера; raw console не выполняет клиентскую проверку имени мира/персонажа. Использовать его только в согласованной тестовой среде. Адаптер не запускает игру, не включает bridge и не делает backup/restore самостоятельно.
+
+
+## Stage 10.11.3 — отдельный экспериментальный aic_first_spawn 0.1.1
+
+Этот раздел относится к EMF0.6.18/API46/build1287369; исторический aic_body выше не изменён. [Полный контракт и план](STAGE10_11_3.md).
+
+Команды Lua остаются status/probe/spawn/observe/stop. probe — только поиск: восемь Ground на радиусе4м, затем последовательные Wall/Path. Общий deadline20s, ожидание250–500ms, ни одного автоматического spawn. В status добавлены pending, candidate, search, recoverable. Подробные AIC_POSITION записи пишутся в EMF log с probe/направлением; компактный AIC_EXPERIMENT ответ остаётся до930bytes. Ground API ok=false/Y=0 не считается измерением поверхности.
+
+SmartPositionClient допускает ok=false/STOPPED только для read-only status, чтобы проверить завершение очереди. Это не успешный probe или spawn. Новый ручной поиск разрешён после hash-sealed предыдущей истории, только при pending0, attempted=false, UNUSED latch и отсутствии общего durable intent; session/probe при закрытии истории должны совпасть. Потерянные callbacks/reload не исправляются сбросом счётчиков. Старый клиент продолжает требовать0.1.0 и сохраняет прежние ограничения.
+
+Режимы нового CLI: --search-only, --interactive, --settle-only. Только --interactive использует свежую локальную Y после READY; N/ESC/deadline отменяют. До native spawn заново проверяются context/session/nonce, точное совпадение показанной позиции, deadline, player displacement, candidate/Wall и latch. Intent записывается до отправки; после него новый поиск/spawn запрещён независимо от результата. READY означает прохождение проверок точки, а не создание, рендер или поведение NPC. spawn_ready=false сохраняется.

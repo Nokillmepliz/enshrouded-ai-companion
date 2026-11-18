@@ -1,0 +1,14 @@
+{
+  "status": "CLOSED_FINAL_READ_ONLY_INTEGRITY_PASS",
+  "game_files": 245,
+  "local_files": 23,
+  "baseline_sha256": "283893ac38d72220b10af73e9a131d269000031de0259b263d9bef84674daf19",
+  "payload_files_verified": 4,
+  "history_files_verified": 75,
+  "latch": "UNUSED",
+  "installed_version": "0.1.0",
+  "game_writes": false,
+  "save_writes": false,
+  "probe_executed": false,
+  "spawn_executed": false
+}

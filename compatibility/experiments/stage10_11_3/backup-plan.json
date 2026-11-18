@@ -1,0 +1,168 @@
+{
+  "format": "aic_smart_position_backup_plan_v1",
+  "baseline_sha256": "283893ac38d72220b10af73e9a131d269000031de0259b263d9bef84674daf19",
+  "files": [
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-0",
+      "sha256": "2d8d94bbae424c1645c1e85c7c48d224d961c8fbe24d824badd59be0d11d5dd2",
+      "bytes": 2038
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-1",
+      "sha256": "7c034605bfc4991879dfb8f71dd0834956cb3016ae7646fe81d9d92e6fce79aa",
+      "bytes": 2022
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-2",
+      "sha256": "5e3a32f23b2840695f026fd46024eda6d2b6d3cb08d83078568ffea58455b097",
+      "bytes": 2006
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-3",
+      "sha256": "76584a49fc4796bc31ef8195f348525cded706a82a87fcb83aea52b51e3ef8da",
+      "bytes": 2022
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-4",
+      "sha256": "0ef98058b8f9080d3560558f45fd8183c3f6087e5269f6bb2144e73ba0cc657f",
+      "bytes": 1878
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-5",
+      "sha256": "3250c903778bb56d46b3ef891b517bcaaf26599eaeaa4c6ab46e8c02611f7d21",
+      "bytes": 1878
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-6",
+      "sha256": "9dd73cd2ff19e64b931406a6bf4fb24c8a1b1b53f00e0bbdc0176db4428d6321",
+      "bytes": 1798
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-7",
+      "sha256": "d07ab7781cc0903c05f3d5543726949fe5361f0dfc45dd258183a5fbe5975380",
+      "bytes": 1590
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-8",
+      "sha256": "9cabe2cf7eade79293acd8f6ae2261948cd8489001438b3560b6b58ea9b133bf",
+      "bytes": 1590
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/character0.ksd.backup-9",
+      "sha256": "68aebb311e2e45748f9610210ae62239526edfc958e18eee7dd6491e6c577945",
+      "bytes": 294
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-0",
+      "sha256": "9e91166195f53dee9dc7510287aa81fcbd65340aa4b8f5c8c91362cbcab89a6f",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-1",
+      "sha256": "378889e6cdbcfb56116d4623b1e3e2c0967c3cac3f6e6db86e870d58e8e3f487",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-2",
+      "sha256": "952942266b6f43d34ccc15c05192754d4d6be3f7294941f8dfa4b5ffc13d3e6c",
+      "bytes": 87937
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-3",
+      "sha256": "1bce0b085a25657e353f72f9cf7a720356d34732e2bb0717469abf577b0e412e",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-4",
+      "sha256": "1d6751eb8815202e4e76a3261b7aedab8ac3414baa4037c6d14792c6300dda43",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-5",
+      "sha256": "1241a1df90cd2de7f43d675cff4cd7fedfa6e824daf8b5259d672030325bc3d5",
+      "bytes": 88003
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-6",
+      "sha256": "b72cfeadd89c6ef265104f53b0a8242dde403832239f0e5897a270672dc8d40a",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-7",
+      "sha256": "bb11637d60cfaf6adb0d9b2a7eefc1cac1e989113f87beb1c127300e73e3a23e",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-8",
+      "sha256": "808eba4a2e00ae617d9625cb0b5b859091d56d514fcc6e0b70a8f79ede27ccc7",
+      "bytes": 371
+    },
+    {
+      "group": "saves",
+      "path": "default/backup/world0.ksd.backup-9",
+      "sha256": "a7212b444c6b11d9b0953e141af59fa49d3e50c58d6a7f54d492135c9ddbbbff",
+      "bytes": 194
+    },
+    {
+      "group": "saves",
+      "path": "default/character0.ksd",
+      "sha256": "2d8d94bbae424c1645c1e85c7c48d224d961c8fbe24d824badd59be0d11d5dd2",
+      "bytes": 2038
+    },
+    {
+      "group": "saves",
+      "path": "default/world0.ksd",
+      "sha256": "952942266b6f43d34ccc15c05192754d4d6be3f7294941f8dfa4b5ffc13d3e6c",
+      "bytes": 87937
+    },
+    {
+      "group": "saves",
+      "path": "local_settings.json",
+      "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+      "bytes": 1419
+    },
+    {
+      "group": "game",
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52",
+      "bytes": 2988
+    },
+    {
+      "group": "game",
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb",
+      "bytes": 5213
+    },
+    {
+      "group": "game",
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29",
+      "bytes": 4176
+    },
+    {
+      "group": "game",
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38",
+      "bytes": 346
+    }
+  ]
+}

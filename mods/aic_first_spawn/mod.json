@@ -1,7 +1,7 @@
 {
   "id": "aic_first_spawn",
   "name": "AI Companion single experimental spawn",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Explicit one-shot visual experiment only; no automatic spawn or cleanup.",
   "authors": ["Enshrouded AI Companion"],
   "emf": 46,

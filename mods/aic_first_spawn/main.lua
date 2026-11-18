@@ -45,6 +45,19 @@ local api={now=os.time,session=emf.session_token,player=emf.local_player,context
   return false
  end}
 local controller
+local function safe_value(value,depth)
+ if depth>5 then return 'depth_limit' end
+ if type(value)=='number' then
+  if value~=value or value==math.huge or value==-math.huge then return tostring(value) end
+ elseif type(value)=='string' then return value:sub(1,160)
+ elseif type(value)=='table' then
+  local out={};for k,v in pairs(value) do out[k]=safe_value(v,depth+1) end;return out
+ end
+ return value
+end
+api.diagnostic=function(event,data)
+ emf.log('AIC_POSITION '..event..' '..assert(emf.json.encode(safe_value(data,0))))
+end
 local function guarded(fn)
  return function(...)
   local ok,err=pcall(fn,...)

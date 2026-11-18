@@ -1,0 +1,161 @@
+{
+  "format": "aic_smart_position_update_v1",
+  "version": "0.1.1",
+  "game": "D:\\SteamLibrary\\steamapps\\common\\Enshrouded",
+  "build": 1287369,
+  "parent_receipt_sha256": "3b9d80c0ade318c378584e38809eda54d6c4bc689ef16f1a5af28e5a993fd950",
+  "entries": [
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "source": "payload/emf/mods/aic_first_spawn/README.md",
+      "sha256": "5142961fa22d8b0f2ae3bc84646ecc5f2ae81895faa7e48000057a2560aa3982",
+      "bytes": 4476,
+      "before_sha256": "6bca7c4eb773e3f30a9b8e853fb3ebd3fc3d7d0c95700dc099e0fccb93207d52",
+      "before_bytes": 2988
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "source": "payload/emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "85a41aa9d88c63140afa5a65939688a0a7d0abb38797f024a0157e98d6f6234a",
+      "bytes": 8040,
+      "before_sha256": "66d25bd8709e52a357b2d025bd67407f6c8efb7b34eab1f7d965fdb2b79ef4cb",
+      "before_bytes": 5213
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "source": "payload/emf/mods/aic_first_spawn/main.lua",
+      "sha256": "c9666e7eaddfb15ae29e845224e643991eb32c108aea01dd94cdc0fff70a310c",
+      "bytes": 4704,
+      "before_sha256": "54b14721a4369a13b78d12a4894804f64820ea3fe5f3714ee241a75922cb8d29",
+      "before_bytes": 4176
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "source": "payload/emf/mods/aic_first_spawn/mod.json",
+      "sha256": "778e7470a078659e8f2bdc6fad3476bbc27e5ed29cfb01a89d9d831a7fb0af78",
+      "bytes": 346,
+      "before_sha256": "b695c9b0d07838c40620e47c393a842f3f452c7f98ae684a8956f9d0a2620c38",
+      "before_bytes": 346
+    }
+  ],
+  "effective_files": [
+    {
+      "path": "dinput8.dll",
+      "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5",
+      "bytes": 803840
+    },
+    {
+      "path": "emf/config/aic_first_spawn.ini",
+      "sha256": "6a096b8d41a6035db1c4d21d5e67182ecda80e0687074d116ee933a5d08a33cb",
+      "bytes": 28
+    },
+    {
+      "path": "emf/config/aic_integrated_observer.ini",
+      "sha256": "5a777c0a88c57bc06c92179427d2c97f2cf8fe63c8069c04a6f3cced36c1a622",
+      "bytes": 36
+    },
+    {
+      "path": "emf/config/lua.ini",
+      "sha256": "4c5ab48c0d1f3e1fc0465c0bc7b8d5745c9ed5fe684b7a0bbfa247be71a4b7ff",
+      "bytes": 16
+    },
+    {
+      "path": "emf/emf_content.dll",
+      "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691",
+      "bytes": 8962048
+    },
+    {
+      "path": "emf/emf_core.dll",
+      "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763",
+      "bytes": 5581312
+    },
+    {
+      "path": "emf/emf_core.ini",
+      "sha256": "4544b18641dcc4ffa65312088439cf4181eef09f2ebd30b1b21d213ba3794c9f",
+      "bytes": 145
+    },
+    {
+      "path": "emf/known_tools.txt",
+      "sha256": "480cd3d7fca96e115e82496f6e33089ccc70ca34105cc16ab64d90949cf660d0",
+      "bytes": 2246
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "sha256": "5142961fa22d8b0f2ae3bc84646ecc5f2ae81895faa7e48000057a2560aa3982",
+      "bytes": 4476
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/attempt.lock",
+      "sha256": "441c11a1aa076b174ca1e1f5743f7942d0ff3e4e9aab6e561207e1c17b20638e",
+      "bytes": 39
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/binding.lua",
+      "sha256": "82cb5a42f3b1aa6c22e6fb5a695502bf5f205d4a24a6186a041cf698c5b80c9e",
+      "bytes": 106
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "85a41aa9d88c63140afa5a65939688a0a7d0abb38797f024a0157e98d6f6234a",
+      "bytes": 8040
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "sha256": "c9666e7eaddfb15ae29e845224e643991eb32c108aea01dd94cdc0fff70a310c",
+      "bytes": 4704
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "sha256": "778e7470a078659e8f2bdc6fad3476bbc27e5ed29cfb01a89d9d831a7fb0af78",
+      "bytes": 346
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/README.md",
+      "sha256": "75b2ca3e2006078d8ff112002c00f53476aae6a5014bf12c8d26f80809978861",
+      "bytes": 886
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/binding.lua",
+      "sha256": "288b934b32850d3b94b3684eb1296f475047c36628fe0f2d832b395c49de4e78",
+      "bytes": 236
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/main.lua",
+      "sha256": "f9a5c2872ebf56db141dfa7005c7808d2fe14837c6fbbf2f84b33991603f64ef",
+      "bytes": 1519
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/mod.json",
+      "sha256": "575edac78c072b386da85fdad9bcb2b7b0058909d1164c5e7edb54aca99a5016",
+      "bytes": 362
+    },
+    {
+      "path": "emf/mods/lua/lua.dll",
+      "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4",
+      "bytes": 1651200
+    },
+    {
+      "path": "emf/mods/lua/mod.json",
+      "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27",
+      "bytes": 256
+    },
+    {
+      "path": "mods/aic_eml_humanoid/README.md",
+      "sha256": "930641d1e2825aad4980f5f11a246265c096467b7c63437629c7b0c89f5f7d2e",
+      "bytes": 1326
+    },
+    {
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "sha256": "cde657b2f11411ca0ba688b8dee91463d8d04a2527baef6edd4dc8897a2a1066",
+      "bytes": 271
+    },
+    {
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "sha256": "159bce3f63a672f5bebcf04605eebcbde39c5469e059a2cb4bf71cc368d07fc2",
+      "bytes": 18934
+    }
+  ],
+  "baseline_sha256": "283893ac38d72220b10af73e9a131d269000031de0259b263d9bef84674daf19",
+  "installed": false,
+  "spawn_ready": false
+}

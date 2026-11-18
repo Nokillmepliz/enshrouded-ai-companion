@@ -19,7 +19,7 @@ def readiness():
         spawn_ready=False, RUNTIME_RENDER_CONFIRMED='UNKNOWN')
 
 
-def validate_context(hello, state):
+def validate_context(hello, state, *, body_version='0.1.0'):
     wanted = dict(ok=True, emf='0.6.18', api=46, protocol=1,
                   game_build=1287369, process='client')
     if any(type(hello.get(k)) != type(v) or hello.get(k) != v for k, v in wanted.items()):
@@ -36,7 +36,7 @@ def validate_context(hello, state):
         raise ValueError('DUPLICATE_MOD')
     expected = {'lua': ('1.39.0', ('loaded',)),
         'aic_integrated_observer': ('0.3.0', ('script', 'loaded')),
-        'aic_first_spawn': ('0.1.0', ('script', 'loaded'))}
+        'aic_first_spawn': (body_version, ('script', 'loaded'))}
     if {m['id'] for m in active} != set(expected):
         raise ValueError('UNREVIEWED_MODS')
     for m in active:
@@ -100,7 +100,9 @@ class ExperimentalClient:
         if len(rows) != 1 or len(rows[0]) > 930:
             raise ValueError('RESPONSE_COUNT_OR_SIZE')
         value = unique_json(rows[0])
-        if value.get('schema') != 1 or value.get('nonce') != nonce or value.get('ok') is not True:
+        stopped_status=(command=='status' and getattr(self,'allow_stopped_status',False)
+                        and value.get('ok') is False and value.get('state')=='STOPPED')
+        if value.get('schema') != 1 or value.get('nonce') != nonce or (value.get('ok') is not True and not stopped_status):
             raise ValueError('CONTROLLER_REFUSED:'+str(value.get('reason')))
         if value.get('production_spawn_ready') is not False or value.get('spawn_ready') is not False:
             raise ValueError('INVALID_READINESS_CLAIM')

@@ -41,7 +41,7 @@ class LuaExperimentalTests(unittest.TestCase):
     def setUp(self):
         self.lua = LuaRuntime(unpack_returned_tuples=True)
         self.lua.execute(FIXTURE)
-        self.lua.globals().policy = self.lua.execute((ROOT/'mods/aic_first_spawn/controller.lua').read_text())
+        self.lua.globals().policy = self.lua.execute((ROOT/'tests/fixtures/aic_first_spawn_0_1_0/controller.lua').read_text())
         self.lua.execute('c=policy.new(api,binding)')
 
     def run_lua(self, script): self.lua.execute(script)
@@ -219,7 +219,7 @@ class LuaHostIntegrationTests(unittest.TestCase):
     def setUp(self):
         self.lua=LuaRuntime(unpack_returned_tuples=True)
         self.lua.execute(FIXTURE)
-        self.lua.globals().policy=self.lua.execute((ROOT/'mods/aic_first_spawn/controller.lua').read_text())
+        self.lua.globals().policy=self.lua.execute((ROOT/'tests/fixtures/aic_first_spawn_0_1_0/controller.lua').read_text())
         def encode(value):
             def convert(v):
                 if hasattr(v,'items'):return {k:convert(x) for k,x in v.items()}
@@ -256,7 +256,7 @@ function host_ready() command('probe',session,player);ground_cb(w,true,4,10,0,'o
 function host_spawn() command('spawn',session,player,nonce,'I_APPROVE_ONE_DISPOSABLE_SPAWN') end
 ''')
         self.reload()
-    def reload(self): self.lua.execute((ROOT/'mods/aic_first_spawn/main.lua').read_text())
+    def reload(self): self.lua.execute((ROOT/'tests/fixtures/aic_first_spawn_0_1_0/main.lua').read_text())
     def run_lua(self,s):self.lua.execute(s)
     def reply(self):return json.loads(self.lua.globals().response.split(' ',1)[1])
     def test_actual_host_spawn_and_readonly_observation(self):

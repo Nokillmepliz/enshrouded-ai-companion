@@ -474,3 +474,10 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 ## 2026-11-18 — Stage 10.11.2
 
 27 новых целевых тестов local confirmation/input buffering/cancellation/deadline/replay. Полный suite885:884PASS,1skip,0failures17.852s,Python exit0. Py_compile/diff check PASS. Backup23/23 и closed preflight PASS. Windows input adapter протестирован с fake input/mock и non-console rejection; настоящая интерактивная сессия/игра/spawn не запускались. Данные: compatibility/experiments/stage10_11_2/tests.json; план/команда в docs/STAGE10_11_2.md.
+
+
+## 2026-11-18 — Stage 10.11.3
+
+Добавлены62 проверки нового контроллера/клиента/deployment gate. Финальный полный suite: **947 testsRun / 946 PASS / 1 skip / 0 failures / 0 errors**,18.460s, Python exit0. Skip — прежнее отсутствие привилегии Windows directory symlink (WinError1314), права не менялись. Целевые62 также PASS. Строгая проверка выбранных XYZ выявила неполный старый FakeTransport без position; новый fixture дополнен реальным форматом XYZ, валидатор сохранён, полный suite после исправления повторён.
+
+Py_compile и git diff --check PASS. Свежие начальный и итоговый read-only snapshot:245game/23LOCAL полностью совпадают с post-close283893ac…; установленный0.1.0 и его23 файла сохранены, payload4 и история75 verified. [Evidence](../compatibility/experiments/stage10_11_3/tests.json), [итоговая целостность](../compatibility/experiments/stage10_11_3/final-integrity.json), private log runtime/stage10_11_3/tests-full.log. Игровое испытание, обновление мода и новый backup не выполнялись.
