@@ -28,11 +28,34 @@ def snapshot(root):
     return files
 
 
+def validate_backup_plan(plan, roots, destination, *, live):
+    """Validate every path and source before creating any backup directory."""
+    if not isinstance(plan.get('files'),list) or not plan['files']:
+        raise ValueError('INVALID_BACKUP_PLAN')
+    seen=set();sources=[]
+    for row in plan['files']:
+        group=row['group']
+        if group not in roots:raise ValueError('UNKNOWN_BACKUP_GROUP')
+        src=target(roots[group],row['path'])
+        relative=group+'/'+row['path']
+        target(destination/'payload',relative)
+        key=relative.casefold()
+        if key in seen:raise ValueError('DUPLICATE_BACKUP_ENTRY')
+        seen.add(key);sources.append((row,src))
+    if 'payload_bytes' in plan and plan['payload_bytes']!=sum(r['bytes'] for r,_ in sources):
+        raise ValueError('BACKUP_TOTAL_MISMATCH')
+    for row,src in sources:
+        live();before=record(src)
+        if before['sha256']!=row['sha256'] or before['size']!=row['bytes']:
+            raise ValueError('BACKUP_SOURCE_MISMATCH:'+row['path'])
+
+
 def verified_backup(plan, roots, destination, *, live):
     no_links(destination)
     if destination.exists():raise ValueError('NEW_BACKUP_REQUIRED')
     if any(destination.resolve().is_relative_to(r.resolve()) for k,r in roots.items() if k!='project'):
         raise ValueError('BACKUP_INSIDE_GAME_OR_SAVES')
+    live();validate_backup_plan(plan,roots,destination,live=live)
     live();destination.mkdir(parents=True)
     rows=[]
     for row in plan['files']:

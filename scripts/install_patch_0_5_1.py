@@ -23,7 +23,7 @@ def main():
     if not args.execute_authorized:raise ValueError('EXPLICIT_UPDATE_AUTHORIZATION_REQUIRED')
     public=ROOT/'compatibility/updates/1287369/0.5.1'
     approved=read_pinned(public/'update-manifest.json','a6ef7bd5714353b8b6a3da7354baff4581de7effb1f9409fab4b5f983ac4bdf4')
-    backup_plan=read_pinned(public/'backup-plan.json','25e8f7b7f043685860eac9b6d11c0b4756a067d29031e1375ba6f840f1d3ebae')
+    backup_plan=read_pinned(public/'backup-plan-revision-2.json','6b55956af459d8d3d82daa6c383740a4517a12e689d013ad3716271a2b05208a')
     receipt_template=read_pinned(public/'update-receipt-template.json','476cf14aa05afa1417c9a8cd23cf24c62fa0286c55e325f8bafb3049350f31bd')
     package=Path(approved['local_package'])
     plan_sha=approved['update_plan_sha256'];plan=read_pinned(package/'update-plan.json',plan_sha)
@@ -81,6 +81,7 @@ def main():
         verify_backup(backup,bm)
         if file_hash(parent)!=plan['identity']['parent_receipt_sha256']:raise ValueError('PARENT_RECEIPT_CHANGED')
         receipt=dict(receipt_template,status='UPDATED',executed=True,updated_utc=datetime.now(timezone.utc).isoformat(),
+            backup_plan_revision=2,backup_plan_sha256='6b55956af459d8d3d82daa6c383740a4517a12e689d013ad3716271a2b05208a',
             game_root=str(GAME),backup_path=str(backup),verified_backup_manifest_sha256=backup_sha,
             per_file_before_after_journal=str(run/'journal'),all_16_installed_hashes='PASS',
             actual_content_fingerprint=fp,post_update_originals_LOCAL_shadow_integrity='PASS',

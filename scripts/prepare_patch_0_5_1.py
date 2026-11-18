@@ -88,7 +88,7 @@ def main():
     backup=[dict(group='game',path=r['destination'],sha256=r['current_sha256'],bytes=r['current_bytes']) for r in rows]
     backup += [dict(group='game',path=n,sha256=r['sha256'],bytes=r['size']) for n,r in shadow.items() if r['links']==1]
     backup += [dict(group='LOCAL',path=n,sha256=r['sha256'],bytes=r['size']) for n,r in facts['saves'].items()]
-    backup += [dict(group='project',path=str(parent.relative_to(ROOT)),sha256=parent_sha,bytes=parent.stat().st_size)]
+    backup += [dict(group='project',path=parent.relative_to(ROOT).as_posix(),sha256=parent_sha,bytes=parent.stat().st_size)]
     write_json_new(public/'backup-plan.json',dict(files=backup,payload_bytes=sum(r['bytes'] for r in backup),
         created=False,policy='NEW_VERIFIED_BACKUP_BEFORE_UPDATE; preserve old backups/quarantines; no save restore'))
     effective=[];changed={r['destination']:r for r in rows}

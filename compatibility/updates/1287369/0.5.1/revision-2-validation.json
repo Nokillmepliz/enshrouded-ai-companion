@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-18",
+  "backup_plan_sha256": "6b55956af459d8d3d82daa6c383740a4517a12e689d013ad3716271a2b05208a",
+  "tests_run": 729,
+  "passed": 728,
+  "skipped": 1,
+  "failures": 0,
+  "seconds": 15.748,
+  "partial_backup": {
+    "files": 37,
+    "sha256_and_size": "PASS",
+    "exact_file_set": "PASS",
+    "completion_manifest": false,
+    "reused": false,
+    "decision": "PRESERVE_AND_CREATE_NEW_BACKUP; existing destination forbidden"
+  },
+  "diagnostic_correction": "Initial glob *.* counted .cache directory: 38 objects, 37 regular files. Read-only exact set and hash check confirmed no discrepancy.",
+  "payload_changed": false
+}

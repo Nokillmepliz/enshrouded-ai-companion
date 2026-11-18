@@ -1,0 +1,28 @@
+{
+  "status": "READY_FOR_REPEAT_LOAD_ONLY_APPROVAL",
+  "run": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_2\\install\\20261118T133801929065Z",
+  "backup": "C:\\Enshrouded-ai-companion\\runtime\\backups\\stage10_10_2-patch-0.5.1-20261118T133801929065Z",
+  "backup_files": 38,
+  "backup_payload_bytes": 247154745,
+  "backup_manifest_sha256": "eb7d81b857650c34f9f46d5040e21a033722fb5394b20e0fa4565c0eacc51208",
+  "receipt_path": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_2\\install\\20261118T133801929065Z\\update-receipt.json",
+  "receipt_sha256": "8fa2fa02ef0ad12b5c3c00864c0e81f21803fc2851872a708dea4e4d8efd2053",
+  "installed_effective_verified": 16,
+  "updated_files": [
+    "emf/mods/aic_integrated_observer/binding.lua",
+    "mods/aic_eml_humanoid/README.md",
+    "mods/aic_eml_humanoid/mod.json",
+    "mods/aic_eml_humanoid/src/mod.lua"
+  ],
+  "game_files": 222,
+  "non_target_game_files_unchanged": 218,
+  "original_resources_unchanged": 67,
+  "shadow_files_unchanged": 66,
+  "LOCAL_unchanged": 23,
+  "content_fingerprint": "sha256:17d1f36bb57e8dd9fc064eee5402ed4f10365d9970bda8fa975e7156638f1138",
+  "old_shadow_state": "PRESERVED_FAILED_0.5.0; NATIVE_REBUILD_PENDING",
+  "rollback_dry_run": "PASS4_NOT_EXECUTED",
+  "runtime_validation": "NOT_EXECUTED",
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN",
+  "spawn_ready": false
+}

@@ -436,3 +436,7 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 - 7 новых transaction fixtures PASS: verified backup и4 replacements, no authorization, changed source/backup, partial OS replacement failure без rollback, live process guard, hardlinked destination refusal.
 - Py_compile новых module/script/tests PASS. Native/Lua не менялись. Результат фактической установки фиксируется отдельно от этих fixtures.
 - Реальная попытка после этих тестов STOPPED/INVALID_PATH на38-й backup entry (Windows separator в project receipt path). Копии37/37 SHA PASS, backup incomplete, replacements0/4. Повторный полный post-stop audit222 game/23 LOCAL unchanged; installed0.5.0 hashes16 PASS. Unit tests не подменяют проверку реального manifest; [отчёт](STAGE10_10_2_INSTALL_REPORT.md).
+
+## 2026-11-18 — backup revision2 и фактическая установка0.5.1
+
+729 testsRun /728 PASS /1 skip /0 failures,15.748s. Добавлены8 regression tests предварительной валидации backup и POSIX paths; py_compile PASS. Реальные backup38, update4, effective16 hashes, fingerprint и post-integrity PASS; rollback dry-run4 PASS. Runtime не выполнялся. [Подробный отчёт](STAGE10_10_2_INSTALL_REPORT.md).

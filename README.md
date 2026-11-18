@@ -1,9 +1,10 @@
 # enshrouded-ai-companion
 
-**Установка0.5.1 остановлена: `BLOCKED_BACKUP_PLAN_PATH`.** В последней записи
-backup plan неверный разделитель пути. Сохранены37 частичных копий; игровые файлы
-не заменялись, установлен0.5.0. Повторный load-only тест пока не готов.
-[Фактический отчёт об остановке](docs/STAGE10_10_2_INSTALL_REPORT.md).
+**Patch0.5.1 установлен: `READY_FOR_REPEAT_LOAD_ONLY_APPROVAL`.** Исправлен backup plan,
+создан verified backup38 (~247.2 MB), обновлены4 согласованных файла;16/16 hashes
+и rollback dry-run PASS. Originals/shadow/LOCAL неизменны. 728 тестов PASS,1 skip.
+Игра не запускалась, `spawn_ready=false`; повторный load-only требует разрешения.
+[Отчёт установки и ограничения](docs/STAGE10_10_2_INSTALL_REPORT.md).
 
 **История подготовки Stage10.10.2: `READY_FOR_PATCH_UPDATE_APPROVAL`.** Кандидат0.5.1 исправляет
 проверку пустой resource reference и разделяет диагностику animationGraph/retargetData.
