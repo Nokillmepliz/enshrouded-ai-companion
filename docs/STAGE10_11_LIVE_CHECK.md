@@ -28,3 +28,16 @@ Private evidence: `runtime/stage10_11/live/20261118-session216444/`. Сырые 
 Проверки файлов после остановки: 7/7 SHA-256 совпали с receipt, attempt.lock остался UNUSED, spawn-intent.json отсутствует, probe.json существует. Журналы и latch не сбрасывались. Приватные результаты prepare/status/error и after-stop-files.json сохранены в каталоге текущей сессии. Никаких изменений установленных модов, save edits, destroy или rollback не было. Полная post-close проверка ещё ожидает ручного закрытия игры. Unit-тесты не повторялись: изменены только отчёт и частный исполнитель диагностики.
 
 Итог: `BLOCKED_BEFORE_SPAWN`, experimental_spawn_executed=false, spawn_ready=false, production_spawn_ready=false, render=UNKNOWN. Следующий шаг — ручное закрытие игры, post-close audit и разбор ground callback/ограничения ожидания. Повторный prepare/spawn и удаление probe journal автоматически запрещены.
+
+## После ручного закрытия — 2026-11-18
+
+Игра и сервер закрыты. Новый read-only `scripts/audit_stage10_11_closed.py` использовал pinned post-install baseline текущей сессии и существующие snapshot, install/backup и post_close_v2 валидаторы. Итог `POST_CLOSE_INTEGRITY_PASS_SPAWN_NOT_EXECUTED`; машиночитаемый результат: `compatibility/experiments/stage10_11/installation/post-close-216444.json`.
+
+- Полный SHA/size/identity/mtime/links snapshot: originals 67/67 и shadow 77/77 точно совпадают с baseline. Installed 23 и backup 23 проверены; latch UNUSED, spawn-intent отсутствует.
+- Единственный новый игровой файл — архив предыдущего лога `backup/enshrouded_2026-11-18T17-55-06.log`, подтверждён точным совпадением прежнего файла, включая identity. Остальные изменения — штатные логи и mtime пустого chain_status с прежней identity. Неатрибутированных изменений нет.
+- LOCAL: прежние 23 файла, без добавлений/удалений и пустых/linked файлов; имена Body Test / AI Body Test сохранены. Изменилось содержимое 8 файлов (основные character/world и шесть резервных копий), метаданные 9, включая local_settings. В логе зарегистрированы автосохранения. Семантическая целостность сохранений не доказана; восстановление не выполнялось.
+- Логи сохранены локально с проверкой SHA. Сырые командные строки содержат private binding и не публикуются.
+
+Установлена хронология: GROUND_REQUESTED 18:01:58.131 → последний status GROUND 18:02:01.792 → закрытие Bridge 18:02:01.978 → READY_VISUAL_APPROVAL_REQUIRED 18:02:02.642. Ground/path успешно завершились через 4.511s после запроса, на 0.850s позже последнего опроса. Причина прежней остановки — слишком короткое окно ожидания частного исполнителя, а не подтверждённый отказ EMF. Отдельные длительности ground и path не логируются. Команды spawn, SPAWN_ATTEMPT и ENTITY_ID_RETURNED в полном текущем core log отсутствуют.
+
+Установленные моды и частный журнал не исправлялись. Следующая попытка требует подготовки контролируемого продолжения с сохранением истории probe и ожиданием по deadline внутри 20s контракта; простое удаление probe.json или переиспользование просроченного probe недопустимо. Автоматический перезапуск/повторный spawn не разрешён этим аудитом. Production/spawn readiness остаются false, визуальное отображение UNKNOWN.
