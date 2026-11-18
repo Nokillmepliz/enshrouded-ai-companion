@@ -1,0 +1,37 @@
+{
+  "status": "FILE_RESTORE_DRY_RUN_PASS",
+  "operations": [
+    {
+      "path": "emf/mods/aic_integrated_observer/binding.lua",
+      "action": "RESTORE_VERIFIED_PRE_UPDATE_BYTES_AND_MTIME",
+      "only_if_sha256": "288b934b32850d3b94b3684eb1296f475047c36628fe0f2d832b395c49de4e78",
+      "restore_sha256": "2f16462263cb513a9343127c5c72a35e75f621b1e988743f0498ce2a3e9d0c24"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/README.md",
+      "action": "RESTORE_VERIFIED_PRE_UPDATE_BYTES_AND_MTIME",
+      "only_if_sha256": "930641d1e2825aad4980f5f11a246265c096467b7c63437629c7b0c89f5f7d2e",
+      "restore_sha256": "ecacce884bf94ae1453002cd6f29f216b657180017803422385bc0c5ce3579af"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "action": "RESTORE_VERIFIED_PRE_UPDATE_BYTES_AND_MTIME",
+      "only_if_sha256": "cde657b2f11411ca0ba688b8dee91463d8d04a2527baef6edd4dc8897a2a1066",
+      "restore_sha256": "5a46748017a7751521e9633b2b3ced2a567326b1e5dcc022194dda16f9d96415"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "action": "RESTORE_VERIFIED_PRE_UPDATE_BYTES_AND_MTIME",
+      "only_if_sha256": "159bce3f63a672f5bebcf04605eebcbde39c5469e059a2cb4bf71cc368d07fc2",
+      "restore_sha256": "4024338430fba85fee654e94462458eabf97141f3bc5b4e36babfa17dc868919"
+    }
+  ],
+  "executed": false,
+  "shadow_policy": "PRESERVE; REQUIRE_FRESH_ATTRIBUTION_BEFORE_ANY_CLEANUP_OR_NEXT_START",
+  "full_live_rollback_ready": false,
+  "spawn_ready": false,
+  "scope": "ISOLATED_PROJECT_FIXTURE_ONLY",
+  "actual_installation_executed": false,
+  "verified_effective_files": 16,
+  "update_plan_sha256": "592a9d125f4754cae23593f794203b2f6e3135a327ecc414b326ccec6cfb8e91"
+}

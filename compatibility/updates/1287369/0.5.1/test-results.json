@@ -1,0 +1,15 @@
+{
+  "python_tests": 714,
+  "python_pass": 713,
+  "skip": 1,
+  "failures": 0,
+  "seconds": 12.047,
+  "new_regressions": 23,
+  "lua_syntax_files": 20,
+  "lua_fixtures": "PASS via Lupa Lua54; mocked API, not vendor DLL",
+  "compileall": "PASS",
+  "rollback_fixture": "PASS4",
+  "runtime_validation": "NOT_EXECUTED",
+  "RUNTIME_RENDER_CONFIRMED": "UNKNOWN",
+  "spawn_ready": false
+}

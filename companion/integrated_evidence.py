@@ -62,7 +62,10 @@ def parse(text, expected):
             values[key] = value
     if state != 'done' or list(values) != sorted(FIELDS):
         raise ValueError('INCOMPLETE_OR_UNORDERED')
-    constants = dict(schema='8', patch='0.5.0', build='1287369', owner='EMF_INTEGRATED',
+    patch_version = expected.get('patch_version', '0.5.0')
+    if patch_version not in ('0.5.0', '0.5.1'):
+        raise ValueError('UNSUPPORTED_PATCH_VERSION')
+    constants = dict(schema='8', patch=patch_version, build='1287369', owner='EMF_INTEGRATED',
                      resource_type='keen::ecs::TemplateResource', part='0',
                      hashkey_provenance='EML_MAPPED_STRUCT_VALUE_UINT32', retarget_data='null',
                      source_unchanged='true', source_comparison='FULL_REFLECTED_VALUE_EQUALITY',

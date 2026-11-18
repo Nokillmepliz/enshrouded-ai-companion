@@ -11,7 +11,8 @@ import re
 from .recovery import no_links
 
 
-def content_fingerprint(game):
+def content_fingerprint(game, *, patch_version='0.5.0'):
+    if patch_version not in ('0.5.0', '0.5.1'): raise ValueError('UNSUPPORTED_PATCH_VERSION')
     game=Path(game); no_links(game)
     if (game/'enshrouded.kfc.bak').exists(): raise ValueError('LEGACY_BASE_SELECTION_CONFLICT')
     def fact(label,path,name):
@@ -35,18 +36,19 @@ def content_fingerprint(game):
     files=[p for p in mod.rglob('*') if p.is_file()]
     names={p.relative_to(mod).as_posix() for p in files}
     if names!={'mod.json','README.md','src/mod.lua'}: raise ValueError('CONTENT_MOD_FILE_SET_CHANGED')
-    text+='mod\taic_eml_humanoid\t0.5.0\t3\n'
+    text+=f'mod\taic_eml_humanoid\t{patch_version}\t3\n'
     for p in sorted(files,key=lambda p:p.relative_to(mod).as_posix().lower()):
         text+=fact('file',p,str(p.relative_to(mod)).replace('/','\\'))
     return 'sha256:'+hashlib.sha256(text.encode()).hexdigest()
 
 
-def validate_state(state, expected_fingerprint, *, not_before, not_after):
+def validate_state(state, expected_fingerprint, *, not_before, not_after, patch_version='0.5.0'):
+    if patch_version not in ('0.5.0', '0.5.1'): raise ValueError('UNSUPPORTED_PATCH_VERSION')
     if not re.fullmatch('sha256:[0-9a-f]{64}',expected_fingerprint): raise ValueError('EXPECTED_FINGERPRINT_REQUIRED')
     if (state.get('fingerprint')!=expected_fingerprint or type(state.get('code'))!=int or state['code']!=0
             or state.get('unloaded') is not True or state.get('truncated') is not False
             or state.get('errors')!=[] or state.get('warnings')!=[]
-            or state.get('mods')!=['aic_eml_humanoid 0.5.0']):
+            or state.get('mods')!=[f'aic_eml_humanoid {patch_version}']):
         raise ValueError('WRITER_NOT_FINALIZED_OR_MISMATCH')
     built=datetime.fromisoformat(state['built_at'].replace('Z','+00:00'))
     if built.tzinfo is None or not not_before <= built <= not_after:

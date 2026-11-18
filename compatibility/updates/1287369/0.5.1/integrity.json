@@ -1,0 +1,14 @@
+{
+  "game_files_unchanged": 222,
+  "LOCAL_unchanged": 23,
+  "shadow_unchanged": 66,
+  "installed_unchanged": 16,
+  "original_resources_unchanged": 67,
+  "backup_verified": 27,
+  "compared_to": "runtime\\stage10_10_1_phase_f\\20261118T122931689254Z\\post-close-20261118T124158903825Z\\inventory-after.json",
+  "checked_utc": "2026-11-18T13:16:42.004427+00:00",
+  "private_after": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_1_phase_f\\20261118T122931689254Z\\post-close-20261118T131609990556Z",
+  "game_server_closed": true,
+  "runtime_validation": "NOT_EXECUTED",
+  "spawn_ready": false
+}

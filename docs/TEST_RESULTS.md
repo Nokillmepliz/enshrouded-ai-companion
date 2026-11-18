@@ -418,3 +418,14 @@ Command: `.tools/python/python.exe -m unittest discover -s tests -q`.
 Real read-only post-close audit passed original resource67, installed16 and backup27 checks.
 Runtime content build failed with AIC_PATCH:graph_changed; unit success does not establish runtime compatibility.
 See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations or rollback by agent.
+
+## 2026-11-18 — Stage10.10.2, patch0.5.1 offline
+
+- Full suite:714 testsRun/713 PASS/1 existing skip/0 failures,12.047s.23 новых regression tests; private log runtime/stage10_10_2-tests.txt (PowerShell оборачивает stderr как NativeCommandError, итог unittest OK).
+- Lua syntax20/20 PASS; compileall companion/scripts/tests PASS. Lua fixtures выполнялись через Lupa Lua54 без vendor DLL.
+- Reference tests: valid/invalid/case GUID, nil и zero GUID, mapped container userdata с scalar fields, unknown types, обе независимые ошибки до assert, отсутствие successful evidence при отказе, воспроизведение старого graph_changed и сохранённые safety checks.
+- Update tests: stale code/version/time/fingerprint, новая версия и file facts меняют fingerprint, pinned parent receipt, current/new hashes, extra file refusal, timestamp/hardlink guards, template receipt refusal, изолированные update/restore и tampered backup refusal.
+- Реальный подготовленный пакет на project fixture:16 effective hashes и rollback dry-run4 PASS. Никаких записей в реальную установку.
+- Decoded-source fixture82 components/63 deps/18 refs/102 joints PASS; API/clone/scan mocked, не реальная EML сериализация.
+- Read-only повторный аудит:222 game/23 LOCAL records неизменны относительно post-close, включая67 originals/66 shadow/16 installed; backup27 PASS. Новый runtime NOT_EXECUTED, render UNKNOWN,spawn_ready=false.
+- Подробности и hashes: [Stage10.10.2](STAGE10_10_2_REPORT.md), [test metadata](../compatibility/updates/1287369/0.5.1/test-results.json).

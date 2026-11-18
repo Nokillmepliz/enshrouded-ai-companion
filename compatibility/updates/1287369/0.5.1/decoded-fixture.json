@@ -1,0 +1,15 @@
+{
+  "patch": "0.5.1",
+  "component_count": "82",
+  "dependencies_resolved": "63",
+  "visual_reference_count": "18",
+  "joint_count": "102",
+  "retarget_data": "null",
+  "source_unchanged": "true",
+  "status": "FIXTURE_PASS",
+  "resource_api": "MOCKED",
+  "scan": "MOCKED_REPEATED_SOURCE_NOT_INDEPENDENT_COLLISION_SCAN",
+  "vendor_DLL_executed": false,
+  "runtime_validation": "NOT_EXECUTED",
+  "spawn_ready": false
+}

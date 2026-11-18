@@ -1,0 +1,536 @@
+{
+  "snapshot_sha256": "64ab0303d47de8934947060995a19a3e6d1540cab6c3e15901fa07c7ec2118d9",
+  "files": {
+    "emf/content/client/emf_content_state.json": {
+      "sha256": "7bd657f1d6973cefb7b2efc8f54f423900060ae8fb3931f152bc5e0d0401e378",
+      "size": 632,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697241074,
+      "links": 1,
+      "mtime_ns": 1795005308138989300
+    },
+    "emf/content/client/enshrouded.exe": {
+      "sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+      "size": 35476040,
+      "volume": 7969823110406842093,
+      "file_id": 1688849860275432,
+      "links": 2,
+      "mtime_ns": 1793816558306618400
+    },
+    "emf/content/client/enshrouded.kfc": {
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "size": 9396224,
+      "volume": 7969823110406842093,
+      "file_id": 88946092640569644,
+      "links": 1,
+      "mtime_ns": 1795001295033937900
+    },
+    "emf/content/client/enshrouded.kfc.bak": {
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "size": 9396224,
+      "volume": 7969823110406842093,
+      "file_id": 3096224743819761,
+      "links": 1,
+      "mtime_ns": 1795001295033937900
+    },
+    "emf/content/client/enshrouded.kfc_resources": {
+      "sha256": "2f54eb9e4677f129c4d527aa9b163d89d0aecee70f2b5b728d7bacaa239d91a7",
+      "size": 215052288,
+      "volume": 7969823110406842093,
+      "file_id": 5910974510926132,
+      "links": 1,
+      "mtime_ns": 1795001229749604200
+    },
+    "emf/content/client/enshrouded_000.dat": {
+      "sha256": "280d139febe69593cbfe35325a9a508ee5f2c5ea5d02ddeb44e13c8f19429e02",
+      "size": 1060708352,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697246158,
+      "links": 2,
+      "mtime_ns": 1792762622172134900
+    },
+    "emf/content/client/enshrouded_001.dat": {
+      "sha256": "c56833355fdea6a1963477378c0ab073419bf89c3ea0ae29939d4bed5dc15c76",
+      "size": 1011748864,
+      "volume": 7969823110406842093,
+      "file_id": 6755399441078557,
+      "links": 2,
+      "mtime_ns": 1793632411782826200
+    },
+    "emf/content/client/enshrouded_002.dat": {
+      "sha256": "9be90242d92ce6c00e271fc36f816333c6698ecba700bfc9a6fe941d6c87618d",
+      "size": 1009995776,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693070,
+      "links": 2,
+      "mtime_ns": 1792762622173828300
+    },
+    "emf/content/client/enshrouded_003.dat": {
+      "sha256": "57e2720f5dfb03d705402d870ba6cb1e6a49bf75ec8ded630e3f66fa3c74eefc",
+      "size": 1004273664,
+      "volume": 7969823110406842093,
+      "file_id": 2814749767114387,
+      "links": 2,
+      "mtime_ns": 1792762622173828300
+    },
+    "emf/content/client/enshrouded_004.dat": {
+      "sha256": "393ac56a51fee87cd296458df252d7ac2fd2ddde6f315c282ce4eea300554a29",
+      "size": 1002700800,
+      "volume": 7969823110406842093,
+      "file_id": 5348024557525281,
+      "links": 2,
+      "mtime_ns": 1793632411782826200
+    },
+    "emf/content/client/enshrouded_005.dat": {
+      "sha256": "086610bca06f3f3d0872a15fa3b9586de2451c88b183da82fda3955552641c1b",
+      "size": 1011863552,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693082,
+      "links": 2,
+      "mtime_ns": 1792762622176340900
+    },
+    "emf/content/client/enshrouded_006.dat": {
+      "sha256": "613ea267a24b408bc3d61533228c99a097097b28c1c5d0e941849e8c977228e3",
+      "size": 1010012160,
+      "volume": 7969823110406842093,
+      "file_id": 2533274790403741,
+      "links": 2,
+      "mtime_ns": 1792762622176340900
+    },
+    "emf/content/client/enshrouded_007.dat": {
+      "sha256": "aa9562383ae63981f92636bf8387dde971d135d5a7738db2a600ac54c048ffa3",
+      "size": 1005117440,
+      "volume": 7969823110406842093,
+      "file_id": 2533274790403745,
+      "links": 2,
+      "mtime_ns": 1792762622177340600
+    },
+    "emf/content/client/enshrouded_008.dat": {
+      "sha256": "bc9dc743d5c00eb023b830120288caa704b6b6e7b21a1b145413df95eb2ea777",
+      "size": 1037316096,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693091,
+      "links": 2,
+      "mtime_ns": 1792762622177340600
+    },
+    "emf/content/client/enshrouded_009.dat": {
+      "sha256": "fad65d82d8d0d5d787a71d29fbd5a0a294968433c83cdc44a95b5659e95bb845",
+      "size": 1000910848,
+      "volume": 7969823110406842093,
+      "file_id": 5910974510946596,
+      "links": 2,
+      "mtime_ns": 1793632411782826200
+    },
+    "emf/content/client/enshrouded_010.dat": {
+      "sha256": "aa55d4a0fa9a86b1433cb591d4e995ac98418a5d16c18154915bf432c9ebec46",
+      "size": 1000935424,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982442,
+      "links": 2,
+      "mtime_ns": 1792762622177340600
+    },
+    "emf/content/client/enshrouded_011.dat": {
+      "sha256": "ebf6f822fb8dfb6dd8d27390babca2e1a00a5d993053b994812f7a3e874b635e",
+      "size": 1012752384,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693105,
+      "links": 2,
+      "mtime_ns": 1792762622179341900
+    },
+    "emf/content/client/enshrouded_012.dat": {
+      "sha256": "196d4309e6589172841e6e70415db196d1fb7a588d0ac3be6f81f9653bbfe056",
+      "size": 1054711808,
+      "volume": 7969823110406842093,
+      "file_id": 39969446692935976,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_013.dat": {
+      "sha256": "3c83ccd428b1e008581a4416dbfbcfa6087e8aa08ed51a2db1f7ef44543e1773",
+      "size": 1000976384,
+      "volume": 7969823110406842093,
+      "file_id": 5629499534235945,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_014.dat": {
+      "sha256": "e6ea81182d11c6633260a69b3889fb96d239bbbfa6c7602540201d11d5aaa60a",
+      "size": 1009950720,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693112,
+      "links": 2,
+      "mtime_ns": 1792762622181341300
+    },
+    "emf/content/client/enshrouded_015.dat": {
+      "sha256": "a7e1b6d7e2f8438857bb51fc43a789673f8d967da955aace8a09cbbb664c2303",
+      "size": 1010335744,
+      "volume": 7969823110406842093,
+      "file_id": 22517998136875307,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_016.dat": {
+      "sha256": "99e2a18517297277acd0c8aa142bc40d930683cd79f734c500a2279d428680ab",
+      "size": 1004216320,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693115,
+      "links": 2,
+      "mtime_ns": 1792762622183844800
+    },
+    "emf/content/client/enshrouded_017.dat": {
+      "sha256": "01554b4737acaa32de258a69305b8dc39534900314b94e5e3290403fad2416ae",
+      "size": 1033170944,
+      "volume": 7969823110406842093,
+      "file_id": 8444249301342511,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_018.dat": {
+      "sha256": "0b4e4d2a44e06a9cd496620fbd1abc0199daded6ff11552505c0009f170e9545",
+      "size": 1013051392,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693126,
+      "links": 2,
+      "mtime_ns": 1792762622184848600
+    },
+    "emf/content/client/enshrouded_019.dat": {
+      "sha256": "63e18a160cf1b313b9026681473eaead34f3ba0a0577491048d99fb93102ec40",
+      "size": 1008046080,
+      "volume": 7969823110406842093,
+      "file_id": 2533274790403785,
+      "links": 2,
+      "mtime_ns": 1792762622184848600
+    },
+    "emf/content/client/enshrouded_020.dat": {
+      "sha256": "1381e07d0b4ef46d05d09063d20895dc0a92c69bbfee5f2dab4275cc40899f90",
+      "size": 1009111040,
+      "volume": 7969823110406842093,
+      "file_id": 2533274790403787,
+      "links": 2,
+      "mtime_ns": 1792762622185848500
+    },
+    "emf/content/client/enshrouded_021.dat": {
+      "sha256": "a379da6f79086218b29bcc3a023ee8b2acd292441ebaded3337b12e741833e00",
+      "size": 1006993408,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693133,
+      "links": 2,
+      "mtime_ns": 1792762622186848400
+    },
+    "emf/content/client/enshrouded_022.dat": {
+      "sha256": "3731a7679605711e6617f850a8411f184bec804a64b2094f459a9d936cb56b1b",
+      "size": 1013837824,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693137,
+      "links": 2,
+      "mtime_ns": 1792762622186848400
+    },
+    "emf/content/client/enshrouded_023.dat": {
+      "sha256": "58d449ae8f4c7fc9a8193608cb4120a28d68c56d832aeb787cefb55f28af9152",
+      "size": 1007153152,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693157,
+      "links": 2,
+      "mtime_ns": 1792762622186848400
+    },
+    "emf/content/client/enshrouded_024.dat": {
+      "sha256": "820bd2f2abbc69bf076f804c78e874d984e0a35645f9cff4953266220f587b72",
+      "size": 1014304768,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982502,
+      "links": 2,
+      "mtime_ns": 1792762622186848400
+    },
+    "emf/content/client/enshrouded_025.dat": {
+      "sha256": "adf6a0384a2fa55749e55b5747da6b7bba83c8faab2159f3365563ede405f7c9",
+      "size": 1014571008,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982504,
+      "links": 2,
+      "mtime_ns": 1792762622187849400
+    },
+    "emf/content/client/enshrouded_026.dat": {
+      "sha256": "8f644a51cb791e89e4242b6e7c813436bb17b6d7a6f3c5e79baaeb5141e74645",
+      "size": 886738944,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982522,
+      "links": 2,
+      "mtime_ns": 1792762622188849000
+    },
+    "emf/content/client/enshrouded_027.dat": {
+      "sha256": "500f93226a59084888b6bbfe25287f5741f682acbe329f52068763e5224c6cab",
+      "size": 1005875200,
+      "volume": 7969823110406842093,
+      "file_id": 4222124650682672,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_028.dat": {
+      "sha256": "3c856c42c792b72075555706298338022f580ab8b9b07e9db9d4083c2d0c6cef",
+      "size": 1005129728,
+      "volume": 7969823110406842093,
+      "file_id": 15481123719108919,
+      "links": 2,
+      "mtime_ns": 1793632411783812000
+    },
+    "emf/content/client/enshrouded_029.dat": {
+      "sha256": "9b22153ce2e08c4588a55320159e997abbd9ac7186eafe7da38bd9250b0e6bde",
+      "size": 1004642304,
+      "volume": 7969823110406842093,
+      "file_id": 17732923532794168,
+      "links": 2,
+      "mtime_ns": 1793632411785316200
+    },
+    "emf/content/client/enshrouded_030.dat": {
+      "sha256": "6ec19a6f2118bdb2894dfc0e3677aea79ebd15c3aef7ca1f6900b0de020007cf",
+      "size": 1005215744,
+      "volume": 7969823110406842093,
+      "file_id": 16607023625951547,
+      "links": 2,
+      "mtime_ns": 1793632411785316200
+    },
+    "emf/content/client/enshrouded_031.dat": {
+      "sha256": "43af0a606ddaa88dacc4e5c0953d8c52d8adbd86421d03a91b37faf3f7b9ded3",
+      "size": 1011769344,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697261372,
+      "links": 2,
+      "mtime_ns": 1793632411785621200
+    },
+    "emf/content/client/enshrouded_032.dat": {
+      "sha256": "2051ca075d01d9b57b288affec776f758392b808b93392c73cebd0a4852cc1fe",
+      "size": 615276544,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697261374,
+      "links": 2,
+      "mtime_ns": 1793632411786125300
+    },
+    "emf/content/client/enshrouded_033.dat": {
+      "sha256": "65587c436c110d48beea7480b63823509f1941954abdfa2838ddd1641742984f",
+      "size": 1005031424,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693236,
+      "links": 2,
+      "mtime_ns": 1792762622193848700
+    },
+    "emf/content/client/enshrouded_034.dat": {
+      "sha256": "26be2bd96be985e9b045fe9e43df2caa64e5e32a59e7c4b053dffdc75957af61",
+      "size": 1013829632,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693237,
+      "links": 2,
+      "mtime_ns": 1792762622193848700
+    },
+    "emf/content/client/enshrouded_035.dat": {
+      "sha256": "028609d86134f233b5af329650d4e5540c0eb59806e1a17a634df7880e654521",
+      "size": 1010716672,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982585,
+      "links": 2,
+      "mtime_ns": 1792762622194870600
+    },
+    "emf/content/client/enshrouded_036.dat": {
+      "sha256": "d8270dd95d9fc88ea15bddb2334070a844f18c7082843326954bd427cca4ba65",
+      "size": 1003167744,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693249,
+      "links": 2,
+      "mtime_ns": 1792762622194870600
+    },
+    "emf/content/client/enshrouded_037.dat": {
+      "sha256": "85e5f5503738da887b039fbb18a6feba5f66c43a310027599ff546e9208c0948",
+      "size": 768745472,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693251,
+      "links": 2,
+      "mtime_ns": 1792762622194870600
+    },
+    "emf/content/client/enshrouded_038.dat": {
+      "sha256": "dbce35b097fb3a78223aefc606c439d12ff6f60d323b6b7f5255583516aa51c8",
+      "size": 1007353856,
+      "volume": 7969823110406842093,
+      "file_id": 4222124650682690,
+      "links": 2,
+      "mtime_ns": 1793632411786692700
+    },
+    "emf/content/client/enshrouded_039.dat": {
+      "sha256": "e4c6ab37a6de9cfcf69c8e185a24192a3615b673a57b502625b2abdf1c339e52",
+      "size": 1007853568,
+      "volume": 7969823110406842093,
+      "file_id": 4785074604104003,
+      "links": 2,
+      "mtime_ns": 1793632411786692700
+    },
+    "emf/content/client/enshrouded_040.dat": {
+      "sha256": "e32fae5dfdb6ace5574112469bd00265e664adc3d80b6afb0699577816db2fd0",
+      "size": 1007644672,
+      "volume": 7969823110406842093,
+      "file_id": 3940649673972037,
+      "links": 2,
+      "mtime_ns": 1793632411787697800
+    },
+    "emf/content/client/enshrouded_041.dat": {
+      "sha256": "7a42163c0924804a2f50027575df7176fee96251a8b2a7cb29de3047fbc97eb7",
+      "size": 580628480,
+      "volume": 7969823110406842093,
+      "file_id": 6473924464367942,
+      "links": 2,
+      "mtime_ns": 1793632411787697800
+    },
+    "emf/content/client/enshrouded_042.dat": {
+      "sha256": "d394fa6b33a16b8988487fc7b8e81b510fbf2e2c4ca365c35ab98eccc6c63033",
+      "size": 1096032256,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693260,
+      "links": 2,
+      "mtime_ns": 1792762622198871100
+    },
+    "emf/content/client/enshrouded_043.dat": {
+      "sha256": "70953ced1e0cabfbfb88839574bab20047cc687505f9f792bb1d146e2f1527b1",
+      "size": 1036374016,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982606,
+      "links": 2,
+      "mtime_ns": 1792762622198871100
+    },
+    "emf/content/client/enshrouded_044.dat": {
+      "sha256": "5bbf5adca1e8adad9da5b575691423f096185c1d3669887aac2a698ade4241c2",
+      "size": 678014976,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982607,
+      "links": 2,
+      "mtime_ns": 1792762622199870700
+    },
+    "emf/content/client/enshrouded_045.dat": {
+      "sha256": "4b1d2fe9dc7a31b65092b672b09c032f3406113b9338a05ce239994fc269d848",
+      "size": 1022074880,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697261385,
+      "links": 2,
+      "mtime_ns": 1793632411787697800
+    },
+    "emf/content/client/enshrouded_046.dat": {
+      "sha256": "b165cc9b446e5b6e1ed9ec5efdd8e9ee2d2248e6dc02278b17be32a63e9f1d18",
+      "size": 1022107648,
+      "volume": 7969823110406842093,
+      "file_id": 8162774324631882,
+      "links": 2,
+      "mtime_ns": 1793632411787697800
+    },
+    "emf/content/client/enshrouded_047.dat": {
+      "sha256": "553ef983437b9dc5ab20b053b12c843f32538b5ce0b7362ddefef005255fc4f6",
+      "size": 127414272,
+      "volume": 7969823110406842093,
+      "file_id": 34902897112144203,
+      "links": 2,
+      "mtime_ns": 1793632411788209100
+    },
+    "emf/content/client/enshrouded_048.dat": {
+      "sha256": "3d509d920715453eab08af7c86d86c8b8a3f326cecc31de9304775c0a0f9f0ee",
+      "size": 1004896256,
+      "volume": 7969823110406842093,
+      "file_id": 1970324836982617,
+      "links": 2,
+      "mtime_ns": 1792762622202871100
+    },
+    "emf/content/client/enshrouded_049.dat": {
+      "sha256": "f692e51364a2360567db001dd471d3947af903e9b44adb4486d69ebcdd212716",
+      "size": 909414400,
+      "volume": 7969823110406842093,
+      "file_id": 2251799813693275,
+      "links": 2,
+      "mtime_ns": 1792762622203871000
+    },
+    "emf/content/client/enshrouded_050.dat": {
+      "sha256": "a2dcb2ba69ec4036249983bb60fadd99948d325db87f01ba4b39af3b18a99eb8",
+      "size": 1008664576,
+      "volume": 7969823110406842093,
+      "file_id": 9851624184895820,
+      "links": 2,
+      "mtime_ns": 1793632411788209100
+    },
+    "emf/content/client/enshrouded_051.dat": {
+      "sha256": "321846d94e4d2f084d319f122a0988983352f8f8dd01a47e60f10a198723c803",
+      "size": 314626048,
+      "volume": 7969823110406842093,
+      "file_id": 5348024557525326,
+      "links": 2,
+      "mtime_ns": 1793632411788209100
+    },
+    "emf/content/client/enshrouded_052.dat": {
+      "sha256": "74cc88c88af07238381b480ba1e51cfb5a3a48a7ee42cb7c88035ce609dc0a1f",
+      "size": 907784192,
+      "volume": 7969823110406842093,
+      "file_id": 14355223812266321,
+      "links": 2,
+      "mtime_ns": 1793632411789214600
+    },
+    "emf/content/client/enshrouded_053.dat": {
+      "sha256": "67bb49ee52b02eec32b5565dd72e79f598702ef64190383762086e3084d44c09",
+      "size": 1039114240,
+      "volume": 7969823110406842093,
+      "file_id": 5629499534235892,
+      "links": 2,
+      "mtime_ns": 1793718370094161700
+    },
+    "emf/content/client/enshrouded_054.dat": {
+      "sha256": "89271a82247d2cae2c7b67cce48b8ebb7e282689a997246465a17bcf8bde820e",
+      "size": 29167616,
+      "volume": 7969823110406842093,
+      "file_id": 6755399441078619,
+      "links": 2,
+      "mtime_ns": 1793632411789214600
+    },
+    "emf/content/client/.cache/types.json": {
+      "sha256": "f3ad9e701fc647acc84aea12de9b5ac6da010423ab856c5b121be1f45eeb99ad",
+      "size": 11106802,
+      "volume": 7969823110406842093,
+      "file_id": 3096224743819706,
+      "links": 1,
+      "mtime_ns": 1795005308009275900
+    },
+    "emf/content/client/.cache/lua/base.lua": {
+      "sha256": "98847ab86a8d73a18ae2b78c53fb73db0c406e776d426d26e36048cb4142c1d0",
+      "size": 96560,
+      "volume": 7969823110406842093,
+      "file_id": 3940649673951724,
+      "links": 1,
+      "mtime_ns": 1795005308011275900
+    },
+    "emf/content/client/.cache/lua/types.lua": {
+      "sha256": "a3a4aae161bc29a64dd4e7ec047cd1fcdf2b48d9b18fbc5ff56cc491c429ba47",
+      "size": 1423389,
+      "volume": 7969823110406842093,
+      "file_id": 3096224743819740,
+      "links": 1,
+      "mtime_ns": 1795005308011275900
+    },
+    "emf/content/client/mods/aic_eml_humanoid/mod.json": {
+      "sha256": "5a46748017a7751521e9633b2b3ced2a567326b1e5dcc022194dda16f9d96415",
+      "size": 271,
+      "volume": 7969823110406842093,
+      "file_id": 3659174697240974,
+      "links": 1,
+      "mtime_ns": 1795004494188906000
+    },
+    "emf/content/client/mods/aic_eml_humanoid/README.md": {
+      "sha256": "ecacce884bf94ae1453002cd6f29f216b657180017803422385bc0c5ce3579af",
+      "size": 724,
+      "volume": 7969823110406842093,
+      "file_id": 3096224743819663,
+      "links": 1,
+      "mtime_ns": 1795004494474183200
+    },
+    "emf/content/client/mods/aic_eml_humanoid/src/mod.lua": {
+      "sha256": "4024338430fba85fee654e94462458eabf97141f3bc5b4e36babfa17dc868919",
+      "size": 16570,
+      "volume": 7969823110406842093,
+      "file_id": 3096224743819704,
+      "links": 1,
+      "mtime_ns": 1795004494332045500
+    }
+  },
+  "cleanup_authorized": false,
+  "action": "PRESERVE_NOW; UPSTREAM_REBUILD_LATER",
+  "spawn_ready": false
+}

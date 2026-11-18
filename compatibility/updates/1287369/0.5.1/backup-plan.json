@@ -1,0 +1,235 @@
+{
+  "files": [
+    {
+      "group": "game",
+      "path": "emf/mods/aic_integrated_observer/binding.lua",
+      "sha256": "2f16462263cb513a9343127c5c72a35e75f621b1e988743f0498ce2a3e9d0c24",
+      "bytes": 236
+    },
+    {
+      "group": "game",
+      "path": "mods/aic_eml_humanoid/README.md",
+      "sha256": "ecacce884bf94ae1453002cd6f29f216b657180017803422385bc0c5ce3579af",
+      "bytes": 724
+    },
+    {
+      "group": "game",
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "sha256": "5a46748017a7751521e9633b2b3ced2a567326b1e5dcc022194dda16f9d96415",
+      "bytes": 271
+    },
+    {
+      "group": "game",
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "sha256": "4024338430fba85fee654e94462458eabf97141f3bc5b4e36babfa17dc868919",
+      "bytes": 16570
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/emf_content_state.json",
+      "sha256": "7bd657f1d6973cefb7b2efc8f54f423900060ae8fb3931f152bc5e0d0401e378",
+      "bytes": 632
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/enshrouded.kfc",
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "bytes": 9396224
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/enshrouded.kfc.bak",
+      "sha256": "2093a7cc0859ba2f878fc252a65c36b39605d7e1106e091c63809f6dea460bf5",
+      "bytes": 9396224
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/enshrouded.kfc_resources",
+      "sha256": "2f54eb9e4677f129c4d527aa9b163d89d0aecee70f2b5b728d7bacaa239d91a7",
+      "bytes": 215052288
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/.cache/types.json",
+      "sha256": "f3ad9e701fc647acc84aea12de9b5ac6da010423ab856c5b121be1f45eeb99ad",
+      "bytes": 11106802
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/.cache/lua/base.lua",
+      "sha256": "98847ab86a8d73a18ae2b78c53fb73db0c406e776d426d26e36048cb4142c1d0",
+      "bytes": 96560
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/.cache/lua/types.lua",
+      "sha256": "a3a4aae161bc29a64dd4e7ec047cd1fcdf2b48d9b18fbc5ff56cc491c429ba47",
+      "bytes": 1423389
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/mods/aic_eml_humanoid/mod.json",
+      "sha256": "5a46748017a7751521e9633b2b3ced2a567326b1e5dcc022194dda16f9d96415",
+      "bytes": 271
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/mods/aic_eml_humanoid/README.md",
+      "sha256": "ecacce884bf94ae1453002cd6f29f216b657180017803422385bc0c5ce3579af",
+      "bytes": 724
+    },
+    {
+      "group": "game",
+      "path": "emf/content/client/mods/aic_eml_humanoid/src/mod.lua",
+      "sha256": "4024338430fba85fee654e94462458eabf97141f3bc5b4e36babfa17dc868919",
+      "bytes": 16570
+    },
+    {
+      "group": "LOCAL",
+      "path": "local_settings.json",
+      "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+      "bytes": 1419
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/character0.ksd",
+      "sha256": "7898f3fcc9deb621ab1ea81d3e0b62bfb0b6ba259b376f815ff3c20cb9631888",
+      "bytes": 1910
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/world0.ksd",
+      "sha256": "24d0a396e72590804133bc3b521ee771da2e46065f931fc618f95de4397100eb",
+      "bytes": 87937
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-0",
+      "sha256": "a0dad8873f76cf1b83d9c680ce778a2464f8ba4e141aad8777d68c71d639131c",
+      "bytes": 1910
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-1",
+      "sha256": "7898f3fcc9deb621ab1ea81d3e0b62bfb0b6ba259b376f815ff3c20cb9631888",
+      "bytes": 1910
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-2",
+      "sha256": "ac2c1ebbb378d9dab2cfd479b7c9712c87a5707b1c8ea735a1e5c21273a9547c",
+      "bytes": 1926
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-3",
+      "sha256": "8b61f8c6a90a6f1ae160b392bba8c19a92e5b258e4ff27bb9a4f67fcfa414439",
+      "bytes": 1926
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-4",
+      "sha256": "0ef98058b8f9080d3560558f45fd8183c3f6087e5269f6bb2144e73ba0cc657f",
+      "bytes": 1878
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-5",
+      "sha256": "3250c903778bb56d46b3ef891b517bcaaf26599eaeaa4c6ab46e8c02611f7d21",
+      "bytes": 1878
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-6",
+      "sha256": "9dd73cd2ff19e64b931406a6bf4fb24c8a1b1b53f00e0bbdc0176db4428d6321",
+      "bytes": 1798
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-7",
+      "sha256": "d07ab7781cc0903c05f3d5543726949fe5361f0dfc45dd258183a5fbe5975380",
+      "bytes": 1590
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-8",
+      "sha256": "9cabe2cf7eade79293acd8f6ae2261948cd8489001438b3560b6b58ea9b133bf",
+      "bytes": 1590
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/character0.ksd.backup-9",
+      "sha256": "68aebb311e2e45748f9610210ae62239526edfc958e18eee7dd6491e6c577945",
+      "bytes": 294
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-0",
+      "sha256": "24d0a396e72590804133bc3b521ee771da2e46065f931fc618f95de4397100eb",
+      "bytes": 87937
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-1",
+      "sha256": "b50730cbeea82eca2135d226b7803a1685416c8098f14fd5020dc7cecde5484a",
+      "bytes": 88003
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-2",
+      "sha256": "235fb43631a654be7871090e6adb40998fc17a31442caff9115f2f1d5e6e2529",
+      "bytes": 87937
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-3",
+      "sha256": "cd3e994172e17e13d84b8cbdfd12e29e22f3a6accfad34d6558e712fd8374a31",
+      "bytes": 88003
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-4",
+      "sha256": "1d6751eb8815202e4e76a3261b7aedab8ac3414baa4037c6d14792c6300dda43",
+      "bytes": 88003
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-5",
+      "sha256": "1241a1df90cd2de7f43d675cff4cd7fedfa6e824daf8b5259d672030325bc3d5",
+      "bytes": 88003
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-6",
+      "sha256": "b72cfeadd89c6ef265104f53b0a8242dde403832239f0e5897a270672dc8d40a",
+      "bytes": 371
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-7",
+      "sha256": "bb11637d60cfaf6adb0d9b2a7eefc1cac1e989113f87beb1c127300e73e3a23e",
+      "bytes": 371
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-8",
+      "sha256": "808eba4a2e00ae617d9625cb0b5b859091d56d514fcc6e0b70a8f79ede27ccc7",
+      "bytes": 371
+    },
+    {
+      "group": "LOCAL",
+      "path": "default/backup/world0.ksd.backup-9",
+      "sha256": "a7212b444c6b11d9b0953e141af59fa49d3e50c58d6a7f54d492135c9ddbbbff",
+      "bytes": 194
+    },
+    {
+      "group": "project",
+      "path": "compatibility\\migration\\1287369\\phase_e\\install-receipt.json",
+      "sha256": "c3cd5da70e01fd073553b6dcc2598e8ede867693087b67c285d65253c59d70fc",
+      "bytes": 10101
+    }
+  ],
+  "payload_bytes": 247154745,
+  "created": false,
+  "policy": "NEW_VERIFIED_BACKUP_BEFORE_UPDATE; preserve old backups/quarantines; no save restore"
+}

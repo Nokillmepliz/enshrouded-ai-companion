@@ -1,5 +1,11 @@
 # enshrouded-ai-companion
 
+**Stage10.10.2: `READY_FOR_PATCH_UPDATE_APPROVAL`.** Кандидат0.5.1 исправляет
+проверку пустой resource reference и разделяет диагностику animationGraph/retargetData.
+Подготовлен update4 файлов и backup-план247.2 MB; установленный0.5.0 не изменён.
+713 тестов PASS,1 skip; новый runtime не выполнен, `spawn_ready=false`.
+[Отчёт и порядок согласования обновления](docs/STAGE10_10_2_REPORT.md).
+
 **Stage10.10.1 Phase F: `BLOCKED_CONTENT_BUILD / LOAD_ONLY_UNCONFIRMED`.**
 Ручной тест завершён: patch0.5.0 остановился на `AIC_PATCH:graph_changed`.
 После закрытия originals67/67, installed16/16 и backup27/27 PASS; за игровой сеанс
