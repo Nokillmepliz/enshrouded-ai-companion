@@ -1,11 +1,12 @@
 # enshrouded-ai-companion
 
-**Stage10.10.1 Phase F разрешена: `READY_FOR_MANUAL_START`.** Fresh preflight:
-installed16/16, backup27/27, originals137/137 и LOCAL23/23 PASS. Ожидается ручной
-запуск LOCAL Body Test / AI Body Test пользователем; runtime verdict ещё нет.
-[Текущий checkpoint Phase F](docs/STAGE10_10_1_PHASE_F_REPORT.md). `spawn_ready=false`.
+**Stage10.10.1 Phase F: `BLOCKED_CONTENT_BUILD / LOAD_ONLY_UNCONFIRMED`.**
+Ручной тест завершён: patch0.5.0 остановился на `AIC_PATCH:graph_changed`.
+После закрытия originals67/67, installed16/16 и backup27/27 PASS; за игровой сеанс
+изменились6 LOCAL-файлов, их хеши зафиксированы, восстановления не было.
+[Итоговый отчёт Phase F](docs/STAGE10_10_1_PHASE_F_REPORT.md). `spawn_ready=false`.
 
-**Stage10.10.1 Phase E завершена: `READY_FOR_PHASE_F_APPROVAL`.**
+**История: Stage10.10.1 Phase E завершена: `READY_FOR_PHASE_F_APPROVAL`.**
 Установлены только16 согласованных файлов;16/16 hashes, новый receipt и rollback
 dry-run PASS.137 оригинальных файлов и23 LOCAL неизменны, backup/quarantine сохранены.
 Python690 PASS/1skip. Игра/server не запускались; Phase F ещё не разрешена,

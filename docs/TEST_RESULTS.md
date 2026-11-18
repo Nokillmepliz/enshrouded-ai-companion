@@ -410,3 +410,11 @@ d51908d0dc32e341f1195168df07009ed2685580dd545746acd0ff5f7e8ef00e  aic_body-0.1.0
 - `git diff --check`: **PASS**.
 - Runtime, game/server, install, rollback, spawn/destroy и game/save mutations: **NOT_EXECUTED**.
 - Итог: `NATIVE_EXTENSION_REQUIRED / BLOCKED_FOR_SPAWN`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`.
+
+## 2026-11-18 — Phase F post-close
+
+Full Python suite: 691 tests, 690 PASS, 1 existing skip, 0 failures, 12.433s.
+Command: `.tools/python/python.exe -m unittest discover -s tests -q`.
+Real read-only post-close audit passed original resource67, installed16 and backup27 checks.
+Runtime content build failed with AIC_PATCH:graph_changed; unit success does not establish runtime compatibility.
+See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations or rollback by agent.
