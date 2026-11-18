@@ -1,0 +1,8 @@
+{
+  "status": "STOPPED",
+  "error": "INVALID_PATH",
+  "backup_path": "C:\\Enshrouded-ai-companion\\runtime\\backups\\stage10_10_2-patch-0.5.1-20261118T132845581508Z",
+  "automatic_rollback": false,
+  "game_not_launched": true,
+  "spawn_ready": false
+}

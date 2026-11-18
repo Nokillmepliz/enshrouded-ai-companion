@@ -1,5 +1,9 @@
 # Stage 10.10.2 — Animation Graph Compatibility Fix
 
+Последующее состояние: разрешённая установка остановлена до замены файлов на ошибке
+backup plan `INVALID_PATH`. См. [отчёт об установке](STAGE10_10_2_INSTALL_REPORT.md).
+Ниже сохранён исторический результат подготовки кандидата.
+
 **READY_FOR_PATCH_UPDATE_APPROVAL**, 2026-11-18.
 Подготовка выполнена офлайн. Установленная версия остаётся0.5.0;
 `runtime_validation=NOT_EXECUTED`, `RUNTIME_RENDER_CONFIRMED=UNKNOWN`, `spawn_ready=false`

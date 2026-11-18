@@ -429,3 +429,10 @@ See [Phase F report](STAGE10_10_1_PHASE_F_REPORT.md). No game launch, mutations 
 - Decoded-source fixture82 components/63 deps/18 refs/102 joints PASS; API/clone/scan mocked, не реальная EML сериализация.
 - Read-only повторный аудит:222 game/23 LOCAL records неизменны относительно post-close, включая67 originals/66 shadow/16 installed; backup27 PASS. Новый runtime NOT_EXECUTED, render UNKNOWN,spawn_ready=false.
 - Подробности и hashes: [Stage10.10.2](STAGE10_10_2_REPORT.md), [test metadata](../compatibility/updates/1287369/0.5.1/test-results.json).
+
+## 2026-11-18 — разрешённая транзакция update0.5.1
+
+- Full Python suite:721 testsRun/720 PASS/1 existing skip/0 failures,12.549s,exit0; log runtime/stage10_10_2-install-tests.log.
+- 7 новых transaction fixtures PASS: verified backup и4 replacements, no authorization, changed source/backup, partial OS replacement failure без rollback, live process guard, hardlinked destination refusal.
+- Py_compile новых module/script/tests PASS. Native/Lua не менялись. Результат фактической установки фиксируется отдельно от этих fixtures.
+- Реальная попытка после этих тестов STOPPED/INVALID_PATH на38-й backup entry (Windows separator в project receipt path). Копии37/37 SHA PASS, backup incomplete, replacements0/4. Повторный полный post-stop audit222 game/23 LOCAL unchanged; installed0.5.0 hashes16 PASS. Unit tests не подменяют проверку реального manifest; [отчёт](STAGE10_10_2_INSTALL_REPORT.md).
