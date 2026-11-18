@@ -1,10 +1,11 @@
 # enshrouded-ai-companion
 
-**Patch0.5.1 установлен: `READY_FOR_REPEAT_LOAD_ONLY_APPROVAL`.** Исправлен backup plan,
-создан verified backup38 (~247.2 MB), обновлены4 согласованных файла;16/16 hashes
-и rollback dry-run PASS. Originals/shadow/LOCAL неизменны. 728 тестов PASS,1 skip.
-Игра не запускалась, `spawn_ready=false`; повторный load-only требует разрешения.
-[Отчёт установки и ограничения](docs/STAGE10_10_2_INSTALL_REPORT.md).
+**Load-only patch0.5.1: `LOAD_ONLY_UNCONFIRMED`.** Штатная сборка, graph/retarget,
+evidence v8 и writer PASS; Bridge отказал с Windows error5. После закрытия originals67,
+installed16 и backup38 PASS. Общий audit остановлен на двух неатрибутированных
+изменениях (архивный лог и metadata chain_status). Изменились7 LOCAL-файлов.
+Shadow readback/observer/render не подтверждены, `spawn_ready=false`.
+[Итоговый отчёт](docs/STAGE10_10_2_LOAD_ONLY_REPORT.md).
 
 **История подготовки Stage10.10.2: `READY_FOR_PATCH_UPDATE_APPROVAL`.** Кандидат0.5.1 исправляет
 проверку пустой resource reference и разделяет диагностику animationGraph/retargetData.

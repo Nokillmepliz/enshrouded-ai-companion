@@ -1,0 +1,308 @@
+{
+  "checked_utc": "2026-11-18T13:50:45.283366+00:00",
+  "status": "POST_CLOSE_BLOCKED",
+  "game_server_closed": true,
+  "installed_verified": 16,
+  "backup_verified": 38,
+  "private_evidence": "C:\\Enshrouded-ai-companion\\runtime\\stage10_10_2\\load_only\\20261118T134435140530Z\\post-close-20261118T135045278853Z",
+  "original_resource_count": 67,
+  "original_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [],
+    "metadata_changed": []
+  },
+  "game_count": 234,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-18T16-46-15.log",
+      "emf/content/client/.cache/files.json",
+      "emf/content/client/enshrouded_055.dat",
+      "emf/content/client/enshrouded_056.dat",
+      "emf/content/client/enshrouded_057.dat",
+      "emf/content/client/enshrouded_058.dat",
+      "emf/content/client/enshrouded_059.dat",
+      "emf/content/client/enshrouded_060.dat",
+      "emf/content/client/enshrouded_061.dat",
+      "emf/content/client/enshrouded_062.dat",
+      "emf/content/client/enshrouded_063.dat",
+      "emf/content/client/shadow.txt"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/content.log",
+      "emf/content/client/emf_content_state.json",
+      "emf/content/client/enshrouded.kfc",
+      "emf/content/client/enshrouded.kfc_resources",
+      "emf/content/client/mods/aic_eml_humanoid/README.md",
+      "emf/content/client/mods/aic_eml_humanoid/mod.json",
+      "emf/content/client/mods/aic_eml_humanoid/src/mod.lua",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/content.log",
+      "emf/content/client/.cache/lua/base.lua",
+      "emf/content/client/.cache/lua/types.lua",
+      "emf/content/client/.cache/types.json",
+      "emf/content/client/emf_content_state.json",
+      "emf/content/client/enshrouded.kfc",
+      "emf/content/client/enshrouded.kfc.bak",
+      "emf/content/client/enshrouded.kfc_resources",
+      "emf/content/client/mods/aic_eml_humanoid/README.md",
+      "emf/content/client/mods/aic_eml_humanoid/mod.json",
+      "emf/content/client/mods/aic_eml_humanoid/src/mod.lua",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ]
+  },
+  "unattributed_changes": [
+    "backup/enshrouded_2026-11-18T16-46-15.log",
+    "emf/chain_status.txt"
+  ],
+  "shadow_count": 77,
+  "shadow_changes": {
+    "added": [
+      ".cache/files.json",
+      "enshrouded_055.dat",
+      "enshrouded_056.dat",
+      "enshrouded_057.dat",
+      "enshrouded_058.dat",
+      "enshrouded_059.dat",
+      "enshrouded_060.dat",
+      "enshrouded_061.dat",
+      "enshrouded_062.dat",
+      "enshrouded_063.dat",
+      "shadow.txt"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf_content_state.json",
+      "enshrouded.kfc",
+      "enshrouded.kfc_resources",
+      "mods/aic_eml_humanoid/README.md",
+      "mods/aic_eml_humanoid/mod.json",
+      "mods/aic_eml_humanoid/src/mod.lua"
+    ],
+    "metadata_changed": [
+      ".cache/lua/base.lua",
+      ".cache/lua/types.lua",
+      ".cache/types.json",
+      "emf_content_state.json",
+      "enshrouded.kfc",
+      "enshrouded.kfc.bak",
+      "enshrouded.kfc_resources",
+      "mods/aic_eml_humanoid/README.md",
+      "mods/aic_eml_humanoid/mod.json",
+      "mods/aic_eml_humanoid/src/mod.lua"
+    ]
+  },
+  "base_links": 56,
+  "errors": [
+    "UNATTRIBUTED_NON_SHADOW_CHANGES"
+  ],
+  "shadow_scope": "FILESYSTEM_IDENTITY_AND_MOD_COPIES_ONLY; generated resource semantics/readback NOT_VALIDATED",
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_change_records": {
+    "default/backup/character0.ksd.backup-0": {
+      "before": {
+        "sha256": "a0dad8873f76cf1b83d9c680ce778a2464f8ba4e141aad8777d68c71d639131c",
+        "size": 1910,
+        "volume": 1491991708024336714,
+        "file_id": 12103423999147649,
+        "links": 1,
+        "mtime_ns": 1795005637531049200
+      },
+      "after": {
+        "sha256": "6b96bb67cc36c980ab7149cd884bd9fc66b39868d5b6858b19e36b97629fa604",
+        "size": 1974,
+        "volume": 1491991708024336714,
+        "file_id": 12103423999147649,
+        "links": 1,
+        "mtime_ns": 1795009745627342200
+      }
+    },
+    "default/backup/character0.ksd.backup-2": {
+      "before": {
+        "sha256": "ac2c1ebbb378d9dab2cfd479b7c9712c87a5707b1c8ea735a1e5c21273a9547c",
+        "size": 1926,
+        "volume": 1491991708024336714,
+        "file_id": 139611588448990894,
+        "links": 1,
+        "mtime_ns": 1793546763766862200
+      },
+      "after": {
+        "sha256": "c1bdab904aaf3aac5c8733717822df4a4235bb4f24e774e14669e826a20fe099",
+        "size": 1974,
+        "volume": 1491991708024336714,
+        "file_id": 139611588448990894,
+        "links": 1,
+        "mtime_ns": 1795009732996045200
+      }
+    },
+    "default/backup/world0.ksd.backup-0": {
+      "before": {
+        "sha256": "24d0a396e72590804133bc3b521ee771da2e46065f931fc618f95de4397100eb",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 95420017105410896,
+        "links": 1,
+        "mtime_ns": 1795005660009583900
+      },
+      "after": {
+        "sha256": "6973be7d75cdb50fd3366f7168dfefeb84889fb10a505533697c3f3fbfdb22be",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 95420017105410896,
+        "links": 1,
+        "mtime_ns": 1795009745593577900
+      }
+    },
+    "default/backup/world0.ksd.backup-1": {
+      "before": {
+        "sha256": "b50730cbeea82eca2135d226b7803a1685416c8098f14fd5020dc7cecde5484a",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 34902897112615632,
+        "links": 1,
+        "mtime_ns": 1795005637489518400
+      },
+      "after": {
+        "sha256": "debfdcd412866fb33aa7f0d6fb06094efdeba886237ac4f5bf576fc2d17f2bf5",
+        "size": 88003,
+        "volume": 1491991708024336714,
+        "file_id": 34902897112615632,
+        "links": 1,
+        "mtime_ns": 1795009672939312500
+      }
+    },
+    "default/backup/world0.ksd.backup-2": {
+      "before": {
+        "sha256": "235fb43631a654be7871090e6adb40998fc17a31442caff9115f2f1d5e6e2529",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 70650219154868943,
+        "links": 1,
+        "mtime_ns": 1793546828597631800
+      },
+      "after": {
+        "sha256": "74d50c0735152f65d6c90704d7539ed5d408d0d27bbe8133e47c9a497daa9ec8",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 70650219154868943,
+        "links": 1,
+        "mtime_ns": 1795009745793758000
+      }
+    },
+    "default/character0.ksd": {
+      "before": {
+        "sha256": "7898f3fcc9deb621ab1ea81d3e0b62bfb0b6ba259b376f815ff3c20cb9631888",
+        "size": 1910,
+        "volume": 1491991708024336714,
+        "file_id": 98797716825938452,
+        "links": 1,
+        "mtime_ns": 1795005659843847000
+      },
+      "after": {
+        "sha256": "6b96bb67cc36c980ab7149cd884bd9fc66b39868d5b6858b19e36b97629fa604",
+        "size": 1974,
+        "volume": 1491991708024336714,
+        "file_id": 98797716825938452,
+        "links": 1,
+        "mtime_ns": 1795009745626842200
+      }
+    },
+    "default/world0.ksd": {
+      "before": {
+        "sha256": "24d0a396e72590804133bc3b521ee771da2e46065f931fc618f95de4397100eb",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 35184372089329016,
+        "links": 1,
+        "mtime_ns": 1795005660009583900
+      },
+      "after": {
+        "sha256": "74d50c0735152f65d6c90704d7539ed5d408d0d27bbe8133e47c9a497daa9ec8",
+        "size": 87937,
+        "volume": 1491991708024336714,
+        "file_id": 35184372089329016,
+        "links": 1,
+        "mtime_ns": 1795009745793259700
+      }
+    },
+    "local_settings.json": {
+      "before": {
+        "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+        "size": 1419,
+        "volume": 1491991708024336714,
+        "file_id": 135670938774781154,
+        "links": 1,
+        "mtime_ns": 1795005393649449800
+      },
+      "after": {
+        "sha256": "abc153af38dd05e05602da7864d5469b202970be76c0afd2406fecb8f977bf15",
+        "size": 1419,
+        "volume": 1491991708024336714,
+        "file_id": 135670938774781154,
+        "links": 1,
+        "mtime_ns": 1795009609534488700
+      }
+    }
+  },
+  "save_semantic_integrity": "NOT_ESTABLISHED; NO_RESTORE",
+  "content_fingerprint": "sha256:17d1f36bb57e8dd9fc064eee5402ed4f10365d9970bda8fa975e7156638f1138",
+  "runtime_blocker": "BLOCKED_BRIDGE_ACCESS",
+  "verdict": {
+    "verdict": "LOAD_ONLY_UNCONFIRMED",
+    "gates": {
+      "original_integrity": "PASS",
+      "single_content_owner": "UNKNOWN",
+      "shadow_integrity": "UNKNOWN",
+      "writer_finalized": "PASS",
+      "content_unloaded": "PASS",
+      "fresh_state": "PASS",
+      "shadow_readback": "UNKNOWN",
+      "resource_redirection": "UNKNOWN",
+      "observer_session": "UNKNOWN",
+      "no_legacy_artifacts": "UNKNOWN"
+    },
+    "A": "PASS",
+    "H": "PASS",
+    "R": "UNKNOWN",
+    "V": "REFERENCES_ONLY",
+    "B": "UNKNOWN",
+    "C": "PASS",
+    "runtime_render": "UNKNOWN",
+    "spawn_ready": false
+  },
+  "rollback_executed": false,
+  "spawn_ready": false
+}

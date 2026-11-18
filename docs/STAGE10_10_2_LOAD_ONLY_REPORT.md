@@ -1,6 +1,48 @@
 # Stage10.10.2 — повторный load-only patch0.5.1
 
-## Runtime: BLOCKED_BRIDGE_ACCESS — ожидание закрытия игры
+## Итог после закрытия — LOAD_ONLY_UNCONFIRMED
+
+2026-11-18,13:50:45 UTC: пользователь закрыл игру. Read-only audit подтвердил
+отсутствие game/server, прежний build, package/profile/binding/receipt, installed16/16
+и verified backup38/38. Проверки выполнены заново, не перенесены из preflight.
+
+- **67/67 оригинальных ресурсов неизменны** по SHA/size/mtime/identity/links:
+  EXE, KFC, resources и64 root DAT. Все16 установленных файлов совпали с receipt.
+  Fingerprint0.5.1 совпал. Gate C PASS.
+- Game inventory234 (до запуска222):12 добавлений, удалений нет. Shadow77 (ранее66):
+  добавлены9 generated DAT055–063, `.cache/files.json`, `shadow.txt`.
+  Изменены private KFC/resources, state и3 копии мода; их SHA совпадают с установленным
+  payload.56 base hardlinks совпали с оригиналами; неожиданных links/reparse не выявлено.
+  Это проверка файловой структуры, не семантический readback новых ресурсов.
+- Post-close audit завершился **POST_CLOSE_BLOCKED / UNATTRIBUTED_NON_SHADOW_CHANGES**:
+  новый `backup/enshrouded_2026-11-18T16-46-15.log` и изменение только метаданных
+  `emf/chain_status.txt` не входят в список разрешённых изменений этого исполнителя.
+  SHA chain_status не изменился. Эти результаты не доказывают повреждение или
+  конфликт модов, но автоматический общий PASS запрещён. Список не расширялся
+  задним числом, повторного запуска аудита для снятия блокера не было.
+- LOCAL23:7 файлов изменили содержимое (character0/world0 и5 backup-файлов),
+  остальные16 сохранили SHA/размер. `local_settings.json` изменил только metadata.
+  Добавлений/удалений нет. Before/after hashes опубликованы без содержимого сохранений;
+  семантическая целостность KSD не доказана. Агент сохранения не изменял и не восстанавливал.
+
+[Полный post-close результат](../compatibility/updates/1287369/0.5.1/load-only/post-close.json).
+Private inventory/logs: `runtime/stage10_10_2/load_only/20261118T134435140530Z/post-close-20261118T135045278853Z`.
+
+Итог: A/H/C PASS, V REFERENCES_ONLY, R/B UNKNOWN; LOAD_ONLY_UNCONFIRMED.
+Исправление animationGraph/retargetData и завершение writer подтверждены этим запуском.
+Bridge error5 остаётся неразобранным: подключение не повторялось, observer/LOCAL runtime
+context не подтверждены. Shadow readback, независимая resource redirection и rendering
+остаются непроверенными. После ошибки выполнялся только разрешённый post-close audit.
+Spawn, игровые мутации, ручная очистка cache/shadow и rollback не выполнялись.
+**spawn_ready=false**. Работа остановлена; следующий шаг — отдельно разобрать Bridge
+access и два неатрибутированных изменения перед дальнейшим испытанием.
+
+`scripts/audit_patch_0_5_1_closed.py` использует существующие snapshot/differences,
+check_plan/verify_updated/verify_backup/input_fingerprint/live validators.
+Py_compile PASS. Полный набор unit tests выполнен отдельно; результаты приведены
+в PROGRESS.md. Успех unit tests не отменяет фактический POST_CLOSE_BLOCKED.
+
+## История runtime: BLOCKED_BRIDGE_ACCESS — ожидание закрытия игры
 
 Пользователь загрузил мир. PID187928, старт16:46:13 MSK, fresh build13:46:15 UTC.
 Копии logs/state/shadow.txt сохранены в private checkpoint/runtime-capture.
