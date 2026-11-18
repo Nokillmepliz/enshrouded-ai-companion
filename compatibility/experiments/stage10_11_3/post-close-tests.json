@@ -1,0 +1,9 @@
+{
+  "testsRun": 29,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.011,
+  "success": true,
+  "scope": "existing runtime/post-close attribution validators; no game execution"
+}

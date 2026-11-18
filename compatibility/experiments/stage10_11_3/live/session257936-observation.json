@@ -1,0 +1,80 @@
+{
+  "status": "SINGLE_SPAWN_VISUALLY_OBSERVED_POST_CLOSE_PENDING",
+  "pid": 257936,
+  "entity": 6959,
+  "spawn_requests": 1,
+  "latch": "SPENT",
+  "local_confirmation_key": "Y",
+  "confirmation_remaining_seconds": 12.235360141756246,
+  "candidate": 1,
+  "samples": [
+    {
+      "recorded_utc": "2026-11-18T17:02:51.578520+00:00",
+      "observation": {
+        "animation": true,
+        "character_setup": false,
+        "faction": 11,
+        "force_save": false,
+        "npc": 2939921867,
+        "player": false,
+        "position": {
+          "x": 3699.73095703125,
+          "y": 893.5,
+          "z": 1281.1947021484375
+        },
+        "render_equipment": false,
+        "saved_state": true
+      }
+    },
+    {
+      "recorded_utc": "2026-11-18T17:03:06.828041+00:00",
+      "observation": {
+        "animation": true,
+        "character_setup": false,
+        "faction": 11,
+        "force_save": false,
+        "npc": 2939921867,
+        "player": false,
+        "position": {
+          "x": 3700.435791015625,
+          "y": 893.5,
+          "z": 1281.096435546875
+        },
+        "render_equipment": false,
+        "saved_state": true
+      }
+    },
+    {
+      "recorded_utc": "2026-11-18T17:03:22.078196+00:00",
+      "observation": {
+        "animation": true,
+        "character_setup": false,
+        "faction": 11,
+        "force_save": false,
+        "npc": 2939921867,
+        "player": false,
+        "position": {
+          "x": 3700.435791015625,
+          "y": 893.5,
+          "z": 1281.096435546875
+        },
+        "render_equipment": false,
+        "saved_state": true
+      }
+    }
+  ],
+  "first_movement_metres": 0.7116510876213011,
+  "visual_evidence": "user screenshots: lying then standing clothed humanoid; talk/craft prompt visible",
+  "user_report": "stood up when approached",
+  "dialogue_tested": false,
+  "follow_tested": false,
+  "peaceful_behavior": "NOT_ESTABLISHED",
+  "post_close": "PENDING",
+  "spawn_ready": false,
+  "production_spawn_ready": false,
+  "evidence_hashes": {
+    "sample-0.json": "86080e7107ff5161d9342b80306d00f45b1d1d830ae316d8afbd45a27fef9425",
+    "sample-1.json": "37c4fe9ddb6179a07946e09dba01f981fc11599a02ee1d4e5aadf8d3e16e2900",
+    "sample-2.json": "910f089f5020e001ff9b18275b9d02d7bddee313781f35d8c8f6a7b374198bdb"
+  }
+}

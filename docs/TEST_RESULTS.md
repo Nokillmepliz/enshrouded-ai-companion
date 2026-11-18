@@ -486,3 +486,8 @@ Py_compile и git diff --check PASS. Свежие начальный и итог
 ## 2026-11-18 — Stage 10.11.3 installation
 
 Пять новых тестов exact installer PASS, включая partial failure без automatic rollback. Полный suite952:951PASS/1skip/0failures/0errors,22.084s,exit0. Прежний Windows symlink skip; права не менялись. [Evidence](../compatibility/experiments/stage10_11_3/install-tests.json). Фактически выполнены backup27/27, install4/4, effective23/23 и rollback dry-run4. Остальные241game/23LOCAL неизменны. Py_compile/diff check PASS. Runtime/probe/spawn NOT RUN. [Отчёт](STAGE10_11_3_INSTALLATION.md).
+
+
+## 2026-11-18 — Stage 10.11.3 runtime/post-close
+
+Фактический пользовательский spawn:1, entity6959; humanoid render подтверждён скриншотами, смена лежачей позы на стоячую — наблюдением пользователя.8 Ground callbacks,READY за4.609s; candidate3 отклонён по высоте. Read-only observe3 за30.50s. После закрытия originals67/shadow77/installed22 неизменны, SPENT latch отдельно атрибутирован, backup27 PASS; LOCAL23 изменились игровыми сохранениями, семантика/persistence NPC не проверены.29/29 runtime_validation tests заново PASS,0failures/errors/skips,0.011s; полный suite952 не повторялся. [Отчёт](STAGE10_11_3_RUNTIME.md), [аудит](../compatibility/experiments/stage10_11_3/post-close-257936.json).

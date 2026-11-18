@@ -1,0 +1,35 @@
+{
+  "status": "LOCAL_CONTEXT_AND_CONTROLLER_PASS",
+  "pid": 257936,
+  "character": {
+    "storage": "local",
+    "slot": 1,
+    "name": "Body Test"
+  },
+  "world": {
+    "status": "running",
+    "kind": "server",
+    "slot": 1,
+    "name": "AI Body Test"
+  },
+  "player": 1,
+  "health": {
+    "value": 100,
+    "max": 100,
+    "source": "attributes"
+  },
+  "controller_state": "NEW",
+  "pending": 0,
+  "attempted": false,
+  "installed": 23,
+  "backup": 27,
+  "latch": "UNUSED",
+  "probe_executed": false,
+  "spawn_executed": false,
+  "spawn_ready": false,
+  "evidence_sha256": {
+    "controller-status.json": "088d63787ef2e6e6bb1453882425a0b3bdf67a75b144227fcd1758845a82e6d3",
+    "hello.json": "0d0d6a6b66e5799167c67c270b8aa8f0860719fa635f2e3e05909629579987a7",
+    "state.json": "b7142c2590e2bf1aad2c06c3e458ca00029e77b19bcad51c4e8aafa465245767"
+  }
+}

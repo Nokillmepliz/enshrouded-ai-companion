@@ -1,0 +1,23 @@
+{
+  "status": "READY_FOR_MANUAL_START",
+  "recorded_utc": "2026-11-18T16:57:34.028417+00:00",
+  "preflight_exit_code": 0,
+  "installed_files": 23,
+  "backup_files": 27,
+  "game_files": 245,
+  "local_files": 23,
+  "history_files": 75,
+  "latch": "UNUSED",
+  "local_character": "Body Test",
+  "local_world": "AI Body Test",
+  "slots": [
+    1,
+    1
+  ],
+  "receipt_sha256": "d973898fbd447f274fbf2365a9146d1b193a01413677d253fbcfbfc0da338485",
+  "baseline_path": "C:\\Enshrouded-ai-companion\\runtime\\stage10_11_3\\installation\\inventory-after.json",
+  "baseline_sha256": "0cc0a9b1564e35d8c6b8cd586baa737b49cdbf352f86a97cf3d16df09539375e",
+  "probe_executed": false,
+  "spawn_executed": false,
+  "spawn_ready": false
+}
