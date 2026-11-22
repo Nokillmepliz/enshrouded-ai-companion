@@ -1,0 +1,155 @@
+{
+  "status": "POST_CLOSE_INTEGRITY_PASS_SCHEDULE_RESTORED",
+  "runtime_verdict": "NATIVE_WAKE_CONFIRMED_FOLLOW_ABORTED",
+  "pid": 507224,
+  "created_utc": "2026-11-22T18:21:46.717334+00:00",
+  "counts": {
+    "originals": 67,
+    "shadow": 77,
+    "installed_records_unchanged": 32,
+    "installed_content_unchanged": 33,
+    "authorized_runtime_files": 2
+  },
+  "backup_verified": 28,
+  "history_unchanged": 112,
+  "preserved_intents": 81,
+  "follow_latch": "SPENT!",
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-3",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-3",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantic_integrity": "NOT_ESTABLISHED; game autosaves; no direct save writes or restore",
+  "world_save_events": 13,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-22T21-13-43.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-stage10-15.lock",
+      "emf/mods/aic_companion_movement/schedule-stage10-15.jsonl",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-stage10-15.lock",
+      "emf/mods/aic_companion_movement/main.lua",
+      "emf/mods/aic_companion_movement/schedule-stage10-15.jsonl",
+      "enshrouded.log"
+    ]
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-22T21-13-43.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "authorized_main_mtime_change": {
+    "before": 1795371123875534000,
+    "after": 1795371533110078300
+  },
+  "console_command_counts": {
+    "aic_companion_movement.discover": 4,
+    "aic_companion_movement.f_start": 1,
+    "aic_companion_movement.f_step": 11,
+    "aic_companion_movement.f_status": 2
+  },
+  "runtime_summary": {
+    "samples": 11,
+    "states_seen": [
+      "FOLLOWING",
+      "MOVING",
+      "WAITING_FOR_PLAYER"
+    ],
+    "minimum_player_distance": 3.9711986181929357,
+    "maximum_player_distance": 10.326509808933908,
+    "orders": 1,
+    "recoveries": 0,
+    "arrival_observed": false,
+    "stopped_reason": "",
+    "roaming_disabled": false,
+    "sustained_follow": "REQUIRES_GAME_OBSERVATION",
+    "scenario_coverage": "ONLY_STATES_SEEN; missing scenarios are NOT_TESTED",
+    "spawn_ready": false
+  },
+  "movement_intents": 1,
+  "movement_accepted": 1,
+  "completed_arrivals": 0,
+  "initial_target_distance": 8.976815422586194,
+  "last_progress": {
+    "displacement": 7.2294785271298725,
+    "id": 1,
+    "initial_player_distance": 10.326509808933908,
+    "player_distance": 8.58632646188138,
+    "target_distance": 1.8041439930080732
+  },
+  "schedule_acquired": {
+    "ai_state": 8,
+    "hour": 1.9526445855033334,
+    "sleep": 21.485403060913086,
+    "wake": 7.210055351257324
+  },
+  "awake_observed": [
+    {
+      "ai_state": 5,
+      "decision": 2
+    }
+  ],
+  "restored_hours": {
+    "entity": 1025,
+    "session": "bc857aad353566f2-1",
+    "sleep": 21.485403060913086,
+    "state": "ACQUIRED",
+    "wake": 7.210055351257324
+  },
+  "schedule_released": true,
+  "recovery_method": "separately approved same-session mtime-only Lua reload",
+  "automatic_cleanup_failed": true,
+  "thresholds_20_50": "NOT_COVERED",
+  "sustained_follow": "NOT_CONFIRMED",
+  "other_npcs": "No other NPC targeted by controller; no independent all-NPC schedule comparison",
+  "journal_sha256": "7fe324e8990d1e1cf55922b3e187c8d911b74e3b792cbb5963a592a734658b70",
+  "schedule_journal_sha256": "a330559a08247da4bc1767693f569e2c08a8b91c0f09de2398291a543af9d567",
+  "recovery_result_sha256": "d5b0afb0f23f3910f87f900cc584927c2b170ddc567f1a99d2d2a25c8daea1dc",
+  "log_hashes": {
+    "enshrouded.log": "86929e0723581b90e1ac0facf160c163df167c87e5f040e54804ccbb94c50462",
+    "emf/emf_core.log": "32f168c4b6633984b64c6ea5289b9bbeac466b3f358e5c08f6db69779f9f611d",
+    "emf/emf_loader.log": "8ec5bb3c25d076936ce8018defc11277bb2390738e9c0d12fbfd400f7813e68c",
+    "emf/file_opens.log": "99f76af6cba4722a1e077d380e3bb64c03ebe0d17e4f647a8ee052a60032a2b9"
+  },
+  "post_close_baseline_sha256": "aaf088bd87def15f73fe10a349831af4477fbbdfc1e1d1ad4de9d2260b8593ab",
+  "retry_performed": false,
+  "rollback_executed": false,
+  "spawn_ready": false
+}
