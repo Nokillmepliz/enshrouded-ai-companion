@@ -1,7 +1,7 @@
 {
   "id": "aic_companion_movement",
   "name": "AI Companion discovery and movement prototype",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Explicitly armed bounded follow test; heartbeat and persistent session latch.",
   "authors": ["Enshrouded AI Companion"],
   "emf": 46,

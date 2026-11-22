@@ -5,10 +5,17 @@ local function point(p)
   and p.x==p.x and p.y==p.y and p.z==p.z and math.abs(p.x)<1e6 and math.abs(p.y)<1e6 and math.abs(p.z)<1e6
 end
 local function dist(a,b) return math.sqrt((a.x-b.x)^2+(a.y-b.y)^2+(a.z-b.z)^2) end
+local function across(a,b) return math.sqrt((a.x-b.x)^2+(a.z-b.z)^2) end
 function M.new(api,discover,config)
  local c={state='STOPPED',reason='NOT_STARTED',orders=0,recoveries=0,probes=0,seq=0,used=false}
  local started,heartbeat,last,session,entity,order,pending,ready,epoch=0,0,-100,nil,nil,nil,nil,nil,0
  local following=false
+ local candidate=0
+ local function reject(why)
+  pending=nil;ready=nil;epoch=epoch+1;last=api.now()
+  candidate=(candidate+1)%8;c.state="RECOVERING";c.reason=why
+  api.log("CANDIDATE_REJECTED",{reason=why,next_candidate=candidate})
+ end
  local inflight,requested=0,0
  local function log(event,data) api.log(event,data or {}) end
  local function inspect(w)
@@ -28,6 +35,7 @@ function M.new(api,discover,config)
   order=nil
  end
  function c.stop(w,why)
+  if c.state=='STOPPED' and c.used then return end
   c.state='STOPPED';c.reason=why;epoch=epoch+1;pending=nil;ready=nil
   -- Never cancel a reused identity or foreign order. Engine deadline remains finite.
   local ok,d=pcall(inspect,w)
@@ -49,9 +57,9 @@ function M.new(api,discover,config)
   c.probes=c.probes+1
   epoch=epoch+1;local e=epoch;local origin=d.position;local player_origin=p
   local dx,dz=origin.x-p.x,origin.z-p.z;local length=math.sqrt(dx*dx+dz*dz)
-  if length<0.01 then c.stop(w,'DIRECTION_UNAVAILABLE');return end
-  -- First point faces NPC, subsequent bounded recovery rotates 45/90 degrees.
-  local angle=c.recoveries*math.pi/4
+  if length<0.01 then dx,dz,length=1,0,1 end
+  -- Eight bounded destination candidates around the player; engine chooses the route.
+  local angle=candidate*math.pi/4
   dx,dz=(dx*math.cos(angle)-dz*math.sin(angle))/length,(dx*math.sin(angle)+dz*math.cos(angle))/length
   local target={x=p.x+1.8*dx,y=p.y,z=p.z+1.8*dz}
   pending={at=api.now(),stage='GROUND'};c.state='FOLLOWING'
@@ -60,40 +68,42 @@ function M.new(api,discover,config)
    local ok,dd=pcall(fresh,world)
    if not ok then c.stop(world,'PROBE_CONTEXT');return false end
    local pp=api.position(world,dd.player)
-   if not point(pp) or dist(pp,player_origin)>0.75 or dist(dd.position,origin)>0.75 then
-    pending=nil;ready=nil;epoch=epoch+1;last=api.now();c.reason='PROBE_POSITION_CHANGED';return false
-   end
+   if not point(pp) then c.stop(world,'PLAYER_POSITION_MISSING');return false end
+   -- Target is a destination snapshot, not a copy of the player's trajectory.
+   -- Native villager_move will plan again from the actual NPC position.
+   -- Roaming during this read-only query must not starve destination selection.
    return true
   end
   local ground_done=false;inflight=1;requested=api.now()
   local accepted=api.ground(w,target.x,target.z,function(world,ok,x,y,z,why,hop,fog,water)
    if ground_done then return end;ground_done=true;inflight=0
    if not valid(world) then return end
-   log('GROUND',{ok=ok,x=x,y=y,z=z,fog=fog,water=water,why=why})
+   log('GROUND',{ok=ok,x=x,y=y,z=z,fog=fog,water=water,why=why,origin=origin,player=player_origin})
    local at={x=x,y=y,z=z}
    if not ok or not point(at) or math.abs(x-target.x)>0.1 or math.abs(z-target.z)>0.1
-    or math.abs(y-p.y)>0.75 or math.abs(y-origin.y)>1 or (fog~='none' and fog~='removed') or water~=nil then
-    c.stop(world,'GROUND_REFUSED');return
+    or (fog~='none' and fog~='removed') or water~=nil then
+    reject('GROUND_REFUSED');return
    end
-   if api.wall(world,origin,at) then c.stop(world,'WALL_REFUSED');return end
+   log('DIRECT_WALL',{blocked=api.wall(world,origin,at)}) -- An obstruction may have a navigable detour.
+   origin=inspect(world).position
    pending.stage='PATH'
    local path_done=false;inflight=1;requested=api.now()
-   local query=api.path(world,origin,at,{width=0.6,height=2.2,jumps=false,doors=false,swim=false,closest=false,nodes=2000,owner=d.player},function(ww,r,points)
+   local query=api.path(world,origin,at,{width=0.6,height=2.2,jumps=true,max_jump_down=0,max_jump_up=0,doors=false,swim=false,closest=false,nodes=5000,owner=d.player},function(ww,r,points)
     if path_done then return end;path_done=true;inflight=0
     if not valid(ww) then return end
     log('PATH',{result=r})
     local good=type(r)=='table' and r.status=='found' and r.reaches==true and type(points)=='table'
-      and #points>0 and r.count==#points and type(r.length)=='number' and r.length>=0 and r.length<=30
+      and #points>0 and r.count==#points and type(r.length)=='number' and r.length>=0 and r.length<=200
     if good then
-     for _,pt in ipairs(points) do if not point(pt) or pt.move~=0 or pt.door~=nil then good=false end end
+     for _,pt in ipairs(points) do if not point(pt) or (pt.move~=0 and pt.move~=2 and pt.move~=3 and pt.move~=4) or pt.door~=nil then good=false end end
      good=good and dist(points[#points],at)<=0.5
     end
-    if not good then c.stop(ww,'PATH_REFUSED');return end
+    if not good then reject('PATH_REFUSED');return end
     ready={target=at,origin=origin,player=player_origin,at=api.now()};pending=nil
    end)
-   if not query and not path_done then path_done=true;inflight=0;c.stop(world,'PATH_API_REFUSED') end
+   if not query and not path_done then path_done=true;inflight=0;reject('PATH_API_REFUSED') end
   end)
-  if not accepted and not ground_done then ground_done=true;inflight=0;c.stop(w,'GROUND_API_REFUSED') end
+  if not accepted and not ground_done then ground_done=true;inflight=0;reject('GROUND_API_REFUSED') end
  end
  function c.start(w,token,expected_session,expected_entity)
   assert(not c.used and token==config.token,'SESSION_ALREADY_USED_OR_TOKEN')
@@ -106,20 +116,22 @@ function M.new(api,discover,config)
  end
  function c.step(w,token,seq)
   assert(token==config.token and seq==c.seq+1,'TOKEN_OR_SEQUENCE');c.seq=seq
+  if c.used and c.state=='STOPPED' then return end
   local d=fresh(w);heartbeat=api.now()
   local p=api.position(w,d.player)
   assert(point(p),'PLAYER_POSITION_MISSING')
   local distance=dist(p,d.position);local active=api.moving(w,d.entity)
   assert(not active or (order and active==order.id),'FOREIGN_ORDER')
-  if distance>20 then following=false elseif distance<=19 then following=true end
+  if across(p,d.position)>80 then following=false elseif across(p,d.position)<=75 then following=true end
   if order and order.result then
    log('ORDER_RESULT',{id=order.id,result=order.result,seconds=api.now()-order.at,
-    displacement=dist(order.origin,d.position),target_distance=dist(order.target,d.position)})
+    displacement=dist(order.origin,d.position),target_distance=dist(order.target,d.position),
+    initial_player_distance=order.initial_distance,current_player_distance=distance})
    local result=order.result;order.result=nil
    if result=='stuck' or result=='timeout' then
     cancel(w,d);last=api.now()
     if c.recoveries>=2 then c.stop(w,'RECOVERY_LIMIT');return end
-    c.recoveries=c.recoveries+1
+    c.recoveries=c.recoveries+1;candidate=(candidate+1)%8
     c.state=result=='stuck' and 'STUCK' or 'RECOVERING';c.reason=result;return
    elseif result=='arrived' then
     c.reason=dist(order.target,d.position)<=0.75 and 'ARRIVAL_OBSERVED' or 'ENGINE_ARRIVED_SHORT'
@@ -135,7 +147,9 @@ function M.new(api,discover,config)
   end
   if distance<2.8 and c.state=='IDLE_NEAR_PLAYER' then return end
   if order and active then
-   if dist(p,order.player)>2 and api.now()-last>=4 then cancel(w,d);last=api.now();c.state='FOLLOWING' end
+   log('PROGRESS',{id=order.id,player_distance=distance,target_distance=dist(order.target,d.position),
+    displacement=dist(order.origin,d.position),initial_player_distance=order.initial_distance})
+   if dist(p,order.player)>8 and api.now()-last>=8 then cancel(w,d);last=api.now();c.state='FOLLOWING' end
    if order then c.state='MOVING';return end
   elseif order then
    if order.holding then order=nil else c.stop(w,'ORDER_DISAPPEARED');return end
@@ -149,21 +163,24 @@ function M.new(api,discover,config)
    return
   end
   if api.now()-last<4 then c.state='RECOVERING';return end
-  assert(d.ai_state~=1 and d.ai_state~=2 and d.ai_state~=8 and d.ai_state~=16 and d.decision~=5,'NPC_ASLEEP_OR_BUSY')
+  if d.ai_state==1 or d.ai_state==2 or d.ai_state==8 or d.ai_state==16 or d.decision==5 then
+   c.state='WAITING_FOR_NPC';c.reason='NPC_ASLEEP_OR_BUSY';return
+  end
   if not ready then probe(w,d,p);return end
   local r=ready;ready=nil
-  if api.now()-r.at>2 or dist(p,r.player)>0.75 or dist(d.position,r.origin)>0.75 then
-   last=api.now();c.reason='STALE_TARGET';return
+  if api.now()-r.at>4 then reject('STALE_PATH');return end
+  -- Only approach useful destinations; proximity is 3D, so another floor is not arrival.
+  if dist(p,r.target)>=distance or (across(p,r.target)<1.5 and math.abs(p.y-r.target.y)<2) then
+   reject('TARGET_NO_LONGER_USEFUL');return
   end
-  assert(dist(p,r.target)>=1.5 and dist(p,r.target)<=2.5 and not api.wall(w,d.position,r.target),'TARGET_RECHECK')
   if c.orders>=24 then c.stop(w,'ORDER_LIMIT');return end
   c.orders=c.orders+1;last=api.now()
-  local o={at=last,origin=d.position,target=r.target,player=p};order=o
+  local o={at=last,origin=d.position,target=r.target,player=p,initial_distance=distance};order=o
   log('MOVE_INTENT',{number=c.orders,target=r.target})
-  local id,why=api.move(w,entity,r.target,{arrive=0.5,seconds=12,stuck=6,hold=config.roaming=='hold' and 5 or 0},function(_,mid,result)
+  local id,why=api.move(w,entity,r.target,{arrive=0.5,seconds=30,stuck=8,hold=config.roaming=='hold' and 5 or 0},function(_,mid,result)
    if order==o then o.result=result;o.holding=result=='arrived' end
   end)
-  if not id then order=nil;c.stop(w,'REFUSED:'..tostring(why));return end
+  if not id then order=nil;reject('MOVE_REFUSED');log('MOVE_REFUSED',{reason=why});return end
   o.id=id;c.state='MOVING';log('ACCEPTED',{id=id,target=r.target})
  end
  function c.watch(w)

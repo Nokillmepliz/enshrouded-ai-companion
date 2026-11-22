@@ -50,7 +50,7 @@ class FollowClient(MovementClient):
     commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
 
     def __init__(self, transport):
-        super().__init__(transport, version='0.2.1')
+        super().__init__(transport, version='0.3.0')
 
     def move_to(self, *args, **kwargs):
         raise ValueError('MANUAL_MOVEMENT_DISABLED')

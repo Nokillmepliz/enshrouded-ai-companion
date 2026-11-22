@@ -1,30 +1,27 @@
-# Companion Movement 0.2.1 — Stage 10.13
+﻿# Companion Movement 0.3.0 — Stage 10.14 (offline)
 
-Registration fix: f_start/f_step/f_stop/f_status, fully qualified names <=32.
-Registration failure fails mod load. Existing follow-session.lock is preserved.
-Python continuation appends once to the SAME journal only after a pinned audit
-proves the previous command was unregistered and the session never started.
+Approach the player using native villager navigation, not a replay of player motion.
+No installation or game test performed. Current deployed version remains 0.2.1.
+Do not reuse the spent Stage10.13 runner. Separate reviewed deployment required.
 
-Offline Follow Prototype. No automatic start on mod load. Separate installation
-and runtime approval required. Only LOCAL Body Test / AI Body Test, unique NPC
-profile; PROFILE_ONLY identity, no persistent GUID proof.
+Eight destination candidates at 1.8m around the player. Ground/Path failures and
+explicit move refusals rotate candidates after 4s; ambiguous results stop.
+No height/fall-damage veto. Direct walls are diagnostic: native Path may find a
+detour. Jumps=true, max_jump_up/down=0; path nodes0/2/3/4 accepted. Villager_move
+chooses and executes its own route: a found jump path is NOT proof it can jump.
+No custom pathfinding, jump, glide, teleport or component writes.
 
-Python Runner validates Bridge/context before and after each request. One durable
-journal and follow-session.lock permit one session. Previous SPENT/spawn/movement
-intents are never reset. Legacy move_to is disabled.
+Moving player/NPC does not invalidate a destination snapshot. Path origin is
+refreshed after Ground. Before ordering, check path freshness4s, usefulness and
+player occupancy. Retarget active orders only after player displacement>8m and
+>=8s. Idle2m/resume2.8m in3D; horizontal range75/80m. Home/leash still apply.
 
-Limits: 180 seconds, 24 orders, two recovery attempts, polling at most once per
-second, four-second command cooldown. Enter radius 19 m, exit >20 m. Target 1.8 m
-from player towards NPC; bounded recovery rotates it. Ground/Wall/Path, freshness,
-unique identity and no foreign order required. Native villager_move enforces
-home/leash. No teleport, component writes, persistence or direct save access.
+Limits:180s session,30 probes(one in flight),24 order attempts,2 stuck/timeout
+recoveries,4s heartbeat. Orders30s/stuck8s/arrive0.5m, optional hold5s. Sleep/busy
+waits within session deadline. Native roaming remains enabled. Lost identity,
+foreign order, unknown move/cancel and unreturned-query timeout stop the session.
+Durable latch/journal and existing spawn intents remain intact. No reset/rearm.
 
-follow_config.lua roaming='native' preserves wandering (current package).
-roaming='hold' requests a finite five-second native hold after arrival. This
-returns NPC to the point, does NOT disable its AI. Far away: no new orders; cancel
-our current order. Full roaming suppression compatible with movement remains
-unconfirmed. Change the switch only in a reviewed package with the game closed.
-
-Four-second heartbeat watchdog stops the session. Lost identity forbids cancel;
-orders remain bounded to 12 seconds, optional hold to five. STUCK is not ARRIVED.
-See docs/STAGE10_13.md in the project repository.
+PROGRESS logs distance to player/target and displacement. Terminal reason is
+preserved. Accepted is not arrived; STUCK is not success. PROFILE_ONLY identity.
+See docs/STAGE10_14.md for source evidence, limitations and the proposed test.

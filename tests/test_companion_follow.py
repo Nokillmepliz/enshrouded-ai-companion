@@ -11,21 +11,21 @@ from companion.follow import run, summarize, FollowClient
 ROOT=Path(__file__).resolve().parents[1]
 FIXTURE='''
 now=100;px=10;nx=0;session='abc-1';entity=42;unique=true;valid=true;calls=0;cancelled=0;consumed=0
-active=nil;ground_calls=0;path_calls=0
+active=nil;ground_calls=0;path_calls=0;py=0;ny=0
 w={}
 function discover(w)
  assert(valid,'CONTEXT')
  return {result=unique and 'FOUND_ONE' or 'AMBIGUOUS',session=session,player=1,entity=entity,
- position={x=nx,y=0,z=0},home={x=0,y=0,z=0},ai_state=3,decision=1}
+ position={x=nx,y=ny,z=0},home={x=0,y=0,z=0},ai_state=3,decision=busy and 5 or 1}
 end
 api={now=function() return now end,log=function() end,
- position=function(w,id) return {x=px,y=0,z=0} end,
+ position=function(w,id) return {x=px,y=py,z=0} end,
  moving=function() return active end,
  consume=function() consumed=consumed+1;return consumed==1 end,
  cancel=function(id) cancelled=cancelled+1;if cancel_fail then return false end;active=nil;return true end,
  wall=function() return wall end,
  ground=function(w,x,z,fn) ground_calls=ground_calls+1;gx=x;gz=z;ground_cb=fn;return not ground_refused end,
- path=function(w,a,b,opts,fn) path_calls=path_calls+1;target=b;path_cb=fn;return not path_refused end,
+ path=function(w,a,b,opts,fn) path_calls=path_calls+1;path_options=opts;target=b;path_cb=fn;return not path_refused end,
  move=function(w,id,t,opts,fn)
   calls=calls+1;options=opts;move_cb=fn;move_target=t
   if uncertain then error('UNCERTAIN') end
@@ -35,8 +35,8 @@ api={now=function() return now end,log=function() end,
 config={token='token',roaming='native'}
 seq=0
 function step() seq=seq+1;c.step(w,'token',seq) end
-function ground() ground_cb(w,true,gx,0,gz,nil,nil,'none',nil) end
-function path() path_cb(w,{status='found',reaches=true,count=1,length=8},{{x=target.x,y=0,z=target.z,move=0}}) end
+function ground() ground_cb(w,true,gx,py,gz,nil,nil,'none',nil) end
+function path() path_cb(w,{status='found',reaches=true,count=1,length=8},{{x=target.x,y=target.y,z=target.z,move=0}}) end
 function prepare() step();ground();path();now=now+1;step() end
 '''
 
@@ -50,13 +50,13 @@ class FollowLuaTests(unittest.TestCase):
     def do(self,s): self.lua.execute(s)
     def val(self,s): return self.lua.eval(s)
     def test_far_no_move_no_probe(self):
-        self.do('px=21;step()')
+        self.do('px=81;step()')
         self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
         self.assertEqual(self.val('ground_calls'),0)
     def test_boundary_hysteresis(self):
-        self.do('px=20;step()')
+        self.do('px=80;step()')
         self.assertEqual(self.val('ground_calls'),0)
-        self.do('px=19;now=101;step()')
+        self.do('px=75;now=101;step()')
         self.assertEqual(self.val('ground_calls'),1)
     def test_offset_ground_path_then_single_move(self):
         self.do('prepare()')
@@ -71,7 +71,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do('px=2.5;now=101;step()')
         self.assertEqual(self.val('ground_calls'),0)
     def test_far_cancels_only_owned(self):
-        self.do('prepare();px=21;now=102;step()')
+        self.do('prepare();px=81;now=102;step()')
         self.assertEqual(self.val('cancelled'),1)
         self.assertEqual(self.val('calls'),1)
         self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
@@ -84,23 +84,24 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('c.state'),'IDLE_NEAR_PLAYER')
         self.assertEqual(self.val('cancelled'),1)
     def test_reenter_radius(self):
-        self.do('px=21;step();px=18;now=101;step()')
+        self.do('px=81;step();px=18;now=101;step()')
         self.assertEqual(self.val('ground_calls'),1)
-    def test_target_motion_invalidates_probe(self):
+    def test_player_motion_does_not_invalidate_destination(self):
         self.do('step();px=13;ground()')
-        self.assertEqual(self.val('path_calls'),0)
+        self.assertEqual(self.val('path_calls'),1)
         self.assertEqual(self.val('calls'),0)
     def test_stale_ready_no_move(self):
-        self.do('step();ground();path();now=103;step()')
+        self.do('step();ground();path();busy=true;now=103;step();busy=false;now=105;step()')
         self.assertEqual(self.val('calls'),0)
-    def test_ground_fog_water_height_rejected(self):
-        for args in ("true,gx,0,gz,nil,nil,'deadly',nil", "true,gx,0,gz,nil,nil,'none',1", "true,gx,2,gz,nil,nil,'none',nil", "false,gx,0,gz,nil,nil,'none',nil"):
+        self.assertEqual(self.val('c.reason'),'STALE_PATH')
+    def test_ground_fog_water_failure_try_alternative(self):
+        for args in ("true,gx,0,gz,nil,nil,'deadly',nil", "true,gx,0,gz,nil,nil,'none',1", "false,gx,0,gz,nil,nil,'none',nil"):
             self.setUp();self.do('step();ground_cb(w,'+args+')')
-            self.assertEqual(self.val('c.state'),'STOPPED')
+            self.assertEqual(self.val('c.state'),'RECOVERING')
             self.assertEqual(self.val('calls'),0)
-    def test_wall_rejected(self):
+    def test_direct_wall_still_uses_native_path(self):
         self.do('step();wall=true;ground()')
-        self.assertEqual(self.val('c.reason'),'WALL_REFUSED')
+        self.assertEqual(self.val('path_calls'),1)
     def test_path_not_reaching(self):
         self.do("step();ground();path_cb(w,{status='found',reaches=false,count=0,length=1},{})")
         self.assertEqual(self.val('c.reason'),'PATH_REFUSED')
@@ -122,9 +123,9 @@ class FollowLuaTests(unittest.TestCase):
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('calls'),1)
         self.assertEqual(self.val('cancelled'),0)
-    def test_refused_is_terminal(self):
+    def test_explicit_refusal_tries_another_candidate(self):
         self.do('refuse=true;prepare()')
-        self.assertEqual(self.val('c.state'),'STOPPED')
+        self.assertEqual(self.val('c.state'),'RECOVERING')
     def test_stuck_not_arrived_limited_recovery(self):
         self.do("prepare();active=nil;move_cb(w,1,'stuck');now=102;step()")
         self.assertEqual(self.val('c.state'),'STUCK')
@@ -134,7 +135,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do("active=nil;move_cb(w,2,'stuck');now=108;step()")
         self.assertEqual(self.val('c.reason'),'RECOVERY_LIMIT')
     def test_cancel_failure_stops_without_retry(self):
-        self.do('prepare();cancel_fail=true;px=21;now=102')
+        self.do('prepare();cancel_fail=true;px=81;now=102')
         with self.assertRaises(Exception): self.do('step()')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('calls'),1)
@@ -160,7 +161,7 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('calls'),0)
         self.assertEqual(self.val('c.reason'),'ORDER_LIMIT')
     def test_invalidated_probe_cannot_accumulate_requests(self):
-        self.do('step();px=21;now=101;step();px=10;now=102;step()')
+        self.do('step();px=81;now=101;step();px=10;now=102;step()')
         self.assertEqual(self.val('ground_calls'),1)
         self.do('ground();now=103;step()')
         self.assertEqual(self.val('ground_calls'),2)
@@ -172,10 +173,53 @@ class FollowLuaTests(unittest.TestCase):
         self.do('step();ground();ground()')
         self.assertEqual(self.val('path_calls'),1)
     def test_cancel_is_not_retried_on_exception(self):
-        self.do('prepare();cancel_fail=true;px=21;now=102')
+        self.do('prepare();cancel_fail=true;px=81;now=102')
         with self.assertRaises(Exception): self.do('step()')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('cancelled'),1)
+
+    def test_vertical_twenty_metres_both_directions(self):
+        for height in (-20,20):
+            self.setUp();self.do(f'py={height};prepare()')
+            self.assertEqual(self.val('calls'),1)
+            self.assertEqual(self.val('move_target.y'),height)
+    def test_same_xz_different_floor_not_idle(self):
+        self.do('px=0;py=20;prepare()')
+        self.assertEqual(self.val('calls'),1)
+        self.assertEqual(self.val('c.state'),'MOVING')
+    def test_jump_down_route_native_execution_no_height_limit(self):
+        self.do("py=-20;step();ground();path_cb(w,{status='found',reaches=true,count=1,length=40},{{x=target.x,y=target.y,z=target.z,move=3}});now=101;step()")
+        self.assertEqual(self.val('calls'),1)
+        self.assertTrue(self.val('path_options.jumps'))
+        self.assertEqual(self.val('path_options.max_jump_down'),0)
+    def test_failed_route_rotates_then_success(self):
+        self.do("step();firstx=gx;firstz=gz;ground();path_cb(w,{status='no_path'},{});now=104;step()")
+        self.assertNotEqual(self.val('gz'),self.val('firstz'))
+        self.do('ground();path();now=105;step()')
+        self.assertEqual(self.val('calls'),1)
+    def test_walking_player_and_npc_do_not_starve_probe(self):
+        self.do('step();px=13;nx=1;ground();px=15;nx=5;path();now=101;step()')
+        self.assertEqual(self.val('calls'),1)
+    def test_small_player_motion_does_not_cancel_route(self):
+        self.do('prepare();px=14;now=104;step()')
+        self.assertEqual(self.val('cancelled'),0)
+    def test_stop_reason_survives_step_and_second_stop(self):
+        self.do("c.stop(w,'GROUND_REFUSED');step();c.stop(w,'REQUEST_ERROR')")
+        self.assertEqual(self.val('c.reason'),'GROUND_REFUSED')
+    def test_long_detour_accepted(self):
+        self.do("step();wall=true;ground();path_cb(w,{status='found',reaches=true,count=1,length=100},{{x=target.x,y=0,z=target.z,move=0}});now=101;step()")
+        self.assertEqual(self.val('calls'),1)
+
+    def test_busy_waits_then_resumes(self):
+        self.do('busy=true;step()')
+        self.assertEqual(self.val('c.state'),'WAITING_FOR_NPC')
+        self.do('busy=false;now=101;prepare()')
+        self.assertEqual(self.val('calls'),1)
+    def test_all_candidates_fail_without_unbounded_queue(self):
+        self.do("for i=1,30 do step();ground_cb(w,false,gx,0,gz,'no ground',nil,'none',nil);now=now+4 end;step()")
+        self.assertEqual(self.val('ground_calls'),30)
+        self.assertEqual(self.val('calls'),0)
+        self.assertEqual(self.val('c.reason'),'PROBE_LIMIT')
 
 
 class FakeClient:
@@ -233,7 +277,7 @@ class RunnerTests(unittest.TestCase):
         from tests.test_companion_movement import Transport
         t=Transport();client=FollowClient(t)
         with self.assertRaises(ValueError):client.discover()
-        t.mods[-1]['version']='0.2.1'
+        t.mods[-1]['version']='0.3.0'
         client.discover()
         old=t.state
         t.state=lambda:dict(old(),character=dict(storage='steam',slot=1,name='Body Test'))
