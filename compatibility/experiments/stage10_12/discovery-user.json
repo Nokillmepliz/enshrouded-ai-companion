@@ -1,0 +1,36 @@
+{
+  "provenance": "USER_PASTED_LOCAL_CLI_OUTPUT",
+  "pid_context_previously_verified": 437520,
+  "discovery": {
+    "ai_state": 13,
+    "components": {
+      "ai": true,
+      "common": true,
+      "saved": true,
+      "walker": true
+    },
+    "count": 1,
+    "decision": 3,
+    "entity": 1025,
+    "expected_guid": "a1c90001-5e4d-4a91-8a1c-000000000001",
+    "faction": 11,
+    "guid_verified": false,
+    "home": {
+      "x": 3698.940673828125,
+      "y": 893.6009521484375,
+      "z": 1280.66357421875
+    },
+    "identity": "PROFILE_ONLY",
+    "npc": 2939921867,
+    "player": 1,
+    "position": {
+      "x": 3692.313232421875,
+      "y": 893.5,
+      "z": 1278.689697265625
+    },
+    "result": "FOUND_ONE",
+    "session": "accd7a92bb0d9f0b-1"
+  },
+  "independent_bridge_discovery_repeated": false,
+  "spawn_ready": false
+}

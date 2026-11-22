@@ -1,0 +1,39 @@
+{
+  "entries": [
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "source": "mod.json",
+      "sha256": "4a09b689d48a487cd8489a0c35190034f9a78f89104d38c3965f67f087f463f1",
+      "bytes": 349
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "source": "main.lua",
+      "sha256": "961ac72c91956ec47efd67f835ae1e0f0855a915a1da931c91cd8acc893ebe61",
+      "bytes": 1438
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "source": "controller.lua",
+      "sha256": "d773f4698cb0ee1d7daa38afc07c1d8087dfdbfca42b3e0736df116baab98ab2",
+      "bytes": 3845
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "source": "README.md",
+      "sha256": "90c94a5770612e2418d39148ada4785fcddfa7539cddaa708ef737ec51eedc0c",
+      "bytes": 673
+    },
+    {
+      "path": "emf/config/aic_companion_movement.ini",
+      "source": "config.ini",
+      "sha256": "350ccce8d2b7cd1b915f4cbdf0e7f7feeb3c84f0911fb24e1acac0fa0fdb7b58",
+      "bytes": 35
+    }
+  ],
+  "backup_sha256": "dc2fa0d55b1f93806779299a8470e900297947bf8f0a187d192efac0a54881fe",
+  "history_sha256": "336a604547fea1c27809e6f4788b6d167aacc94ac036beaf2d6183ff371b5993",
+  "baseline_sha256": "120850afac7ff4242f5e07b32f8fa071607c2af411a06681cadf61e7bc56fe80",
+  "allow_move": false,
+  "spawn_ready": false
+}

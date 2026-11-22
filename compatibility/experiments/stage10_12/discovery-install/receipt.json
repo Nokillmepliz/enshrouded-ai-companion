@@ -1,0 +1,72 @@
+{
+  "status": "INSTALLED_READ_ONLY_DISCOVERY",
+  "created_utc": "2026-11-22T15:02:00.413550+00:00",
+  "manifest_sha256": "5e0c7b2e60a627c6976a7098b726894a267632a4dea7839a50a5df13fd349003",
+  "installed_records": [
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "record": {
+        "sha256": "4a09b689d48a487cd8489a0c35190034f9a78f89104d38c3965f67f087f463f1",
+        "size": 349,
+        "volume": 7969823110406842093,
+        "file_id": 19984723346458176,
+        "links": 1,
+        "mtime_ns": 1795359687243218500
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "record": {
+        "sha256": "961ac72c91956ec47efd67f835ae1e0f0855a915a1da931c91cd8acc893ebe61",
+        "size": 1438,
+        "volume": 7969823110406842093,
+        "file_id": 8725724278031983,
+        "links": 1,
+        "mtime_ns": 1795359687412113600
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "record": {
+        "sha256": "d773f4698cb0ee1d7daa38afc07c1d8087dfdbfca42b3e0736df116baab98ab2",
+        "size": 3845,
+        "volume": 7969823110406842093,
+        "file_id": 18295873486194556,
+        "links": 1,
+        "mtime_ns": 1795359687583966900
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "record": {
+        "sha256": "90c94a5770612e2418d39148ada4785fcddfa7539cddaa708ef737ec51eedc0c",
+        "size": 673,
+        "volume": 7969823110406842093,
+        "file_id": 2814749767118124,
+        "links": 1,
+        "mtime_ns": 1795359687773785700
+      }
+    },
+    {
+      "path": "emf/config/aic_companion_movement.ini",
+      "record": {
+        "sha256": "350ccce8d2b7cd1b915f4cbdf0e7f7feeb3c84f0911fb24e1acac0fa0fdb7b58",
+        "size": 35,
+        "volume": 7969823110406842093,
+        "file_id": 18858823439637151,
+        "links": 1,
+        "mtime_ns": 1795359687951023400
+      }
+    }
+  ],
+  "backup_files": 23,
+  "backup_bytes": 637831,
+  "backup_sha256": "dc2fa0d55b1f93806779299a8470e900297947bf8f0a187d192efac0a54881fe",
+  "existing_game_unchanged": 246,
+  "local_unchanged": 23,
+  "history_unchanged": 112,
+  "allow_move": false,
+  "baseline_after_sha256": "9efbdf467f494e57b6938c8923b139b62b9ff0c612a3dae3edd5d5948a48a90f",
+  "spawn_ready": false,
+  "game_launched": false
+}
