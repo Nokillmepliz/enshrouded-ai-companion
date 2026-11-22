@@ -1,0 +1,153 @@
+{
+  "status": "POST_CLOSE_INTEGRITY_PASS_FOLLOW_STOPPED",
+  "runtime_verdict": "GROUND_REFUSED_NO_MOVEMENT",
+  "pid": 471612,
+  "created_utc": "2026-11-22T16:45:51.929384+00:00",
+  "counts": {
+    "originals": 67,
+    "shadow": 77,
+    "installed": 30
+  },
+  "backup_verified": 26,
+  "history_unchanged": 112,
+  "old_latch": "SPENT",
+  "follow_latch": "SPENT!",
+  "old_journal_prefix_preserved": true,
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-2",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantic_integrity": "NOT_ESTABLISHED; game autosaves, no restore",
+  "world_save_events": 12,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-22T19-38-45.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-session.lock",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-session.lock",
+      "enshrouded.log"
+    ]
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-22T19-38-45.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "console_commands": [
+    "aic_companion_movement.discover",
+    "aic_companion_movement.f_start",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step"
+  ],
+  "command_lengths": {
+    "f_start": 30,
+    "f_step": 29,
+    "f_stop": 29,
+    "f_status": 31
+  },
+  "follow_started": true,
+  "movement_commands_executed": 0,
+  "retry_performed": false,
+  "rollback_executed": false,
+  "journal_sha256": "5e9b66266c46d6f7682319890c894aeacde710cd045604dd7591933429283b03",
+  "runtime_summary": {
+    "samples": 30,
+    "states_seen": [
+      "FOLLOWING",
+      "IDLE_NEAR_PLAYER",
+      "RECOVERING",
+      "WAITING_FOR_PLAYER"
+    ],
+    "minimum_player_distance": 1.9737083358320182,
+    "maximum_player_distance": 17.456889913250997,
+    "orders": 0,
+    "recoveries": 0,
+    "arrival_observed": false,
+    "stopped_reason": "PROBE_POSITION_CHANGED",
+    "roaming_disabled": false,
+    "sustained_follow": "REQUIRES_GAME_OBSERVATION",
+    "scenario_coverage": "ONLY_STATES_SEEN; missing scenarios are NOT_TESTED",
+    "spawn_ready": false
+  },
+  "ground_refusal": {
+    "ground_y": 893.5009765625,
+    "npc_origin_y": 894.98779296875,
+    "height_delta": 1.48681640625,
+    "limit": 1
+  },
+  "summary_warning": "stopped_reason is stale; final cause established from core log",
+  "log_hashes": {
+    "enshrouded.log": "ac015f780fc7dbdb45c2a034613d4bade542fc9c69c1254c00c7bcafc94c7356",
+    "emf/emf_core.log": "4b83740918f9b46ce3742b27ba03b01c95aa86e327b56cbc02f6685c928e4e5d",
+    "emf/emf_loader.log": "7454a154b103f883e3b1847b3c4c38d4dc2f8be285e3f58c1b2a9a6dd03ae09f",
+    "emf/file_opens.log": "4fa0cd6aed958f2301c2c49a1945ed3423c3a7970be1d185bef6cc973181e52f"
+  },
+  "post_close_baseline_sha256": "5bd9a38b88ce73de91bbd600af4ea7ee0baa5839a23487725be0ea43a48fc31e",
+  "spawn_ready": false
+}
