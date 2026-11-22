@@ -1,5 +1,16 @@
 # Stage 10.13 — Autonomous Companion Test Runner + Follow Prototype
 
+**Текущее состояние, 2026-11-22:** Movement0.2.0 установлен по отдельному
+разрешению пользователя. Exact6/6 и effective31/31 hashes PASS; backup26/26
+(641142 байта) проверен. LOCAL23, остальные251 game-файлов и112 записей истории
+неизменны. Старый SPENT сохранён, новый follow latch UNUSED; Runner готов,
+игровая сессия ещё не запускалась. Receipt:
+[installation/receipt.json](../compatibility/experiments/stage10_13/installation/receipt.json).
+Rollback dry-run PASS, откат не выполнялся. Режим native сохранён.
+Следующий шаг — ручной запуск LOCAL Body Test / AI Body Test slot1/1 и сообщение
+«загрузился»; разрешение на одну ограниченную автоматическую сессию уже получено.
+Ниже сохранён исходный отчёт подготовки.
+
 2026-11-22. Подготовка офлайн; **не установлен и не испытан в игре**.
 Архитектура сохранена: Lua Body Adapter + Python Bridge. Обновление Movement
 0.2.0 использует прежний discovery и профиль NPC. Новые spawn/destroy, запись
