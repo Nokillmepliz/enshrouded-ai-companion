@@ -2,6 +2,10 @@
 
 2026-11-22: **PREPARED_NOT_INSTALLED_NOT_EXECUTED**.
 
+Обновление статуса 2026-11-22: по отдельному разрешению пользователя установка
+выполнена, **INSTALLED_READY_FOR_MANUAL_START**. Ниже сохранён план подготовки;
+фактические результаты установки приведены в конце. Движение ещё не выполнялось.
+
 Подготовлено минимальное обновление существующего aic_companion_movement
 0.1.0 → **0.1.1**, без изменения Spawn Controller, observer/content и конфигурации.
 Четыре заменяемых файла: `main.lua`, `controller.lua`, `mod.json`, `README.md`.
@@ -91,3 +95,26 @@ Read-only discover/status остаются доступны; после обно
   не ослабило прежний spawn profile.
 - CLI `--help` проверен без Bridge подключения. Полный suite не повторялся.
 - Runtime движение не тестировалось; установленный мод остаётся0.1.0 с allow_move=false.
+
+## Разрешённая установка0.1.1 — выполнено
+
+Fresh closed preflight: игра/сервер закрыты, build/depot прежние, snapshot252 game/
+23 LOCAL полностью совпал с post-close90164f…. Pinned payload4 и текущая установка
+проверены; movement intent отсутствовал. Новый backup27 (LOCAL23+четыре старых файла),
+644218bytes, verified SHA-256; путь `runtime/backups/stage10_12-movement-0_1_1`,
+manifest SHA `cc0c0101c410e35de7971330530ec7cd9433eb09f2b29529f06bfffe09ac0441`.
+
+Заменены ровно четыре файла согласно manifesta4c574…;4/4 installed hashes PASS.
+Остальные248 game-файлов,23 LOCAL записи и112 файлов истории неизменны; config,
+Spawn Controller,SPENT,spawn-intent,observer/content,оригиналы/shadow не менялись.
+Backup повторно verified. Игра/Bridge/движение не запускались; rollback не выполнялся.
+Исходники payload не менялись после30+66 прошедших тестов; suite не повторяли.
+
+[Installation receipt](../compatibility/experiments/stage10_12/movement-installation/receipt.json).
+Новый baseline: `runtime/stage10_12/movement-installation/inventory-after.json`,
+SHA256 `a806a328acfea8c361a4e1df5750fb08bc4599dd62d09f2a5c49eed7e3e2018d`.
+
+Пользователь вручную загружает LOCAL Body Test/AI Body Test slot1/1 и сообщает
+«загрузился». После read-only context check разрешена одна локально подтверждённая
+команда move_to из плана выше. До проверки контекста команду не выполнять.
+После ручного закрытия — короткий аудит и публикация runtime результата.

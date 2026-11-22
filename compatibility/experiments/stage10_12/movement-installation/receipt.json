@@ -1,0 +1,64 @@
+{
+  "status": "INSTALLED_READY_FOR_MANUAL_START",
+  "version": "0.1.1",
+  "created_utc": "2026-11-22T15:26:02.701981+00:00",
+  "manifest_sha256": "a4c574d4e0678caec35d1a4567ca2cdeed2a5955983a00eae1a3e099b100681d",
+  "installed_records": [
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "record": {
+        "sha256": "b41e1c39b5643ce5ea960bdbe3fe0743cd317191f621eedfc28f37e6afd870f6",
+        "size": 1722,
+        "volume": 7969823110406842093,
+        "file_id": 5629499534217574,
+        "links": 1,
+        "mtime_ns": 1795361129289134000
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "record": {
+        "sha256": "4e7cbc147ff03feeef8803c5f2b708ab869cffb02b8a8fb90ec73233aa4eea7d",
+        "size": 4091,
+        "volume": 7969823110406842093,
+        "file_id": 9007199254742639,
+        "links": 1,
+        "mtime_ns": 1795361129643655700
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "record": {
+        "sha256": "7f4ce3bbb77deb0ddcd178569ec1422eccd2887eedff265a81e1abc1d38e7044",
+        "size": 365,
+        "volume": 7969823110406842093,
+        "file_id": 18577348462905212,
+        "links": 1,
+        "mtime_ns": 1795361129989784200
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "record": {
+        "sha256": "6a0d9e4e267446db14fc7d444a34bedcff3776bb79418bdcd80ee61c53f6b174",
+        "size": 1211,
+        "volume": 7969823110406842093,
+        "file_id": 20266198323168832,
+        "links": 1,
+        "mtime_ns": 1795361130332614300
+      }
+    }
+  ],
+  "backup_manifest_sha256": "cc0c0101c410e35de7971330530ec7cd9433eb09f2b29529f06bfffe09ac0441",
+  "backup_files": 27,
+  "backup_bytes": 644218,
+  "unchanged_game_files": 248,
+  "local_unchanged": 23,
+  "history_unchanged": 112,
+  "latch": "SPENT",
+  "post_install_baseline_sha256": "a806a328acfea8c361a4e1df5750fb08bc4599dd62d09f2a5c49eed7e3e2018d",
+  "movement_executed": false,
+  "game_launched": false,
+  "spawn_ready": false,
+  "automatic_rollback": false
+}
