@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_NOT_INSTALLED_RUNTIME_UNVERIFIED",
+  "version": "0.3.4",
+  "targeted_tests": 36,
+  "targeted_tests_seconds": 1.071,
+  "preflight": "READ_ONLY_PREFLIGHT_PASS",
+  "operations": 7,
+  "replace": 5,
+  "add": 2,
+  "effective": 42,
+  "backup_planned": 28,
+  "installed": false,
+  "spawn_ready": false,
+  "manifest_sha256": "2c27084a04e0c73859803db1b9ce629ce713690a87ca179154408a5739e851df"
+}

@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from companion.compatibility import file_hash
 from companion.follow import run, FollowClient
 from companion.shadow_integrity import record
@@ -30,7 +31,7 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(file_hash(source),row['sha256'])
                 self.assertNotIn('stage10-16',row['path'])
                 if row['source'].endswith(('.lua','.md','.json')):
-                    self.assertEqual(source.read_bytes(),(ROOT/'mods/aic_companion_movement'/row['source']).read_bytes().replace(b'\r\n',b'\n'))
+                    self.assertEqual(source.read_bytes(),(ROOT/'dist/movement_0_3_3'/row['source']).read_bytes().replace(b'\r\n',b'\n'))
                 if row['operation']=='replace':
                     p=game/row['path'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'old')
                     before[row['path']]=record(p);row['before_sha256']=before[row['path']]['sha256']
@@ -85,5 +86,24 @@ class PackageTests(unittest.TestCase):
         with self.assertRaises(ValueError):c.discover()
         t.mods[-1]['version']='0.3.3';c.discover()
 
+
+    def test_authorized_runner_uses_033_receipt_and_session(self):
+        import sys
+        import io
+        from contextlib import redirect_stdout
+        from scripts import follow_033 as runner, install_follow_033 as installer
+        plan=json.loads((ROOT/'compatibility/experiments/movement_0_3_3/exact-update-manifest.json').read_text())
+        with tempfile.TemporaryDirectory() as td:
+            receipt=Path(td)
+            (receipt/'receipt.json').write_text(json.dumps(dict(status='INSTALLED_READY_FOR_MANUAL_START',manifest_sha256=installer.MANIFEST_SHA)))
+            with patch.object(sys,'argv',['runner','--pid','123','--manifest-sha256',installer.MANIFEST_SHA,'--authorized-session']), \
+                 patch.object(installer,'RUN',receipt),patch.object(runner,'read_pinned',return_value=plan), \
+                 patch.object(runner,'file_hash',return_value=plan['exe_sha256']),patch.object(runner,'preflight'), \
+                 patch.object(runner,'connect',return_value=None),patch.object(runner,'FollowClient') as client, \
+                 patch.object(runner,'run',return_value={}) as run,redirect_stdout(io.StringIO()):
+                runner.main()
+                client.assert_called_once_with(None,version='0.3.3')
+                self.assertEqual(run.call_args.args[1],ROOT/'runtime/movement_0_3_3/test-session.jsonl')
+                self.assertEqual(run.call_args.args[2],plan['token'])
 
 if __name__=='__main__':unittest.main()

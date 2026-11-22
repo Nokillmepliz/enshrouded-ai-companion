@@ -17,20 +17,26 @@ function M.new(api)
    local walker=w:get('DynamicPathWalker',d.entity)
    local common=w:get('NpcCommon',d.entity)
    assert(a and walker and common,'WAKE_COMPONENT_MISSING')
-   local signature=tostring(a.state)..':'..tostring(a.decision)..':'..tostring(walker.state)
+   local same_target=distance(common.currentTargetPosition,s.target)<=0.1
+   local near=distance(d.position,s.target)<=0.75
+   local signature=tostring(a.state)..':'..tostring(a.previousState)..':'..tostring(a.decision)..':'..tostring(walker.state)..':'..tostring(same_target)
    if signature~=s.observed then
     s.observed=signature
-    api.log('WAKE_OBSERVATION',{ai_state=a.state,decision=a.decision,walker=walker.state,
-     target_distance=distance(d.position,s.target)})
+    api.log('WAKE_OBSERVATION',{ai_state=a.state,previous_state=a.previousState,decision=a.decision,walker=walker.state,
+     target_matches=same_target,target_distance=distance(d.position,s.target)})
    end
-   -- Strict terminal handoff, not merely decision changed / event queued.
-   -- Idle <- Roam and TargetReached are the native executor's arrival evidence.
-   if a.state==3 and a.previousState==7 and a.decision==1 and walker.state==8
-    and distance(common.currentTargetPosition,s.target)<=0.1 and distance(d.position,s.target)<=0.75 then
+   -- PID532656: Roam/TargetReached -> Idle/Idle on consecutive ticks.
+   -- SetState resets the walker. Preserve only the immediately preceding arrival
+   -- observation, for this identity/target, for at most one second. No idle-only gate.
+   local just_reached=s.reached_at and now-s.reached_at<=1
+   s.reached_at=nil
+   if a.state==3 and a.previousState==7 and a.decision==1 and same_target and near
+    and (walker.state==8 or (walker.state==0 and just_reached)) then
     s.pending=false;s.state='CONFIRMED'
     api.log('WAKE_HANDOFF_CONFIRMED',{entity=d.entity,target=s.target})
     return false
    end
+   if a.state==7 and a.decision==1 and walker.state==8 and same_target and near then s.reached_at=now end
    assert(now-s.at<8,'WAKE_HANDOFF_TIMEOUT')
    return true
   end

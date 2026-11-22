@@ -166,8 +166,8 @@ class ScheduleHostTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.path=Path(self.temp.name)
         for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):shutil.copyfile(p,self.path/p.name)
-        self.token='a1c00330000000000000000000000001'
-        (self.path/'follow-movement-0-3-3.lock').write_text('UNUSED:'+self.token)
+        self.token='a1c00340000000000000000000000001'
+        (self.path/'follow-movement-0-3-4.lock').write_text('UNUSED:'+self.token)
         (self.path/'follow-stage10-14.lock').write_text('SPENT!:old-history')
         self.history={'follow-stage10-15.lock':b'SPENT!:stage15',
                       'schedule-stage10-15.jsonl':b'{"state":"RELEASED"}\n',
@@ -175,7 +175,7 @@ class ScheduleHostTests(unittest.TestCase):
                       'schedule-stage10-16.jsonl':b'{"state":"RELEASED"}\n',
                       'old-intent.json':b'{"spent":true}\n'}
         for name,data in self.history.items():(self.path/name).write_bytes(data)
-        (self.path/'schedule-movement-0-3-3.jsonl').write_bytes(b'')
+        (self.path/'schedule-movement-0-3-4.jsonl').write_bytes(b'')
         self.lua=LuaRuntime(unpack_returned_tuples=True)
         def plain(v):return {k:plain(x) for k,x in v.items()} if hasattr(v,'items') else v
         self.lua.globals().encode=lambda v:json.dumps(plain(v),separators=(',',':'))
@@ -209,7 +209,7 @@ command=function(n,_,f) assert(#('aic_companion_movement.'..n)<=32);commands[n]=
         self.start()
         self.assertTrue(json.loads(self.lua.eval('replies[1]')[13:])['ok'])
         self.assertEqual(self.lua.eval('common.sleepTime'),25)
-        journal=self.path/'schedule-movement-0-3-3.jsonl'
+        journal=self.path/'schedule-movement-0-3-4.jsonl'
         prior=journal.read_bytes()
         self.lua.execute(self.host);self.lua.execute('watch(w)')
         self.assertEqual(self.lua.eval('common.sleepTime'),22)
@@ -228,7 +228,7 @@ command=function(n,_,f) assert(#('aic_companion_movement.'..n)<=32);commands[n]=
         self.assertIn('SCHEDULE_RECOVERY_REQUIRED',self.lua.eval('replies[#replies]'))
 
     def test_torn_journal_blocks_before_component_mutation(self):
-        (self.path/'schedule-movement-0-3-3.jsonl').write_bytes(b'{"state":')
+        (self.path/'schedule-movement-0-3-4.jsonl').write_bytes(b'{"state":')
         with self.assertRaisesRegex(Exception,'JOURNAL_INCOMPLETE'):self.lua.execute(self.host)
         self.assertEqual(self.lua.eval('common.sleepTime'),22)
 
@@ -240,10 +240,10 @@ command=function(n,_,f) assert(#('aic_companion_movement.'..n)<=32);commands[n]=
         self.lua.execute('watch(w)')
         self.assertEqual(self.lua.eval('common.sleepTime'),22)
         self.assertEqual(self.lua.eval('common.wakeUpTime'),6)
-        rows=(self.path/'schedule-movement-0-3-3.jsonl').read_text().splitlines()
+        rows=(self.path/'schedule-movement-0-3-4.jsonl').read_text().splitlines()
         self.assertEqual([json.loads(x)['state'] for x in rows],['ACQUIRED','RELEASED'])
         for name,data in self.history.items():self.assertEqual((self.path/name).read_bytes(),data)
-        self.assertEqual((self.path/'follow-movement-0-3-3.lock').read_text(),'SPENT!:'+self.token)
+        self.assertEqual((self.path/'follow-movement-0-3-4.lock').read_text(),'SPENT!:'+self.token)
         self.assertEqual(self.lua.eval('calls'),0)
 
     def test_host_queues_only_type1_with_unique_npc_id_and_fixed_point_target(self):

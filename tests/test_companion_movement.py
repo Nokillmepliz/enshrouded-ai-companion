@@ -121,7 +121,7 @@ class LuaMovementTests(unittest.TestCase):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
         for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):
             shutil.copyfile(p,Path(temp.name)/p.name)
-        (Path(temp.name)/'schedule-movement-0-3-3.jsonl').write_bytes(b'')
+        (Path(temp.name)/'schedule-movement-0-3-4.jsonl').write_bytes(b'')
         self.lua.globals().moddir=temp.name
         self.run_lua('''
 commands={}; replies={}

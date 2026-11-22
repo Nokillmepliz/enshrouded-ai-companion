@@ -52,6 +52,35 @@ api={now=function() return now end,moving=function(w) assert(w.g==generation);re
         self.do('d.decision=5;now=110;s.tick(world(),d)')
         self.assertEqual(self.val('sent'),1)
 
+    def test_pid532656_arrival_then_idle_resets_walker(self):
+        self.queue()
+        self.do('ai.state=7;ai.decision=1;walker.state=8;s.tick(world(),d)')
+        self.assertTrue(self.val('s.pending'))
+        self.do('ai.state=3;ai.previousState=7;walker.state=0;s.tick(world(),d)')
+        self.assertFalse(self.val('s.pending'))
+        self.assertEqual(self.val('s.state'),'CONFIRMED')
+        self.assertEqual(self.val('sent'),1)
+
+    def test_idle_without_observed_arrival_is_not_confirmation(self):
+        self.queue()
+        self.do('ai.state=3;ai.previousState=7;ai.decision=1;walker.state=0')
+        self.assertTrue(self.do('return s.tick(world(),d)'))
+
+    def test_arrival_memory_cannot_survive_wrong_target_or_intermediate_state(self):
+        for change in ('common.currentTargetPosition.x=99','ai.state=5', 'ai.decision=2','walker.state=2'):
+            self.setUp();self.queue()
+            self.do('ai.state=7;ai.decision=1;walker.state=8;s.tick(world(),d);'+change+';s.tick(world(),d)')
+            self.do('common.currentTargetPosition.x=1;ai.state=3;ai.previousState=7;ai.decision=1;walker.state=0')
+            self.assertTrue(self.do('return s.tick(world(),d)'))
+
+    def test_old_arrival_or_new_session_never_hands_off(self):
+        self.queue()
+        self.do('ai.state=7;ai.decision=1;walker.state=8;s.tick(world(),d);now=104;ai.state=3;ai.previousState=7;walker.state=0')
+        self.assertTrue(self.do('return s.tick(world(),d)'))
+        self.setUp();self.queue()
+        self.do("ai.state=7;ai.decision=1;walker.state=8;s.tick(world(),d);d.session='other';ai.state=3;ai.previousState=7;walker.state=0")
+        with self.assertRaisesRegex(Exception,'IDENTITY_CHANGED'):self.do('s.tick(world(),d)')
+
     def test_sleep_busy_or_normal_awake_sends_nothing(self):
         for state,decision in ((8,5),(2,5),(9,5),(16,5),(7,1)):
             self.setUp();self.do(f'd.ai_state={state};d.decision={decision}')
@@ -122,6 +151,14 @@ now=102;request();tick()
         self.assertEqual(self.val('calls'),0)
         self.do('ai.state=3;ai.previousState=7;walker.state=8;tick();request();ground();path();now=103;request()')
         self.assertEqual(self.val('calls'),1)
+        self.assertEqual(self.val('invalid_reads'),0)
+
+    def test_runtime_sequence_hands_off_then_follow_moves(self):
+        self.do('ai.state=7;ai.decision=1;walker.state=8;tick();request()')
+        self.assertEqual(self.val('calls'),0)
+        self.do('ai.state=3;ai.previousState=7;walker.state=0;tick();request();ground();path();now=103;request()')
+        self.assertEqual(self.val('calls'),1)
+        self.assertEqual(self.val('sent'),1)
         self.assertEqual(self.val('invalid_reads'),0)
 
     def test_timeout_restores_schedule_without_retry(self):

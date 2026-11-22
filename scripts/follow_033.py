@@ -35,7 +35,7 @@ def main():
     from scripts.prepare_phase_d_backup import GAME
     if file_hash(GAME/'enshrouded.exe')!=plan['exe_sha256']:raise ValueError('SLEEP_BUILD_MISMATCH')
     preflight(plan,GAME)
-    from scripts.install_follow_stage16 import MANIFEST_SHA, RUN
+    from scripts.install_follow_033 import MANIFEST_SHA, RUN
     if args.manifest_sha256!=MANIFEST_SHA:raise ValueError('UNREVIEWED_MANIFEST')
     import json
     receipt=json.loads((RUN/'receipt.json').read_text(encoding='utf-8'))

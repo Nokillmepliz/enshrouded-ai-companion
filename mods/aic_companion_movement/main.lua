@@ -40,7 +40,7 @@ end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
 assert(config.roaming=='native' or config.roaming=='hold','ROAMING_MODE')
-assert((config.schedule and config.lock_name=='follow-movement-0-3-3.lock' and config.seconds==210)
+assert((config.schedule and config.lock_name=='follow-movement-0-3-4.lock' and config.seconds==210)
  or (not config.schedule and config.lock_name=='follow-stage10-14.lock'),'SESSION_LOCK_NAME_OR_LIMIT')
 local follow
 local function guarded(fn)
@@ -72,7 +72,7 @@ api.wake=dofile(emf.dir..'/wake.lua').new({now=os.time,log=api.log,moving=emf.vi
  end})
 local recovering=false
 if config.schedule then
- local journal=emf.dir..'/schedule-movement-0-3-3.jsonl'
+ local journal=emf.dir..'/schedule-movement-0-3-4.jsonl'
  local function load_lease()
   local f=assert(io.open(journal,'rb'),'SCHEDULE_JOURNAL_MISSING')
   local raw=f:read('*a');assert(f:close());assert(#raw<65536,'SCHEDULE_JOURNAL_SIZE')

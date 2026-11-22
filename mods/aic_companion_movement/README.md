@@ -1,7 +1,7 @@
-# Companion Movement 0.3.3 - sticky sleep decision fix
+# Companion Movement 0.3.4 - sequential wake handoff
 
 Prepared offline for build 1287369 / EMF 0.6.18. Not installed or validated in game.
-The deployed version remains 0.3.2 until separate approval.
+The deployed version remains 0.3.3 until separate approval.
 
 Armed Follow temporarily sets only the unique companion NpcCommon.sleepTime=25
 and wakeUpTime=-1 hours. Exact-build static inspection confirms the predicate
@@ -23,9 +23,9 @@ recoveries. No teleport/custom pathfinding/height veto/home/faction/inventory
 or spawn changes. Native home/leash/sitting/talking constraints still apply.
 Roaming is not globally disabled; accepted orders are not proof of movement.
 
-NEW Movement0.3.3 lock, schedule journal and Python journal; preserve all old
+NEW Movement0.3.4 lock, schedule journal and Python journal; preserve all old
 SPENT/intent/history. Commands remain <=32 characters. PROFILE_ONLY identity.
-See docs/MOVEMENT_0_3_3.md and exact update manifest. spawn_ready=false.
+See docs/MOVEMENT_0_3_4.md and exact update manifest. spawn_ready=false.
 
 Cancellation runs only in a fresh server tick; its result is checked in a later
 tick. No world access follows the native cancel call. STOPPED ends movement,
@@ -37,10 +37,13 @@ Only after two seconds of decision5 outside Sleep/FindBed, under the owned
 schedule override and an active Follow radius, wake.lua may queue ONE type1
 NpcCommandEvent targeting this NPC's current position. No Reset/type0, raw
 AI/decision/transform write or second event. It is a native navigation command,
-not a teleport. No villager_move overlaps it. A later server tick must observe
-Idle <- Roam, decision1, walker TargetReached, the matching target and proximity
-before handing control to villager_move. Timeout8s or error stops Follow and
-restores the schedule. Event delivery/terminal handoff remain runtime unverified;
+not a teleport. No villager_move overlaps it. PID532656 confirmed that native
+Roam/TargetReached is followed by Idle/Idle after the walker resets. Handoff now
+accepts these consecutive ticks, at most1s apart, only with decision1, matching
+target, proximity and previousState=Roam. An intervening state/target/decision
+change discards the remembered arrival. Idle alone is not enough. The original
+simultaneous Idle/TargetReached condition is also accepted. Timeout8s or error stops Follow and
+restores the schedule. Type1's state transition was observed; the revised handoff and sustained Follow remain runtime unverified;
 an uncertain event is never resent or forcibly cancelled. Native home/leash may
 still interrupt later navigation. Neither static code nor simulated tests prove
 successful wake or sustained Follow in game.
