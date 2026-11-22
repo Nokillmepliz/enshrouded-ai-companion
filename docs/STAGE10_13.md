@@ -1,15 +1,37 @@
 # Stage 10.13 — Autonomous Companion Test Runner + Follow Prototype
 
-**Текущее состояние, 2026-11-22:** Movement0.2.0 установлен по отдельному
+**Текущее состояние, 2026-11-22:** `BLOCKED_COMMAND_NAME_LIMIT`.
+Попытка PID471028 завершена; игра закрыта пользователем. Контекст и Bridge
+прошли проверку, но EMF не зарегистрировал follow_start/step/stop/status:
+полные имена имеют35/34/34/36 символов при лимите32, включая префикс мода.
+follow_start вернул unknown command. Follow не начался, команд движения0.
+Это дефект подготовленного интерфейса; mock регистрации в офлайн-тестах
+не проверял лимит. Исторический PASS тестов не подтверждает загрузку команд.
+
+Post-close audit: оригиналы67, shadow77 и installed31 неизменны; backup26/26
+PASS, история112 и старые intent/SPENT сохранены. Follow latch остался UNUSED,
+но Python session journal сохранён и запрещает повтор. LOCAL23 без добавлений
+или удалений:6 content/7 metadata изменений,5 сохранений мира в журнале.
+Семантическая целостность сохранений не установлена; восстановления не было.
+Post_close_v2 ATTRIBUTION_PASS. Отчёт:
+[post-close-471028.json](../compatibility/experiments/stage10_13/post-close-471028.json).
+Новый baseline: `runtime/stage10_13/session471028/post-close/inventory.json`,
+SHA-256 `ac979a13426a5d311bd37f48e502239db238e322980249b1c8f16a2eb8629534`.
+
+Следующая итерация: короткие имена команд (например f_start/f_step/f_stop/f_status),
+проверка результата регистрации и regression-тест с реальным лимитом32.
+Без сброса существующего journal; любое продолжение требует отдельного
+проверяемого плана. Исправление/установка/повторный запуск сейчас не выполнялись.
+Исходный planned тест следования и recovery остаётся NOT_TESTED.
+
+**История установки, 2026-11-22:** Movement0.2.0 установлен по отдельному
 разрешению пользователя. Exact6/6 и effective31/31 hashes PASS; backup26/26
 (641142 байта) проверен. LOCAL23, остальные251 game-файлов и112 записей истории
-неизменны. Старый SPENT сохранён, новый follow latch UNUSED; Runner готов,
-игровая сессия ещё не запускалась. Receipt:
+неизменны. Старый SPENT сохранён, новый follow latch UNUSED; офлайн-проверка
+Runner тогда прошла, runtime ещё не выполнялся. Receipt:
 [installation/receipt.json](../compatibility/experiments/stage10_13/installation/receipt.json).
 Rollback dry-run PASS, откат не выполнялся. Режим native сохранён.
-Следующий шаг — ручной запуск LOCAL Body Test / AI Body Test slot1/1 и сообщение
-«загрузился»; разрешение на одну ограниченную автоматическую сессию уже получено.
-Ниже сохранён исходный отчёт подготовки.
+Ниже сохранён исходный отчёт подготовки; актуальный итог указан выше.
 
 2026-11-22. Подготовка офлайн; **не установлен и не испытан в игре**.
 Архитектура сохранена: Lua Body Adapter + Python Bridge. Обновление Movement
