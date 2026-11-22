@@ -3,9 +3,10 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from lupa.lua54 import LuaRuntime
-from companion.movement import MovementClient, manual_move
+from companion.movement import MovementClient, manual_move, reviewed_20m_attempt
 from companion.experimental_spawn import validate_context
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -281,6 +282,18 @@ class ManualMoveTests(unittest.TestCase):
                     return d
                 self.c.discover=discover
                 self.assertEqual(self.run_manual('MOVE')['result'],'ARRIVAL_OBSERVED')
+
+
+class ContinuationTests(unittest.TestCase):
+    def test_pinned_refusal_required_and_old_intent_unchanged(self):
+        audit=dict(status='POST_CLOSE_PASS_MOVE_REFUSED_BEFORE_NATIVE',native_move_called=False,old_movement_intent_sha256='old')
+        with patch('companion.movement.read_pinned',return_value=audit), patch('companion.movement.no_links'), patch('companion.movement.file_hash',return_value='old'):
+            self.assertEqual(reviewed_20m_attempt(Path('project')),Path('project/runtime/stage10_12/movement-20m-attempt'))
+        with patch('companion.movement.read_pinned',return_value=audit), patch('companion.movement.no_links'), patch('companion.movement.file_hash',return_value='changed'):
+            with self.assertRaisesRegex(ValueError,'INTENT_CHANGED'):reviewed_20m_attempt(Path('project'))
+    def test_uncertain_previous_move_cannot_continue(self):
+        with patch('companion.movement.read_pinned',return_value=dict(status='UNKNOWN',native_move_called=None)):
+            with self.assertRaisesRegex(ValueError,'NOT_PROVEN_REFUSED'):reviewed_20m_attempt(Path('project'))
 
 
 if __name__=='__main__': unittest.main()

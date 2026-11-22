@@ -2,6 +2,34 @@
 
 ## Коррекция радиуса: подготовлена0.1.2, пока не установлена
 
+**Обновление после закрытия PID450416: 0.1.2 установлена и проверена.**
+Историческая подготовка ниже сохранена. Post-close audit подтвердил отказ до
+native villager_move, originals67/shadow77/installed28 без изменений, backup27
+verified и history112/SPENT без изменений. LOCAL23:8 content/9 metadata изменений,
+17 world-save событий; добавлений/удалений нет, семантическая целостность всех
+save данных не заявляется. [Аудит](../compatibility/experiments/stage10_12/movement-20m/post-close-450416.json).
+
+Новый verified backup26 (LOCAL23+3 заменяемых файла),643580bytes:
+`runtime/backups/stage10_12-movement-0_1_2`, manifest SHA
+`ce2158275bedad8c6213714aa796b3905c86104b842ffb65fbf1bcc9d9b55499`.
+Установлены ровно controller/mod.json/README0.1.2,3/3 hashes PASS;
+остальные250 game-файлов,LOCAL23,history112 и прежний movement-intent неизменны.
+[Receipt](../compatibility/experiments/stage10_12/movement-20m-installation/receipt.json).
+Новый baseline `runtime/stage10_12/movement-20m-installation/inventory-after.json`,
+SHA `25eb067ef2f33f2a017f42f26341bc4a5e07bf99bb098a81a96bbfcd26c08fd8`.
+
+CLI подготовлен к одной отдельной попытке в `runtime/stage10_12/movement-20m-attempt`.
+Он требует pinned post-close audit с native_move_called=false и неизменный старый
+intent SHA3a95622c…. Старый intent не удаляется/не перезаписывается; новое движение
+не отправлялось, новый intent будет создан только после локального MOVE. Повтор
+новой попытки блокируется её собственным intent. 34/34 целевых теста PASS,0.064s.
+
+Можно вручную загрузить LOCAL Body Test/AI Body Test slot1/1 и сообщить «загрузился».
+После context check использовать ту же PowerShell-команду move_to из этого файла;
+достаточно свободного места в пределах20m, без минимальной дистанции. CLI требует
+Movement0.1.2. Для отдельных discover/status указать `--mod-version 0.1.2`.
+Игра не запускалась агентом; movement/spawn/destroy/rollback не выполнялись.
+
 По запросу пользователя ограничение2–5m заменено на **не более20m без нижней
 границы** в Python и Lua. Проверка использует текущую позицию NPC, а не требует
 неподвижности. Цель — зафиксированная позиция игрока; это один move_to, не follow.

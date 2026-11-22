@@ -10,6 +10,22 @@ import uuid
 from .experimental_spawn import validate_context
 from .integrated_client import unique_json
 from .recovery import no_links
+from .integrated_deployment import read_pinned
+from .compatibility import file_hash
+
+
+def reviewed_20m_attempt(root):
+    """One explicit continuation after the audited pre-native refusal; never erase intent."""
+    root=Path(root)
+    audit=read_pinned(root/'compatibility/experiments/stage10_12/movement-20m/post-close-450416.json',
+        'f801a6398ef7e2377f9ed22e4dbfe5f83494811eaec7d3456152504a5b806b78')
+    if audit.get('status')!='POST_CLOSE_PASS_MOVE_REFUSED_BEFORE_NATIVE' or audit.get('native_move_called') is not False:
+        raise ValueError('PREVIOUS_MOVEMENT_NOT_PROVEN_REFUSED')
+    old=root/'runtime/stage10_12/first-movement/movement-intent.json'
+    no_links(old)
+    if file_hash(old)!=audit['old_movement_intent_sha256']:
+        raise ValueError('PREVIOUS_INTENT_CHANGED')
+    return root/'runtime/stage10_12/movement-20m-attempt'
 
 
 class MovementClient:

@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from companion.movement import MovementClient, manual_move
+from companion.movement import MovementClient, manual_move, reviewed_20m_attempt
 from companion.transport import connect
 from companion.recovery import write_json_new
 
@@ -21,9 +21,10 @@ if __name__ == '__main__':
     try:
         if args.command=='move_to' and not sys.stdin.isatty():
             raise ValueError('INTERACTIVE_CONSOLE_REQUIRED')
+        if args.command=='move_to':
+            run=reviewed_20m_attempt(Path(__file__).resolve().parents[1])
         client = MovementClient(connect(pid=args.pid),version=version)
         if args.command=='move_to':
-            run=Path(__file__).resolve().parents[1]/'runtime/stage10_12/first-movement'
             result=manual_move(client,run/'movement-intent.json')
             if (run/'movement-intent.json').exists():write_json_new(run/'result.json',result)
         else:
