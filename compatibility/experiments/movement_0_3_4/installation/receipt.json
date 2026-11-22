@@ -1,0 +1,109 @@
+{
+  "status": "INSTALLED_READY_FOR_MANUAL_START",
+  "version": "0.3.4",
+  "created_utc": "2026-11-22T19:56:15.804825+00:00",
+  "manifest_sha256": "2c27084a04e0c73859803db1b9ce629ce713690a87ca179154408a5739e851df",
+  "installed_records": [
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "operation": "replace",
+      "record": {
+        "sha256": "ed57597849cd9bd8c77098ba7100d43d4783097d95e767c3adc211b400ffbbfe",
+        "size": 7172,
+        "volume": 7969823110406842093,
+        "file_id": 6192449487670578,
+        "links": 1,
+        "mtime_ns": 1795377371812573300
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "operation": "replace",
+      "record": {
+        "sha256": "01b1a1df37a4ddddb66cff30652ed7bbeb33554e180e8d37c17a4dfbfdc8f268",
+        "size": 373,
+        "volume": 7969823110406842093,
+        "file_id": 7036874417802543,
+        "links": 1,
+        "mtime_ns": 1795377372194045800
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "operation": "replace",
+      "record": {
+        "sha256": "c70d57ca75f9388397d2328510726a55b21617dd76f922432a145b95df17f959",
+        "size": 3541,
+        "volume": 7969823110406842093,
+        "file_id": 17169973579351663,
+        "links": 1,
+        "mtime_ns": 1795377372556299200
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow_config.lua",
+      "operation": "replace",
+      "record": {
+        "sha256": "b27057b28552809e6e87997ed9db5c4b7044ad68692a8ba4647651d4f0ca8023",
+        "size": 216,
+        "volume": 7969823110406842093,
+        "file_id": 8725724278066466,
+        "links": 1,
+        "mtime_ns": 1795377372941148600
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/wake.lua",
+      "operation": "replace",
+      "record": {
+        "sha256": "6e4eb09c838a15eb431f2f20f257fa920358f887247a964741075bab3aca50bd",
+        "size": 3565,
+        "volume": 7969823110406842093,
+        "file_id": 22799473113564736,
+        "links": 1,
+        "mtime_ns": 1795377373315501200
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-movement-0-3-4.lock",
+      "operation": "add",
+      "record": {
+        "sha256": "299c359d58f81de8a31a7c41d53184e3f7f4e56bedbf0d2e06aef93d0d4d23e9",
+        "size": 39,
+        "volume": 7969823110406842093,
+        "file_id": 6755399441063323,
+        "links": 1,
+        "mtime_ns": 1795377373674963400
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-movement-0-3-4.jsonl",
+      "operation": "add",
+      "record": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0,
+        "volume": 7969823110406842093,
+        "file_id": 6192449487670597,
+        "links": 1,
+        "mtime_ns": 1795377374055420300
+      }
+    }
+  ],
+  "effective_hashes_verified": 42,
+  "backup_files": 28,
+  "backup_bytes": 652482,
+  "backup_manifest_sha256": "58fc9e8a7154c0ac8f28792ff1533c6a11502b3acfcc509840f64a10ecac3ada",
+  "local_unchanged": 23,
+  "unchanged_game_files": 268,
+  "history_unchanged": 112,
+  "old_latch": "SPENT",
+  "follow_latch": "UNUSED",
+  "runner_ready": true,
+  "post_install_baseline_sha256": "3785eea111c9ee3b88b1fe2cb85210b71a62c82c7e6729e91b7a81105b062ef9",
+  "rollback_dry_run": "PASS",
+  "game_launched": false,
+  "movement_executed": false,
+  "roaming": "native",
+  "spawn_ready": false,
+  "resource_check": "DAT_METADATA_ONLY_WITH_INHERITED_HASHES; all other files freshly SHA256 hashed"
+}

@@ -1,6 +1,10 @@
 # Movement0.3.4 — подтверждение handoff по последовательным ticks
 
-2026-11-22. **PREPARED_NOT_INSTALLED / RUNTIME_UNVERIFIED**.
+2026-11-22. **INSTALLED_READY_FOR_MANUAL_START / RUNTIME_UNVERIFIED**.
+
+После разрешения пользователя установлен подготовленный exact7: пять замен и два новых файла. Проверены effective42/42, backup28/28 (LOCAL23 + пять замен), неизменность LOCAL и прежней истории; rollback dry-run PASS. [Installation receipt](../compatibility/experiments/movement_0_3_4/installation/receipt.json). Для крупных DAT использована проверка метаданных с унаследованными хешами, для остальных файлов — свежий SHA-256. Код после офлайн-проверок не менялся, тесты повторно не запускались.
+
+Игра агентом не запускалась; новая сессия ещё не использована. Следующий шаг: пользователь загружает LOCAL Body Test / AI Body Test slot1/1 и сообщает «загрузился», затем одна разрешённая автоматическая сессия0.3.4. Реальный Follow этой версии пока не подтверждён. Ниже сохранены результаты предыдущей сессии и подготовка исправления.
 
 В единственной сессии0.3.3 PID532656, LOCAL Body Test / AI Body Test slot1/1,
 type1 снял decision5. Реального Follow не было:0 villager_move,0 probes.
