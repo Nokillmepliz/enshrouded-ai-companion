@@ -1,0 +1,28 @@
+{
+  "samples": 66,
+  "transitions": [
+    {
+      "session": "7ced7aa64498bde8-1",
+      "entity": 1025,
+      "classification": {
+        "status": "NATIVE_PAUSE",
+        "state": "Sleep",
+        "decision": 5,
+        "blockers": [
+          "Sleep",
+          "WantsToSleep"
+        ],
+        "wake_supported": false,
+        "movement_ready": false,
+        "daytime": "NOT_INFERRED_FROM_AI_STATE"
+      }
+    }
+  ],
+  "controller_orders": 0,
+  "verdict": "BLOCKED_NO_VERIFIED_PER_NPC_SCHEDULE_OVERRIDE",
+  "installation_ready": false,
+  "runtime_ready": false,
+  "spawn_ready": false,
+  "limits": "No live read/write, no claim of wake or day/night independence",
+  "evidence_sha256": "2eb241e7b6cbf2c2c6f0379dd049d8be6c53e2968056acf1d8ed9d24de2d1717"
+}
