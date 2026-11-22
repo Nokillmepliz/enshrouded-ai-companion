@@ -110,7 +110,7 @@ class LuaMovementTests(unittest.TestCase):
     def test_identity_lost_after_accepted(self):
         self.run_lua("move();session='abc-2'")
         self.assertEqual(self.val('c.status(w).state'), 'IDENTITY_LOST_NO_RETRY')
-    def test_host_discovery_and_single_move(self):
+    def test_host_discovery_and_legacy_move_disabled_for_follow(self):
         def encode(value):
             def plain(v):
                 return {k:plain(item) for k,item in v.items()} if hasattr(v,'items') else v
@@ -128,7 +128,7 @@ function w:template(name,id) if id==1 then return nil end;return template(self,n
 ids={1,42}
 emf={dir=moddir,session_token=api.session,local_player=api.player,villager_move=api.move,
 villager_moving=api.moving,find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
-command=function(name,description,fn) commands[name]=fn;return true end}
+command=function(name,description,fn) commands[name]=fn;return true end,on_tick=function() end}
 ''')
         self.lua.execute((ROOT/'mods/aic_companion_movement/main.lua').read_text())
         self.run_lua("commands.discover(w,{string.rep('a',32)})")
@@ -137,11 +137,11 @@ command=function(name,description,fn) commands[name]=fn;return true end}
         self.assertEqual(reply['value']['discovery']['result'],'FOUND_ONE')
         self.assertLess(len(self.val('replies[1]')),964)
         self.run_lua("commands.move_to(w,{string.rep('b',32),'abc-1','42','4','0','0','APPROVE_PROFILE_ONLY_MOVE'})")
-        self.assertIn('ACCEPTED',self.val('replies[2]'))
+        self.assertIn('MOVEMENT_DISABLED_PENDING_REVIEW',self.val('replies[2]'))
         self.assertLess(len(self.val('replies[2]')),964)
         self.run_lua("commands.move_to(w,{string.rep('c',32),'abc-1','42','4','0','0','APPROVE_PROFILE_ONLY_MOVE'})")
-        self.assertIn('ATTEMPT_CONSUMED_NO_RETRY',self.val('replies[3]'))
-        self.assertEqual(self.val('calls'),1)
+        self.assertIn('MOVEMENT_DISABLED_PENDING_REVIEW',self.val('replies[3]'))
+        self.assertEqual(self.val('calls'),0)
     def test_wall_and_height_rejected(self):
         self.run_lua('blocked=true')
         with self.assertRaises(Exception): self.run_lua('move()')

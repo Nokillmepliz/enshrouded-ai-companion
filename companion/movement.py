@@ -29,6 +29,7 @@ def reviewed_20m_attempt(root):
 
 
 class MovementClient:
+    commands = ('discover', 'status', 'move_to')
     def __init__(self, transport, *, version='0.1.0'):
         self.transport = transport
         self.version = version
@@ -45,7 +46,7 @@ class MovementClient:
             raise ValueError('CONTEXT_CHANGED')
         nonce = uuid.uuid4().hex
         values = [nonce, *map(str, args)]
-        if command not in ('discover', 'status', 'move_to') or any(
+        if command not in self.commands or any(
                 not re.fullmatch(r'[A-Za-z0-9_.-]+', v) for v in values):
             raise ValueError('INVALID_COMMAND')
         response = self.transport.console('aic_companion_movement.'+command+' '+' '.join(values),

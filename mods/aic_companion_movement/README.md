@@ -1,18 +1,25 @@
-# Companion Movement 0.1.2 — one manual move
+# Companion Movement 0.2.0 — Stage 10.13
 
-Disabled by default in mod.json; prepared update, not installed by preparation.
-`main.lua` enables the explicit move_to handler; loading it never sends a move.
-No spawn/destroy, component writes, home edits, save APIs or spawn latch/intent
-access. See [manual movement plan](../../docs/STAGE10_12_MOVEMENT_TEST.md).
+Offline Follow Prototype. No automatic start on mod load. Separate installation
+and runtime approval required. Only LOCAL Body Test / AI Body Test, unique NPC
+profile; PROFILE_ONLY identity, no persistent GUID proof.
 
-`discover`/`status` are read-only commands using the existing Python Bridge.
-The Lua controller implements a gated one-order `move_to` using EMF
-0.6.18 API46 `villager_move`. A unique npcId/component profile is NOT proof of a
-template GUID or persistent instance identity. Installation and runtime testing
-require separate authorization. CLI targets the player's sampled standing
-position, at most 20 m from the NPC (no minimum distance), and requires typing MOVE after inspecting it.
-Daylight/clear solid ground are operator checks; wall/height/awake/unique NPC and
-existing-order checks run before native API. EMF validates home radius/leash and
-uses its own navigation. Timeout/stuck can issue a native stop-position event.
-No hold/follow, teleport, retries or explicit cancel. Do not reload the mod or
-delete the movement intent to bypass a consumed/uncertain attempt.
+Python Runner validates Bridge/context before and after each request. One durable
+journal and follow-session.lock permit one session. Previous SPENT/spawn/movement
+intents are never reset. Legacy move_to is disabled.
+
+Limits: 180 seconds, 24 orders, two recovery attempts, polling at most once per
+second, four-second command cooldown. Enter radius 19 m, exit >20 m. Target 1.8 m
+from player towards NPC; bounded recovery rotates it. Ground/Wall/Path, freshness,
+unique identity and no foreign order required. Native villager_move enforces
+home/leash. No teleport, component writes, persistence or direct save access.
+
+follow_config.lua roaming='native' preserves wandering (current package).
+roaming='hold' requests a finite five-second native hold after arrival. This
+returns NPC to the point, does NOT disable its AI. Far away: no new orders; cancel
+our current order. Full roaming suppression compatible with movement remains
+unconfirmed. Change the switch only in a reviewed package with the game closed.
+
+Four-second heartbeat watchdog stops the session. Lost identity forbids cancel;
+orders remain bounded to 12 seconds, optional hold to five. STUCK is not ARRIVED.
+See docs/STAGE10_13.md in the project repository.
