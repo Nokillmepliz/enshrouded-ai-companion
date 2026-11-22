@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from companion.follow import FollowClient, run
+from companion.follow import FollowClient, run, reviewed_continuation
 from companion.transport import connect
 from companion.compatibility import file_hash
 from companion.integrated_deployment import read_pinned
@@ -31,10 +31,11 @@ def main():
     ap.add_argument('--authorized-session',action='store_true')
     args=ap.parse_args()
     if not args.authorized_session: ap.error('Separate runtime authorization required')
-    plan=read_pinned(ROOT/'compatibility/experiments/stage10_13/exact-update-manifest.json',args.manifest_sha256)
+    plan=read_pinned(ROOT/'compatibility/experiments/stage10_13/registration-fix/exact-update-manifest.json',args.manifest_sha256)
     from scripts.prepare_phase_d_backup import GAME
     preflight(plan,GAME)
-    result=run(FollowClient(connect(pid=args.pid)),ROOT/'runtime/stage10_13/test-session.jsonl',plan['token'])
+    continuation=reviewed_continuation(ROOT)
+    result=run(FollowClient(connect(pid=args.pid)),ROOT/'runtime/stage10_13/test-session.jsonl',plan['token'],continuation=continuation)
     print(json.dumps(result,indent=2))
 
 

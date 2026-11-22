@@ -11,7 +11,8 @@ local controller=policy.new({allow_move=false,session=emf.session_token,player=e
  end})
 -- One explicit request only. No automatic move or retry on load/tick.
 for _,name in ipairs({'discover','status','move_to'}) do
- emf.command(name,'Stage 10.12: explicit one-shot movement; no automatic retry',function(w,args)
+ assert(#('aic_companion_movement.'..name)<=32,'COMMAND_NAME_LIMIT')
+ assert(emf.command(name,'Stage 10.12: explicit one-shot movement; no automatic retry',function(w,args)
   local nonce=args[1]
   local ok,value=pcall(function()
    assert(type(nonce)=='string' and #nonce==32 and nonce:match('^[0-9a-f]+$'),'NONCE')
@@ -33,7 +34,7 @@ for _,name in ipairs({'discover','status','move_to'}) do
   local raw=assert(emf.json.encode(reply))
   if #raw>950 then emf.reply('AIC_MOVEMENT_ERROR reply_size');return end
   emf.reply('AIC_MOVEMENT '..raw)
- end)
+ end),'COMMAND_REGISTRATION_FAILED:'..name)
 end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
@@ -61,16 +62,17 @@ local api={now=os.time,move=emf.villager_move,moving=emf.villager_moving,cancel=
   return wrote~=nil and flushed~=nil and closed~=nil and bytes=='SPENT!:'..config.token
  end}
 follow=dofile(emf.dir..'/follow.lua').new(api,controller.discover,config)
-for _,name in ipairs({'follow_start','follow_step','follow_stop','follow_status'}) do
- emf.command(name,'Bounded Stage10.13 runner',function(w,args)
+for _,name in ipairs({'f_start','f_step','f_stop','f_status'}) do
+ assert(#('aic_companion_movement.'..name)<=32,'COMMAND_NAME_LIMIT')
+ assert(emf.command(name,'Bounded Stage10.13 runner',function(w,args)
   local nonce=args[1]
   local ok,value=pcall(function()
    assert(type(nonce)=='string' and #nonce==32 and nonce:match('^[0-9a-f]+$'),'NONCE')
-   if name=='follow_start' then
+   if name=='f_start' then
     assert(#args==4,'ARITY');follow.start(w,args[2],args[3],tonumber(args[4]))
-   elseif name=='follow_step' then
+   elseif name=='f_step' then
     assert(#args==3,'ARITY');follow.step(w,args[2],tonumber(args[3]))
-   elseif name=='follow_stop' then
+   elseif name=='f_stop' then
     assert(#args==2 and args[2]==config.token,'TOKEN');follow.stop(w,'RUNNER_STOP')
    else assert(#args==1,'ARITY') end
    return follow.status(w)
@@ -80,7 +82,7 @@ for _,name in ipairs({'follow_start','follow_step','follow_stop','follow_status'
   local raw=assert(emf.json.encode(reply))
   if #raw>950 then follow.stop(w,'REPLY_SIZE');emf.reply('AIC_MOVEMENT_ERROR reply_size');return end
   emf.reply('AIC_MOVEMENT '..raw)
- end)
+ end),'COMMAND_REGISTRATION_FAILED:'..name)
 end
 local checked=0
 emf.on_tick(function(w)

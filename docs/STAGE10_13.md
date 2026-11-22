@@ -1,6 +1,11 @@
 # Stage 10.13 — Autonomous Companion Test Runner + Follow Prototype
 
-**Текущее состояние, 2026-11-22:** `BLOCKED_COMMAND_NAME_LIMIT`.
+**Текущее состояние, 2026-11-22:** Movement0.2.1 установлен, exact3/effective31
+hashes и backup26 PASS. Старый журнал и follow lock сохранены; ожидается
+ручной запуск игры. [Исправление и продолжение](STAGE10_13_REGISTRATION_FIX.md).
+После «загрузился» разрешена одна автоматическая сессия без MOVE.
+
+**Предыдущая попытка0.2.0:** `BLOCKED_COMMAND_NAME_LIMIT`.
 Попытка PID471028 завершена; игра закрыта пользователем. Контекст и Bridge
 прошли проверку, но EMF не зарегистрировал follow_start/step/stop/status:
 полные имена имеют35/34/34/36 символов при лимите32, включая префикс мода.

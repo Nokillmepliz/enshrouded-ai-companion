@@ -1,4 +1,9 @@
-# Companion Movement 0.2.0 — Stage 10.13
+# Companion Movement 0.2.1 — Stage 10.13
+
+Registration fix: f_start/f_step/f_stop/f_status, fully qualified names <=32.
+Registration failure fails mod load. Existing follow-session.lock is preserved.
+Python continuation appends once to the SAME journal only after a pinned audit
+proves the previous command was unregistered and the session never started.
 
 Offline Follow Prototype. No automatic start on mod load. Separate installation
 and runtime approval required. Only LOCAL Body Test / AI Body Test, unique NPC

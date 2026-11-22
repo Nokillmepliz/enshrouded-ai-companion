@@ -3,6 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 import shutil
+import hashlib
 
 from lupa.lua54 import LuaRuntime
 from companion.follow import run, summarize, FollowClient
@@ -183,8 +184,8 @@ class FakeClient:
     def discover(self): return {'discovery':{'result':'FOUND_ONE','session':'abc-1','entity':42}}
     def _request(self,name,*args):
         self.calls.append(name)
-        if self.fail and name=='follow_step': raise ValueError('UNKNOWN')
-        return dict(state='STOPPED' if name=='follow_step' else 'WAITING_FOR_PLAYER',reason='END',orders=0)
+        if self.fail and name=='f_step': raise ValueError('UNKNOWN')
+        return dict(state='STOPPED' if name=='f_step' else 'WAITING_FOR_PLAYER',reason='END',orders=0)
 
 
 class RunnerTests(unittest.TestCase):
@@ -203,23 +204,41 @@ class RunnerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             client=FakeClient();client.fail=True
             with self.assertRaises(ValueError):run(client,Path(td)/'s','token',sleep=lambda _:None)
-            self.assertEqual(client.calls,['follow_start','follow_step'])
+            self.assertEqual(client.calls,['f_start','f_step'])
     def test_stuck_not_success(self):
         r=summarize([dict(state='STUCK',distance=1.8,orders=1)])
         self.assertFalse(r['arrival_observed'])
         self.assertFalse(r['roaming_disabled'])
     def test_no_manual_move_endpoint(self):
         with self.assertRaises(ValueError):FollowClient(None).move_to(1,2,3)
+    def test_audited_append_preserves_history_and_is_single_use(self):
+        with tempfile.TemporaryDirectory() as td:
+            path=Path(td)/'session.jsonl';prior=b'{"kind":"PREVIOUS_REFUSED"}\n';path.write_bytes(prior)
+            proof=dict(prior_journal_sha256=hashlib.sha256(prior).hexdigest())
+            client=FakeClient()
+            run(client,path,'token',sleep=lambda _:None,continuation=proof)
+            self.assertTrue(path.read_bytes().startswith(prior))
+            self.assertEqual(json.loads(path.read_text().splitlines()[1])['kind'],'AUDITED_CONTINUATION')
+            calls=list(client.calls)
+            with self.assertRaisesRegex(ValueError,'ALREADY_USED'):
+                run(client,path,'token',sleep=lambda _:None,continuation=proof)
+            self.assertEqual(client.calls,calls)
+    def test_changed_prior_journal_refuses_without_rpc(self):
+        with tempfile.TemporaryDirectory() as td:
+            path=Path(td)/'session.jsonl';path.write_bytes(b'changed\n');client=FakeClient()
+            with self.assertRaises(ValueError):
+                run(client,path,'token',continuation=dict(prior_journal_sha256='0'*64))
+            self.assertEqual(path.read_bytes(),b'changed\n');self.assertEqual(client.calls,[])
     def test_follow_version_and_local_context(self):
         from tests.test_companion_movement import Transport
         t=Transport();client=FollowClient(t)
         with self.assertRaises(ValueError):client.discover()
-        t.mods[-1]['version']='0.2.0'
+        t.mods[-1]['version']='0.2.1'
         client.discover()
         old=t.state
         t.state=lambda:dict(old(),character=dict(storage='steam',slot=1,name='Body Test'))
         count=len(t.calls)
-        with self.assertRaises(ValueError):client._request('follow_step','token',1)
+        with self.assertRaises(ValueError):client._request('f_step','token',1)
         self.assertEqual(len(t.calls),count)
 
 
@@ -248,20 +267,28 @@ function w:position(id) return id==1 and 10 or 0,0,0 end
 ids={1,42}
 emf={dir=moddir,local_player=api.player,session_token=api.session,villager_move=api.move,villager_moving=api.moving,
 find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
-command=function(n,d,f) commands[n]=f end,on_tick=function(f) watch=f end,log=function() end,
+command=function(n,d,f) if #('aic_companion_movement.'..n)>32 then return false end;commands[n]=f;return true end,on_tick=function(f) watch=f end,log=function() end,
 ground_at=function(w,x,z,f) ground=f;return true end}
 ''')
             host=(ROOT/'mods/aic_companion_movement/main.lua').read_text(encoding='utf-8')
             lua.execute(host)
-            lua.execute("commands.follow_start(w,{string.rep('a',32),'"+token+"','abc-1','42'})")
+            actual={k for k,v in lua.globals().commands.items()}
+            self.assertEqual(actual,{'discover','status','move_to','f_start','f_step','f_stop','f_status'})
+            self.assertEqual(set(FollowClient.commands)-{'discover'},actual-{'discover','status','move_to'})
+            for name in actual:self.assertLessEqual(len('aic_companion_movement.'+name),32)
+            self.assertFalse(lua.eval("emf.command('follow_start','',function() end)"))
+            with self.assertRaises(Exception):
+                lua.execute(host.replace("'f_start'","'follow_start'"))
+            lua.execute(host)
+            lua.execute("commands.f_start(w,{string.rep('a',32),'"+token+"','abc-1','42'})")
             self.assertEqual(lock.read_text(),'SPENT!:'+token)
             reply=lua.eval('replies[1]')
             self.assertLess(len(reply.encode()),964)
             self.assertTrue(json.loads(reply[13:])['ok'])
-            lua.execute("commands.follow_step(w,{string.rep('b',32),'"+token+"','1'})")
+            lua.execute("commands.f_step(w,{string.rep('b',32),'"+token+"','1'})")
             self.assertTrue(json.loads(lua.eval('replies[2]')[13:])['ok'])
             lua.execute(host)  # real Lua reload, with the same durable lock
-            lua.execute("commands.follow_start(w,{string.rep('c',32),'"+token+"','abc-1','42'})")
+            lua.execute("commands.f_start(w,{string.rep('c',32),'"+token+"','abc-1','42'})")
             self.assertIn('DURABLE_SESSION_LATCH',lua.eval('replies[3]'))
             self.assertEqual(lua.eval('calls'),0)
 

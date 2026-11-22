@@ -128,7 +128,7 @@ function w:template(name,id) if id==1 then return nil end;return template(self,n
 ids={1,42}
 emf={dir=moddir,session_token=api.session,local_player=api.player,villager_move=api.move,
 villager_moving=api.moving,find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
-command=function(name,description,fn) commands[name]=fn;return true end,on_tick=function() end}
+command=function(name,description,fn) if #('aic_companion_movement.'..name)>32 then return false end;commands[name]=fn;return true end,on_tick=function() end}
 ''')
         self.lua.execute((ROOT/'mods/aic_companion_movement/main.lua').read_text())
         self.run_lua("commands.discover(w,{string.rep('a',32)})")

@@ -1,0 +1,60 @@
+{
+  "status": "INSTALLED_READY_FOR_MANUAL_START",
+  "version": "0.2.1",
+  "created_utc": "2026-11-22T16:37:10.092998+00:00",
+  "manifest_sha256": "500d8b6bf9b73cb449d80b444f9b0d59d02e379178cc3aec04823f84c04ed918",
+  "installed_records": [
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "operation": "replace",
+      "record": {
+        "sha256": "f72fa5e157217db6aa2414a3f36e86f2e78d985a9b944d8f18f41a020bb33145",
+        "size": 4711,
+        "volume": 7969823110406842093,
+        "file_id": 21392098230011456,
+        "links": 1,
+        "mtime_ns": 1795365396722810300
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "operation": "replace",
+      "record": {
+        "sha256": "deec28a834e08ada5339af9e5b3c7b543400c42e3c36e74d85e38cffb02d5820",
+        "size": 365,
+        "volume": 7969823110406842093,
+        "file_id": 5348024557510043,
+        "links": 1,
+        "mtime_ns": 1795365397123845900
+      }
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "operation": "replace",
+      "record": {
+        "sha256": "271eec765e7880f89fbaebf21399fba6d9a0a16fbe55856bdcbfffd27fd61e47",
+        "size": 1799,
+        "volume": 7969823110406842093,
+        "file_id": 6192449487638886,
+        "links": 1,
+        "mtime_ns": 1795365397495398500
+      }
+    }
+  ],
+  "effective_hashes_verified": 31,
+  "backup_files": 26,
+  "backup_bytes": 644217,
+  "backup_manifest_sha256": "ea332f1eec7f88f7bb60d49055607126f8fdca040845bbeefcacfdbeec4aff00",
+  "local_unchanged": 23,
+  "unchanged_game_files": 255,
+  "history_unchanged": 112,
+  "old_latch": "SPENT",
+  "follow_latch": "UNUSED",
+  "runner_ready": true,
+  "post_install_baseline_sha256": "a67f92b091f533c807d43d6b2b984b389dcd67ecdabbb377d1992d2ce6b3a175",
+  "rollback_dry_run": "PASS",
+  "game_launched": false,
+  "movement_executed": false,
+  "roaming": "native",
+  "spawn_ready": false
+}

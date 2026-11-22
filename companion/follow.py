@@ -3,16 +3,54 @@ import json
 import os
 from pathlib import Path
 import time
+import hashlib
+import io
+from contextlib import contextmanager
 
 from .movement import MovementClient
 from .recovery import no_links
+from .integrated_deployment import read_pinned
+
+AUDIT_SHA='0f6e5855bb644f25af96de7e2d4d994e311e423d16e30ca48e6f913c55851e34'
+PRIOR_JOURNAL_SHA='9c394226b46a4698058c549a2310ab17b7a892d5c41e5256488e50a01fcc76d4'
+
+
+def reviewed_continuation(root):
+    audit=read_pinned(Path(root)/'compatibility/experiments/stage10_13/post-close-471028.json',AUDIT_SHA)
+    if (audit.get('status')!='POST_CLOSE_INTEGRITY_PASS_FOLLOW_NOT_STARTED'
+        or audit.get('follow_started') is not False or audit.get('movement_commands_executed')!=0
+        or audit.get('follow_latch')!='UNUSED' or audit.get('journal_preserved_sha256')!=PRIOR_JOURNAL_SHA):
+        raise ValueError('CONTINUATION_NOT_PROVEN')
+    return dict(audit_sha256=AUDIT_SHA,prior_journal_sha256=PRIOR_JOURNAL_SHA,
+                reason='COMMAND_NOT_REGISTERED_SESSION_NEVER_STARTED')
+
+
+@contextmanager
+def session_stream(journal, continuation):
+    if continuation is None:
+        with journal.open('x',encoding='utf-8',newline='\n') as stream:yield stream
+        return
+    # Lock and validate the old bytes before appending. Never truncate/rename/reset.
+    with journal.open('r+b') as raw:
+        if os.name=='nt':
+            import msvcrt
+            msvcrt.locking(raw.fileno(),msvcrt.LK_NBLCK,1)
+        else:
+            import fcntl
+            fcntl.flock(raw.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+        prior=raw.read()
+        if hashlib.sha256(prior).hexdigest()!=continuation['prior_journal_sha256']:
+            raise ValueError('CONTINUATION_JOURNAL_CHANGED_OR_ALREADY_USED')
+        if not prior.endswith(b'\n'):raise ValueError('INCOMPLETE_PRIOR_JOURNAL')
+        raw.seek(0,os.SEEK_END)
+        with io.TextIOWrapper(raw,encoding='utf-8',newline='\n') as stream:yield stream
 
 
 class FollowClient(MovementClient):
-    commands = ('discover', 'follow_start', 'follow_step', 'follow_stop', 'follow_status')
+    commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
 
     def __init__(self, transport):
-        super().__init__(transport, version='0.2.0')
+        super().__init__(transport, version='0.2.1')
 
     def move_to(self, *args, **kwargs):
         raise ValueError('MANUAL_MOVEMENT_DISABLED')
@@ -33,17 +71,18 @@ def summarize(samples):
                 spawn_ready=False)
 
 
-def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep):
-    """Journal every grant before transmission. The journal is never resumed or rotated."""
+def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, continuation=None):
+    """Journal each grant; only an audited no-start permits one locked append."""
     journal=Path(journal)
     no_links(journal)
     journal.parent.mkdir(parents=True, exist_ok=True)
     samples=[]
-    with journal.open('x', encoding='utf-8', newline='\n') as stream:
+    with session_stream(journal,continuation) as stream:
         def record(kind, value):
             stream.write(json.dumps(dict(kind=kind, time=clock(), value=value), ensure_ascii=False)+'\n')
             stream.flush()
             os.fsync(stream.fileno())
+        if continuation is not None:record('AUDITED_CONTINUATION',continuation)
         record('SESSION_INTENT', dict(duration=180, max_orders=24, max_recoveries=2,
                                      interval=1, automatic_retry=False, token=token))
         begun=clock()
@@ -62,7 +101,7 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep):
             if d['result']!='FOUND_ONE' or d.get('active_order'):
                 raise ValueError('UNIQUE_IDLE_NPC_REQUIRED')
             record('START_GRANT',dict(session=d['session'], entity=d['entity']))
-            sample=client._request('follow_start',token,d['session'],d['entity'])
+            sample=client._request('f_start',token,d['session'],d['entity'])
             samples.append(sample);record('SAMPLE',sample)
             deadline=clock()+175  # Lua hard limit 180; leave room for clean stop.
             seq=0
@@ -71,11 +110,11 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep):
                 if clock()>=deadline: break
                 seq+=1
                 record('STEP_GRANT',dict(sequence=seq))
-                sample=client._request('follow_step',token,seq)
+                sample=client._request('f_step',token,seq)
                 samples.append(sample);record('SAMPLE',sample)
             if sample['state']!='STOPPED':
                 record('STOP_GRANT',{})
-                sample=client._request('follow_stop',token)
+                sample=client._request('f_stop',token)
                 samples.append(sample);record('SAMPLE',sample)
         except (Exception, KeyboardInterrupt) as exc:
             record('STOPPED_UNKNOWN_NO_RETRY',dict(error=str(exc),
