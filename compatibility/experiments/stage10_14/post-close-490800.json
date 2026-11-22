@@ -1,0 +1,192 @@
+{
+  "status": "POST_CLOSE_INTEGRITY_PASS_FOLLOW_STOPPED",
+  "runtime_verdict": "NIGHT_BUSY_NO_MOVEMENT",
+  "pid": 490800,
+  "created_utc": "2026-11-22T17:29:50.928125+00:00",
+  "counts": {
+    "originals": 67,
+    "shadow": 77,
+    "installed": 31
+  },
+  "backup_verified": 28,
+  "history_unchanged": 112,
+  "old_latch": "SPENT",
+  "follow_latch": "SPENT!",
+  "old_journals_unchanged": true,
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantic_integrity": "NOT_ESTABLISHED; game autosaves, no restore",
+  "world_save_events": 8,
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-22T20-22-26.log",
+      "backup/enshrouded_2026-11-22T20-24-02.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-stage10-14.lock",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "emf/mods/aic_companion_movement/follow-stage10-14.lock",
+      "enshrouded.log"
+    ]
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-22T20-22-26.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS",
+    "additional_reviewed_log": {
+      "backup/enshrouded_2026-11-22T20-24-02.log": {
+        "sha256": "cddeea7aeb5f652ba074d95b59f52522d389ee68cde1c664a81ec9bd9f3420fe",
+        "basis": "reviewed startup17:22:26UTC and orderly shutdown; current log starts17:24:02UTC",
+        "scope": "intermediate launch observed only via log; no runtime diagnostics"
+      }
+    }
+  },
+  "console_commands": [
+    "aic_companion_movement.discover",
+    "aic_companion_movement.f_start",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_step",
+    "aic_companion_movement.f_stop",
+    "aic_companion_movement.f_step"
+  ],
+  "command_lengths": {
+    "f_start": 30,
+    "f_step": 29,
+    "f_stop": 29,
+    "f_status": 31
+  },
+  "follow_started": true,
+  "movement_commands_executed": 0,
+  "retry_performed": false,
+  "rollback_executed": false,
+  "journal_sha256": "2eb241e7b6cbf2c2c6f0379dd049d8be6c53e2968056acf1d8ed9d24de2d1717",
+  "runtime_summary": {
+    "samples": 66,
+    "states_seen": [
+      "STOPPED",
+      "WAITING_FOR_NPC",
+      "WAITING_FOR_PLAYER"
+    ],
+    "minimum_player_distance": 4.890498213373792,
+    "maximum_player_distance": 8.527067518980726,
+    "orders": 0,
+    "recoveries": 0,
+    "arrival_observed": false,
+    "stopped_reason": "RUNNER_STOP",
+    "roaming_disabled": false,
+    "sustained_follow": "REQUIRES_GAME_OBSERVATION",
+    "scenario_coverage": "ONLY_STATES_SEEN; missing scenarios are NOT_TESTED",
+    "spawn_ready": false
+  },
+  "npc_displacement": 0,
+  "probes": 0,
+  "threshold_tests": "NOT_TESTED",
+  "vertical_tests": "NOT_TESTED",
+  "cause": "NPC_ASLEEP_OR_BUSY ai_state8 decision5; user confirmed night",
+  "log_hashes": {
+    "enshrouded.log": "2dcbcf55a98effa56c0527917fc89805c547f672cb0445b49c528a6cf69bfe29",
+    "emf/emf_core.log": "a16c895f95874e4eafb7d77062b3ff64e621689c6dc7b402bc8bc1b61d800a7c",
+    "emf/emf_loader.log": "b89689def8150876f8e0d1dc55f8ecb25b2d0b7bc102cdd9c75cad26797f70e3",
+    "emf/file_opens.log": "c0de15cbd2879aedad2c8f5c307cfdeb9907d19ae00a6a5a419b66fa8d88df97"
+  },
+  "post_close_baseline_sha256": "4e4e693d45581c004faa9f494252ec0c08d0ceced8cfe9004b1702f3b85edd45",
+  "spawn_ready": false
+}
