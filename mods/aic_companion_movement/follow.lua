@@ -122,7 +122,7 @@ function M.new(api,discover,config)
   assert(point(p),'PLAYER_POSITION_MISSING')
   local distance=dist(p,d.position);local active=api.moving(w,d.entity)
   assert(not active or (order and active==order.id),'FOREIGN_ORDER')
-  if across(p,d.position)>80 then following=false elseif across(p,d.position)<=75 then following=true end
+  if across(p,d.position)>50 then following=false elseif across(p,d.position)<=20 then following=true end
   if order and order.result then
    log('ORDER_RESULT',{id=order.id,result=order.result,seconds=api.now()-order.at,
     displacement=dist(order.origin,d.position),target_distance=dist(order.target,d.position),

@@ -50,13 +50,13 @@ class FollowLuaTests(unittest.TestCase):
     def do(self,s): self.lua.execute(s)
     def val(self,s): return self.lua.eval(s)
     def test_far_no_move_no_probe(self):
-        self.do('px=81;step()')
+        self.do('px=51;step()')
         self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
         self.assertEqual(self.val('ground_calls'),0)
     def test_boundary_hysteresis(self):
-        self.do('px=80;step()')
+        self.do('px=30;step()')
         self.assertEqual(self.val('ground_calls'),0)
-        self.do('px=75;now=101;step()')
+        self.do('px=20;now=101;step()')
         self.assertEqual(self.val('ground_calls'),1)
     def test_offset_ground_path_then_single_move(self):
         self.do('prepare()')
@@ -71,7 +71,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do('px=2.5;now=101;step()')
         self.assertEqual(self.val('ground_calls'),0)
     def test_far_cancels_only_owned(self):
-        self.do('prepare();px=81;now=102;step()')
+        self.do('prepare();px=51;now=102;step()')
         self.assertEqual(self.val('cancelled'),1)
         self.assertEqual(self.val('calls'),1)
         self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
@@ -84,7 +84,7 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('c.state'),'IDLE_NEAR_PLAYER')
         self.assertEqual(self.val('cancelled'),1)
     def test_reenter_radius(self):
-        self.do('px=81;step();px=18;now=101;step()')
+        self.do('px=51;step();px=18;now=101;step()')
         self.assertEqual(self.val('ground_calls'),1)
     def test_player_motion_does_not_invalidate_destination(self):
         self.do('step();px=13;ground()')
@@ -135,7 +135,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do("active=nil;move_cb(w,2,'stuck');now=108;step()")
         self.assertEqual(self.val('c.reason'),'RECOVERY_LIMIT')
     def test_cancel_failure_stops_without_retry(self):
-        self.do('prepare();cancel_fail=true;px=81;now=102')
+        self.do('prepare();cancel_fail=true;px=51;now=102')
         with self.assertRaises(Exception): self.do('step()')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('calls'),1)
@@ -161,7 +161,7 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('calls'),0)
         self.assertEqual(self.val('c.reason'),'ORDER_LIMIT')
     def test_invalidated_probe_cannot_accumulate_requests(self):
-        self.do('step();px=81;now=101;step();px=10;now=102;step()')
+        self.do('step();px=51;now=101;step();px=10;now=102;step()')
         self.assertEqual(self.val('ground_calls'),1)
         self.do('ground();now=103;step()')
         self.assertEqual(self.val('ground_calls'),2)
@@ -173,7 +173,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do('step();ground();ground()')
         self.assertEqual(self.val('path_calls'),1)
     def test_cancel_is_not_retried_on_exception(self):
-        self.do('prepare();cancel_fail=true;px=81;now=102')
+        self.do('prepare();cancel_fail=true;px=51;now=102')
         with self.assertRaises(Exception): self.do('step()')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('cancelled'),1)
@@ -220,6 +220,37 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('ground_calls'),30)
         self.assertEqual(self.val('calls'),0)
         self.assertEqual(self.val('c.reason'),'PROBE_LIMIT')
+
+    def test_twenty_fifty_hysteresis_complete_cycle(self):
+        self.do('px=30;step()')
+        self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
+        self.do('px=20;now=101;prepare()')
+        self.assertEqual(self.val('calls'),1)
+        for distance in (35,49,50):
+            self.do(f'px={distance};now=now+1;step()')
+            self.assertNotEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
+        self.do('px=50.01;now=now+1;step()')
+        self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
+        self.assertEqual(self.val('cancelled'),1)
+        self.do('px=35;now=now+1;step()')
+        self.assertEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
+        self.do('px=20;now=now+1;step()')
+        self.assertNotEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
+    def test_retarget_current_player_single_order(self):
+        self.do('prepare();px=25')
+        for t in range(102,110):self.do(f'now={t};step()')
+        self.assertEqual(self.val('cancelled'),1)
+        self.assertEqual(self.val('calls'),1)
+        for t in range(110,114):self.do(f'now={t};step()')
+        self.do('ground();path();now=114;step()')
+        self.assertEqual(self.val('calls'),2)
+        self.assertAlmostEqual(self.val('move_target.x'),23.2)
+    def test_thresholds_ignore_vertical_separation(self):
+        for height in (-20,-10,10,20):
+            self.setUp();self.do(f'py={height};px=20;prepare()')
+            self.assertEqual(self.val('calls'),1)
+            self.do('px=35;now=102;step()')
+            self.assertNotEqual(self.val('c.state'),'WAITING_FOR_PLAYER')
 
 
 class FakeClient:
@@ -292,9 +323,10 @@ class HostFollowTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):
                 shutil.copyfile(p,Path(td)/p.name)
-            token='a1c10130000000000000000000000001'
-            lock=Path(td)/'follow-session.lock'
+            token='a1c10140000000000000000000000001'
+            lock=Path(td)/'follow-stage10-14.lock'
             lock.write_text('UNUSED:'+token,encoding='ascii')
+            old_lock=Path(td)/'follow-session.lock';old_lock.write_bytes(b'SPENT!:previous')
             lua=LuaRuntime(unpack_returned_tuples=True)
             def encode(v):
                 def plain(x): return {k:plain(y) for k,y in x.items()} if hasattr(x,'items') else x
@@ -335,6 +367,7 @@ ground_at=function(w,x,z,f) ground=f;return true end}
             lua.execute("commands.f_start(w,{string.rep('c',32),'"+token+"','abc-1','42'})")
             self.assertIn('DURABLE_SESSION_LATCH',lua.eval('replies[3]'))
             self.assertEqual(lua.eval('calls'),0)
+            self.assertEqual(old_lock.read_bytes(),b'SPENT!:previous')
 
 
 if __name__=='__main__': unittest.main()

@@ -39,6 +39,7 @@ end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
 assert(config.roaming=='native' or config.roaming=='hold','ROAMING_MODE')
+assert(config.lock_name=='follow-stage10-14.lock','SESSION_LOCK_NAME')
 local follow
 local function guarded(fn)
  return function(w,...)
@@ -53,11 +54,11 @@ local api={now=os.time,move=emf.villager_move,moving=emf.villager_moving,cancel=
  path=function(w,a,b,opts,fn) return emf.path_find(w,a,b,opts,guarded(fn)) end,
  log=function(event,data) emf.log('AIC_FOLLOW '..event..' '..assert(emf.json.encode(data))) end,
  consume=function()
-  local f=io.open(emf.dir..'/follow-session.lock','r+b');if not f then return false end
+  local f=io.open(emf.dir..'/'..config.lock_name,'r+b');if not f then return false end
   if f:read('*a')~='UNUSED:'..config.token then f:close();return false end
   if not f:seek('set',0) then f:close();return false end
   local wrote=f:write('SPENT!:'..config.token);local flushed=f:flush();local closed=f:close()
-  local check=io.open(emf.dir..'/follow-session.lock','rb');if not check then return false end
+  local check=io.open(emf.dir..'/'..config.lock_name,'rb');if not check then return false end
   local bytes=check:read('*a');check:close()
   return wrote~=nil and flushed~=nil and closed~=nil and bytes=='SPENT!:'..config.token
  end}
