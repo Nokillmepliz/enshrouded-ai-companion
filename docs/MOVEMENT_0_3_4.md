@@ -1,6 +1,8 @@
 # Movement0.3.4 — подтверждение handoff по последовательным ticks
 
-2026-11-22. **MOVEMENT_CONFIRMED_HOME_RADIUS_BLOCKS_FREE_FOLLOW / POST_CLOSE_PENDING**.
+2026-11-22. **MOVEMENT_CONFIRMED_HOME_RADIUS_BLOCKS_FREE_FOLLOW / POST_CLOSE_PASS**.
+
+После закрытия игры короткий аудит подтвердил целостность важных файлов и восстановление расписания. [Аудит](../compatibility/experiments/movement_0_3_4/post-close-536832.json), [подготовка0.3.5 и оставшийся home-блокер](MOVEMENT_0_3_5.md). Установлена по-прежнему0.3.4, её сессия израсходована.
 
 Разрешённая сессия PID536832 завершена: 205,265 с, 167 samples. LOCAL Body Test / AI Body Test slot1/1, единственный NPC1025 (PROFILE_ONLY). Из 15 попыток villager_move приняты 9; четыре arrived подтверждены позицией в 0,095–0,330 м от цели, один приказ завершился stuck, четыре отменены контроллером. По приказу3 NPC сместился на9,272 м, дистанция до игрока сократилась10,888→1,962 м. Это реальное движение, но не доказательство устойчивого Follow на протяжении180 с.
 

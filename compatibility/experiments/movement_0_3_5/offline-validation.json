@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_RESPONSIVENESS_ONLY_HOME_LIMIT_UNRESOLVED",
+  "manifest_sha256": "5e8c73e36a8a5a8cb422517f5704ac2d3b58203a92617fc19aa8d5630c96472c",
+  "targeted_tests": 94,
+  "targeted_tests_passed": 94,
+  "elapsed_seconds": 1.25,
+  "full_suite_run": false,
+  "installer_preflight": "READ_ONLY_PREFLIGHT_PASS",
+  "installed": false,
+  "game_started": false,
+  "session_executed": false,
+  "home_radius_fixed": false,
+  "remaining_blocker": "Actual saved override not captured; content-only change requires effective readback and cannot override saved radius. Native leash remains enforced.",
+  "spawn_ready": false
+}

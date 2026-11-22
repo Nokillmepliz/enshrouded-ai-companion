@@ -34,6 +34,20 @@ function M.new(api)
   if saved then r.home={x=saved.spawnPosition.x,y=saved.spawnPosition.y,z=saved.spawnPosition.z} end
   return r
  end
+ function self.navigation(w)
+  local d=self.discover(w)
+  assert(d.result=='FOUND_ONE','NO_UNIQUE_NPC')
+  local t=assert(w:template('ActiveNpcState',d.entity),'NAV_TEMPLATE_MISSING')
+  local s=assert(w:get('ActiveNpcStateSaved',d.entity),'NAV_SAVED_MISSING')
+  local radius=t.roamingSetup.maxRadiusFromSpawn
+  local target=t.searchTargetSetup.targetRadius;local bed=t.searchTargetSetup.bedRadius
+  assert(type(s.overrideRoamingRange)=='boolean' and finite(s.roamingRange)
+   and finite(radius) and finite(target) and finite(bed),'NAV_FIELDS_UNCONFIRMED')
+  return {discovery={session=d.session,player=d.player,entity=d.entity,result=d.result},
+   navigation={home=d.home,override=s.overrideRoamingRange,saved_radius=s.roamingRange,
+    template_radius=radius,effective_radius=s.overrideRoamingRange and s.roamingRange or radius,
+    leash=math.max(target,bed),target_radius=target,bed_radius=bed,read_only=true}}
+ end
  function self.move_to(w,session,entity,target,approval)
   assert(api.allow_move==true,'MOVEMENT_DISABLED_PENDING_REVIEW')
   assert(approval=='APPROVE_PROFILE_ONLY_MOVE','IDENTITY_APPROVAL_REQUIRED')

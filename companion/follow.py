@@ -47,10 +47,10 @@ def session_stream(journal, continuation):
 
 
 class FollowClient(MovementClient):
-    commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
+    commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status', 'nav_info')
 
     def __init__(self, transport, *, version='0.3.0'):
-        if version not in ('0.3.0', '0.3.1','0.3.2','0.3.3','0.3.4'):
+        if version not in ('0.3.0', '0.3.1','0.3.2','0.3.3','0.3.4','0.3.5'):
             raise ValueError('UNREVIEWED_FOLLOW_VERSION')
         super().__init__(transport, version=version)
 
@@ -88,7 +88,7 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
             stream.flush()
             os.fsync(stream.fileno())
         if continuation is not None:record('AUDITED_CONTINUATION',continuation)
-        duration=210 if getattr(client,'version',None) in ('0.3.3','0.3.4') else 180
+        duration=210 if getattr(client,'version',None) in ('0.3.3','0.3.4','0.3.5') else 180
         record('SESSION_INTENT', dict(duration=duration, max_orders=24, max_recoveries=2,
                                      interval=1, automatic_retry=False, token=token))
         begun=clock()
@@ -106,6 +106,8 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
             d=client.discover()['discovery']
             if d['result']!='FOUND_ONE' or d.get('active_order'):
                 raise ValueError('UNIQUE_IDLE_NPC_REQUIRED')
+            if getattr(client,'version',None)=='0.3.5':
+                record('NAVIGATION_LIMITS',client._request('nav_info'))
             record('START_GRANT',dict(session=d['session'], entity=d['entity']))
             start_requested=True
             sample=client._request('f_start',token,d['session'],d['entity'])
@@ -129,7 +131,7 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
                    action='NO_MUTATION_RETRY; Lua watchdog; 0.3.2+ may read cleanup status'))
             raise
         finally:
-            if start_requested and getattr(client,'version',None) in ('0.3.2','0.3.3','0.3.4'):
+            if start_requested and getattr(client,'version',None) in ('0.3.2','0.3.3','0.3.4','0.3.5'):
                 # Read-only confirmation, including after REQUEST_ERROR. Never resend stop/move.
                 cleanup_outcome='UNCONFIRMED'
                 cleanup_error='OBSERVATION_DEADLINE_OR_LIMIT'

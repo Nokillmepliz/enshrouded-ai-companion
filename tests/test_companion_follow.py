@@ -352,7 +352,7 @@ ground_at=function(w,x,z,f) ground=f;return true end}
             host=(ROOT/'mods/aic_companion_movement/main.lua').read_text(encoding='utf-8')
             lua.execute(host)
             actual={k for k,v in lua.globals().commands.items()}
-            self.assertEqual(actual,{'discover','status','move_to','f_start','f_step','f_stop','f_status'})
+            self.assertEqual(actual,{'discover','status','move_to','f_start','f_step','f_stop','f_status','nav_info'})
             self.assertEqual(set(FollowClient.commands)-{'discover'},actual-{'discover','status','move_to'})
             for name in actual:self.assertLessEqual(len('aic_companion_movement.'+name),32)
             self.assertFalse(lua.eval("emf.command('follow_start','',function() end)"))

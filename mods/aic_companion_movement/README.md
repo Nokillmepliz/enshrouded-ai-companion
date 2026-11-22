@@ -1,7 +1,26 @@
-# Companion Movement 0.3.4 - sequential wake handoff
+# Companion Movement 0.3.5 - responsive target updates
 
 Prepared offline for build 1287369 / EMF 0.6.18. Not installed or validated in game.
-The deployed version remains 0.3.3 until separate approval.
+The deployed version remains 0.3.4 until separate approval.
+
+This is a responsiveness fix, NOT a removal of the native home restriction.
+Retarget after >3m player displacement and >=2s, queue native cancellation in a
+fresh tick, wait for confirmation before another order. Dispatch spacing is1s;
+refused destinations still back off4s. Anchor retarget to the player sample used
+for the destination query. All order/query/recovery budgets remain unchanged;
+frequent direction changes can exhaust them before205s.
+
+After arrival the existing native hold keeps the accepted goal for at most5s.
+When the player moves beyond2.8m, the responsive profile releases that hold
+through the same deferred cancellation. No saved roaming parameters are changed;
+native roaming can resume after hold expiration or stop.
+
+Read-only nav_info reports template radius, saved override/radius, effective
+radius, home and native leash. Runner records these before its one start.
+It never writes these fields or silently expands the permitted movement area.
+The previous runtime had six refusals outside10m from home; speed changes alone
+cannot fix that. A content/template change needs separate preparation and review,
+and runtime readback must distinguish the template from a saved override.
 
 Armed Follow temporarily sets only the unique companion NpcCommon.sleepTime=25
 and wakeUpTime=-1 hours. Exact-build static inspection confirms the predicate
@@ -23,9 +42,9 @@ recoveries. No teleport/custom pathfinding/height veto/home/faction/inventory
 or spawn changes. Native home/leash/sitting/talking constraints still apply.
 Roaming is not globally disabled; accepted orders are not proof of movement.
 
-NEW Movement0.3.4 lock, schedule journal and Python journal; preserve all old
+NEW Movement0.3.5 lock, schedule journal and Python journal; preserve all old
 SPENT/intent/history. Commands remain <=32 characters. PROFILE_ONLY identity.
-See docs/MOVEMENT_0_3_4.md and exact update manifest. spawn_ready=false.
+See docs/MOVEMENT_0_3_5.md and exact update manifest. spawn_ready=false.
 
 Cancellation runs only in a fresh server tick; its result is checked in a later
 tick. No world access follows the native cancel call. STOPPED ends movement,

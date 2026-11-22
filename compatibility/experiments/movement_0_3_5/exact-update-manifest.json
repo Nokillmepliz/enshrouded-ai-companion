@@ -1,0 +1,1283 @@
+{
+  "schema": 1,
+  "stage": "10.16-fix",
+  "version": "0.3.5",
+  "status": "PREPARED_RESPONSIVENESS_ONLY_HOME_LIMIT_UNRESOLVED",
+  "token": "a1c00350000000000000000000000001",
+  "baseline_sha256": "02850eb4f979f14874b0bfa5dfb64f4b59ca4426906b962e0a3b3b3bec2f0029",
+  "roaming": "hold",
+  "entries": [
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "source": "main.lua",
+      "sha256": "ddd1150593f8bd0383dca02b58cc3a398a214597a67b35901d89e0c93630abad",
+      "bytes": 7247,
+      "operation": "replace",
+      "before_sha256": "ed57597849cd9bd8c77098ba7100d43d4783097d95e767c3adc211b400ffbbfe"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "source": "mod.json",
+      "sha256": "ffe6e6685deb0fee1f589d057115b48b06ba6b5af7092bf61e28eb6c1d3f8377",
+      "bytes": 373,
+      "operation": "replace",
+      "before_sha256": "01b1a1df37a4ddddb66cff30652ed7bbeb33554e180e8d37c17a4dfbfdc8f268"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "source": "README.md",
+      "sha256": "ba16b532892b249f97c3249ef13d42b52cb72373a398fec6790404c3d53629f9",
+      "bytes": 4753,
+      "operation": "replace",
+      "before_sha256": "c70d57ca75f9388397d2328510726a55b21617dd76f922432a145b95df17f959"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow_config.lua",
+      "source": "follow_config.lua",
+      "sha256": "9045d5630d059d2aad70cdbab055ba066b7ae2ef76412cd7daacaa28bc9bd0f2",
+      "bytes": 230,
+      "operation": "replace",
+      "before_sha256": "b27057b28552809e6e87997ed9db5c4b7044ad68692a8ba4647651d4f0ca8023"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow.lua",
+      "source": "follow.lua",
+      "sha256": "5f16fd403a4611ff3f0d3bff74fc0816e594630cf0eb9a534789c5376985a0bc",
+      "bytes": 13946,
+      "operation": "replace",
+      "before_sha256": "23fa70898c45fd579a177699dc29e328c0bcf1560b37fa27e2e6abc629fb722d"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "source": "controller.lua",
+      "sha256": "4607eac361a2e45b4da7339feb9e9b4c1d05dbeb4c883849b460361b4df51f06",
+      "bytes": 4975,
+      "operation": "replace",
+      "before_sha256": "ed57efe39a5c00961547803018caf9a9db97bd79e2b2f61b70881fa5d2c7cd7a"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-movement-0-3-5.lock",
+      "source": "follow-movement-0-3-5.lock",
+      "sha256": "8f6ff919cd3f9f9faa6356147a4b3154d80f21afa618cc304cb439ff6917e7b0",
+      "bytes": 39,
+      "operation": "add",
+      "before_sha256": null
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-movement-0-3-5.jsonl",
+      "source": "schedule-movement-0-3-5.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "operation": "add",
+      "before_sha256": null
+    }
+  ],
+  "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+  "schedule": {
+    "component": "NpcCommon",
+    "sleepTime": 25,
+    "wakeUpTime": -1,
+    "lease_journal": "schedule-movement-0-3-5.jsonl",
+    "wake_timeout_seconds": 15
+  },
+  "effective_files": [
+    {
+      "path": "dinput8.dll",
+      "sha256": "8556928e903095714ed5b355f6e951bd9311a1a3405b9338604e6a56daa3d9e5"
+    },
+    {
+      "path": "emf/config/aic_companion_movement.ini",
+      "sha256": "350ccce8d2b7cd1b915f4cbdf0e7f7feeb3c84f0911fb24e1acac0fa0fdb7b58"
+    },
+    {
+      "path": "emf/config/aic_first_spawn.ini",
+      "sha256": "6a096b8d41a6035db1c4d21d5e67182ecda80e0687074d116ee933a5d08a33cb"
+    },
+    {
+      "path": "emf/config/aic_integrated_observer.ini",
+      "sha256": "5a777c0a88c57bc06c92179427d2c97f2cf8fe63c8069c04a6f3cced36c1a622"
+    },
+    {
+      "path": "emf/config/lua.ini",
+      "sha256": "4c5ab48c0d1f3e1fc0465c0bc7b8d5745c9ed5fe684b7a0bbfa247be71a4b7ff"
+    },
+    {
+      "path": "emf/emf_content.dll",
+      "sha256": "c5924068a5cfc27ce6508d153c75b7a1a90964ecb87996ebb5fc8356584cb691"
+    },
+    {
+      "path": "emf/emf_core.dll",
+      "sha256": "b1cd6c31f19598fb0d404e0556b744f03cf0e1c25d78c6ac64f9125f2cb3e763"
+    },
+    {
+      "path": "emf/emf_core.ini",
+      "sha256": "4544b18641dcc4ffa65312088439cf4181eef09f2ebd30b1b21d213ba3794c9f"
+    },
+    {
+      "path": "emf/known_tools.txt",
+      "sha256": "480cd3d7fca96e115e82496f6e33089ccc70ca34105cc16ab64d90949cf660d0"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "sha256": "ba16b532892b249f97c3249ef13d42b52cb72373a398fec6790404c3d53629f9"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "sha256": "4607eac361a2e45b4da7339feb9e9b4c1d05dbeb4c883849b460361b4df51f06"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-movement-0-3-3.lock",
+      "sha256": "5ca912d0f668b3e5ff60a2dfa006f20031960ef8b491fc822f516ac89ecc5c04"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-movement-0-3-4.lock",
+      "sha256": "cdf72509e2d4ed4eead086a3ea3e46ebbaf117f7314d471e57db7dd0a1cf132f"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-movement-0-3-5.lock",
+      "sha256": "8f6ff919cd3f9f9faa6356147a4b3154d80f21afa618cc304cb439ff6917e7b0"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-session.lock",
+      "sha256": "86f4727652f0499dc653b4f0bac0c218058b8dfd62ed8b3272a7bb583610a62f"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-stage10-14.lock",
+      "sha256": "d91fe1711e04e007e1c242dc1c896960feeba982a47e567a16d06677a14426b0"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-stage10-15.lock",
+      "sha256": "ea5c4d48b0d86f5ea707b85ab3f91d06b50052f5e5af44c3b4f0407b3a13f5bd"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow-stage10-16.lock",
+      "sha256": "4b7369aa9fb97eb084492889ae190ab9239e5991bfe398687c216813773666fb"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow.lua",
+      "sha256": "5f16fd403a4611ff3f0d3bff74fc0816e594630cf0eb9a534789c5376985a0bc"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/follow_config.lua",
+      "sha256": "9045d5630d059d2aad70cdbab055ba066b7ae2ef76412cd7daacaa28bc9bd0f2"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "sha256": "ddd1150593f8bd0383dca02b58cc3a398a214597a67b35901d89e0c93630abad"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "sha256": "ffe6e6685deb0fee1f589d057115b48b06ba6b5af7092bf61e28eb6c1d3f8377"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-movement-0-3-3.jsonl",
+      "sha256": "080385800d1f0370390e8488f140e37d714c746038caede73f4f35dbc12f9f1b"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-movement-0-3-4.jsonl",
+      "sha256": "c7fa268faf628dfaf7b7592b401b3c29d9f926926514c1fc56113e13587d1e30"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-movement-0-3-5.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-stage10-15.jsonl",
+      "sha256": "a330559a08247da4bc1767693f569e2c08a8b91c0f09de2398291a543af9d567"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule-stage10-16.jsonl",
+      "sha256": "46f1b8d310872c96f4a53502f6d29a0944216fe30464b074c68753d2aa50b749"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/schedule.lua",
+      "sha256": "5d04fa61cbe2f5a8d907be53078fc2dce9d9756f4d55971a8c5afc1171807226"
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/wake.lua",
+      "sha256": "6e4eb09c838a15eb431f2f20f257fa920358f887247a964741075bab3aca50bd"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/README.md",
+      "sha256": "5142961fa22d8b0f2ae3bc84646ecc5f2ae81895faa7e48000057a2560aa3982"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/attempt.lock",
+      "sha256": "65e300e0baa7af4cfe126b3eb19b19b29db8eea439d90078f45c0661613c8751"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/binding.lua",
+      "sha256": "82cb5a42f3b1aa6c22e6fb5a695502bf5f205d4a24a6186a041cf698c5b80c9e"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/controller.lua",
+      "sha256": "85a41aa9d88c63140afa5a65939688a0a7d0abb38797f024a0157e98d6f6234a"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/main.lua",
+      "sha256": "c9666e7eaddfb15ae29e845224e643991eb32c108aea01dd94cdc0fff70a310c"
+    },
+    {
+      "path": "emf/mods/aic_first_spawn/mod.json",
+      "sha256": "778e7470a078659e8f2bdc6fad3476bbc27e5ed29cfb01a89d9d831a7fb0af78"
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/README.md",
+      "sha256": "75b2ca3e2006078d8ff112002c00f53476aae6a5014bf12c8d26f80809978861"
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/binding.lua",
+      "sha256": "288b934b32850d3b94b3684eb1296f475047c36628fe0f2d832b395c49de4e78"
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/main.lua",
+      "sha256": "f9a5c2872ebf56db141dfa7005c7808d2fe14837c6fbbf2f84b33991603f64ef"
+    },
+    {
+      "path": "emf/mods/aic_integrated_observer/mod.json",
+      "sha256": "575edac78c072b386da85fdad9bcb2b7b0058909d1164c5e7edb54aca99a5016"
+    },
+    {
+      "path": "emf/mods/lua/lua.dll",
+      "sha256": "621c6bd10acfaf584f9e2a055fb0e1606c22754753de367788ec1c27ac98c8e4"
+    },
+    {
+      "path": "emf/mods/lua/mod.json",
+      "sha256": "32191f9dc31012b5c6cbf294185389414045d76f888b5f766d48c8c49595dd27"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/README.md",
+      "sha256": "930641d1e2825aad4980f5f11a246265c096467b7c63437629c7b0c89f5f7d2e"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/mod.json",
+      "sha256": "cde657b2f11411ca0ba688b8dee91463d8d04a2527baef6edd4dc8897a2a1066"
+    },
+    {
+      "path": "mods/aic_eml_humanoid/src/mod.lua",
+      "sha256": "159bce3f63a672f5bebcf04605eebcbde39c5469e059a2cb4bf71cc368d07fc2"
+    }
+  ],
+  "preserved_intents": [
+    {
+      "path": "runtime/stage10_12/first-movement/movement-intent.json",
+      "sha256": "3a95622cca0de46bb0edf29b46b18810cb63e490737bd7d1f696918e49309d33"
+    },
+    {
+      "path": "runtime/stage10_12/movement-20m-attempt/movement-intent.json",
+      "sha256": "bef724f8823b9dd945163cba1384e885c4bded6c77b2e758b79cb1e5c6d431e2"
+    },
+    {
+      "path": "runtime/stage10_12/movement-20m-attempt/result.json",
+      "sha256": "3b9e04ff05c97fd56cab3dcc45daf9818c28790aee65369a3f5244d91390ea46"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/01-verified.json",
+      "sha256": "e906ba1920e4357af99986563a17600f13a17c6df5d507b50fd93e459738ea4b"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/02-verified.json",
+      "sha256": "04a32ab43d671cc619ad22e83c5a9d632bb635754308406173525ea7d7d2a0e9"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/03-verified.json",
+      "sha256": "74825ea58307279a36e0bd82a865b46e1949a1e9cc0e101f511f0cd1fcc4ff1f"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/04-intent.json",
+      "sha256": "38c701679075beea3f4e786fd0723f267ea35352285c4781e3766b48a763fd5f"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/04-verified.json",
+      "sha256": "8c51d15ab2610754bf0a0d5b4c68dd51a1219957cdcb87a4745b97b6267a0857"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/05-intent.json",
+      "sha256": "0f3c56c9d63be625beae611e54797c368fb2bd8cc13cf4a39f0f78ac36a61aba"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/05-verified.json",
+      "sha256": "502c1e2d58a7eb10e0bf540392870533b763d28f8754600ff80ac9702868410b"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/06-intent.json",
+      "sha256": "db88ed37f6a11c3ac832723d1fe9c0154e1d8fa5c10b66d1d235494fb9abb2dc"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/06-verified.json",
+      "sha256": "37b3dc00db42f2ddd770a3212de5af4c0e07f4ab6711cfde83c5d434372df5a1"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/07-intent.json",
+      "sha256": "5fd3f5fb714db4db04034960537412b324cb1360a588fe069b0f08b065ddac1a"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/07-verified.json",
+      "sha256": "6df201235e492b85aa7c1c59739bd429946d8fc8cae5d526c088574fd53a2b05"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/08-intent.json",
+      "sha256": "bf6c36046263fe0019e98db192120dd9f10b34eac44c5e402e42eaa4418e5c52"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/08-verified.json",
+      "sha256": "7a9956b14c022575d498bd58084a079266944f3aaed9200a63c32bf92abbde9e"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/backup-plan.json",
+      "sha256": "4a94eabf54bad471e11ed8f2f53a3c44a3868213b11e128eaff898bc4a35bdda"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/baseline.json",
+      "sha256": "c0fb77856b0fd883679975e568d0846a061d273f54682c58335fe04a3fcf77da"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/install-intent.json",
+      "sha256": "f77dffb91ef4a1ea9f84c9b52d75e5bf650014a7c2ebca882d2b71ca13375e85"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/inventory-after.json",
+      "sha256": "4f2a1a0993c9e2661e85986b1ef92e2c0507735bba93f2e5127ab7cec7418043"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/receipt.json",
+      "sha256": "97ff89810da720597cc11c3b937a86f558e6c51cb0df68e7233f016afc0726c8"
+    },
+    {
+      "path": "runtime/movement_0_3_3/installation/rollback-dry-run.json",
+      "sha256": "731b5516208017b59138d75f15695272ec0f5d47b4ee8295ed67b5a4f8b618f6"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/emf_core-runtime.log",
+      "sha256": "9eb7c55b4a3a74994d769d5cc49ceb0b2ae23b690ceefb621e5fe73611f57b2f"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/emf_core.log",
+      "sha256": "9eb7c55b4a3a74994d769d5cc49ceb0b2ae23b690ceefb621e5fe73611f57b2f"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/emf_loader.log",
+      "sha256": "27079fa06011b8e4d0ac5a938daff8f068237c3d0c88491da5d5e997337a17ee"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/enshrouded.log",
+      "sha256": "b8bf82a229dadbd21075b6c1f1c69fea49c616d738f1969bd59f71c202ac7724"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/file_opens.log",
+      "sha256": "b785a7639ed78454325ebe68273ef9408fec05b90eaecc8d2dea74f160ac18a9"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/inventory.json",
+      "sha256": "5a121f64e67d5d048d891572781f413b6c3033054a793a20a63cbffbe9e65f67"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/post-close/result.json",
+      "sha256": "7417081145db0511b45b1be2b5066dcf96b167fad4ad34880e1be91873feac22"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/runtime-diagnostics.json",
+      "sha256": "07dbbd6e6ac589316b273bd3e7fef3ff71119f55f96eaf1fa2deba03b4d2a9fc"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/runtime-result.json",
+      "sha256": "e5003cd42b2a9641111da12be3f305ef944d49b8af5c60804ddb80754fa74bd7"
+    },
+    {
+      "path": "runtime/movement_0_3_3/session532656/schedule-runtime.jsonl",
+      "sha256": "080385800d1f0370390e8488f140e37d714c746038caede73f4f35dbc12f9f1b"
+    },
+    {
+      "path": "runtime/movement_0_3_3/test-session.jsonl",
+      "sha256": "83f075448d117cf1b9f9975950098b42af423ffef0ddb78f8f708daec5445667"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/01-verified.json",
+      "sha256": "27da64e28d25892ac407ea39d4b9adb93b3b88a85e7c3f693281490a839cb24a"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/02-verified.json",
+      "sha256": "8ef015c1df7425d72ef62678a18dc7e96bdf1f8e8012acf4d5452eebd0261a2f"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/03-verified.json",
+      "sha256": "c66bfb3f27c3a739ba489354d3afbad8a689d942a84dbeb6cc0046099f882b5d"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/04-intent.json",
+      "sha256": "0f3c56c9d63be625beae611e54797c368fb2bd8cc13cf4a39f0f78ac36a61aba"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/04-verified.json",
+      "sha256": "cd216939ebc66cfcdf6b42fdf7cef2f7caba34915ee38786d5b6006c62ea0cff"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/05-intent.json",
+      "sha256": "4d0739cb28df5cdea928826d95ae4b52b0fa6efb908616835cc5956335a4a549"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/05-verified.json",
+      "sha256": "07b1e38f01335240cc576f23de962249dac4b934110c7fbfcfb48e56bd84030b"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/06-intent.json",
+      "sha256": "c8c56007318bac0cb5e7f6bff559136b74dc9223ac1705723e0c2d58ca124ecf"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/06-verified.json",
+      "sha256": "042c93046700e603610909b9cccf1fe7bb376e5ef87184edaff4f327acd08d9b"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/07-intent.json",
+      "sha256": "2043a24f17f0a462b1f390b9abb805a1ac14ae893979e6501236ae677ec4fa5d"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/07-verified.json",
+      "sha256": "ca2008c7dfd3cc2ab6aab1f82a5830698f656612838e31b8b3636eb617790a45"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/backup-plan.json",
+      "sha256": "b82528c3dac9c3579f314a74d5ba1c995a024d5705367329e3337c6bf9950c51"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/baseline.json",
+      "sha256": "5a121f64e67d5d048d891572781f413b6c3033054a793a20a63cbffbe9e65f67"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/install-intent.json",
+      "sha256": "2a88b943c69da751de970d6db33f0cead411a43b5d9604a81b0982e3f21df7b0"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/inventory-after.json",
+      "sha256": "3785eea111c9ee3b88b1fe2cb85210b71a62c82c7e6729e91b7a81105b062ef9"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/receipt.json",
+      "sha256": "ab3b9da66627884e1b7c611c11408d6ef86eec412324f526e7701d45254daf42"
+    },
+    {
+      "path": "runtime/movement_0_3_4/installation/rollback-dry-run.json",
+      "sha256": "06075e0ecf7fb72f649ed92b68a5a09ac5385de5680aa1990a8dcb34774d78e8"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/emf_core-runtime.log",
+      "sha256": "8728c1dae3607df071b4043ce31fe983471298587df558d443edcef26a925b35"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/emf_core.log",
+      "sha256": "3b1fd0e3c6e3afbb8110d5a4dac1874c54a1514bd4a65d7b1d089f590460fc76"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/emf_loader.log",
+      "sha256": "6b9a3523782a6d86da0d8b79025c869213cf5396d0d0aa1e040a57de854021ae"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/enshrouded.log",
+      "sha256": "6a562f0f8a45ece6493f61b1b87575d1d45eed9a759a65381a68c09c0365e53f"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/file_opens.log",
+      "sha256": "cd48bb0d2ce360385a9ef2320b1a4b8fba53016d265c11cb78255415aa202b87"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/inventory.json",
+      "sha256": "02850eb4f979f14874b0bfa5dfb64f4b59ca4426906b962e0a3b3b3bec2f0029"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/post-close/result.json",
+      "sha256": "bc616588db9cf2742e830dcf7b0fbca60eb81ec15cdb92774ccffb3bdc82c2a6"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/runtime-diagnostics.json",
+      "sha256": "b8ab6ba5b0383043bc12e5fd1b5d3c9e5831d475cc4c8d3bf931d6e2a989f405"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/runtime-result.json",
+      "sha256": "158e5b58989f548ca871f7ec528ba41b4e2da64482df205231cc538c253d95e0"
+    },
+    {
+      "path": "runtime/movement_0_3_4/session536832/schedule-runtime.jsonl",
+      "sha256": "c7fa268faf628dfaf7b7592b401b3c29d9f926926514c1fc56113e13587d1e30"
+    },
+    {
+      "path": "runtime/movement_0_3_4/test-session.jsonl",
+      "sha256": "c01abf1ff906a80ee9d64379cfc74cf5306f2a352e07fb47effc1fda4100d8d7"
+    },
+    {
+      "path": "runtime/stage10_13/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/stage10_13/installation/01-verified.json",
+      "sha256": "da600c01ad06593e0a79823c43f36d8bb63cf4bb51e25b57df6f2e789f86ff5e"
+    },
+    {
+      "path": "runtime/stage10_13/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/stage10_13/installation/02-verified.json",
+      "sha256": "1636822f6d4b7ae01364bd047c3668fc662153a1509e90d9e107d4c8558576fb"
+    },
+    {
+      "path": "runtime/stage10_13/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/stage10_13/installation/03-verified.json",
+      "sha256": "e76b827117a189497adf71fd14c06cdcfe9c26c5102dff2620ceae9c8c39609f"
+    },
+    {
+      "path": "runtime/stage10_13/installation/04-intent.json",
+      "sha256": "2ee35283d3c7702885f7139e6892c0fe0728789941a650a6a8a8cd718b6d3377"
+    },
+    {
+      "path": "runtime/stage10_13/installation/04-verified.json",
+      "sha256": "fc75df5256ccc06cb8dd851b8eddc69be7e1604e3fbf1df793bb744ca62cddec"
+    },
+    {
+      "path": "runtime/stage10_13/installation/05-intent.json",
+      "sha256": "27741401de71907bdc1d580d74b6ba4c3f7af00c4692fde1843f78c410d1f51a"
+    },
+    {
+      "path": "runtime/stage10_13/installation/05-verified.json",
+      "sha256": "7d005c0380400403e3b466977da458b07bdc7f1f9384b8af90d860e89cf6fce8"
+    },
+    {
+      "path": "runtime/stage10_13/installation/06-intent.json",
+      "sha256": "d905ad30eb9b53abac37485ecaf3e2172852f530de217136eb22dfbb8ce07d96"
+    },
+    {
+      "path": "runtime/stage10_13/installation/06-verified.json",
+      "sha256": "58eaac7ed6ddc88a141d1eea40275f75f50a94f638a1f31090af7b9fe3fb9e7a"
+    },
+    {
+      "path": "runtime/stage10_13/installation/backup-plan.json",
+      "sha256": "16932c9a2547754084fe12eefa477fba11ee169d748a7df7718c89b78a4d277b"
+    },
+    {
+      "path": "runtime/stage10_13/installation/baseline.json",
+      "sha256": "9698e1e8e0437b22bc4bbfca40e065379bc7001343343b438aff2ca8d858e553"
+    },
+    {
+      "path": "runtime/stage10_13/installation/install-intent.json",
+      "sha256": "4f464ae928f7247c73dcdf93fb8ef37403edc357f4f8a316ac96af5ab6890451"
+    },
+    {
+      "path": "runtime/stage10_13/installation/inventory-after.json",
+      "sha256": "2a55ebc2f3f2851955f7eb85cbef3016c9ed9884d1ecdd091a23cd02e470d463"
+    },
+    {
+      "path": "runtime/stage10_13/installation/receipt.json",
+      "sha256": "1c92673f78bd7fe51569011f7060a05469fc5c820dbab72f5a5f13bea68a9264"
+    },
+    {
+      "path": "runtime/stage10_13/installation/rollback-dry-run.json",
+      "sha256": "7c6fa89ef9df06ef05ff444703ba85dadba55db41ab0b6542bb7913e6bbebcc5"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/01-verified.json",
+      "sha256": "9c98a979d4faf0dadec1c650493c7729c7e27fc8db91e83d8020b3e716de0e73"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/02-verified.json",
+      "sha256": "5c94bc75ad0ff3ee69c6d9b9e397d1e23e2273128dc883024ad4558e54adf3ec"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/03-verified.json",
+      "sha256": "a53067cf2b162e653a374ad1998061ff983879031b9ae0b7b458bf0a43179c68"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/backup-plan.json",
+      "sha256": "3bd3d794d5479cdbc3855a26b8c603612a9f41fdb0d7ad0cc970c37ed6786dae"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/baseline.json",
+      "sha256": "ac979a13426a5d311bd37f48e502239db238e322980249b1c8f16a2eb8629534"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/install-intent.json",
+      "sha256": "a01f0271cf772aaca35978bd012ba913a9eb422b0941aff9e920ee8821bf1401"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/inventory-after.json",
+      "sha256": "a67f92b091f533c807d43d6b2b984b389dcd67ecdabbb377d1992d2ce6b3a175"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/receipt.json",
+      "sha256": "e58adb1c737ca5a36d2fc8008fdd0c695c745750c7edc643c235ee3261fbfa24"
+    },
+    {
+      "path": "runtime/stage10_13/registration-fix-installation/rollback-dry-run.json",
+      "sha256": "a6a6fe55dc0770ec0756e7eae1eb87988860fd2adb0ea1f479b1a15046125a4a"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/blocked.json",
+      "sha256": "a88989ea655d8063aa00dcbea0fba525d8ea7610e36e1b7f863dfb240efee22d"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/context.json",
+      "sha256": "3c4bc1dbd6fb54f83c7ea3fbadd1f47eb966c33009f83673a41405e3207d13aa"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/emf_core-at-failure.log",
+      "sha256": "d53117dee2d011fb91a9e6ed40500aeb0cee5988d627353b9ae1380d9fc9b6cc"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/emf_core.log",
+      "sha256": "abbd28770f97128b800bbcf22cf116c55006ead205cc20b62a838c3efef1be92"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/emf_loader.log",
+      "sha256": "4a973c505ff5ba9ded23940625fd7482b6d3a96545c5d37a4da1be1d7375edcb"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/enshrouded.log",
+      "sha256": "938a140d54560db4c4f7d6c701d1272946c40f8d2c608af1998cd54423491515"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/file_opens.log",
+      "sha256": "ebb10b5bde8ba9b7daeedda8e3f7a40dc55f77fa320e9f2f4e79b7ce4ca02f3c"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/inventory.json",
+      "sha256": "ac979a13426a5d311bd37f48e502239db238e322980249b1c8f16a2eb8629534"
+    },
+    {
+      "path": "runtime/stage10_13/session471028/post-close/result.json",
+      "sha256": "0f6e5855bb644f25af96de7e2d4d994e311e423d16e30ca48e6f913c55851e34"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/context.json",
+      "sha256": "ea7d9bffc0230cc88d053dd0f2c1b2da183cf685cc4f853e5d987b1b27152f45"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/emf_core-runtime.log",
+      "sha256": "b4f0e09d09b4d9e786acc29a4db86e9773d9788bbf21d9b785686e43055058a7"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/emf_core.log",
+      "sha256": "4b83740918f9b46ce3742b27ba03b01c95aa86e327b56cbc02f6685c928e4e5d"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/emf_loader.log",
+      "sha256": "7454a154b103f883e3b1847b3c4c38d4dc2f8be285e3f58c1b2a9a6dd03ae09f"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/enshrouded.log",
+      "sha256": "ac015f780fc7dbdb45c2a034613d4bade542fc9c69c1254c00c7bcafc94c7356"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/file_opens.log",
+      "sha256": "4fa0cd6aed958f2301c2c49a1945ed3423c3a7970be1d185bef6cc973181e52f"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/inventory.json",
+      "sha256": "5bd9a38b88ce73de91bbd600af4ea7ee0baa5839a23487725be0ea43a48fc31e"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/post-close/result.json",
+      "sha256": "39fe110a66cc39444e94d97334977a772486b1d5b639452f2be6d436be3b9d22"
+    },
+    {
+      "path": "runtime/stage10_13/session471612/runtime-result.json",
+      "sha256": "4d68da2251467662e7a918c4438978b247858549df1e3cfc131b59e5a05f0df2"
+    },
+    {
+      "path": "runtime/stage10_13/test-session.jsonl",
+      "sha256": "5e9b66266c46d6f7682319890c894aeacde710cd045604dd7591933429283b03"
+    },
+    {
+      "path": "runtime/stage10_14/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/stage10_14/installation/01-verified.json",
+      "sha256": "427f53cdde3452351ceca12d13794c65cd3b76495bd9a09cd56024113307f163"
+    },
+    {
+      "path": "runtime/stage10_14/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/stage10_14/installation/02-verified.json",
+      "sha256": "e17264dd749ca34fb059986b36e23d747dae51ac740ff475046f6b35c04258b6"
+    },
+    {
+      "path": "runtime/stage10_14/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/stage10_14/installation/03-verified.json",
+      "sha256": "865bfa899e768d57e54e87880fc35c5d7d8833c4e5856cc246017844df524f12"
+    },
+    {
+      "path": "runtime/stage10_14/installation/04-intent.json",
+      "sha256": "38c701679075beea3f4e786fd0723f267ea35352285c4781e3766b48a763fd5f"
+    },
+    {
+      "path": "runtime/stage10_14/installation/04-verified.json",
+      "sha256": "506758779a87da3fe30e44a1a653dcd74ad524b636d5acc053b9c90c88ba1497"
+    },
+    {
+      "path": "runtime/stage10_14/installation/05-intent.json",
+      "sha256": "0f3c56c9d63be625beae611e54797c368fb2bd8cc13cf4a39f0f78ac36a61aba"
+    },
+    {
+      "path": "runtime/stage10_14/installation/05-verified.json",
+      "sha256": "e7caa540018536b1976dd39d8f8e2aeeaadf45a9b4ef269326cab80a73397233"
+    },
+    {
+      "path": "runtime/stage10_14/installation/06-intent.json",
+      "sha256": "0b7c5696fa68464aa6fe42a34b770b7663800f3836ca6058644210d8583c7b64"
+    },
+    {
+      "path": "runtime/stage10_14/installation/06-verified.json",
+      "sha256": "2321df69d743a21da00ad8fbb2d765fd93c372498845056f60820ebad131bacd"
+    },
+    {
+      "path": "runtime/stage10_14/installation/backup-plan.json",
+      "sha256": "38153dd231e295c6f610f2529f430f2a5d69e3946d33cb385354e6017df947a2"
+    },
+    {
+      "path": "runtime/stage10_14/installation/baseline.json",
+      "sha256": "5bd9a38b88ce73de91bbd600af4ea7ee0baa5839a23487725be0ea43a48fc31e"
+    },
+    {
+      "path": "runtime/stage10_14/installation/install-intent.json",
+      "sha256": "9e51c3f771646fc092d1df51b442d690f012dc58729d3d18beb021485ccd3f80"
+    },
+    {
+      "path": "runtime/stage10_14/installation/inventory-after.json",
+      "sha256": "77f889dadb0261adf0f799e64df0544b99701569a246caeccb483a880280f16e"
+    },
+    {
+      "path": "runtime/stage10_14/installation/receipt.json",
+      "sha256": "eb356d657ab53b4b7e385eaa963e273fb0d29ccff3e51fc09a5a1312972156a2"
+    },
+    {
+      "path": "runtime/stage10_14/installation/rollback-dry-run.json",
+      "sha256": "88b91b9ab73041fe607e7d9f76b837f9b21cf8d3046f7dcaf57c23feff49d0e4"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/context.json",
+      "sha256": "c7d1dc5c2facdb70935d7f821e3ae4541a7fd13f7c8a439c9851b07196024cf0"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/emf_core-runtime.log",
+      "sha256": "d8cba9e6b1f25ade1b2f1af71948dd400961614ec8d2248b06f967fd6ad06795"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close/inventory.json",
+      "sha256": "4e4e693d45581c004faa9f494252ec0c08d0ceced8cfe9004b1702f3b85edd45"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/emf_core.log",
+      "sha256": "a16c895f95874e4eafb7d77062b3ff64e621689c6dc7b402bc8bc1b61d800a7c"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/emf_loader.log",
+      "sha256": "b89689def8150876f8e0d1dc55f8ecb25b2d0b7bc102cdd9c75cad26797f70e3"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/enshrouded.log",
+      "sha256": "2dcbcf55a98effa56c0527917fc89805c547f672cb0445b49c528a6cf69bfe29"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/file_opens.log",
+      "sha256": "c0de15cbd2879aedad2c8f5c307cfdeb9907d19ae00a6a5a419b66fa8d88df97"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/inventory.json",
+      "sha256": "4e4e693d45581c004faa9f494252ec0c08d0ceced8cfe9004b1702f3b85edd45"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/post-close-reviewed/result.json",
+      "sha256": "fa29af6322e2f4a66462901256860257d15087fcee5de4508a8816c7ca030da2"
+    },
+    {
+      "path": "runtime/stage10_14/session490800/runtime-result.json",
+      "sha256": "2a47e8bec16b486e302e00109bd5a0c9a924893ede218da920dec0327fe08fae"
+    },
+    {
+      "path": "runtime/stage10_14/test-session.jsonl",
+      "sha256": "2eb241e7b6cbf2c2c6f0379dd049d8be6c53e2968056acf1d8ed9d24de2d1717"
+    },
+    {
+      "path": "runtime/stage10_15/commands.asm",
+      "sha256": "56dacdd1a9257bfc3a9b5562f186e32dd66beec1bff62b357d7abe3e2e1b9c67"
+    },
+    {
+      "path": "runtime/stage10_15/decide.asm",
+      "sha256": "bee99bd023ce5ac04d3da4185cbb8f6e819f6d921050a064f7324fec5d421368"
+    },
+    {
+      "path": "runtime/stage10_15/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/stage10_15/installation/01-verified.json",
+      "sha256": "9ca66eca3694461790258c7e22965be5c5be8d439f372d232a1aae30e4038727"
+    },
+    {
+      "path": "runtime/stage10_15/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/stage10_15/installation/02-verified.json",
+      "sha256": "02eb89ffb7ea07c1ebba5238e5e9ee7ab60597d2062ef416bd9d39822dcd0c68"
+    },
+    {
+      "path": "runtime/stage10_15/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/stage10_15/installation/03-verified.json",
+      "sha256": "c282a07393cc597c1742eb9171b1cd0bcf1618951da75dc1d1026d60c82879bf"
+    },
+    {
+      "path": "runtime/stage10_15/installation/04-intent.json",
+      "sha256": "38c701679075beea3f4e786fd0723f267ea35352285c4781e3766b48a763fd5f"
+    },
+    {
+      "path": "runtime/stage10_15/installation/04-verified.json",
+      "sha256": "8267a2f6b9e095fad1a2e3f279c714697ccf29f25498a16eb5d1ad1e7483c600"
+    },
+    {
+      "path": "runtime/stage10_15/installation/05-intent.json",
+      "sha256": "0f3c56c9d63be625beae611e54797c368fb2bd8cc13cf4a39f0f78ac36a61aba"
+    },
+    {
+      "path": "runtime/stage10_15/installation/05-verified.json",
+      "sha256": "3842bba0a9d6db533c35d83443f85c1497b4de5b205f0c6591cf53758c1d9d12"
+    },
+    {
+      "path": "runtime/stage10_15/installation/06-intent.json",
+      "sha256": "fb80d7d0f004286aec5e4cc794868a4046779619ffcbdc311470ee564245c34a"
+    },
+    {
+      "path": "runtime/stage10_15/installation/06-verified.json",
+      "sha256": "f23fbeb0f3b43b7af4ae5c46591823642b04f8c9067e3b72d1ccf1f664c8b52c"
+    },
+    {
+      "path": "runtime/stage10_15/installation/07-intent.json",
+      "sha256": "81240f78f36c2e0f51686c7c7ba9e355a4dd8fd824905d7c73ecc9346072edd2"
+    },
+    {
+      "path": "runtime/stage10_15/installation/07-verified.json",
+      "sha256": "b894dae25fe229fd688d6fa370abc823d699a78aa9b440fb84c8bf7cd66256a9"
+    },
+    {
+      "path": "runtime/stage10_15/installation/08-intent.json",
+      "sha256": "1934a7bd84db5d2ad24e05e6a2f0d65e919f94dc6d78e9665fa80a17081279cf"
+    },
+    {
+      "path": "runtime/stage10_15/installation/08-verified.json",
+      "sha256": "137a1efa1a1c2c87e5bc38e6da543baec165f9a08a6304d19a7fab95dbc32f89"
+    },
+    {
+      "path": "runtime/stage10_15/installation/backup-plan.json",
+      "sha256": "2d8a5ffe412bb013b5d9abc70b267ae307720d38e9165d2ca840e56a5f4d2c79"
+    },
+    {
+      "path": "runtime/stage10_15/installation/baseline.json",
+      "sha256": "4e4e693d45581c004faa9f494252ec0c08d0ceced8cfe9004b1702f3b85edd45"
+    },
+    {
+      "path": "runtime/stage10_15/installation/install-intent.json",
+      "sha256": "6db480acf1cf2bc78e487c2f189cc0c62392fdbdb90cb0dd3a73046907e8d7f7"
+    },
+    {
+      "path": "runtime/stage10_15/installation/inventory-after.json",
+      "sha256": "db3f1e81c73c70d0c679756f527fab9dc2ae56d2e7aebab7899a400be96b0b71"
+    },
+    {
+      "path": "runtime/stage10_15/installation/receipt.json",
+      "sha256": "fec09bc399a795989b706c354627af3b40ad83b9ac1cfab5cc134983a13912cd"
+    },
+    {
+      "path": "runtime/stage10_15/installation/rollback-dry-run.json",
+      "sha256": "6bf0b6dfea38998143fe4a15e47f68d15575b33d5d0cfd1378fde7d0d959c74a"
+    },
+    {
+      "path": "runtime/stage10_15/interrupts-tail.asm",
+      "sha256": "2d3bd6ffd8e3e640b183fd715af2fcf6d07f4225acbda27b133a08058e687733"
+    },
+    {
+      "path": "runtime/stage10_15/interrupts.asm",
+      "sha256": "a06a44bfa194d25cd71eefdd42fac1ef8acca733f865b1d7d65f0142bb1965ad"
+    },
+    {
+      "path": "runtime/stage10_15/nextstate.asm",
+      "sha256": "028dcb61ae1e9e53107475911a574553428e2f1c827a2dd278cbf2aea5cc369a"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/emf_core.log",
+      "sha256": "32f168c4b6633984b64c6ea5289b9bbeac466b3f358e5c08f6db69779f9f611d"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/emf_loader.log",
+      "sha256": "8ec5bb3c25d076936ce8018defc11277bb2390738e9c0d12fbfd400f7813e68c"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/enshrouded.log",
+      "sha256": "86929e0723581b90e1ac0facf160c163df167c87e5f040e54804ccbb94c50462"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/file_opens.log",
+      "sha256": "99f76af6cba4722a1e077d380e3bb64c03ebe0d17e4f647a8ee052a60032a2b9"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/inventory.json",
+      "sha256": "aaf088bd87def15f73fe10a349831af4477fbbdfc1e1d1ad4de9d2260b8593ab"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/post-close/result.json",
+      "sha256": "ff2f04dcacfecdeb63b2ac2f7d2cbb2a2296d9a2563c77859c6f22fe9cb8616a"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/recover_schedule.py",
+      "sha256": "76103beca4b35eef0db3e60cd7c2ca7ffcf29418213ec7fdd16bfb5b22c43cdd"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/recovery-discovery.json",
+      "sha256": "4fa219b1e2738f91d64295fc2073aeb182d67759f6490e569ebef2b8e1461d95"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/recovery-intent.json",
+      "sha256": "f18194b6a86021c592386a2d94ce6c7d63708691604e6ba62ceb2dd3d27912e7"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/recovery-logs.json",
+      "sha256": "3025b9cee6d115aa8bd68f65faea8687642ab5451be5ae5d6e0149debecffb10"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/recovery-result.json",
+      "sha256": "d5b0afb0f23f3910f87f900cc584927c2b170ddc567f1a99d2d2a25c8daea1dc"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/runtime-diagnostics.json",
+      "sha256": "48f755e220ae1d5a3f4c2843c34a5e2a1897d73a9a9fd028b4b82d4018401d46"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/schedule-journal-before-recovery.jsonl",
+      "sha256": "d969871b534036648661113329759e5970abd054c96044a96bd12c5797574feb"
+    },
+    {
+      "path": "runtime/stage10_15/session507224/schedule-recovery-plan.json",
+      "sha256": "8ba721990ec486048a7f0385f59f47b7309880ebd9c87d1a3411b325cdb7711b"
+    },
+    {
+      "path": "runtime/stage10_15/setstate.asm",
+      "sha256": "676f0f041d69c54faa7b76f6e864bd49c53b66a0261e4254445146e81c736210"
+    },
+    {
+      "path": "runtime/stage10_15/shouldsleep.asm",
+      "sha256": "dec626a53660f0cbfb2bcf65b1874c5455b72a6afeebe14dd9cde1701c8dedae"
+    },
+    {
+      "path": "runtime/stage10_15/signatures.json",
+      "sha256": "9de702d107df2891bdabafb16f5f245a7029f6ea71a1e13a9686a003a04eebf0"
+    },
+    {
+      "path": "runtime/stage10_15/sleep.asm",
+      "sha256": "0b8d2cadce97e6d4313ddcfe873075718c5212028e58e438d8f0c10435396c85"
+    },
+    {
+      "path": "runtime/stage10_15/test-session.jsonl",
+      "sha256": "7fe324e8990d1e1cf55922b3e187c8d911b74e3b792cbb5963a592a734658b70"
+    },
+    {
+      "path": "runtime/stage10_15/window.asm",
+      "sha256": "30d4a9ae68000cea39ed52119b3354237765bbd17c94b48f4ea50fca5926cbb6"
+    },
+    {
+      "path": "runtime/stage10_16/installation/01-intent.json",
+      "sha256": "4834918f7894fe2010b9fae40acef6c51ea89881ec6dd51c79376eea10626824"
+    },
+    {
+      "path": "runtime/stage10_16/installation/01-verified.json",
+      "sha256": "5e1e4221ff947665720d8095ac831287457a85d5da17177efd6c0b8bcc5e1266"
+    },
+    {
+      "path": "runtime/stage10_16/installation/02-intent.json",
+      "sha256": "97d32539dd06173f78e235018f2f26a13dc10532494ca85e2d89db6ad3ac6478"
+    },
+    {
+      "path": "runtime/stage10_16/installation/02-verified.json",
+      "sha256": "f2811309cec336f796dee34f56254cd93e1db42e21629bd2559c838511e492f9"
+    },
+    {
+      "path": "runtime/stage10_16/installation/03-intent.json",
+      "sha256": "8c0f8b17747ba03e93c1de3ebfb4baf078003b3217a7f3121916e8b395492602"
+    },
+    {
+      "path": "runtime/stage10_16/installation/03-verified.json",
+      "sha256": "452e6f3fc3ee4177bb297d242c468f08b9bab38b8d29d45105e48bca9dee6df7"
+    },
+    {
+      "path": "runtime/stage10_16/installation/04-intent.json",
+      "sha256": "38c701679075beea3f4e786fd0723f267ea35352285c4781e3766b48a763fd5f"
+    },
+    {
+      "path": "runtime/stage10_16/installation/04-verified.json",
+      "sha256": "1d73a79a69df819129ff684135038b6a294e1c6a7524a5ba27f1d488b3d5c5f3"
+    },
+    {
+      "path": "runtime/stage10_16/installation/05-intent.json",
+      "sha256": "0f3c56c9d63be625beae611e54797c368fb2bd8cc13cf4a39f0f78ac36a61aba"
+    },
+    {
+      "path": "runtime/stage10_16/installation/05-verified.json",
+      "sha256": "abbb50d1d7c91fd8100d62711659303feb0fff0adc41d696a455e9d2932dc0d6"
+    },
+    {
+      "path": "runtime/stage10_16/installation/06-intent.json",
+      "sha256": "3317aebc995f139ab25bd307d9752f1178dbb693af4f73a6ae7c1dd39f5f5683"
+    },
+    {
+      "path": "runtime/stage10_16/installation/06-verified.json",
+      "sha256": "7457da6d2af792aed36f8ad9ae3577bde4fad8aca3404591f5f5aeec94298461"
+    },
+    {
+      "path": "runtime/stage10_16/installation/07-intent.json",
+      "sha256": "4e56370a392c6383921cfe22c1db135b12294fef99fc75d715e6e489c7d9d386"
+    },
+    {
+      "path": "runtime/stage10_16/installation/07-verified.json",
+      "sha256": "79da26975bdb418c3faa2e66de1505196c05e1bf196e95ffe3740de50521c4fa"
+    },
+    {
+      "path": "runtime/stage10_16/installation/backup-plan.json",
+      "sha256": "3936c5c95c892e5b0acb1b6268bae3686f51dec99263f697819f134791926e96"
+    },
+    {
+      "path": "runtime/stage10_16/installation/baseline.json",
+      "sha256": "aaf088bd87def15f73fe10a349831af4477fbbdfc1e1d1ad4de9d2260b8593ab"
+    },
+    {
+      "path": "runtime/stage10_16/installation/install-intent.json",
+      "sha256": "4773f3eaf38e9d94018fd57940fdacaad8da32f802a20a0d43ac0eb58fb215b5"
+    },
+    {
+      "path": "runtime/stage10_16/installation/inventory-after.json",
+      "sha256": "8911884e4bcd50fd6ffefe7cde97635a6839fea3faa64dbd30c06cd2b4d29cbc"
+    },
+    {
+      "path": "runtime/stage10_16/installation/receipt.json",
+      "sha256": "257cf4e27daff59b6d06f1eaf727703352815caa9f8547af289e6edfd6cc4446"
+    },
+    {
+      "path": "runtime/stage10_16/installation/rollback-dry-run.json",
+      "sha256": "e94d507828eac272630b31bf7ab8d10f6528671802fdfacf38d9a41e40ac0477"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/emf_core.log",
+      "sha256": "ea33cb22baf882c48747e2371af24b96d03c2c8e2fc194989e79eab531713981"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/emf_loader.log",
+      "sha256": "425e08f8724a6a1c9f3815147e5dfd98b50d7820297a5e646d5e641f0959fa84"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/enshrouded.log",
+      "sha256": "171524155a7eed806818d9664d730e6318b5883906edd827ec40a4efb78cc881"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/file_opens.log",
+      "sha256": "204a85f64b622e1ba315df4b8f92542b73a837cba6704ad512deb34df5459f7b"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/inventory.json",
+      "sha256": "c0fb77856b0fd883679975e568d0846a061d273f54682c58335fe04a3fcf77da"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/post-close/result.json",
+      "sha256": "1d10e3e78b7fcb7fae8420b4e2181f7536a0e3735dfac34fced6f6a6e9eedcae"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/runtime-diagnostics.json",
+      "sha256": "89db73115dbd0eeb1b1ce6673b464bb0d76fb153a3f4d1425426359218d0d5cb"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/runtime-result.json",
+      "sha256": "8330a9c1f8efdf14e69b92445561c983b38e69f4521f40b21e5c5d227ab61712"
+    },
+    {
+      "path": "runtime/stage10_16/session516568/schedule-journal-runtime.jsonl",
+      "sha256": "46f1b8d310872c96f4a53502f6d29a0944216fe30464b074c68753d2aa50b749"
+    },
+    {
+      "path": "runtime/stage10_16/test-session.jsonl",
+      "sha256": "bfebdb96426ee06c586b9d48aaa005298528710c17582c3e2ceb41088dae95d6"
+    }
+  ],
+  "spawn_history": {
+    "131b76e2ff8046f08791b34167ab3bd0-request.json": "039a3a668c3aa9313e74e8bd3e948a0c4628df7375af40dc1d762d60037112d1",
+    "131b76e2ff8046f08791b34167ab3bd0-response.json": "adf35ca378527f3efb8f6f45afbec6a9c34bf03ea88bc46bdb74f43cc6834eb2",
+    "69f0393aa782434b89bb02953a1b70b9-request.json": "e5dea25b279f6bd94ce2eecd0fba2ed4b0c7da942604fb1a9f11c619bc87ce0f",
+    "69f0393aa782434b89bb02953a1b70b9-response.json": "ed47a26ba54f450d956348476cbdf4b9106031d4a55d974550345de4cccdab92",
+    "711c76cf7f6a4753bf9327b368a20b74-request.json": "f8fea3af0220795932462eadd2fc27ff7bbd8c758702041a80314e13b8102543",
+    "711c76cf7f6a4753bf9327b368a20b74-response.json": "cd3016a50603b2c5eadca7b19399b872a6f9cb235e959fbafb621c389384542a",
+    "998728cd1f89498a809c515a2211f295-request.json": "994edb33b7ad6492647f10e98b49927d8663eb6fec4bc440fc242fcb749b5864",
+    "998728cd1f89498a809c515a2211f295-response.json": "b38f7f94e168b8bab03d681b9b7bbf02491d9d45c51d24ced02016631a3acb63",
+    "c226bfca801349af8069bbc5f512c34f-request.json": "03bb42694eec43cf485e8a852cb0decd1e6847a0c4ab0b746ee2e1ee4c49db64",
+    "c226bfca801349af8069bbc5f512c34f-response.json": "a70d81974cc57eee620b7a83920a0673c43c8ad98bf820e900ecc41f99ea41ac",
+    "c3092a45938f4598814cbfdac5912dae-request.json": "b5bd2a38d24141c926413aa4d658d550530e45c25f30534de06b64f22cf642dc",
+    "c3092a45938f4598814cbfdac5912dae-response.json": "3bb769e26b08ae0584e58832986c2a123e1c6c8d863f67b8804be979eb8e0596",
+    "e62e13953848490d838da28c2352ecdb-request.json": "58e3ce348b5c15915e46b9f58b17019fd9e0854bc1abaf3f783db5c08fbe01d7",
+    "e62e13953848490d838da28c2352ecdb-response.json": "21c72267c5f7d340e2bbb5b2c97ba150b9f3bd2ff436fbf80cc5f6503d9b71c3",
+    "f445dedd94c14d5194feccb8c7f0659a-request.json": "a892139b9a20424c34ae8f9f84b21a852c101bd3df20e9b6e2b038ed7b3a241e",
+    "f445dedd94c14d5194feccb8c7f0659a-response.json": "6a4c70af20e4c462285e601faf1d7e077600f28c55ea540dae6333902a676201",
+    "probe.json": "2d49bd58b0f05df2664c0ba960730835d9a524eccb76967ef24a308335b0bdb4",
+    "spawn-intent.json": "c13312c53d9108d507e1342e20995b1a91df0896312065814e4e02a5417704bd",
+    "smart-control/e09326564e2b4695aba88d69819e2afd-request.json": "ccfef0571778305953c23aa6ef896a83c27e5361e523cf3d9d1adbc064017858",
+    "smart-control/e09326564e2b4695aba88d69819e2afd-response.json": "28fd04f546bd15b7fe379db33c38b65a403f15f3db82c26d4f291869f7c83bd4",
+    "smart-control/e7825087c0f546fc9d6031eb2bea8162-request.json": "4a3066a88218ab4ec44093432d5cfaedf539edcdf18f152995622bbe4a387f3a",
+    "smart-control/e7825087c0f546fc9d6031eb2bea8162-response.json": "6b1c6f02c466918ee6762acbf29ae53ec2a14016bd60b805bf23586c06b05073",
+    "attempts/63c518eaef6142d8a270805d716daa10/0fb2183acdfc40f792e98e81fb68040c-request.json": "c5f48767cb5e834e6fc4df72cc31ca9bb73d8fa025461526ed88e693d2d05052",
+    "attempts/63c518eaef6142d8a270805d716daa10/0fb2183acdfc40f792e98e81fb68040c-response.json": "f0d09bcf2ae73d17a8297229366316ee482aa536808ed25552db8499345c5e0e",
+    "attempts/63c518eaef6142d8a270805d716daa10/3cc9c8fc9eed462ca4d9fae812b50d40-request.json": "830d35a8e285fd72f6da103759af4954257d4959db573e28a3538703b066b11f",
+    "attempts/63c518eaef6142d8a270805d716daa10/3cc9c8fc9eed462ca4d9fae812b50d40-response.json": "a930690a574a58005e32b11bc22b26442c94f4f6af01450a8cea03c7fdb669b2",
+    "attempts/63c518eaef6142d8a270805d716daa10/3e746045903143f6aed0963c64abf825-request.json": "084e256647681a07874ff7b46f79dbc4d8eba5e05c6234bdd45a098c0dbc1248",
+    "attempts/63c518eaef6142d8a270805d716daa10/3e746045903143f6aed0963c64abf825-response.json": "e1613bf7d2979640bb913da63ac1173cdaa010e52fae5fc0b925bbadb049ef9c",
+    "attempts/63c518eaef6142d8a270805d716daa10/407ce6631a7a4f7fb678f7ec57c0558b-request.json": "eab21dc2989559cc4c33477cb5d4b4dd109b095589d063848e296cc1838c2372",
+    "attempts/63c518eaef6142d8a270805d716daa10/407ce6631a7a4f7fb678f7ec57c0558b-response.json": "722a785f8165da42f68e56056c022e3a7ff20ea3c40b2a3dd3912344ad35b696",
+    "attempts/63c518eaef6142d8a270805d716daa10/44f76f0e0ac44f7b9ac9f1bf305a0602-request.json": "2dfb059cf69631c8c6da4296fb0250d2067f2a3bd48b3930d58e334072956620",
+    "attempts/63c518eaef6142d8a270805d716daa10/44f76f0e0ac44f7b9ac9f1bf305a0602-response.json": "5adff1a7f1d1d0dd7218eeb0aa977de6ec6011600c420bbdb24d8456950c6716",
+    "attempts/63c518eaef6142d8a270805d716daa10/52535e80914b4c5288fc4eb543e91f14-request.json": "5141d2ed200dbb99e8dde8ab6710bddd1b6a2fd1694ed7539bd11451447a3cf6",
+    "attempts/63c518eaef6142d8a270805d716daa10/52535e80914b4c5288fc4eb543e91f14-response.json": "3e02f96a3bc26d96d6981e87cbed8401b870afaa1a7490fc586e70571b769ba3",
+    "attempts/63c518eaef6142d8a270805d716daa10/5bd16a0137484fbb829ff7917196bdf4-request.json": "6365d43885311f2157f7a014a62351498e499bd4cf3433725d120f726d877bbb",
+    "attempts/63c518eaef6142d8a270805d716daa10/5bd16a0137484fbb829ff7917196bdf4-response.json": "907f8980c3cfa6f6fbe2d21376732f32764a6807fb6070b59509c1ab6a47a4b9",
+    "attempts/63c518eaef6142d8a270805d716daa10/8fe37ebf2e414fdabc1288219e874462-request.json": "76b74cfc418cd132fd6fe2a2cf5466e8a158c950bb892e70dfd900ff6b8398c6",
+    "attempts/63c518eaef6142d8a270805d716daa10/8fe37ebf2e414fdabc1288219e874462-response.json": "8851903f70c4f8c61fbfa06f786717dde3de8d6621093cf330e1c124b8ca6760",
+    "attempts/63c518eaef6142d8a270805d716daa10/90e3508c0138424ebd307ad8ac7808a1-request.json": "e8e3932d6c0b83f864acfc31da049e15db3cbb85c21da8067566e9bfbc389ffb",
+    "attempts/63c518eaef6142d8a270805d716daa10/90e3508c0138424ebd307ad8ac7808a1-response.json": "8a9a22ae68c821b7255dc139da6f3392a6af35e93f2851d83f159c879222ae32",
+    "attempts/63c518eaef6142d8a270805d716daa10/a041d8b57646490289daedd53b7d9f58-request.json": "30d8c6d449cf00b19f3d92567d3260dc007705e005b17aabecf9da7bef343208",
+    "attempts/63c518eaef6142d8a270805d716daa10/a041d8b57646490289daedd53b7d9f58-response.json": "32762448eecc88c10abcd96aa45d6b21e0d16fc6302d487f960a869666314878",
+    "attempts/63c518eaef6142d8a270805d716daa10/b9e3249b54624d5e90265f0b52b97984-request.json": "781fe65c58d00c40764a9bab2b76d05abba5ad8af8bad7cca38b4f6fd33b9708",
+    "attempts/63c518eaef6142d8a270805d716daa10/b9e3249b54624d5e90265f0b52b97984-response.json": "d385fbbadc6353f2f204abcbf70bbe7ab37dc92dcf190a04e691830d872467c4",
+    "attempts/63c518eaef6142d8a270805d716daa10/bbbfba91d4fe4985996ea214c23a9e59-request.json": "ed337cf2010b2e1666339df94fc65591c80c21640227c15bedb69bc876fdd39d",
+    "attempts/63c518eaef6142d8a270805d716daa10/bbbfba91d4fe4985996ea214c23a9e59-response.json": "833d6ceec799171505aa1cea2532a742d89c67bd5e8733303acd7688d8b9a5bd",
+    "attempts/63c518eaef6142d8a270805d716daa10/c699bdea169f489fadbab36410b94ee6-request.json": "543d88138c5ca2f5a93e62b7d217bef279f63d2268934594684d6f8053178ea1",
+    "attempts/63c518eaef6142d8a270805d716daa10/c699bdea169f489fadbab36410b94ee6-response.json": "3b88e7ecabe9ed17f41f22564bfc84092762bb5c5b7b6474a0486b264c0bb998",
+    "attempts/63c518eaef6142d8a270805d716daa10/probe.json": "3fababda7189daab6a6024c53c968fca84c8e5f235c024c09078eb33feb1553f",
+    "attempts/63c518eaef6142d8a270805d716daa10/ready-window.json": "a418edda385f0361c2533989dccadb8a8c52042bc7fe1e8f896c82837a6cb06b",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/095433fbbb4845fabc57686417318d5d-request.json": "33025d4e01d4a648fe65fb8c51cba4a80cccddc6cd6d754c223fe030552c52a2",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/095433fbbb4845fabc57686417318d5d-response.json": "b27a82c564c90ce220e79fc700193241c82afc1a405a07ec94e29544b5214967",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/2011ce423e9645b89923e14b933e278f-request.json": "575dacbae6c6de473b4377243dcc58fee01440599373df3e789971470390877c",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/2011ce423e9645b89923e14b933e278f-response.json": "d1a51ab518fad5c2d0f7e3b7b9bae91fb9e60edbf5e35a64b18feb24357e1ba4",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/4464309e3ec940bb8eb38f66d33cf7f3-request.json": "edea2e816168000a1d8dcee501591d563bd79612792be745cc3f7e048f3f11d4",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/4464309e3ec940bb8eb38f66d33cf7f3-response.json": "b49319fba77970d57801dfe2b19fe1cc9592151daadd7bd880ff99442fd8473f",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/56d2f07465c54bcd806d814da13a65f7-request.json": "83adbdca32742b1b8c093bbdaeeb9f9f971c6b443222bd523e204e2d54b4ed4f",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/56d2f07465c54bcd806d814da13a65f7-response.json": "b582ca9d699b08b70ec7c748075b35ea36d394aa0ed0e8d2887346376d73ab17",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/5e954e11314544b1873190dd27fbfd59-request.json": "dbae736a8dce932c91d155faaead76ca823fa94c4d15684b7c7286f3ee53eea5",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/5e954e11314544b1873190dd27fbfd59-response.json": "8316cb009da46cffcc4beafcac9e5150fa909018f6ebb27b08e7b353fc5aca53",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/5f266747c55e45778743c3466082f6e1-request.json": "72b909efc81f84ecdcd92d9230726164c15c8b1a2ea3e172e5ddb72bf37a7e9a",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/5f266747c55e45778743c3466082f6e1-response.json": "a63bab56c653d409a1703e9f1254f88009b68c8e13c9e22c0e5ec3eb6b5ae619",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/6e8963b616ad4a4da25c7e6eec42262c-request.json": "d99c6227c8e53356b7ab19192818a393308606411f5f6c92595ffa26c77f6710",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/6e8963b616ad4a4da25c7e6eec42262c-response.json": "a79d25ada061e7838789bcd0d4e94a15950aa1290e905a26a1c962b7fba77fd5",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/7035009f28f049a28c6144c0af736ddc-request.json": "39f2a8e541fb514c7aad1f6aa4c8e6939bae17fa10217d5434e41a25e95ca0bb",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/7035009f28f049a28c6144c0af736ddc-response.json": "5908d44f1feb80fb5b7bafa7a43b2ef9fe1d643daa6368bf75bbdddf513cca62",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/90d7207c0bf7483ba1baddb7c5fb6eb3-request.json": "0254c4bcc537ab91aa12bba7beca311b394e511eb19bb49f26c4e80a4ed95c63",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/90d7207c0bf7483ba1baddb7c5fb6eb3-response.json": "5bfe00b0ad0715335210d57bf3f8068ea6cf1d48e5f6e8ba2b141ceb28942815",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/964900d15a264de3bba7b3f9e1938918-request.json": "bd360b5a880174daedf000161231cedb9724d5146142986e1ad2cdd91910321c",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/964900d15a264de3bba7b3f9e1938918-response.json": "e75cb84528bde7fb9fa632d73ccee25e9e1fb177c7351c5cc652722cd5544489",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/a308ec3f30eb49d4937755cd69262b70-request.json": "c2af5c36e0f0bd01926171cdfc13656fc6885d7c0cfc368b7e09ae996498fbb2",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/a308ec3f30eb49d4937755cd69262b70-response.json": "79968e924284c82af752467e1a3f47c0f77f2e91ac8fbe593989229b3cb624c5",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/d1d38e07df784b5497897f6db2863ab1-request.json": "1fb1badd3e7e0c5e2a63eb7f742c424f1a5a110203154bf21008a0a5272ad389",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/d1d38e07df784b5497897f6db2863ab1-response.json": "8e6e24b34c76ce62e3d80f821e2e1b3a32e3f360ad25519e6436b9fb5f21627d",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/e98c03803b474a6d87bc42edda2db6b3-request.json": "20e6b67c7b3809fbe16526feb4fa678fd075b9577858789c55d1e871020f7262",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/e98c03803b474a6d87bc42edda2db6b3-response.json": "bfe02867b0388fea8b4e8dfe670766c4856236a376c25346152afb782302422c",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/interactive-error.json": "8cc058bd435abce6efd3f143b237b958c35194aa6b896e6ed587808a2cab53f8",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/interactive-started.json": "a5fe9a13a2d566868528788494e443186ba077796e77fc6bd66ca53b97edcdd5",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/probe.json": "e857e62ee7b7b79ff301034479f89e832167cf1bfb5f5da29bc63456b338069a",
+    "attempts/96fccb835fff4b758bf0a0a7da077b5c/wait-stopped.json": "0e0799e983a6acfeb736ca75570cd6c962979c1f0f4874866dcfb19a11024f25",
+    "smart-searches/000001/08bd3076363d4f47b8049e9faa515a16-request.json": "8ef152d04961d839056f27b3e327ece62dff54f37b21f8e253fdae4e43aa5321",
+    "smart-searches/000001/08bd3076363d4f47b8049e9faa515a16-response.json": "8883a0615d00026ca3945246992ce7c1ef93565552acf46dab48d0be5b0b5fb1",
+    "smart-searches/000001/0da91fcf58664e3a9ba7831f1bdb4344-request.json": "baeea7a74b683c1e4676f146ab4f73f5f4e4985734fbb6362d974d2d25a02d0a",
+    "smart-searches/000001/0da91fcf58664e3a9ba7831f1bdb4344-response.json": "689563d440660e3a7db9fb74c4dee048a5107e2f5a3a64ff2a05fee5046a0303",
+    "smart-searches/000001/109df81e396e424ca770c927096a498d-request.json": "90020f206917b5800e75d3efc3171ca9c466a843e9ff7ac07523334f4f7fc6eb",
+    "smart-searches/000001/109df81e396e424ca770c927096a498d-response.json": "4253e1c19e934b26107159ac3d8974b2dd72f80e41c318378c7496dcdd23b462",
+    "smart-searches/000001/4da111e941d442f28e341c6ce14eda17-request.json": "7c535170f71216b19bbe6aa5bfd75efe0f6dfb055bc37eff7c9cf51379b79bcb",
+    "smart-searches/000001/4da111e941d442f28e341c6ce14eda17-response.json": "990f2271ed3a3ba95eb0bf8cb858dfc93cacdb8eda1cc26a81a36f08c04e269b",
+    "smart-searches/000001/541bc1d9a21d43148ad44b6df4ea42f8-request.json": "ebe01837dbe3708374f1b4db6fe1d24b5a1b4b5a1bcd31a15774f94776db446f",
+    "smart-searches/000001/541bc1d9a21d43148ad44b6df4ea42f8-response.json": "7c3a36a47f94f1ef767faa30f1c04444b4dcb8fe7fddefda4b8710b0fa8f62be",
+    "smart-searches/000001/55e21deacfb64859b85640beb44d49e0-request.json": "0decc240c2eaefc15d9fb8beafa9ee45e46b90c7d24ac4d77eeaba46115806a7",
+    "smart-searches/000001/55e21deacfb64859b85640beb44d49e0-response.json": "cd5ebed9caf1171710036fb9c5d5c52f8e69d6c9fa298e26fbbb47ad023fdefc",
+    "smart-searches/000001/59b58eb244d54c1dab7649d40dabdeb3-request.json": "e17b779eeede2eb8d3e760639778937dcffd85bfb147057f8d56215716214e64",
+    "smart-searches/000001/59b58eb244d54c1dab7649d40dabdeb3-response.json": "ce68afdc73f0e68ee71f362327e688c6f556196207d50437291dfb0d4bedff00",
+    "smart-searches/000001/5d928ee90f6c44f5bc68ab360207952b-request.json": "9f57e7661afe9a858e57b764aa787bcc761f250342ec1e87618180e95b6f58e8",
+    "smart-searches/000001/5d928ee90f6c44f5bc68ab360207952b-response.json": "47a8c713a483423f76dbf6214e4f41d69adcd2592017cc75b355e693341d90fd",
+    "smart-searches/000001/795cb69363034750b0a418d07be1a18c-request.json": "59e7e9c5f784a0d1dedba1f2f6d22d36dce20649ca3465faa403ea00af084af6",
+    "smart-searches/000001/795cb69363034750b0a418d07be1a18c-response.json": "8df3801eca960b8a42c9353768de8fe6a03332be00b46dfa87c8ec9b86268527",
+    "smart-searches/000001/7b3808a445f3497a8ea5c3ab2c4f67e2-request.json": "500cbaa68516103dd0ba9c64bdd3cb8042d73f292289a0115e8b55bf8132fc93",
+    "smart-searches/000001/7b3808a445f3497a8ea5c3ab2c4f67e2-response.json": "9e8e5e2fc2f43005ff5ea9f525fa6d92b15186754ac172356f8cb1ee4a7261aa",
+    "smart-searches/000001/b707b7eed1b04a838ac54d8858f6e0b1-request.json": "47595897c5bfafbea4cfd485809bae842b608ab2e8ed873840511dc9dfd9dceb",
+    "smart-searches/000001/b707b7eed1b04a838ac54d8858f6e0b1-response.json": "948729e61a8c080323173e9862e50c4faad2ed9e5afcbd53b58bea4401ef6cdf",
+    "smart-searches/000001/c9fa3090780a4f43a64b1a3ce4947075-request.json": "84faf4dcedb659ec9f53778b6e0843dc577df9f1c9c3d1ca6fa7243b34307fdb",
+    "smart-searches/000001/c9fa3090780a4f43a64b1a3ce4947075-response.json": "d9583a4623b7a9d808545c97ca8661c4efdb8abd9e32a9a886b257f15449a70e",
+    "smart-searches/000001/e6bff00f36fe411c8289f538c9da6d3b-request.json": "34d64942d43f5392cd69c04c02d5b8cebae819ec30eab5036cea4372abc17a04",
+    "smart-searches/000001/e6bff00f36fe411c8289f538c9da6d3b-response.json": "56f674df348508d97b05abc23ac063ddd295e8575b08ebb4a359451fc57450f2",
+    "smart-searches/000001/interactive-result.json": "bd426a5eda5ed19184319dbfb73e26172738171dca1f65ac89aea21e2a53d4e1",
+    "smart-searches/000001/interactive-started.json": "a465737a52979efd763c108a5d11a5767fa8ecfbb88fc9a6f3db2038b94c53f0",
+    "smart-searches/000001/local-confirmation.json": "e62f96d3c7e1f5c6b9b5e60a9ef1b698144ae3574db0414a9a244aea94c75755",
+    "smart-searches/000001/probe.json": "c4eecd12718dc345181d6cb04a2d5c2d10f6b4b3d46fe434331d5fe570b15ab3",
+    "smart-searches/000001/ready-window.json": "dc1a6e289c11c7905daa0de187e7c3be9cabb86b1c7c280fa5b6f36b86b411b1",
+    "smart-searches/000001/search-start.json": "a64d26efc5b8c85eec7d127d7aed3b9f279289d4b3a938ba50c7891eefa31210"
+  },
+  "backup_plan": {
+    "local_files": 23,
+    "replaced_files": 6,
+    "total": 29,
+    "fresh_preflight_required": true
+  },
+  "session": {
+    "activation_horizontal": 20,
+    "deactivation_horizontal": 50,
+    "requires_separate_authorization": true,
+    "journal": "runtime/movement_0_3_5/test-session.jsonl",
+    "lock_name": "follow-movement-0-3-5.lock",
+    "seconds": 210,
+    "max_orders": 24,
+    "max_recoveries": 2,
+    "heartbeat_seconds": 4
+  },
+  "spawn_ready": false
+}

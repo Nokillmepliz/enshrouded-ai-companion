@@ -7,12 +7,19 @@ end
 local function dist(a,b) return math.sqrt((a.x-b.x)^2+(a.y-b.y)^2+(a.z-b.z)^2) end
 local function across(a,b) return math.sqrt((a.x-b.x)^2+(a.z-b.z)^2) end
 function M.new(api,discover,config)
+ -- The new profile shortens retarget latency; native orders remain serialized.
+ local responsive=config.responsive==true
+ local retarget_distance=responsive and 3 or 8
+ local retarget_seconds=responsive and 2 or 8
+ local dispatch_seconds=responsive and 1 or 4
  local c={state='STOPPED',reason='NOT_STARTED',orders=0,recoveries=0,probes=0,seq=0,used=false}
  local started,heartbeat,last,session,entity,order,pending,ready,epoch=0,0,-100,nil,nil,nil,nil,nil,0
  local following=false
  local candidate=0
+ local retry_at=-100
  local function reject(why)
   pending=nil;ready=nil;epoch=epoch+1;last=api.now()
+  retry_at=last+4 -- Faster dispatch must not burn the bounded budget on refusals.
   candidate=(candidate+1)%8;c.state="RECOVERING";c.reason=why
   api.log("CANDIDATE_REJECTED",{reason=why,next_candidate=candidate})
  end
@@ -181,7 +188,11 @@ function M.new(api,discover,config)
   if order and active then
    log('PROGRESS',{id=order.id,player_distance=distance,target_distance=dist(order.target,d.position),
     displacement=dist(order.origin,d.position),initial_player_distance=order.initial_distance})
-   if dist(p,order.player)>8 and api.now()-last>=8 then cancel(w,d);last=api.now();c.state='FOLLOWING';return end
+   if (dist(p,order.player)>retarget_distance or (responsive and order.holding and distance>2.8))
+    and api.now()-last>=retarget_seconds then
+    log('RETARGET_REQUEST',{id=order.id,player_displacement=dist(p,order.player)})
+    cancel(w,d);last=api.now();c.state='FOLLOWING';return
+   end
    if order then c.state='MOVING';return end
   elseif order then
    if order.holding then order=nil else c.stop(w,'ORDER_DISAPPEARED');return end
@@ -194,7 +205,7 @@ function M.new(api,discover,config)
    if api.now()-requested>12 then c.stop(w,'ABANDONED_QUERY_TIMEOUT') end
    return
   end
-  if api.now()-last<4 then c.state='RECOVERING';return end
+  if api.now()-last<dispatch_seconds or api.now()<retry_at then c.state='RECOVERING';return end
   if d.ai_state==1 or d.ai_state==2 or d.ai_state==8 or d.ai_state==16 or d.decision==5 then
    c.state='WAITING_FOR_NPC';c.reason='NPC_ASLEEP_OR_BUSY';return
   end
@@ -207,7 +218,9 @@ function M.new(api,discover,config)
   end
   if c.orders>=24 then c.stop(w,'ORDER_LIMIT');return end
   c.orders=c.orders+1;last=api.now()
-  local o={at=last,origin=d.position,target=r.target,player=p,initial_distance=distance};order=o
+  -- Measure later retargeting against the player used for this destination,
+  -- not a newer sample taken after the asynchronous query finished.
+  local o={at=last,origin=d.position,target=r.target,player=responsive and r.player or p,initial_distance=distance};order=o
   log('MOVE_INTENT',{number=c.orders,target=r.target})
   local id,why=api.move(w,entity,r.target,{arrive=0.5,seconds=30,stuck=8,hold=config.roaming=='hold' and 5 or 0},function(_,mid,result)
    if order==o then o.result=result;o.holding=result=='arrived' end

@@ -11,7 +11,7 @@ local controller=policy.new({allow_move=false,session=emf.session_token,player=e
   return n==1
  end})
 -- One explicit request only. No automatic move or retry on load/tick.
-for _,name in ipairs({'discover','status','move_to'}) do
+for _,name in ipairs({'discover','status','move_to','nav_info'}) do
  assert(#('aic_companion_movement.'..name)<=32,'COMMAND_NAME_LIMIT')
  assert(emf.command(name,'Stage 10.12: explicit one-shot movement; no automatic retry',function(w,args)
   local nonce=args[1]
@@ -22,6 +22,7 @@ for _,name in ipairs({'discover','status','move_to'}) do
     return controller.move_to(w,args[2],tonumber(args[3]),{x=tonumber(args[4]),y=tonumber(args[5]),z=tonumber(args[6])},args[7])
    end
    assert(#args==1,'ARITY')
+   if name=='nav_info' then return controller.navigation(w) end
    if name=='discover' then
     local d=controller.discover(w)
     local x,y,z=w:position(emf.local_player())
@@ -40,7 +41,7 @@ end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
 assert(config.roaming=='native' or config.roaming=='hold','ROAMING_MODE')
-assert((config.schedule and config.lock_name=='follow-movement-0-3-4.lock' and config.seconds==210)
+assert((config.schedule and config.lock_name=='follow-movement-0-3-5.lock' and config.seconds==210)
  or (not config.schedule and config.lock_name=='follow-stage10-14.lock'),'SESSION_LOCK_NAME_OR_LIMIT')
 local follow
 local function guarded(fn)
@@ -72,7 +73,7 @@ api.wake=dofile(emf.dir..'/wake.lua').new({now=os.time,log=api.log,moving=emf.vi
  end})
 local recovering=false
 if config.schedule then
- local journal=emf.dir..'/schedule-movement-0-3-4.jsonl'
+ local journal=emf.dir..'/schedule-movement-0-3-5.jsonl'
  local function load_lease()
   local f=assert(io.open(journal,'rb'),'SCHEDULE_JOURNAL_MISSING')
   local raw=f:read('*a');assert(f:close());assert(#raw<65536,'SCHEDULE_JOURNAL_SIZE')

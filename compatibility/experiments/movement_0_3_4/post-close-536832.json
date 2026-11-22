@@ -1,0 +1,69 @@
+{
+  "status": "SHORT_POST_CLOSE_PASS_SCHEDULE_RESTORED",
+  "pid": 536832,
+  "resource_check": "DAT_METADATA_ONLY_WITH_INHERITED_HASHES; other files freshly SHA256 hashed",
+  "counts": {
+    "originals": 67,
+    "shadow": 77
+  },
+  "installed_unchanged": 40,
+  "runtime_changes": 2,
+  "backup_verified": 28,
+  "preserved_intents": 191,
+  "spawn_history": 112,
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantics": "NOT_VERIFIED",
+  "schedule_released": true,
+  "restored_hours": {
+    "entity": 1025,
+    "session": "30dd7abc0aa42fcc-1",
+    "sleep": 20.85960578918457,
+    "state": "ACQUIRED",
+    "wake": 6.77913761138916
+  },
+  "commands": {
+    "aic_companion_movement.discover": 2,
+    "aic_companion_movement.f_start": 1,
+    "aic_companion_movement.f_step": 165,
+    "aic_companion_movement.f_stop": 1,
+    "aic_companion_movement.f_status": 2
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-22T22-59-54.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "follow_result": "MOVEMENT_CONFIRMED_HOME_RADIUS_BLOCKS_FREE_FOLLOW",
+  "orders": 15,
+  "accepted": 9,
+  "arrived": 4,
+  "post_close_baseline_sha256": "02850eb4f979f14874b0bfa5dfb64f4b59ca4426906b962e0a3b3b3bec2f0029",
+  "spawn_ready": false
+}

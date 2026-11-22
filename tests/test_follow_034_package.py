@@ -30,8 +30,8 @@ class PackageTests(unittest.TestCase):
                 source=installer.PACKAGE/row['source']
                 self.assertEqual(file_hash(source),row['sha256'])
                 self.assertNotIn('stage10-16',row['path'])
-                if row['source'].endswith(('.lua','.md','.json')):
-                    self.assertEqual(source.read_bytes(),(ROOT/'mods/aic_companion_movement'/row['source']).read_bytes().replace(b'\r\n',b'\n'))
+                # Historical 0.3.4 payload is verified against its pinned manifest
+                # above; current source now targets a different release.
                 if row['operation']=='replace':
                     p=game/row['path'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'old')
                     before[row['path']]=record(p);row['before_sha256']=before[row['path']]['sha256']
