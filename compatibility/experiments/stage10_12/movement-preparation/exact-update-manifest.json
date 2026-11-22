@@ -1,0 +1,46 @@
+{
+  "format": "aic_companion_movement_update_v1",
+  "version": "0.1.1",
+  "previous_version": "0.1.0",
+  "entries": [
+    {
+      "path": "emf/mods/aic_companion_movement/main.lua",
+      "source": "main.lua",
+      "before_sha256": "961ac72c91956ec47efd67f835ae1e0f0855a915a1da931c91cd8acc893ebe61",
+      "before_bytes": 1438,
+      "sha256": "b41e1c39b5643ce5ea960bdbe3fe0743cd317191f621eedfc28f37e6afd870f6",
+      "bytes": 1722
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "source": "controller.lua",
+      "before_sha256": "d773f4698cb0ee1d7daa38afc07c1d8087dfdbfca42b3e0736df116baab98ab2",
+      "before_bytes": 3845,
+      "sha256": "4e7cbc147ff03feeef8803c5f2b708ab869cffb02b8a8fb90ec73233aa4eea7d",
+      "bytes": 4091
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "source": "mod.json",
+      "before_sha256": "4a09b689d48a487cd8489a0c35190034f9a78f89104d38c3965f67f087f463f1",
+      "before_bytes": 349,
+      "sha256": "7f4ce3bbb77deb0ddcd178569ec1422eccd2887eedff265a81e1abc1d38e7044",
+      "bytes": 365
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "source": "README.md",
+      "before_sha256": "90c94a5770612e2418d39148ada4785fcddfa7539cddaa708ef737ec51eedc0c",
+      "before_bytes": 673,
+      "sha256": "6a0d9e4e267446db14fc7d444a34bedcff3776bb79418bdcd80ee61c53f6b174",
+      "bytes": 1211
+    }
+  ],
+  "baseline_sha256": "90164f817c4ac2bbf1f1a48876a1aee8bb381e4ffe91844ede392c0281585d32",
+  "previous_receipt_sha256": "0cc3b3e3cd2db671ad3ec0e5e88d8a5bb0740a8b8b3e6e389219f47a6b10340c",
+  "preserved_config": "350ccce8d2b7cd1b915f4cbdf0e7f7feeb3c84f0911fb24e1acac0fa0fdb7b58",
+  "backup_plan": "At authorized installation: fresh LOCAL plus four replaced files; no backup created now",
+  "installation_executed": false,
+  "movement_executed": false,
+  "spawn_ready": false
+}

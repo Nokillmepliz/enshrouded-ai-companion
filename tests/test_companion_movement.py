@@ -5,7 +5,7 @@ import tempfile
 import unittest
 
 from lupa.lua54 import LuaRuntime
-from companion.movement import MovementClient
+from companion.movement import MovementClient, manual_move
 from companion.experimental_spawn import validate_context
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +23,7 @@ function w:get(name,id)
 end
 function w:position(id) return x,0,0 end
 api={allow_move=true,session=function() return session end,player=function() return player end,
-context=function() return valid end,moving=function() return existing end,
+context=function() return valid end,moving=function() return existing end,wall=function() return blocked end,
 move=function(world,id,target,opts,callback)
  calls=calls+1; options=opts; cb=callback
  if fault then error('uncertain') end
@@ -109,7 +109,7 @@ class LuaMovementTests(unittest.TestCase):
     def test_identity_lost_after_accepted(self):
         self.run_lua("move();session='abc-2'")
         self.assertEqual(self.val('c.status(w).state'), 'IDENTITY_LOST_NO_RETRY')
-    def test_host_discovery_and_locked_move(self):
+    def test_host_discovery_and_single_move(self):
         def encode(value):
             def plain(v):
                 return {k:plain(item) for k,item in v.items()} if hasattr(v,'items') else v
@@ -126,7 +126,7 @@ local template=w.template
 function w:template(name,id) if id==1 then return nil end;return template(self,name,id) end
 ids={1,42}
 emf={dir=moddir,session_token=api.session,local_player=api.player,villager_move=api.move,
-villager_moving=api.moving,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
+villager_moving=api.moving,find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
 command=function(name,description,fn) commands[name]=fn;return true end}
 ''')
         self.lua.execute((ROOT/'mods/aic_companion_movement/main.lua').read_text())
@@ -136,7 +136,20 @@ command=function(name,description,fn) commands[name]=fn;return true end}
         self.assertEqual(reply['value']['discovery']['result'],'FOUND_ONE')
         self.assertLess(len(self.val('replies[1]')),964)
         self.run_lua("commands.move_to(w,{string.rep('b',32),'abc-1','42','4','0','0','APPROVE_PROFILE_ONLY_MOVE'})")
-        self.assertIn('MOVEMENT_DISABLED_PENDING_REVIEW',self.val('replies[2]'))
+        self.assertIn('ACCEPTED',self.val('replies[2]'))
+        self.assertLess(len(self.val('replies[2]')),964)
+        self.run_lua("commands.move_to(w,{string.rep('c',32),'abc-1','42','4','0','0','APPROVE_PROFILE_ONLY_MOVE'})")
+        self.assertIn('ATTEMPT_CONSUMED_NO_RETRY',self.val('replies[3]'))
+        self.assertEqual(self.val('calls'),1)
+    def test_wall_and_height_rejected(self):
+        self.run_lua('blocked=true')
+        with self.assertRaises(Exception): self.run_lua('move()')
+        self.run_lua('blocked=false')
+        with self.assertRaises(Exception): self.run_lua("c.move_to(w,'abc-1',42,{x=3,y=2,z=0},'APPROVE_PROFILE_ONLY_MOVE')")
+        self.assertEqual(self.val('calls'),0)
+    def test_sleeping_refused(self):
+        self.run_lua("local old=w.get;function w:get(n,id) if n=='DynamicActiveNpcState' then return {state=8,decision=5} end;return old(self,n,id) end")
+        with self.assertRaises(Exception): self.run_lua('move()')
         self.assertEqual(self.val('calls'),0)
 
 
@@ -199,6 +212,60 @@ class PythonMovementTests(unittest.TestCase):
         result=self.c.observe_until_terminal(seconds=1,clock=lambda:ticks[0],sleep=lambda dt:ticks.__setitem__(0,ticks[0]+dt))
         self.assertEqual(result['result'],'OBSERVATION_TIMEOUT_NO_RETRY')
         self.assertTrue(all('.status ' in s for s in self.t.calls))
+
+
+class ManualMoveTests(unittest.TestCase):
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+        self.path=Path(self.temp.name)/'intent.json'
+        self.t=Transport();self.t.mods[-1]['version']='0.1.1'
+        self.c=MovementClient(self.t,version='0.1.1')
+        original=self.t.console
+        def console(command,**kwargs):
+            response=original(command,**kwargs)
+            r=json.loads(response['output'][0][13:]);d=r['value']['discovery']
+            d.update(position=dict(x=0,y=0,z=0),player_position=dict(x=3,y=0,z=0))
+            response['output']=['AIC_MOVEMENT '+json.dumps(r)]
+            return response
+        self.t.console=console
+        self.c.observe_until_terminal=lambda:dict(result='ARRIVAL_OBSERVED',history=[])
+    def run_manual(self,answer,**kwargs):
+        return manual_move(self.c,self.path,confirm=lambda _:answer,output=lambda _:None,**kwargs)
+    def test_manual_one_move_and_no_second_attempt(self):
+        result=self.run_manual('MOVE')
+        self.assertEqual(result['result'],'ARRIVAL_OBSERVED')
+        self.assertEqual(sum('.move_to ' in c for c in self.t.calls),1)
+        self.assertEqual(sum('.discover ' in c for c in self.t.calls),2)
+        with self.assertRaisesRegex(ValueError,'INTENT_EXISTS'):self.run_manual('MOVE')
+    def test_cancel_no_intent_or_move(self):
+        self.assertEqual(self.run_manual('N')['result'],'CANCELLED_NO_MOVE')
+        self.assertFalse(self.path.exists())
+        self.assertFalse(any('.move_to' in c for c in self.t.calls))
+    def test_expired_confirmation(self):
+        ticks=iter([0,31])
+        self.assertEqual(self.run_manual('MOVE',clock=lambda:next(ticks))['result'],'CONFIRMATION_EXPIRED_NO_MOVE')
+        self.assertFalse(self.path.exists())
+    def test_candidate_changes_during_confirmation(self):
+        original=self.c.discover;count=[0]
+        def discover():
+            d=original();count[0]+=1
+            if count[0]>1:d['discovery']['entity']=99
+            return d
+        self.c.discover=discover
+        with self.assertRaisesRegex(ValueError,'IDENTITY_CHANGED'):self.run_manual('MOVE')
+        self.assertFalse(self.path.exists())
+    def test_busy_or_bad_position_before_confirmation(self):
+        original=self.c.discover
+        for changes in (dict(active_order=4),dict(player_position=dict(x=9,y=0,z=0)),dict(result='AMBIGUOUS')):
+            def discover():
+                d=original();d['discovery'].update(changes);return d
+            self.c.discover=discover
+            with self.assertRaises(ValueError):self.run_manual('MOVE')
+        self.assertFalse(self.path.exists())
+    def test_old_installed_version_rejected(self):
+        self.t.mods[-1]['version']='0.1.0'
+        with self.assertRaisesRegex(ValueError,'MOD_VERSION'):self.run_manual('MOVE')
+        self.assertEqual(self.t.calls,[])
 
 
 if __name__=='__main__': unittest.main()

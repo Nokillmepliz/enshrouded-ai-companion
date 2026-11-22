@@ -43,6 +43,9 @@ function M.new(api)
   assert(d.session==session and d.result=='FOUND_ONE' and d.entity==entity,'IDENTITY_OR_SESSION_CHANGED')
   assert(not api.moving(w,entity),'EXISTING_MOVE')
   assert(distance(d.position,target)>=2 and distance(d.position,target)<=5,'TARGET_DISTANCE_2_TO_5')
+  assert(math.abs(d.position.y-target.y)<=1,'TARGET_HEIGHT_DELTA')
+  assert(d.ai_state~=1 and d.ai_state~=2 and d.ai_state~=8 and d.ai_state~=16 and d.decision~=5,'NPC_NOT_AWAKE')
+  assert(not api.wall(w,d.position,target),'TARGET_WALL_BLOCKED')
   self.attempted=true -- consumed BEFORE API; exceptions have an uncertain outcome
   self.order={session=session,entity=entity,start=d.position,target=target,state='OUTCOME_UNKNOWN',started=false,progress=false}
   local order=self.order

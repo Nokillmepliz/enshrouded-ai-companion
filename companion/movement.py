@@ -13,14 +13,15 @@ from .recovery import no_links
 
 
 class MovementClient:
-    def __init__(self, transport):
+    def __init__(self, transport, *, version='0.1.0'):
         self.transport = transport
+        self.version = version
         self.session = None
         self.context_binding = None
 
     def context(self):
         return validate_context(self.transport.hello(), self.transport.state(),
-                                body_version='0.1.1', movement_profile=True)
+                                body_version='0.1.1', movement_profile=True, movement_version=self.version)
 
     def _request(self, command, *args):
         before = self.context()
@@ -59,7 +60,7 @@ class MovementClient:
     def status(self):
         return self._request('status')
 
-    def move_to(self, x, y, z, *, approval, intent_path):
+    def move_to(self, x, y, z, *, approval, intent_path, expected=None):
         if approval != 'APPROVE_PROFILE_ONLY_MOVE':
             raise ValueError('EXPLICIT_APPROVAL_REQUIRED')
         if any(type(v) not in (int, float) or not math.isfinite(v) or abs(v) >= 1000000 for v in (x, y, z)):
@@ -67,6 +68,8 @@ class MovementClient:
         d = self.discover()['discovery']
         if d.get('result') != 'FOUND_ONE':
             raise ValueError('NO_UNIQUE_CANDIDATE')
+        if expected is not None and any(d.get(k)!=expected.get(k) for k in ('session','entity','player')):
+            raise ValueError('CONFIRMED_IDENTITY_CHANGED')
         # New movement intent only; NEVER opens/reset the previous spawn intent or latch.
         path = Path(intent_path)
         no_links(path)
@@ -90,3 +93,38 @@ class MovementClient:
             sleep(0.5)
         # Observation timeout is NOT confirmation that an engine order has stopped.
         return dict(result='OBSERVATION_TIMEOUT_NO_RETRY', history=history)
+
+
+def manual_move(client, intent_path, *, confirm=input, output=print, clock=time.monotonic):
+    """One operator-confirmed move to the player's sampled standing position."""
+    path=Path(intent_path)
+    no_links(path)
+    if path.exists():
+        raise ValueError('MOVEMENT_INTENT_EXISTS_NO_RETRY')
+    d=client.discover()['discovery']
+    if d.get('result')!='FOUND_ONE' or d.get('active_order'):
+        raise ValueError('NO_UNIQUE_IDLE_CANDIDATE')
+    target=d.get('player_position') or {}
+    start=d.get('position') or {}
+    xyz=[target.get(k) for k in ('x','y','z')]
+    origin=[start.get(k) for k in ('x','y','z')]
+    if any(type(v) not in (int,float) or not math.isfinite(v) for v in xyz+origin):
+        raise ValueError('POSITION_UNAVAILABLE')
+    if not 2<=math.dist(xyz,origin)<=5 or abs(xyz[1]-origin[1])>1:
+        raise ValueError('STAND_ON_CLEAR_GROUND_2_TO_5_METRES_FROM_NPC')
+    output('NPC '+str(d['entity'])+'; target (your standing position): '+str(target))
+    output('Confirm daylight, solid clear ground, no water/ledge/obstacle; PROFILE_ONLY identity. One move, no retry.')
+    deadline=clock()+30
+    if confirm('Type MOVE and Enter to authorize; anything else cancels: ').strip()!='MOVE':
+        return dict(result='CANCELLED_NO_MOVE')
+    if clock()>=deadline:
+        return dict(result='CONFIRMATION_EXPIRED_NO_MOVE')
+    path.parent.mkdir(parents=True,exist_ok=True)
+    reply=client.move_to(*xyz,approval='APPROVE_PROFILE_ONLY_MOVE',intent_path=path,expected=d)
+    output(json.dumps(reply,ensure_ascii=False))
+    if reply.get('state')!='ACCEPTED':
+        return dict(result=reply.get('state','OUTCOME_UNKNOWN_NO_RETRY'),initial=reply)
+    # Separate read-only observation; no cancel even on timeout or exception.
+    result=client.observe_until_terminal()
+    result['initial']=reply
+    return result

@@ -19,7 +19,7 @@ def readiness():
         spawn_ready=False, RUNTIME_RENDER_CONFIRMED='UNKNOWN')
 
 
-def validate_context(hello, state, *, body_version='0.1.0', movement_profile=False):
+def validate_context(hello, state, *, body_version='0.1.0', movement_profile=False, movement_version='0.1.0'):
     wanted = dict(ok=True, emf='0.6.18', api=46, protocol=1,
                   game_build=1287369, process='client')
     if any(type(hello.get(k)) != type(v) or hello.get(k) != v for k, v in wanted.items()):
@@ -38,7 +38,9 @@ def validate_context(hello, state, *, body_version='0.1.0', movement_profile=Fal
         'aic_integrated_observer': ('0.3.0', ('script', 'loaded')),
         'aic_first_spawn': (body_version, ('script', 'loaded'))}
     if movement_profile:
-        expected['aic_companion_movement'] = ('0.1.0', ('script', 'loaded'))
+        if movement_version not in ('0.1.0','0.1.1'):
+            raise ValueError('UNREVIEWED_MOVEMENT_VERSION')
+        expected['aic_companion_movement'] = (movement_version, ('script', 'loaded'))
     if {m['id'] for m in active} != set(expected):
         raise ValueError('UNREVIEWED_MODS')
     for m in active:
