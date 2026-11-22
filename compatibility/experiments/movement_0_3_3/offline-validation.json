@@ -1,0 +1,20 @@
+{
+  "status": "PREPARED_NOT_INSTALLED_RUNTIME_UNVERIFIED",
+  "version": "0.3.3",
+  "targeted_tests": 88,
+  "targeted_tests_seconds": 1.131,
+  "final_package_tests": 4,
+  "final_package_tests_seconds": 0.885,
+  "preflight": "READ_ONLY_PREFLIGHT_PASS",
+  "post_close": "SHORT_POST_CLOSE_PASS_SCHEDULE_RESTORED",
+  "manifest_sha256": "3609490fa79da35b81d426c6edc8fbe8fda74060a40821a9f54414914ebdbac1",
+  "operations": 8,
+  "replace": 5,
+  "add": 3,
+  "effective": 40,
+  "backup_planned": 28,
+  "backup_created": false,
+  "installed": false,
+  "runtime_tested": false,
+  "spawn_ready": false
+}

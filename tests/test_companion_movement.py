@@ -121,7 +121,7 @@ class LuaMovementTests(unittest.TestCase):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
         for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):
             shutil.copyfile(p,Path(temp.name)/p.name)
-        (Path(temp.name)/'schedule-stage10-16.jsonl').write_bytes(b'')
+        (Path(temp.name)/'schedule-movement-0-3-3.jsonl').write_bytes(b'')
         self.lua.globals().moddir=temp.name
         self.run_lua('''
 commands={}; replies={}
@@ -132,7 +132,7 @@ function w:get(name,id) if name=='PlayerState' and id==1 then return {} end;retu
 local template=w.template
 function w:template(name,id) if id==1 then return nil end;return template(self,name,id) end
 ids={1,42}
-emf={dir=moddir,session_token=api.session,local_player=api.player,villager_move=api.move,
+emf={emits=function(names) assert(names[1]=='NpcCommandEvent') end,dir=moddir,session_token=api.session,local_player=api.player,villager_move=api.move,
 villager_moving=api.moving,find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
 command=function(name,description,fn) if #('aic_companion_movement.'..name)>32 then return false end;commands[name]=fn;return true end,on_tick=function() end}
 ''')

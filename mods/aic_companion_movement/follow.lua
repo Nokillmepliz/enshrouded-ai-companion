@@ -74,7 +74,7 @@ function M.new(api,discover,config)
  local function fresh(w)
   assert(c.state~='STOPPED','SESSION_STOPPED')
   local now=api.now()
-  assert(now>=started and now-started<180 and now-heartbeat<=4,'SESSION_OR_HEARTBEAT_EXPIRED')
+  assert(now>=started and now-started<(config.seconds or 180) and now-heartbeat<=4,'SESSION_OR_HEARTBEAT_EXPIRED')
   return inspect(w)
  end
  local function probe(w,d,p)
@@ -146,6 +146,7 @@ function M.new(api,discover,config)
   if c.used and c.state=='STOPPED' then return end
   local d=fresh(w);heartbeat=api.now()
   if cancellation then return end
+  if api.wake and api.wake.pending then return end -- exclusively owned by native wake command
   local p=api.position(w,d.player)
   assert(point(p),'PLAYER_POSITION_MISSING')
   local distance=dist(p,d.position);local active=api.moving(w,d.entity)
@@ -225,6 +226,14 @@ function M.new(api,discover,config)
    end
   end
   if c.state=='STOPPED' and c.cleanup=='DONE' then return end
+  if c.state~='STOPPED' and api.wake and api.schedule and api.schedule.lease
+   and following and not order and not cancellation and not pending and not ready then
+   local ok,blocked=pcall(function() return api.wake.tick(w,inspect(w)) end)
+   if not ok then
+    log('WAKE_ERROR',{error=tostring(blocked)});c.stop(nil,'WAKE_ERROR');return
+   end
+   if blocked then return end -- emit may invalidate w; cleanup waits for a fresh tick.
+  end
   if c.state=='STOPPED' and api.now()<cleanup_at then return end
   local ok,err=pcall(function()
    local d=inspect(w) -- Fresh identity also required after STOPPED; never cancel a foreign order.
@@ -245,7 +254,8 @@ function M.new(api,discover,config)
    home=d.home,ai_state=d.ai_state,decision=d.decision},player_position=p,
    distance=point(p) and dist(p,d.position) or nil,state=c.state,reason=c.reason,orders=c.orders,
    recoveries=c.recoveries,probes=c.probes,roaming=config.roaming,cleanup=c.cleanup,order=order and order.id or nil,
-   target=order and order.target or nil,probe=pending and pending.stage or nil}
+   target=order and order.target or nil,probe=pending and pending.stage or nil,
+   wake=api.wake and api.wake.state or nil}
  end
  return c
 end

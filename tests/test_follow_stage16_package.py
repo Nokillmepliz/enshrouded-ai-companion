@@ -34,7 +34,7 @@ class PackageTests(unittest.TestCase):
             for row in fake['entries']:
                 n=row['source']
                 data=(('UNUSED:'+plan['token']).encode() if n.endswith('.lock') else b'' if n.endswith('.jsonl')
-                      else (ROOT/'mods/aic_companion_movement'/n).read_bytes().replace(b'\r\n',b'\n'))
+                      else (ROOT/'dist/stage10_16_movement_0_3_2'/n).read_bytes())
                 self.assertEqual(hashlib.sha256(data).hexdigest(),row['sha256'])
                 (package/n).write_bytes(data)
                 if row['operation']=='replace':

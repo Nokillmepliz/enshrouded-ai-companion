@@ -44,7 +44,9 @@ sa={now=api.now,time=function() return 23 end,load=function() end,
 ''')
         self.lua.globals().schedule=self.lua.execute((ROOT/'mods/aic_companion_movement/schedule.lua').read_text())
         self.lua.globals().follow=self.lua.execute((ROOT/'mods/aic_companion_movement/follow.lua').read_text())
-        self.do("api.schedule=schedule.new(sa);c=follow.new(api,discover,config);c.start(w,'token','abc-1',42)")
+        self.do("api.schedule=schedule.new(sa);c=follow.new(api,discover,config)")
+        if getattr(self,'start_controller',True):
+            self.do("c.start(w,'token','abc-1',42)")
 
     def do(self,s):return self.lua.execute(s)
     def val(self,s):return self.lua.eval(s)

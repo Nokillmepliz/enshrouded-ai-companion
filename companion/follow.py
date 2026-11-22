@@ -50,7 +50,7 @@ class FollowClient(MovementClient):
     commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
 
     def __init__(self, transport, *, version='0.3.0'):
-        if version not in ('0.3.0', '0.3.1','0.3.2'):
+        if version not in ('0.3.0', '0.3.1','0.3.2','0.3.3'):
             raise ValueError('UNREVIEWED_FOLLOW_VERSION')
         super().__init__(transport, version=version)
 
@@ -88,7 +88,8 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
             stream.flush()
             os.fsync(stream.fileno())
         if continuation is not None:record('AUDITED_CONTINUATION',continuation)
-        record('SESSION_INTENT', dict(duration=180, max_orders=24, max_recoveries=2,
+        duration=210 if getattr(client,'version',None)=='0.3.3' else 180
+        record('SESSION_INTENT', dict(duration=duration, max_orders=24, max_recoveries=2,
                                      interval=1, automatic_retry=False, token=token))
         begun=clock()
         try:
@@ -109,7 +110,7 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
             start_requested=True
             sample=client._request('f_start',token,d['session'],d['entity'])
             samples.append(sample);record('SAMPLE',sample)
-            deadline=clock()+175  # Lua hard limit 180; leave room for clean stop.
+            deadline=clock()+duration-5  # Hard Lua deadline; retain five-second stop margin.
             seq=0
             while sample['state']!='STOPPED' and clock()<deadline:
                 sleep(1)  # no catch-up burst after slow RPC
@@ -125,10 +126,10 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
         except (Exception, KeyboardInterrupt) as exc:
             failure=str(exc)
             record('STOPPED_UNKNOWN_NO_RETRY',dict(error=str(exc),
-                   action='NO_MUTATION_RETRY; Lua watchdog; 0.3.2 may read cleanup status'))
+                   action='NO_MUTATION_RETRY; Lua watchdog; 0.3.2/0.3.3 may read cleanup status'))
             raise
         finally:
-            if start_requested and getattr(client,'version',None)=='0.3.2':
+            if start_requested and getattr(client,'version',None) in ('0.3.2','0.3.3'):
                 # Read-only confirmation, including after REQUEST_ERROR. Never resend stop/move.
                 cleanup_outcome='UNCONFIRMED'
                 cleanup_error='OBSERVATION_DEADLINE_OR_LIMIT'

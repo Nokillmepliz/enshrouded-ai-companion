@@ -344,7 +344,7 @@ local oldget=w.get;function w:get(n,id) if n=='PlayerState' and id==1 then retur
 local oldtemplate=w.template;function w:template(n,id) if id==1 then return nil end;return oldtemplate(self,n,id) end
 function w:position(id) return id==1 and 10 or 0,0,0 end
 ids={1,42}
-emf={dir=moddir,local_player=api.player,session_token=api.session,villager_move=api.move,villager_moving=api.moving,
+emf={emits=function(names) assert(names[1]=='NpcCommandEvent') end,dir=moddir,local_player=api.player,session_token=api.session,villager_move=api.move,villager_moving=api.moving,
 find_wall=function() return nil end,json={encode=encode},reply=function(s) replies[#replies+1]=s end,
 command=function(n,d,f) if #('aic_companion_movement.'..n)>32 then return false end;commands[n]=f;return true end,on_tick=function(f) watch=f end,log=function() end,
 ground_at=function(w,x,z,f) ground=f;return true end}

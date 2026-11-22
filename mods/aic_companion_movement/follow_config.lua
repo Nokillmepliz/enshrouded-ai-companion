@@ -1,2 +1,2 @@
--- Prepared Stage10.16; installation and runtime require separate authorization.
-return {token='a1c10160000000000000000000000001',roaming='native',lock_name='follow-stage10-16.lock',schedule=true}
+-- New one-shot session; never reuse Stage10.16. Separate install/runtime approval.
+return {token='a1c00330000000000000000000000001',roaming='native',lock_name='follow-movement-0-3-3.lock',schedule=true,seconds=210}

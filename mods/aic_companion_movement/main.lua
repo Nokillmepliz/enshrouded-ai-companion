@@ -1,3 +1,4 @@
+emf.emits({'NpcCommandEvent'})
 local policy=dofile(emf.dir..'/controller.lua')
 local controller=policy.new({allow_move=false,session=emf.session_token,player=emf.local_player,
  moving=emf.villager_moving,move=emf.villager_move,
@@ -39,7 +40,8 @@ end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
 assert(config.roaming=='native' or config.roaming=='hold','ROAMING_MODE')
-assert(config.lock_name==(config.schedule and 'follow-stage10-16.lock' or 'follow-stage10-14.lock'),'SESSION_LOCK_NAME')
+assert((config.schedule and config.lock_name=='follow-movement-0-3-3.lock' and config.seconds==210)
+ or (not config.schedule and config.lock_name=='follow-stage10-14.lock'),'SESSION_LOCK_NAME_OR_LIMIT')
 local follow
 local function guarded(fn)
  return function(w,...)
@@ -62,9 +64,15 @@ local api={now=os.time,move=emf.villager_move,moving=emf.villager_moving,cancel=
   local bytes=check:read('*a');check:close()
   return wrote~=nil and flushed~=nil and closed~=nil and bytes=='SPENT!:'..config.token
  end}
+api.wake=dofile(emf.dir..'/wake.lua').new({now=os.time,log=api.log,moving=emf.villager_moving,
+ emit=function(npc,p)
+  emf.emit('server','NpcCommandEvent',{type=1,npcId=npc,targetTransform={
+   position={x=math.floor(p.x*2^32),y=math.floor(p.y*2^32),z=math.floor(p.z*2^32)},
+   orientation={x=0,y=0,z=0,w=1},scale={x=1,y=1,z=1}}})
+ end})
 local recovering=false
 if config.schedule then
- local journal=emf.dir..'/schedule-stage10-16.jsonl'
+ local journal=emf.dir..'/schedule-movement-0-3-3.jsonl'
  local function load_lease()
   local f=assert(io.open(journal,'rb'),'SCHEDULE_JOURNAL_MISSING')
   local raw=f:read('*a');assert(f:close());assert(#raw<65536,'SCHEDULE_JOURNAL_SIZE')
