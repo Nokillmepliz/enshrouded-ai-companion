@@ -1,0 +1,98 @@
+{
+  "status": "POST_CLOSE_INTEGRITY_PASS_MOVEMENT_OBSERVED_ORDER_STUCK",
+  "pid": 456828,
+  "created_utc": "2026-11-22T15:49:35.514266+00:00",
+  "counts": {
+    "originals": 67,
+    "shadow": 77,
+    "installed": 28
+  },
+  "backup_verified": 26,
+  "history_unchanged": 112,
+  "latch": "SPENT",
+  "local_count": 23,
+  "local_changes": {
+    "added": [],
+    "removed": [],
+    "content_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-3",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd"
+    ],
+    "metadata_changed": [
+      "default/backup/character0.ksd.backup-0",
+      "default/backup/character0.ksd.backup-1",
+      "default/backup/character0.ksd.backup-3",
+      "default/backup/world0.ksd.backup-0",
+      "default/backup/world0.ksd.backup-1",
+      "default/backup/world0.ksd.backup-2",
+      "default/character0.ksd",
+      "default/world0.ksd",
+      "local_settings.json"
+    ]
+  },
+  "local_semantic_integrity": "NOT_ESTABLISHED; game autosaves, no restore",
+  "game_changes": {
+    "added": [
+      "backup/enshrouded_2026-11-22T18-40-39.log"
+    ],
+    "removed": [],
+    "content_changed": [
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ],
+    "metadata_changed": [
+      "emf/chain_status.txt",
+      "emf/emf_core.log",
+      "emf/emf_loader.log",
+      "emf/file_opens.log",
+      "enshrouded.log"
+    ]
+  },
+  "attribution": {
+    "validator": "post_close_v2",
+    "status": "ATTRIBUTION_PASS",
+    "attributed": {
+      "backup/enshrouded_2026-11-22T18-40-39.log": "EXACT_PREVIOUS_GAME_LOG_RENAME",
+      "emf/chain_status.txt": "SAME_IDENTITY_EMPTY_STATUS_MTIME_ONLY"
+    },
+    "scope": "REQUIRES_SEPARATE_ORIGINAL_INSTALLED_AND_SHADOW_CHECKS"
+  },
+  "console_command_counts": {
+    "aic_companion_movement.discover": 2,
+    "aic_companion_movement.move_to": 1,
+    "aic_companion_movement.status": 16
+  },
+  "world_save_events": 15,
+  "movement": {
+    "result": "STUCK",
+    "samples": 16,
+    "initial_distance": 2.1755947096422026,
+    "minimum_distance": 0.6994898712653277,
+    "final_distance": 1.0964430777121872,
+    "event_sent": "UNVERIFIED",
+    "user_observed_approach": true,
+    "user_suspected_player_collision": true,
+    "collision_cause": "HYPOTHESIS_NOT_PROVEN",
+    "identity": "PROFILE_ONLY"
+  },
+  "intent_sha256": "bef724f8823b9dd945163cba1384e885c4bded6c77b2e758b79cb1e5c6d431e2",
+  "result_sha256": "3b9e04ff05c97fd56cab3dcc45daf9818c28790aee65369a3f5244d91390ea46",
+  "log_hashes": {
+    "enshrouded.log": "6c3ff7a1c7c517206da4509f4048e97b6fb947359f53f6f1a37a0a24b99c3cd1",
+    "emf/emf_core.log": "cecea153b5c60ad5822e6b502a774ff953b38551cace51d0f760172efb51546e",
+    "emf/emf_loader.log": "c55a6f9e6bd083cdebda491db53fc9805eecfedbb2694efe2590f38fae8342c8",
+    "emf/file_opens.log": "2b863fc972ba7b69218d431482b01b27617df5808b4cbf8fac3f31469459f501"
+  },
+  "post_close_baseline_sha256": "9698e1e8e0437b22bc4bbfca40e065379bc7001343343b438aff2ca8d858e553",
+  "spawn_ready": false,
+  "spawn_executed": false,
+  "rollback_executed": false
+}
