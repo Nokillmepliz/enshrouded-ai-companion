@@ -76,7 +76,7 @@ class LuaMovementTests(unittest.TestCase):
         with self.assertRaises(Exception): self.run_lua('move()')
         self.assertEqual(self.val('calls'), 0)
     def test_bad_target(self):
-        for x in ('0/0', 'math.huge', '0', '6'):
+        for x in ('0/0', 'math.huge', '20.01', '21'):
             with self.assertRaises(Exception):
                 self.run_lua("c.move_to(w,'abc-1',42,{x="+x+",y=0,z=0},'APPROVE_PROFILE_ONLY_MOVE')")
         self.assertEqual(self.val('calls'), 0)
@@ -147,6 +147,10 @@ command=function(name,description,fn) commands[name]=fn;return true end}
         self.run_lua('blocked=false')
         with self.assertRaises(Exception): self.run_lua("c.move_to(w,'abc-1',42,{x=3,y=2,z=0},'APPROVE_PROFILE_ONLY_MOVE')")
         self.assertEqual(self.val('calls'),0)
+    def test_radius_twenty_inclusive_without_minimum(self):
+        for target in (0,1,9.3,20):
+            self.run_lua("c=policy.new(api);c.move_to(w,'abc-1',42,{x="+str(target)+",y=0,z=0},'APPROVE_PROFILE_ONLY_MOVE')")
+        self.assertEqual(self.val('calls'),4)
     def test_sleeping_refused(self):
         self.run_lua("local old=w.get;function w:get(n,id) if n=='DynamicActiveNpcState' then return {state=8,decision=5} end;return old(self,n,id) end")
         with self.assertRaises(Exception): self.run_lua('move()')
@@ -256,7 +260,7 @@ class ManualMoveTests(unittest.TestCase):
         self.assertFalse(self.path.exists())
     def test_busy_or_bad_position_before_confirmation(self):
         original=self.c.discover
-        for changes in (dict(active_order=4),dict(player_position=dict(x=9,y=0,z=0)),dict(result='AMBIGUOUS')):
+        for changes in (dict(active_order=4),dict(player_position=dict(x=21,y=0,z=0)),dict(result='AMBIGUOUS')):
             def discover():
                 d=original();d['discovery'].update(changes);return d
             self.c.discover=discover
@@ -266,6 +270,17 @@ class ManualMoveTests(unittest.TestCase):
         self.t.mods[-1]['version']='0.1.0'
         with self.assertRaisesRegex(ValueError,'MOD_VERSION'):self.run_manual('MOVE')
         self.assertEqual(self.t.calls,[])
+    def test_twenty_metre_cli_and_wandering_npc(self):
+        self.t.mods[-1]['version']='0.1.2';self.c.version='0.1.2'
+        original=self.c.discover
+        for distance in (1,9.3,20):
+            with self.subTest(distance=distance):
+                self.path=Path(self.temp.name)/('intent-'+str(distance)+'.json')
+                def discover():
+                    d=original();d['discovery']['player_position']['x']=distance
+                    return d
+                self.c.discover=discover
+                self.assertEqual(self.run_manual('MOVE')['result'],'ARRIVAL_OBSERVED')
 
 
 if __name__=='__main__': unittest.main()

@@ -1,0 +1,12 @@
+{
+  "pid": 450416,
+  "session": "dead7a95f2658cfa-1",
+  "nonce": "1cedeccb12fa4a7580b9eb7bc2e8a9ce",
+  "result": "TARGET_DISTANCE_2_TO_5",
+  "native_api_reached": false,
+  "evidence": "CURRENT_CORE_LOG_REPLY_AND_INSTALLED_CONTROLLER_PRE_API_ASSERT",
+  "initial_distance": 4.577189628638734,
+  "last_observed_distance": 9.30115135658894,
+  "intent_preserved": true,
+  "post_close_audit": "PENDING"
+}

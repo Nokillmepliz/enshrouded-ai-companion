@@ -110,8 +110,8 @@ def manual_move(client, intent_path, *, confirm=input, output=print, clock=time.
     origin=[start.get(k) for k in ('x','y','z')]
     if any(type(v) not in (int,float) or not math.isfinite(v) for v in xyz+origin):
         raise ValueError('POSITION_UNAVAILABLE')
-    if not 2<=math.dist(xyz,origin)<=5 or abs(xyz[1]-origin[1])>1:
-        raise ValueError('STAND_ON_CLEAR_GROUND_2_TO_5_METRES_FROM_NPC')
+    if math.dist(xyz,origin)>20 or abs(xyz[1]-origin[1])>1:
+        raise ValueError('STAND_ON_CLEAR_GROUND_WITHIN_20_METRES_OF_NPC')
     output('NPC '+str(d['entity'])+'; target (your standing position): '+str(target))
     output('Confirm daylight, solid clear ground, no water/ledge/obstacle; PROFILE_ONLY identity. One move, no retry.')
     deadline=clock()+30

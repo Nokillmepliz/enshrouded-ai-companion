@@ -12,12 +12,12 @@ from companion.recovery import write_json_new
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--pid', type=int, required=True)
-    parser.add_argument('--mod-version',choices=['0.1.0','0.1.1'])
+    parser.add_argument('--mod-version',choices=['0.1.0','0.1.1','0.1.2'])
     parser.add_argument('command', choices=['discover', 'status', 'move_to'])
     args = parser.parse_args()
-    version=args.mod_version or ('0.1.1' if args.command=='move_to' else '0.1.0')
-    if args.command=='move_to' and version!='0.1.1':
-        parser.error('move_to requires reviewed mod 0.1.1')
+    version=args.mod_version or ('0.1.2' if args.command=='move_to' else '0.1.0')
+    if args.command=='move_to' and version!='0.1.2':
+        parser.error('move_to requires reviewed mod 0.1.2')
     try:
         if args.command=='move_to' and not sys.stdin.isatty():
             raise ValueError('INTERACTIVE_CONSOLE_REQUIRED')

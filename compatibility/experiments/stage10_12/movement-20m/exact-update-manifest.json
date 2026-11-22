@@ -1,0 +1,30 @@
+{
+  "version": "0.1.2",
+  "previous_version": "0.1.1",
+  "entries": [
+    {
+      "path": "emf/mods/aic_companion_movement/controller.lua",
+      "source": "controller.lua",
+      "before_sha256": "4e7cbc147ff03feeef8803c5f2b708ab869cffb02b8a8fb90ec73233aa4eea7d",
+      "sha256": "ed57efe39a5c00961547803018caf9a9db97bd79e2b2f61b70881fa5d2c7cd7a",
+      "bytes": 4057
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/mod.json",
+      "source": "mod.json",
+      "before_sha256": "7f4ce3bbb77deb0ddcd178569ec1422eccd2887eedff265a81e1abc1d38e7044",
+      "sha256": "f20061aa6a1992648bff0b285d12602173cd41b7f7d993210738d960cfcbac86",
+      "bytes": 365
+    },
+    {
+      "path": "emf/mods/aic_companion_movement/README.md",
+      "source": "README.md",
+      "before_sha256": "6a0d9e4e267446db14fc7d444a34bedcff3776bb79418bdcd80ee61c53f6b174",
+      "sha256": "372bada7f707fea1c23807eb74c753235ea83fba18307210a932cf309c329a6c",
+      "bytes": 1238
+    }
+  ],
+  "installation_executed": false,
+  "post_close_baseline": "PENDING_GAME_CLOSE_AUDIT",
+  "movement_intent_preserved": true
+}
