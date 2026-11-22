@@ -116,7 +116,13 @@ class LuaMovementTests(unittest.TestCase):
                 return {k:plain(item) for k,item in v.items()} if hasattr(v,'items') else v
             return json.dumps(plain(value),separators=(',',':'))
         self.lua.globals().encode=encode
-        self.lua.globals().moddir=str(ROOT/'mods/aic_companion_movement')
+        import tempfile
+        import shutil
+        temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
+        for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):
+            shutil.copyfile(p,Path(temp.name)/p.name)
+        (Path(temp.name)/'schedule-stage10-15.jsonl').write_bytes(b'')
+        self.lua.globals().moddir=temp.name
         self.run_lua('''
 commands={}; replies={}
 function w:is_server() return true end

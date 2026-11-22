@@ -43,7 +43,7 @@ class Stage14InstallationTests(unittest.TestCase):
                 check_entries(dict(entries=rows),package,root/'game',{})
             self.assertFalse((root/'game').exists())
 
-    def test_pinned_manifest_matches_sources_and_preserves_old_lock(self):
+    def test_pinned_historical_manifest_matches_receipt_and_preserves_old_lock(self):
         import json,hashlib
         from scripts.install_follow_stage14 import MANIFEST_SHA
         root=Path(__file__).resolve().parents[1]
@@ -56,12 +56,16 @@ class Stage14InstallationTests(unittest.TestCase):
         self.assertEqual(len(plan['effective_files']),32)
         self.assertNotIn('emf/mods/aic_companion_movement/follow-session.lock',{r['path'] for r in plan['entries']})
         self.assertIn('runtime/stage10_13/test-session.jsonl',{r['path'] for r in plan['preserved_intents']})
+        # 0.3.0 is historical; current source hashes are checked by Stage10.15 tests.
+        receipt=json.loads((root/'compatibility/experiments/stage10_14/installation/receipt.json').read_text(encoding='utf-8'))
+        self.assertEqual(receipt['manifest_sha256'],MANIFEST_SHA)
+        records={r['path']:r['record'] for r in receipt['installed_records']}
+        self.assertEqual(set(records),{r['path'] for r in plan['entries']})
         for row in plan['entries']:
+            self.assertEqual(records[row['path']]['sha256'],row['sha256'])
+            self.assertEqual(records[row['path']]['size'],row['bytes'])
             if row['operation']=='add':
-                data=('UNUSED:'+plan['token']).encode()
-            else:
-                data=(root/'mods/aic_companion_movement'/row['source']).read_bytes().replace(b'\r\n',b'\n')
-            self.assertEqual(hashlib.sha256(data).hexdigest(),row['sha256'])
+                self.assertEqual(hashlib.sha256(('UNUSED:'+plan['token']).encode()).hexdigest(),row['sha256'])
     def test_runner_requires_explicit_authorization_before_access(self):
         import sys
         from unittest.mock import patch

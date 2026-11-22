@@ -1,29 +1,28 @@
-# Companion Movement 0.3.0 — Stage 10.14 (offline)
+# Companion Movement 0.3.1 - Stage 10.15
 
-Approach the player using native villager navigation, not a replay of player motion.
-No installation or game test performed. Current deployed version remains 0.2.1.
-Do not reuse the spent Stage10.13 runner. Stage10.14 has a separate reviewed
-follow-stage10-14.lock and exclusive journal; old SPENT remains unchanged.
-Installation and the new runtime session require separate authorization.
+Prepared offline for build 1287369 / EMF 0.6.18. Not installed or validated in game.
+The deployed version remains 0.3.0 until separate approval.
 
-Eight destination candidates at 1.8m around the player. Ground/Path failures and
-explicit move refusals rotate candidates after 4s; ambiguous results stop.
-No height/fall-damage veto. Direct walls are diagnostic: native Path may find a
-detour. Jumps=true, max_jump_up/down=0; path nodes0/2/3/4 accepted. Villager_move
-chooses and executes its own route: a found jump path is NOT proof it can jump.
-No custom pathfinding, jump, glide, teleport or component writes.
+Armed Follow temporarily sets only the unique companion NpcCommon.sleepTime=25
+and wakeUpTime=-1 hours. Exact-build static inspection confirms the predicate
+sleep = tod >= sleepTime OR tod <= wakeUpTime. These finite bounds exclude all
+normal time-of-day values, including midnight. Equal hours do NOT disable sleep.
+The engine performs wake/exit/animation transitions; no raw state/actor writes.
 
-Moving player/NPC does not invalidate a destination snapshot. Path origin is
-refreshed after Ground. Before ordering, check path freshness4s, usefulness and
-player occupancy. Retarget active orders only after player displacement>8m and
->=8s. Idle2m/resume2.8m in3D; horizontal activation<=20m, deactivation>50m. Home/leash still apply.
+Original hours are journalled before either field write. Sleep exit reroll is
+reapplied once after observing the transition. Unknown writes stop the session.
+Awake must be observed within 15 seconds. Stop/error/heartbeat expiry restore
+owned fields. Reload restores the same-session pending lease; it never resumes
+Follow. Ambiguous identity prevents restoration into an unverified entity.
+Stop and verify SCHEDULE_RESTORED before disabling the mod. There is no verified
+unload callback after forced Lua unload. Preserve the schedule journal.
 
-Limits:180s session,30 probes(one in flight),24 order attempts,2 stuck/timeout
-recoveries,4s heartbeat. Orders30s/stuck8s/arrive0.5m, optional hold5s. Sleep/busy
-waits within session deadline. Native roaming remains enabled. Lost identity,
-foreign order, unknown move/cancel and unreturned-query timeout stop the session.
-Durable latch/journal and existing spawn intents remain intact. No reset/rearm.
+Unchanged: X/Z activation <=20m, deactivation >50m, 3D proximity2m/resume2.8m,
+native Ground/Path/villager_move, eight candidates,180s,24 orders,30 probes,two
+recoveries. No teleport/custom pathfinding/height veto/home/faction/inventory
+or spawn changes. Native home/leash/sitting/talking constraints still apply.
+Roaming is not globally disabled; accepted orders are not proof of movement.
 
-PROGRESS logs distance to player/target and displacement. Terminal reason is
-preserved. Accepted is not arrived; STUCK is not success. PROFILE_ONLY identity.
-See docs/STAGE10_14.md for source evidence, limitations and the proposed test.
+NEW Stage10.15 lock, schedule journal and Python journal; preserve all old
+SPENT/intent/history. Commands remain <=32 characters. PROFILE_ONLY identity.
+See docs/STAGE10_15_IMPLEMENTATION.md and exact update manifest. spawn_ready=false.

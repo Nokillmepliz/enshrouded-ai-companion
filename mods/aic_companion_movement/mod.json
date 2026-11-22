@@ -1,8 +1,8 @@
 {
   "id": "aic_companion_movement",
   "name": "AI Companion discovery and movement prototype",
-  "version": "0.3.0",
-  "description": "Explicitly armed bounded follow test; heartbeat and persistent session latch.",
+  "version": "0.3.1",
+  "description": "Bounded follow with reversible per-companion sleep window override for build 1287369.",
   "authors": ["Enshrouded AI Companion"],
   "emf": 46,
   "main": "main.lua",

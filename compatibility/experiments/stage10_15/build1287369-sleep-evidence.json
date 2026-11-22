@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "build": "1287369",
+  "exe_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+  "emf_source_commit": "fa6efdac2d93dd1d8ac6fe0e2a658140aec35241",
+  "method": "Static read-only PE inspection with objdump; no execution or patching",
+  "regions": [
+    {
+      "name": "sleep_window",
+      "entry": "0x14044f690",
+      "unwind_region_start": "0x14044f690",
+      "unwind_region_end": "0x14044f6ed",
+      "sha256": "6e75064ac420bc44624b5cb5d048b6533b824b4ed98e6c517e58da5ac1d1c468",
+      "unwind_parts": [
+        {
+          "start": "0x14044f690",
+          "end": "0x14044f6ed",
+          "sha256": "6e75064ac420bc44624b5cb5d048b6533b824b4ed98e6c517e58da5ac1d1c468"
+        }
+      ]
+    },
+    {
+      "name": "should_sleep",
+      "entry": "0x140453160",
+      "unwind_region_start": "0x140453160",
+      "unwind_region_end": "0x140453216",
+      "sha256": "bb7c5563a9a79658395f29045048f752ac3b4ca34e7186fae19f116f0d28e3b7",
+      "unwind_parts": [
+        {
+          "start": "0x140453160",
+          "end": "0x140453216",
+          "sha256": "bb7c5563a9a79658395f29045048f752ac3b4ca34e7186fae19f116f0d28e3b7"
+        },
+        {
+          "start": "0x140453216",
+          "end": "0x140453384",
+          "sha256": "764e1bbc7a5556c1784954363c6270a2d8bac8fb74817d959bc4267cc825e540"
+        },
+        {
+          "start": "0x140453384",
+          "end": "0x1404533a0",
+          "sha256": "a3607ae257cb5fd7040abe79444d79d9c79f4d4d7d272c641a56893717fee25c"
+        }
+      ]
+    },
+    {
+      "name": "sleep_state",
+      "entry": "0x140465520",
+      "unwind_region_start": "0x140465520",
+      "unwind_region_end": "0x14046558e",
+      "sha256": "3f47b5b9ba646bae72d1bc71716afce5b49da11766fbd1a9873ad4114d6fa227",
+      "unwind_parts": [
+        {
+          "start": "0x140465520",
+          "end": "0x14046558e",
+          "sha256": "3f47b5b9ba646bae72d1bc71716afce5b49da11766fbd1a9873ad4114d6fa227"
+        },
+        {
+          "start": "0x14046558e",
+          "end": "0x14046566a",
+          "sha256": "ae9326039a2d4fa787f602106f57decc56646bbd9103fa4e3c30c6b1aebb8658"
+        },
+        {
+          "start": "0x14046566a",
+          "end": "0x140465676",
+          "sha256": "079f52e285e59b6840aecb934f9cc54f8242a546a9697577835fc22f533d80f0"
+        },
+        {
+          "start": "0x140465676",
+          "end": "0x14046570e",
+          "sha256": "69b0eb7da0e48ec11ca0b4efb58a0f428f55b9690e53e88242a7e149318e721a"
+        },
+        {
+          "start": "0x14046570e",
+          "end": "0x14046572b",
+          "sha256": "3b9bc721a53abf962232bd40c958dc56bd18624ee0b36db2d029e33e410ec134"
+        },
+        {
+          "start": "0x14046572b",
+          "end": "0x140465744",
+          "sha256": "996c8d46d3a43155d57fa704433a49652b590f129e858528c65021e11d295c63"
+        },
+        {
+          "start": "0x140465744",
+          "end": "0x1404658f8",
+          "sha256": "1e8446d438bb963e07df588982f8bcd561cbaa240446b02a84978620cc19c3f9"
+        },
+        {
+          "start": "0x1404658f8",
+          "end": "0x14046591e",
+          "sha256": "d00cfae7b9c074a31b8196f533524923e0130c6360e9fddb5244101d060b1e4b"
+        },
+        {
+          "start": "0x14046591e",
+          "end": "0x140465a43",
+          "sha256": "f99009aed7cf1772f7149dd5c9f81b88c335bf82a1c0be89c89af62175b6a9a3"
+        },
+        {
+          "start": "0x140465a43",
+          "end": "0x140465aa5",
+          "sha256": "bbd2ce43a01a0cf55e8bf134753e9e91effeac7d5c76e086c207d7b7130d5506"
+        }
+      ]
+    },
+    {
+      "name": "decide_task",
+      "entry": "0x1404631a0",
+      "unwind_region_start": "0x1404631a0",
+      "unwind_region_end": "0x1404631e1",
+      "sha256": "1df6a260052d05a8712c7bd6bfa23b67bb62086f88364f231e7abca0c1aba15d",
+      "unwind_parts": [
+        {
+          "start": "0x1404631a0",
+          "end": "0x1404631e1",
+          "sha256": "1df6a260052d05a8712c7bd6bfa23b67bb62086f88364f231e7abca0c1aba15d"
+        },
+        {
+          "start": "0x1404631e1",
+          "end": "0x14046321e",
+          "sha256": "f41aa3e2bdec257d5d4922fa57aa77f67065d7ad698c89cfbf8a0d0b18a32a09"
+        },
+        {
+          "start": "0x14046321e",
+          "end": "0x140463322",
+          "sha256": "a8a20c0e597b198547b11e87af29dcf2a1b8b55875aaaa07fba5b4bdd1f098fa"
+        },
+        {
+          "start": "0x140463322",
+          "end": "0x140463323",
+          "sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e"
+        },
+        {
+          "start": "0x140463323",
+          "end": "0x140463346",
+          "sha256": "1f8497eacfcfbba823d198a0d47b16e684eedce0377f98deedc4caabd7626d23"
+        },
+        {
+          "start": "0x140463346",
+          "end": "0x140463365",
+          "sha256": "e3536ad141c35df28771f16b85b2a0ad871755dd0ec0088df85098eded55958b"
+        },
+        {
+          "start": "0x140463365",
+          "end": "0x140463395",
+          "sha256": "257ee72ba541209460337a9754baf4b5e4d37053d49b29775539bdbf95c13e05"
+        }
+      ]
+    },
+    {
+      "name": "set_state",
+      "entry": "0x14045b320",
+      "unwind_region_start": "0x14045b320",
+      "unwind_region_end": "0x14045b375",
+      "sha256": "dc23141e323abf318ae781306c93192d8efff50679a7ee2b47dd8f3ba3106b7b",
+      "unwind_parts": [
+        {
+          "start": "0x14045b320",
+          "end": "0x14045b375",
+          "sha256": "dc23141e323abf318ae781306c93192d8efff50679a7ee2b47dd8f3ba3106b7b"
+        },
+        {
+          "start": "0x14045b375",
+          "end": "0x14045b506",
+          "sha256": "e9018f4a98a812c4a5170b80fe50831dee420d12a8ac55e0b9f14536437a7c55"
+        },
+        {
+          "start": "0x14045b506",
+          "end": "0x14045b560",
+          "sha256": "73b0c050a3bf73ebdc679f1392c4f0c06ad33281ca50efefd1053d5f791bab3a"
+        }
+      ]
+    },
+    {
+      "name": "next_state",
+      "entry": "0x14045bcd0",
+      "unwind_region_start": "0x14045bcd0",
+      "unwind_region_end": "0x14045bdc1",
+      "sha256": "98569d8c549ecfee1b3ea6d102c69707109a23b9cc979cc7d1c1419ae2863d78",
+      "unwind_parts": [
+        {
+          "start": "0x14045bcd0",
+          "end": "0x14045bdc1",
+          "sha256": "98569d8c549ecfee1b3ea6d102c69707109a23b9cc979cc7d1c1419ae2863d78"
+        }
+      ]
+    },
+    {
+      "name": "command_handler",
+      "entry": "0x1404565f0",
+      "unwind_region_start": "0x1404565f0",
+      "unwind_region_end": "0x140456724",
+      "sha256": "0be1a067fd536a03ddf45b2dff35247a94bdc89c696dd64c0630675be35d8f4d",
+      "unwind_parts": [
+        {
+          "start": "0x1404565f0",
+          "end": "0x140456724",
+          "sha256": "0be1a067fd536a03ddf45b2dff35247a94bdc89c696dd64c0630675be35d8f4d"
+        },
+        {
+          "start": "0x140456724",
+          "end": "0x1404569c5",
+          "sha256": "4bbb73f72e48f4f7ff739680bd17243a3b2d2ace17859e33451afce229d6992d"
+        },
+        {
+          "start": "0x1404569c5",
+          "end": "0x1404569e3",
+          "sha256": "00b3e98bc159d1d344680d843913f0c86cc6a9356fc1b7af27a9a5407995daab"
+        }
+      ]
+    }
+  ],
+  "hours_to_ns": 3600000000000.0,
+  "claims": {
+    "sleep_window": "tod_ns >= trunc(sleepTime * 3600e9) OR tod_ns <= trunc(wakeUpTime * 3600e9)",
+    "sleep_update": "Calls same window predicate at 0x1404656fd; false sets StayAwakeUntilEvening and calls NextState(0)",
+    "sleep_exit": "updateType=2 rerolls sleep/wake at 0x140465605 and 0x140465659",
+    "command_type_1": "SetState(Roam=7) then decision=1 then target position; existing villager_move uses this; no new event emission in our fix",
+    "set_state": "Dispatch old exit(2), reset walker, update state, dispatch enter; no direct state writes in our fix",
+    "sleep_enter": "updateType0 branch at 0x140465a43 sets Actor flag 0x800 at 0x140465a89; unchanged by mod",
+    "check_interrupts": "0x140452cff calls ShouldSleep 0x140453160; also uses window predicate at 0x140452c3d",
+    "lua_float_setter": "src/lua_host/fields.cpp accepts finite F32, rejects nonfinite/overflow; no hour-range clamp",
+    "lua_file_watch": "src/lua_host/host.cpp scan watches .lua and mod.json only; .jsonl lease append does not itself reload mod"
+  },
+  "selected_override": {
+    "component": "NpcCommon",
+    "fields": {
+      "sleepTime": 25,
+      "wakeUpTime": -1
+    },
+    "reason": "Empty predicate across 0..24 inclusive, finite float values one hour outside day bounds",
+    "scope": "Unique discovered NPC during explicitly armed Follow session",
+    "raw_addresses_used_at_runtime": false
+  },
+  "runtime_verified": false,
+  "spawn_ready": false
+}

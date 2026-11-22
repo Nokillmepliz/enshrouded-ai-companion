@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "PREPARED_NOT_INSTALLED_RUNTIME_UNVERIFIED",
+  "version": "0.3.1",
+  "build": 1287369,
+  "tests": {
+    "command": ".tools/python/python.exe -m unittest tests.test_companion_schedule tests.test_npc_schedule tests.test_companion_follow tests.test_companion_movement tests.test_stage10_11 tests.test_follow_stage14_installation -q",
+    "passed": 180,
+    "failed": 0,
+    "seconds": 0.623,
+    "full_suite": false,
+    "native_engine_simulated": true
+  },
+  "checks": {
+    "closed_build": "PASS",
+    "offline_exact_payload": 8,
+    "effective_after_future_install": 35,
+    "current_installed_unchanged": 32,
+    "local_unchanged": 23,
+    "preserved_intent_files": 81,
+    "preserved_spawn_history_files": 112,
+    "game_exe_before_after_sha256": "5d9ef2f140b8ed49e30dbee655841b89d08baec20f799a1817e171a18a850c77",
+    "all_large_resources_rehashed": false
+  },
+  "manifest_sha256": "ecfe74668d1aaa38ce8d40e7c41283b62d0253dbda66d3b0fa44ee3f40c550d2",
+  "backup": {
+    "planned_files": 28,
+    "created": false,
+    "requires_install_authorization": true
+  },
+  "installed": false,
+  "game_launched": false,
+  "game_commands_executed": false,
+  "runtime_night_follow_verified": false,
+  "spawn_ready": false,
+  "remaining": [
+    "Native wake/animation latency and actual night movement need authorized game test",
+    "Home/leash and sitting/talking remain native",
+    "Forced unload may prevent restoration until same-session reload",
+    "PROFILE_ONLY identity; mismatch prevents automatic restore"
+  ]
+}

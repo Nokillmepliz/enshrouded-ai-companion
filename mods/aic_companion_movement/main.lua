@@ -39,7 +39,7 @@ end
 -- Stage10.13 commands require a consumed fixed session latch and a Python heartbeat.
 local config=dofile(emf.dir..'/follow_config.lua')
 assert(config.roaming=='native' or config.roaming=='hold','ROAMING_MODE')
-assert(config.lock_name=='follow-stage10-14.lock','SESSION_LOCK_NAME')
+assert(config.lock_name==(config.schedule and 'follow-stage10-15.lock' or 'follow-stage10-14.lock'),'SESSION_LOCK_NAME')
 local follow
 local function guarded(fn)
  return function(w,...)
@@ -62,6 +62,36 @@ local api={now=os.time,move=emf.villager_move,moving=emf.villager_moving,cancel=
   local bytes=check:read('*a');check:close()
   return wrote~=nil and flushed~=nil and closed~=nil and bytes=='SPENT!:'..config.token
  end}
+local recovering=false
+if config.schedule then
+ local journal=emf.dir..'/schedule-stage10-15.jsonl'
+ local function load_lease()
+  local f=assert(io.open(journal,'rb'),'SCHEDULE_JOURNAL_MISSING')
+  local raw=f:read('*a');assert(f:close());assert(#raw<65536,'SCHEDULE_JOURNAL_SIZE')
+  assert(raw=='' or raw:sub(-1)=='\n','SCHEDULE_JOURNAL_INCOMPLETE')
+  local last
+  for line in raw:gmatch('[^\n]+') do
+   last=assert(emf.json.decode(line),'SCHEDULE_JOURNAL_INVALID')
+   assert(last.state=='ACQUIRED' or last.state=='RELEASED','SCHEDULE_JOURNAL_STATE')
+  end
+  if last and last.state=='ACQUIRED' then
+   assert(type(last.session)=='string' and type(last.entity)=='number'
+    and type(last.sleep)=='number' and last.sleep>=0 and last.sleep<=24
+    and type(last.wake)=='number' and last.wake>=0 and last.wake<=24,'SCHEDULE_JOURNAL_VALUES')
+   return last
+  end
+ end
+ api.schedule=dofile(emf.dir..'/schedule.lua').new({now=os.time,time=emf.time_of_day,log=api.log,load=load_lease,
+  save=function(row)
+   local raw=assert(emf.json.encode(row))..'\n'
+   local f=assert(io.open(journal,'ab'),'SCHEDULE_JOURNAL_OPEN')
+   local wrote=f:write(raw);local flushed=f:flush();local closed=f:close()
+   assert(wrote and flushed and closed,'SCHEDULE_JOURNAL_WRITE')
+   local check=assert(io.open(journal,'rb'));local bytes=check:read('*a');assert(check:close())
+   assert(bytes:sub(-#raw)==raw,'SCHEDULE_JOURNAL_READBACK')
+  end})
+ recovering=api.schedule.lease~=nil
+end
 follow=dofile(emf.dir..'/follow.lua').new(api,controller.discover,config)
 for _,name in ipairs({'f_start','f_step','f_stop','f_status'}) do
  assert(#('aic_companion_movement.'..name)<=32,'COMMAND_NAME_LIMIT')
@@ -70,6 +100,7 @@ for _,name in ipairs({'f_start','f_step','f_stop','f_status'}) do
   local ok,value=pcall(function()
    assert(type(nonce)=='string' and #nonce==32 and nonce:match('^[0-9a-f]+$'),'NONCE')
    if name=='f_start' then
+    assert(not recovering,'SCHEDULE_RECOVERY_REQUIRED')
     assert(#args==4,'ARITY');follow.start(w,args[2],args[3],tonumber(args[4]))
    elseif name=='f_step' then
     assert(#args==3,'ARITY');follow.step(w,args[2],tonumber(args[3]))
@@ -87,6 +118,14 @@ for _,name in ipairs({'f_start','f_step','f_stop','f_status'}) do
 end
 local checked=0
 emf.on_tick(function(w)
- if not w:is_server() or os.time()==checked then return end
+ if not w:is_server() then return end
+ if recovering then
+  -- A reload restores, never resumes a consumed Follow session.
+  local ok,err=pcall(function() api.schedule.release(w,controller.discover(w)) end)
+  if ok then recovering=false
+  elseif os.time()~=checked then emf.log('AIC_FOLLOW SCHEDULE_RECOVERY_PENDING '..tostring(err)) end
+  checked=os.time();return
+ end
+ if not config.schedule and os.time()==checked then return end
  checked=os.time();follow.watch(w)
 end)

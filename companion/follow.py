@@ -49,8 +49,10 @@ def session_stream(journal, continuation):
 class FollowClient(MovementClient):
     commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
 
-    def __init__(self, transport):
-        super().__init__(transport, version='0.3.0')
+    def __init__(self, transport, *, version='0.3.0'):
+        if version not in ('0.3.0', '0.3.1'):
+            raise ValueError('UNREVIEWED_FOLLOW_VERSION')
+        super().__init__(transport, version=version)
 
     def move_to(self, *args, **kwargs):
         raise ValueError('MANUAL_MOVEMENT_DISABLED')

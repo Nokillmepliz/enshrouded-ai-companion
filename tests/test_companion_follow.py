@@ -324,6 +324,7 @@ class HostFollowTests(unittest.TestCase):
             for p in (ROOT/'mods/aic_companion_movement').glob('*.lua'):
                 shutil.copyfile(p,Path(td)/p.name)
             token='a1c10140000000000000000000000001'
+            (Path(td)/'follow_config.lua').write_text("return {token='"+token+"',roaming='native',lock_name='follow-stage10-14.lock'}",encoding='ascii')
             lock=Path(td)/'follow-stage10-14.lock'
             lock.write_text('UNUSED:'+token,encoding='ascii')
             old_lock=Path(td)/'follow-session.lock';old_lock.write_bytes(b'SPENT!:previous')

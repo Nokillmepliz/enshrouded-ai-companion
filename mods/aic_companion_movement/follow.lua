@@ -1,4 +1,4 @@
--- Bounded, explicitly armed follow session. No component/save writes.
+-- Bounded, explicitly armed follow session; optional per-NPC schedule lease.
 local M={}
 local function point(p)
  return type(p)=='table' and type(p.x)=='number' and type(p.y)=='number' and type(p.z)=='number'
@@ -42,6 +42,12 @@ function M.new(api,discover,config)
   if ok then
    local cancelled,err=pcall(cancel,w,d)
    if not cancelled then c.reason=why..':cancel_unknown';log('CANCEL_ERROR',{error=tostring(err)}) end
+   if api.schedule then
+    local restored,err=pcall(api.schedule.release,w,d)
+    if not restored then c.reason=c.reason..':schedule_restore_pending';log('SCHEDULE_RESTORE_ERROR',{error=tostring(err)}) end
+   end
+  elseif api.schedule and api.schedule.lease then
+   log('SCHEDULE_RESTORE_PENDING',{reason='IDENTITY_UNAVAILABLE'})
   end
   log('STOPPED',{reason=c.reason})
  end
@@ -113,6 +119,7 @@ function M.new(api,discover,config)
   assert(api.consume(),'DURABLE_SESSION_LATCH')
   c.used=true;session=d.session;entity=d.entity;started=api.now();heartbeat=started
   c.state='WAITING_FOR_PLAYER';c.reason='';log('START',{roaming=config.roaming,identity='PROFILE_ONLY'})
+  if api.schedule then api.schedule.acquire(w,d) end
  end
  function c.step(w,token,seq)
   assert(token==config.token and seq==c.seq+1,'TOKEN_OR_SEQUENCE');c.seq=seq
@@ -122,6 +129,8 @@ function M.new(api,discover,config)
   assert(point(p),'PLAYER_POSITION_MISSING')
   local distance=dist(p,d.position);local active=api.moving(w,d.entity)
   assert(not active or (order and active==order.id),'FOREIGN_ORDER')
+  local awake=not api.schedule or api.schedule.update(w,d)
+  if awake and c.reason=='NATIVE_WAKE_PENDING' then c.reason='' end
   if across(p,d.position)>50 then following=false elseif across(p,d.position)<=20 then following=true end
   if order and order.result then
    log('ORDER_RESULT',{id=order.id,result=order.result,seconds=api.now()-order.at,
@@ -145,6 +154,7 @@ function M.new(api,discover,config)
    epoch=epoch+1;pending=nil;ready=nil
    c.state=not following and 'WAITING_FOR_PLAYER' or 'IDLE_NEAR_PLAYER';return
   end
+  if not awake then c.state='WAITING_FOR_NPC';c.reason='NATIVE_WAKE_PENDING';return end
   if distance<2.8 and c.state=='IDLE_NEAR_PLAYER' then return end
   if order and active then
    log('PROGRESS',{id=order.id,player_distance=distance,target_distance=dist(order.target,d.position),
@@ -186,7 +196,11 @@ function M.new(api,discover,config)
  function c.watch(w)
   if not c.used or c.state=='STOPPED' then return end
   local ok,err=pcall(fresh,w)
-  if not ok then c.stop(w,'WATCHDOG_CONTEXT_OR_DEADLINE') end
+  if not ok then c.stop(w,'WATCHDOG_CONTEXT_OR_DEADLINE');return end
+  if api.schedule then
+   local maintained,why=pcall(api.schedule.update,w,err)
+   if not maintained then log('SCHEDULE_ERROR',{error=tostring(why)});c.stop(w,'SCHEDULE_ERROR') end
+  end
  end
  function c.status(w)
   local d=inspect(w);local p=api.position(w,d.player)
