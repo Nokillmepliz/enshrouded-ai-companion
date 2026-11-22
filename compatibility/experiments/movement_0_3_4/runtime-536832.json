@@ -1,0 +1,277 @@
+{
+  "pid": 536832,
+  "session": "30dd7abc0aa42fcc-1",
+  "report": {
+    "samples": 167,
+    "states_seen": [
+      "FOLLOWING",
+      "IDLE_NEAR_PLAYER",
+      "MOVING",
+      "RECOVERING",
+      "STOPPED",
+      "STUCK",
+      "WAITING_FOR_PLAYER"
+    ],
+    "minimum_player_distance": 1.4179817440814233,
+    "maximum_player_distance": 15.791523977954393,
+    "orders": 15,
+    "recoveries": 1,
+    "arrival_observed": true,
+    "stopped_reason": "RUNNER_STOP",
+    "roaming_disabled": false,
+    "sustained_follow": "REQUIRES_GAME_OBSERVATION",
+    "scenario_coverage": "ONLY_STATES_SEEN; missing scenarios are NOT_TESTED",
+    "spawn_ready": false,
+    "schedule_cleanup": "CONFIRMED"
+  },
+  "elapsed_samples_seconds": 205.26499999995576,
+  "events": {
+    "START": 1,
+    "SCHEDULE_ACQUIRED": 1,
+    "SCHEDULE_AWAKE_OBSERVED": 1,
+    "GROUND": 25,
+    "DIRECT_WALL": 25,
+    "PATH": 25,
+    "CANDIDATE_REJECTED": 16,
+    "MOVE_INTENT": 15,
+    "ACCEPTED": 9,
+    "PROGRESS": 39,
+    "ORDER_RESULT": 5,
+    "MOVE_REFUSED": 6,
+    "CANCEL_CONFIRMED": 5,
+    "CANCEL_REQUEST": 4,
+    "STOPPED": 1,
+    "SCHEDULE_RESTORED": 1,
+    "CLEANUP_COMPLETE": 1
+  },
+  "order_results": [
+    {
+      "time": "23:01:32.064",
+      "kind": "ORDER_RESULT",
+      "value": {
+        "current_player_distance": 5.746539942042475,
+        "displacement": 6.199560410784103,
+        "id": 1,
+        "initial_player_distance": 12.207313119914646,
+        "result": "arrived",
+        "seconds": 4,
+        "target_distance": 0.18962649448265376
+      }
+    },
+    {
+      "time": "23:01:40.699",
+      "kind": "ORDER_RESULT",
+      "value": {
+        "current_player_distance": 7.022144444972244,
+        "displacement": 4.453755150095285,
+        "id": 2,
+        "initial_player_distance": 8.4373756966883,
+        "result": "arrived",
+        "seconds": 2,
+        "target_distance": 0.26008410097323353
+      }
+    },
+    {
+      "time": "23:01:55.529",
+      "kind": "ORDER_RESULT",
+      "value": {
+        "current_player_distance": 1.9623595330589045,
+        "displacement": 9.272283147400074,
+        "id": 3,
+        "initial_player_distance": 10.887750224978275,
+        "result": "arrived",
+        "seconds": 6,
+        "target_distance": 0.3300483124458812
+      }
+    },
+    {
+      "time": "23:02:05.380",
+      "kind": "ORDER_RESULT",
+      "value": {
+        "current_player_distance": 15.770063500544296,
+        "displacement": 2.756286256172178,
+        "id": 4,
+        "initial_player_distance": 15.791523977954393,
+        "result": "arrived",
+        "seconds": 3,
+        "target_distance": 0.09488918527470278
+      }
+    },
+    {
+      "time": "23:02:48.907",
+      "kind": "ORDER_RESULT",
+      "value": {
+        "current_player_distance": 5.255561953804518,
+        "displacement": 13.885545322077833,
+        "id": 5,
+        "initial_player_distance": 10.717596279930724,
+        "result": "stuck",
+        "seconds": 16,
+        "target_distance": 0.6589988542919614
+      }
+    }
+  ],
+  "refusals": [
+    {
+      "time": "23:02:17.848",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 12 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    },
+    {
+      "time": "23:02:22.858",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 12 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    },
+    {
+      "time": "23:02:27.751",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 13 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    },
+    {
+      "time": "23:04:03.172",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 11 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    },
+    {
+      "time": "23:04:22.903",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 16 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    },
+    {
+      "time": "23:04:32.732",
+      "kind": "MOVE_REFUSED",
+      "value": {
+        "reason": "a point is 16 m from the villager's home, outside its walk area (10 m around its home)"
+      }
+    }
+  ],
+  "cancel_events": [
+    {
+      "time": "23:02:48.932",
+      "kind": "CANCEL_CONFIRMED",
+      "value": {
+        "id": 5
+      }
+    },
+    {
+      "time": "23:02:56.310",
+      "kind": "CANCEL_REQUEST",
+      "value": {
+        "id": 6
+      }
+    },
+    {
+      "time": "23:02:56.330",
+      "kind": "CANCEL_CONFIRMED",
+      "value": {
+        "id": 6
+      }
+    },
+    {
+      "time": "23:04:00.768",
+      "kind": "CANCEL_REQUEST",
+      "value": {
+        "id": 7
+      }
+    },
+    {
+      "time": "23:04:00.787",
+      "kind": "CANCEL_CONFIRMED",
+      "value": {
+        "id": 7
+      }
+    },
+    {
+      "time": "23:04:17.897",
+      "kind": "CANCEL_REQUEST",
+      "value": {
+        "id": 8
+      }
+    },
+    {
+      "time": "23:04:17.916",
+      "kind": "CANCEL_CONFIRMED",
+      "value": {
+        "id": 8
+      }
+    },
+    {
+      "time": "23:04:40.120",
+      "kind": "CANCEL_REQUEST",
+      "value": {
+        "id": 9
+      }
+    },
+    {
+      "time": "23:04:40.131",
+      "kind": "CANCEL_CONFIRMED",
+      "value": {
+        "id": 9
+      }
+    }
+  ],
+  "schedule_events": [
+    {
+      "time": "23:01:14.847",
+      "kind": "SCHEDULE_ACQUIRED",
+      "value": {
+        "ai_state": 7,
+        "hour": 7.865227186414722,
+        "sleep": 20.85960578918457,
+        "wake": 6.77913761138916
+      }
+    },
+    {
+      "time": "23:01:14.867",
+      "kind": "SCHEDULE_AWAKE_OBSERVED",
+      "value": {
+        "ai_state": 7,
+        "decision": 3
+      }
+    },
+    {
+      "time": "23:04:40.136",
+      "kind": "SCHEDULE_RESTORED",
+      "value": {}
+    }
+  ],
+  "schedule_journal": [
+    {
+      "entity": 1025,
+      "session": "30dd7abc0aa42fcc-1",
+      "sleep": 20.85960578918457,
+      "state": "ACQUIRED",
+      "wake": 6.77913761138916
+    },
+    {
+      "entity": 1025,
+      "session": "30dd7abc0aa42fcc-1",
+      "state": "RELEASED"
+    }
+  ],
+  "horizontal_distance_min": 1.4179817440814233,
+  "horizontal_distance_max": 15.773100887162554,
+  "active_order_after": null,
+  "cleanup": "DONE",
+  "runtime_verdict": "MOVEMENT_CONFIRMED_HOME_RADIUS_BLOCKS_FREE_FOLLOW",
+  "night_wake": "NOT_EXERCISED",
+  "thresholds_20_50": "ACTIVATION_WITHIN20_OBSERVED_OTHER_TRANSITIONS_NOT_COVERED",
+  "post_close": "PENDING",
+  "spawn_ready": false,
+  "candidate_rejections": {
+    "TARGET_NO_LONGER_USEFUL": 2,
+    "PATH_REFUSED": 8,
+    "MOVE_REFUSED": 6
+  },
+  "request_error_count": 0
+}
