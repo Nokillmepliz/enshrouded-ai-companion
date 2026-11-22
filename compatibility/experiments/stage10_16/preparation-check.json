@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_NOT_INSTALLED_RUNTIME_UNVERIFIED",
+  "checked_utc": "2026-11-22T18:31:57.799435+00:00",
+  "manifest_sha256": "c4fd95db4d72a2ca90834f0f5769cef2d79b7a26afe1c1a2c1bdc73a2f938804",
+  "closed_build": "PASS",
+  "exact_payload": 7,
+  "replacements": 5,
+  "additions": 2,
+  "effective_after_install": 37,
+  "current_installed_content_unchanged": 35,
+  "local_unchanged": 23,
+  "preserved_intents": 128,
+  "spawn_history": 112,
+  "full_game_rehash": false,
+  "baseline": "Stage15 post-close audit",
+  "installed": false,
+  "game_started": false,
+  "bridge_used": false,
+  "backup_planned": 28,
+  "backup_created": false,
+  "spawn_ready": false
+}

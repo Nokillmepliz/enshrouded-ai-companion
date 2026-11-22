@@ -34,7 +34,7 @@ api={now=function() return now end,log=function() end,
  end}
 config={token='token',roaming='native'}
 seq=0
-function step() seq=seq+1;c.step(w,'token',seq) end
+function step() seq=seq+1;c.step(w,'token',seq);c.watch(w);c.watch(w) end
 function ground() ground_cb(w,true,gx,py,gz,nil,nil,'none',nil) end
 function path() path_cb(w,{status='found',reaches=true,count=1,length=8},{{x=target.x,y=target.y,z=target.z,move=0}}) end
 function prepare() step();ground();path();now=now+1;step() end
@@ -106,7 +106,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do("step();ground();path_cb(w,{status='found',reaches=false,count=0,length=1},{})")
         self.assertEqual(self.val('c.reason'),'PATH_REFUSED')
     def test_watchdog_cancels_owned(self):
-        self.do('prepare();now=107;c.watch(w)')
+        self.do('prepare();now=107;c.watch(w);c.watch(w)')
         self.assertEqual(self.val('c.state'),'STOPPED')
         self.assertEqual(self.val('cancelled'),1)
     def test_world_loss_never_cancel_reused_identity(self):
@@ -136,7 +136,8 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('c.reason'),'RECOVERY_LIMIT')
     def test_cancel_failure_stops_without_retry(self):
         self.do('prepare();cancel_fail=true;px=51;now=102')
-        with self.assertRaises(Exception): self.do('step()')
+        self.do('step()')
+        self.assertEqual(self.val('c.state'),'STOPPED')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('calls'),1)
     def test_sequence_and_rearm_rejected(self):
@@ -151,7 +152,7 @@ class FollowLuaTests(unittest.TestCase):
         self.do("config.roaming='hold';prepare();nx=8.2;move_cb(w,1,'arrived');now=102;step()")
         self.assertEqual(self.val('options.hold'),5)
         self.assertEqual(self.val('c.state'),'IDLE_NEAR_PLAYER')
-        self.do("c.stop(w,'END')")
+        self.do("c.stop(w,'END');c.watch(w);c.watch(w)")
         self.assertEqual(self.val('cancelled'),1)
     def test_short_engine_arrival_not_success(self):
         self.do("prepare();active=nil;move_cb(w,1,'arrived');now=102;step()")
@@ -174,7 +175,8 @@ class FollowLuaTests(unittest.TestCase):
         self.assertEqual(self.val('path_calls'),1)
     def test_cancel_is_not_retried_on_exception(self):
         self.do('prepare();cancel_fail=true;px=51;now=102')
-        with self.assertRaises(Exception): self.do('step()')
+        self.do('step()')
+        self.assertEqual(self.val('c.state'),'STOPPED')
         self.do("c.stop(w,'REQUEST_ERROR')")
         self.assertEqual(self.val('cancelled'),1)
 

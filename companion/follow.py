@@ -50,7 +50,7 @@ class FollowClient(MovementClient):
     commands = ('discover', 'f_start', 'f_step', 'f_stop', 'f_status')
 
     def __init__(self, transport, *, version='0.3.0'):
-        if version not in ('0.3.0', '0.3.1'):
+        if version not in ('0.3.0', '0.3.1','0.3.2'):
             raise ValueError('UNREVIEWED_FOLLOW_VERSION')
         super().__init__(transport, version=version)
 
@@ -79,6 +79,9 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
     no_links(journal)
     journal.parent.mkdir(parents=True, exist_ok=True)
     samples=[]
+    start_requested=False
+    cleanup_outcome=None
+    failure=None
     with session_stream(journal,continuation) as stream:
         def record(kind, value):
             stream.write(json.dumps(dict(kind=kind, time=clock(), value=value), ensure_ascii=False)+'\n')
@@ -103,6 +106,7 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
             if d['result']!='FOUND_ONE' or d.get('active_order'):
                 raise ValueError('UNIQUE_IDLE_NPC_REQUIRED')
             record('START_GRANT',dict(session=d['session'], entity=d['entity']))
+            start_requested=True
             sample=client._request('f_start',token,d['session'],d['entity'])
             samples.append(sample);record('SAMPLE',sample)
             deadline=clock()+175  # Lua hard limit 180; leave room for clean stop.
@@ -119,9 +123,29 @@ def run(client, journal, token, *, clock=time.monotonic, sleep=time.sleep, conti
                 sample=client._request('f_stop',token)
                 samples.append(sample);record('SAMPLE',sample)
         except (Exception, KeyboardInterrupt) as exc:
+            failure=str(exc)
             record('STOPPED_UNKNOWN_NO_RETRY',dict(error=str(exc),
-                   action='NO_FURTHER_RPC; Lua heartbeat watchdog and finite order deadlines'))
+                   action='NO_MUTATION_RETRY; Lua watchdog; 0.3.2 may read cleanup status'))
             raise
         finally:
-            record('REPORT',summarize(samples))
-    return summarize(samples)
+            if start_requested and getattr(client,'version',None)=='0.3.2':
+                # Read-only confirmation, including after REQUEST_ERROR. Never resend stop/move.
+                cleanup_outcome='UNCONFIRMED'
+                cleanup_error='OBSERVATION_DEADLINE_OR_LIMIT'
+                cleanup_deadline=clock()+8
+                for _ in range(16):
+                    if clock()>=cleanup_deadline: break
+                    sleep(.5)
+                    try:
+                        observed=client._request('f_status')
+                        record('CLEANUP_OBSERVATION',observed)
+                        if observed.get('state')=='STOPPED' and observed.get('cleanup')=='DONE':
+                            cleanup_outcome='CONFIRMED';break
+                    except Exception as exc:
+                        cleanup_error=str(exc);break
+                if cleanup_outcome!='CONFIRMED':record('CLEANUP_UNCONFIRMED',dict(error=cleanup_error))
+            report=summarize(samples)
+            if cleanup_outcome is not None:report['schedule_cleanup']=cleanup_outcome
+            if failure is not None:report['runner_error']=failure
+            record('REPORT',report)
+    return report

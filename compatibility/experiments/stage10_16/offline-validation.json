@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "tests": 194,
+  "seconds": 0.798,
+  "full_suite": false,
+  "modules": [
+    "test_follow_lifecycle",
+    "test_follow_stage16_package",
+    "test_companion_schedule",
+    "test_npc_schedule",
+    "test_companion_follow",
+    "test_companion_movement",
+    "test_stage10_11",
+    "test_follow_stage14_installation"
+  ],
+  "runtime_validation": false,
+  "installed": false,
+  "game_started": false,
+  "scope": "Lua lifecycle, host, schedule, Runner and exact package regression tests; native callbacks simulated",
+  "known_limits": [
+    "identity loss or disk/component failure leaves cleanup pending",
+    "process exit/unload cannot guarantee cleanup",
+    "real Follow 0.3.2 not tested"
+  ]
+}

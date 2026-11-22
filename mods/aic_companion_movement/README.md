@@ -1,7 +1,7 @@
-# Companion Movement 0.3.1 - Stage 10.15
+# Companion Movement 0.3.2 - Stage 10.16
 
 Prepared offline for build 1287369 / EMF 0.6.18. Not installed or validated in game.
-The deployed version remains 0.3.0 until separate approval.
+The deployed version remains 0.3.1 until separate approval.
 
 Armed Follow temporarily sets only the unique companion NpcCommon.sleepTime=25
 and wakeUpTime=-1 hours. Exact-build static inspection confirms the predicate
@@ -23,6 +23,12 @@ recoveries. No teleport/custom pathfinding/height veto/home/faction/inventory
 or spawn changes. Native home/leash/sitting/talking constraints still apply.
 Roaming is not globally disabled; accepted orders are not proof of movement.
 
-NEW Stage10.15 lock, schedule journal and Python journal; preserve all old
+NEW Stage10.16 lock, schedule journal and Python journal; preserve all old
 SPENT/intent/history. Commands remain <=32 characters. PROFILE_ONLY identity.
-See docs/STAGE10_15_IMPLEMENTATION.md and exact update manifest. spawn_ready=false.
+See docs/STAGE10_16.md and exact update manifest. spawn_ready=false.
+
+Cancellation runs only in a fresh server tick; its result is checked in a later
+tick. No world access follows the native cancel call. STOPPED ends movement,
+not lease cleanup: server ticks keep restoring owned hours after identity checks.
+Cleanup status NONE/PENDING/DONE is reported separately. Identity loss, disk or
+component failure leaves PENDING; no unsafe forced recovery or new move occurs.

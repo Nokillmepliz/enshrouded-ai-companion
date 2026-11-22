@@ -24,32 +24,52 @@ function M.new(api,discover,config)
   if session then assert(d.session==session and d.entity==entity,'IDENTITY_CHANGED') end
   return d
  end
+ -- Cancellation is queued by commands; only watch() calls the native API.
+ -- That call may synchronously invalidate w. It is the LAST world operation.
+ local cancellation=nil
+ local cleanup_at=-100
+ c.cleanup='NONE'
  local function cancel(w,d)
-  if order and order.id and api.moving(w,d.entity)==order.id then
-   assert(not order.cancel_attempted,'CANCEL_OUTCOME_UNKNOWN')
-   order.cancel_attempted=true
-   log('CANCEL_REQUEST',{id=order.id})
-   assert(api.cancel(order.id)==true,'CANCEL_UNCONFIRMED')
-   assert(not api.moving(w,d.entity),'CANCEL_PENDING_STOP')
-  end
-  order=nil
+  if order and order.id then
+   cancellation=cancellation or {id=order.id,requested=false}
+  else order=nil end
  end
  function c.stop(w,why)
-  if c.state=='STOPPED' and c.used then return end
-  c.state='STOPPED';c.reason=why;epoch=epoch+1;pending=nil;ready=nil
-  -- Never cancel a reused identity or foreign order. Engine deadline remains finite.
-  local ok,d=pcall(inspect,w)
-  if ok then
-   local cancelled,err=pcall(cancel,w,d)
-   if not cancelled then c.reason=why..':cancel_unknown';log('CANCEL_ERROR',{error=tostring(err)}) end
-   if api.schedule then
-    local restored,err=pcall(api.schedule.release,w,d)
-    if not restored then c.reason=c.reason..':schedule_restore_pending';log('SCHEDULE_RESTORE_ERROR',{error=tostring(err)}) end
-   end
-  elseif api.schedule and api.schedule.lease then
-   log('SCHEDULE_RESTORE_PENDING',{reason='IDENTITY_UNAVAILABLE'})
+  -- Pure Lua state change: w may already be invalid after an engine callback.
+  if c.state~='STOPPED' or not c.used then
+   c.state='STOPPED';c.reason=why;epoch=epoch+1;pending=nil;ready=nil
+   log('STOPPED',{reason=c.reason})
   end
-  log('STOPPED',{reason=c.reason})
+  if order and order.id then cancel() end
+  if cancellation or (api.schedule and api.schedule.lease) then c.cleanup='PENDING' end
+ end
+ local function cancellation_tick(w,d)
+  if not cancellation then return false end
+  local q=cancellation
+  local active=api.moving(w,d.entity)
+  if active~=q.id then
+   if active then
+    -- Never cancel a foreign order, but still release our schedule lease.
+    c.stop(nil,'FOREIGN_ORDER');log('FOREIGN_ORDER_LEFT_UNCHANGED',{id=active})
+   end
+   log('CANCEL_CONFIRMED',{id=q.id});cancellation=nil;order=nil;return false
+  end
+  if q.requested then
+   if api.now()-q.at>=5 then
+    c.stop(nil,'CANCEL_TIMEOUT');cancellation=nil;order=nil
+    -- Do not retry an uncertain cancellation. Original order has a finite deadline.
+    log('CANCEL_UNRESOLVED',{id=q.id});return true
+   end
+   return true
+  end
+  q.requested=true;q.at=api.now()
+  log('CANCEL_REQUEST',{id=q.id})
+  local ok,accepted=pcall(api.cancel,q.id)
+  if not ok or accepted~=true then
+   c.stop(nil,'CANCEL_UNCONFIRMED')
+   log('CANCEL_ERROR',{id=q.id,error=tostring(accepted)})
+  end
+  return true -- NEVER read w, discover, status or release here, even after failure.
  end
  local function fresh(w)
   assert(c.state~='STOPPED','SESSION_STOPPED')
@@ -125,6 +145,7 @@ function M.new(api,discover,config)
   assert(token==config.token and seq==c.seq+1,'TOKEN_OR_SEQUENCE');c.seq=seq
   if c.used and c.state=='STOPPED' then return end
   local d=fresh(w);heartbeat=api.now()
+  if cancellation then return end
   local p=api.position(w,d.player)
   assert(point(p),'PLAYER_POSITION_MISSING')
   local distance=dist(p,d.position);local active=api.moving(w,d.entity)
@@ -159,7 +180,7 @@ function M.new(api,discover,config)
   if order and active then
    log('PROGRESS',{id=order.id,player_distance=distance,target_distance=dist(order.target,d.position),
     displacement=dist(order.origin,d.position),initial_player_distance=order.initial_distance})
-   if dist(p,order.player)>8 and api.now()-last>=8 then cancel(w,d);last=api.now();c.state='FOLLOWING' end
+   if dist(p,order.player)>8 and api.now()-last>=8 then cancel(w,d);last=api.now();c.state='FOLLOWING';return end
    if order then c.state='MOVING';return end
   elseif order then
    if order.holding then order=nil else c.stop(w,'ORDER_DISAPPEARED');return end
@@ -194,12 +215,28 @@ function M.new(api,discover,config)
   o.id=id;c.state='MOVING';log('ACCEPTED',{id=id,target=r.target})
  end
  function c.watch(w)
-  if not c.used or c.state=='STOPPED' then return end
-  local ok,err=pcall(fresh,w)
-  if not ok then c.stop(w,'WATCHDOG_CONTEXT_OR_DEADLINE');return end
-  if api.schedule then
-   local maintained,why=pcall(api.schedule.update,w,err)
-   if not maintained then log('SCHEDULE_ERROR',{error=tostring(why)});c.stop(w,'SCHEDULE_ERROR') end
+  if not c.used then return end
+  if c.state~='STOPPED' then
+   local ok,d=pcall(fresh,w)
+   if not ok then c.stop(nil,'WATCHDOG_CONTEXT_OR_DEADLINE')
+   elseif api.schedule then
+    local maintained,why=pcall(api.schedule.update,w,d)
+    if not maintained then log('SCHEDULE_ERROR',{error=tostring(why)});c.stop(nil,'SCHEDULE_ERROR') end
+   end
+  end
+  if c.state=='STOPPED' and c.cleanup=='DONE' then return end
+  if c.state=='STOPPED' and api.now()<cleanup_at then return end
+  local ok,err=pcall(function()
+   local d=inspect(w) -- Fresh identity also required after STOPPED; never cancel a foreign order.
+   if cancellation_tick(w,d) then return end
+   if c.state=='STOPPED' then
+    if api.schedule and api.schedule.lease then api.schedule.release(w,d) end
+    c.cleanup='DONE';log('CLEANUP_COMPLETE',{})
+   end
+  end)
+  if not ok then
+   c.stop(nil,'CLEANUP_ERROR');c.cleanup='PENDING';cleanup_at=api.now()+1
+   log('CLEANUP_PENDING',{error=tostring(err)})
   end
  end
  function c.status(w)
@@ -207,7 +244,7 @@ function M.new(api,discover,config)
   return {discovery={session=d.session,player=d.player,entity=d.entity,result=d.result,position=d.position,
    home=d.home,ai_state=d.ai_state,decision=d.decision},player_position=p,
    distance=point(p) and dist(p,d.position) or nil,state=c.state,reason=c.reason,orders=c.orders,
-   recoveries=c.recoveries,probes=c.probes,roaming=config.roaming,order=order and order.id or nil,
+   recoveries=c.recoveries,probes=c.probes,roaming=config.roaming,cleanup=c.cleanup,order=order and order.id or nil,
    target=order and order.target or nil,probe=pending and pending.stage or nil}
  end
  return c
